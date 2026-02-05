@@ -498,12 +498,12 @@
       "task_name": "Production Deployment",
       "description": "Push to GitHub and deploy via GitHub Pages using the CI/CD workflows",
       "start_date": "2026-02-05",
-      "end_date": "2026-02-06",
+      "end_date": "2026-02-05",
       "priority": "High",
-      "status": "In Progress",
-      "progress_percentage": 70,
+      "status": "Completed",
+      "progress_percentage": 100,
       "estimated_hours": 2,
-      "actual_hours": 1,
+      "actual_hours": 2,
       "is_critical_path": true,
       "tags": ["deployment", "CI/CD", "production", "GitHub-Pages"],
       "category_name": "DevOps & Deployment",
@@ -513,7 +513,7 @@
       "dependencies": [
         { "predecessor_task_name": "GitHub Actions CI/CD Setup", "type": "FS", "lag_days": 0 }
       ],
-      "notes": "CI/CD workflows created. Awaiting git init/push to GitHub repo."
+      "notes": "Deployed to https://nlarchive.github.io/nutrimom/; CI reported 1 failing Firefox test (clipboard permission) and 1 flaky tracker rendering test in Firefox — will investigate."
     }
   ],
   "milestones": [
