@@ -1,0 +1,948 @@
+/**
+ * Food Tracker Plugin Styles
+ * 
+ * @author Nicolas Ivan Larenas Bustamante
+ * @license CC-BY-NC-SA-4.0
+ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Container & Layout
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* API Status Banner */
+.api-status-banner {
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.api-status-banner.api-not-connected {
+  background: linear-gradient(135deg, #fef3c718 0%, #fbbf2418 100%);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+}
+
+.api-status-banner.api-connected {
+  background: linear-gradient(135deg, #10b98118 0%, #059e6918 100%);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.api-status-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.api-status-content {
+  flex: 1;
+}
+
+.api-status-content strong {
+  display: block;
+  color: #2d3748;
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
+}
+
+.api-status-content p {
+  color: #4a5568;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
+}
+
+.api-status-content ol {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+  color: #4a5568;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.api-status-content ol li {
+  margin-bottom: 0.25rem;
+}
+
+/* Analysis Error */
+.analysis-error {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.analysis-error .error-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.analysis-error h4 {
+  color: #c05621;
+  margin-bottom: 0.5rem;
+}
+
+.analysis-error p {
+  color: #4a5568;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.food-tracker {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.tracker-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tracker-header h2 {
+  font-size: 1.75rem;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.tracker-subtitle {
+  color: #718096;
+  font-size: 0.95rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Upload Section
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.upload-section {
+  margin-bottom: 2rem;
+}
+
+.upload-area {
+  border: 2px dashed #e2e8f0;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.upload-area:hover,
+.upload-area.dragover {
+  border-color: #667eea;
+  background: #eef2ff;
+}
+
+.upload-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.upload-area p {
+  margin: 0;
+  color: #4a5568;
+}
+
+.upload-hint {
+  font-size: 0.85rem;
+  color: #a0aec0 !important;
+}
+
+.upload-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Buttons
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+  background: #edf2f7;
+  color: #4a5568;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #e2e8f0;
+}
+
+.btn-analyze {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+}
+
+.btn-analyze:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(72, 187, 120, 0.4);
+}
+
+.btn-small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Image Preview
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.image-preview {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.image-preview img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.preview-overlay {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Meal Type Selector
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.meal-type-selector {
+  margin-top: 1rem;
+}
+
+.meal-type-selector label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.meal-options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meal-option {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.meal-option:hover {
+  border-color: #667eea;
+}
+
+.meal-option.active {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Loading State
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Analysis Results
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.analysis-results {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.analysis-results h3 {
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.analysis-confidence {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #edf2f7;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #4a5568;
+  margin-bottom: 1rem;
+}
+
+.food-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.food-item-card {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #667eea;
+}
+
+.food-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.food-name {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.food-quantity {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.food-item-nutrients {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.food-item-nutrients .nutrient {
+  font-size: 0.85rem;
+  color: #4a5568;
+  background: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* Meal Totals */
+.meal-totals {
+  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+  padding: 1.25rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.meal-totals h4 {
+  margin-bottom: 1rem;
+  color: #4a5568;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.totals-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.total-item {
+  text-align: center;
+}
+
+.total-value {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.total-label {
+  font-size: 0.8rem;
+  color: #718096;
+}
+
+/* Pregnancy Notes */
+.pregnancy-notes {
+  background: #fef5f5;
+  border-left: 3px solid #fc8181;
+  padding: 1rem;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 1rem;
+}
+
+.pregnancy-notes h4 {
+  margin-bottom: 0.75rem;
+  color: #c53030;
+  font-size: 0.95rem;
+}
+
+.pregnancy-notes ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #742a2a;
+}
+
+.pregnancy-notes li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Warnings */
+.analysis-warnings {
+  background: #fffaf0;
+  border-left: 3px solid #ed8936;
+  padding: 1rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.analysis-warnings h4 {
+  margin-bottom: 0.5rem;
+  color: #c05621;
+  font-size: 0.95rem;
+}
+
+.analysis-warnings ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #744210;
+}
+
+.analysis-warnings li {
+  font-size: 0.9rem;
+}
+
+/* Results Actions */
+.results-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Daily Summary
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.daily-summary {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.daily-summary h3 {
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.empty-state {
+  text-align: center;
+  color: #a0aec0;
+  padding: 2rem;
+}
+
+.daily-totals-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.daily-total {
+  text-align: center;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.daily-total .value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #667eea;
+}
+
+.daily-total .label {
+  font-size: 0.8rem;
+  color: #718096;
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Meals Log
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.meals-log {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.meals-log h3 {
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.meals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.meal-card {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.meal-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.meal-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.meal-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.meal-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.meal-type {
+  font-weight: 500;
+  color: #2d3748;
+  text-transform: capitalize;
+}
+
+.meal-time {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.remove-meal {
+  background: none;
+  border: none;
+  color: #a0aec0;
+  cursor: pointer;
+  padding: 0.25rem;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.remove-meal:hover {
+  color: #e53e3e;
+}
+
+.meal-foods {
+  font-size: 0.9rem;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+.meal-quick-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Nutrient Comparison
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.nutrient-comparison {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+}
+
+.nutrient-comparison h3 {
+  margin-bottom: 1.5rem;
+  color: #2d3748;
+}
+
+.nutrient-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.nutrient-bar-item {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nutrient-bar-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.nutrient-bar-label span:first-child {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.nutrient-bar-label span:last-child {
+  font-size: 0.8rem;
+  color: #a0aec0;
+}
+
+.nutrient-bar-track {
+  height: 12px;
+  background: #edf2f7;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.nutrient-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.nutrient-bar-fill.deficient { background: #fc8181; }
+.nutrient-bar-fill.low { background: #f6ad55; }
+.nutrient-bar-fill.adequate { background: #68d391; }
+.nutrient-bar-fill.optimal { background: #48bb78; }
+.nutrient-bar-fill.exceeded { background: #f56565; }
+
+.nutrient-bar-target {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #2d3748;
+}
+
+.nutrient-bar-percent {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4a5568;
+  min-width: 50px;
+  text-align: right;
+}
+
+/* Comparison Alerts */
+.comparison-alert {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.comparison-alert.deficit {
+  background: #fef5f5;
+  color: #c53030;
+  border-left: 3px solid #fc8181;
+}
+
+.comparison-alert.exceeded {
+  background: #fffaf0;
+  color: #c05621;
+  border-left: 3px solid #ed8936;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Responsive Design
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .totals-grid,
+  .daily-totals-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .nutrient-bar-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .nutrient-bar-label {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nutrient-bar-percent {
+    text-align: left;
+    min-width: auto;
+  }
+
+  .upload-actions {
+    flex-direction: column;
+  }
+
+  .meal-options {
+    justify-content: center;
+  }
+
+  .results-actions {
+    flex-direction: column;
+  }
+
+  .prompt-generator,
+  .response-parser {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .food-tracker {
+    padding: 1rem;
+  }
+
+  .totals-grid,
+  .daily-totals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .daily-totals-grid .daily-total:last-child {
+    grid-column: span 2;
+  }
+
+  .manual-llm-section h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Photo Title Input
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.photo-title-section {
+  margin-top: 1rem;
+}
+
+.photo-title-section label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.text-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+  background: white;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.text-input::placeholder {
+  color: #a0aec0;
+}
+
+.input-hint {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  color: #a0aec0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Manual LLM Section
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.manual-llm-section {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 2px solid #e2e8f0;
+}
+
+.manual-llm-section h3 {
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.section-description {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Prompt Generator */
+.prompt-generator {
+  background: #f8fafc;
+  padding: 1.25rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.prompt-generator label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.prompt-textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  background: white;
+  color: #2d3748;
+  resize: vertical;
+  margin-bottom: 0.75rem;
+}
+
+.prompt-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.copy-feedback {
+  margin-left: 1rem;
+  color: #48bb78;
+  font-weight: 500;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.copy-feedback.show {
+  opacity: 1;
+}
+
+/* Response Parser */
+.response-parser {
+  background: #f0fff4;
+  padding: 1.25rem;
+  border-radius: 10px;
+  border: 2px solid #c6f6d5;
+}
+
+.response-parser label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: #276749;
+}
+
+.response-textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
+  border: 2px solid #c6f6d5;
+  border-radius: 8px;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  background: white;
+  color: #2d3748;
+  resize: vertical;
+  margin-bottom: 0.75rem;
+}
+
+.response-textarea:focus {
+  outline: none;
+  border-color: #48bb78;
+}
+
+.response-textarea::placeholder {
+  color: #a0aec0;
+}
+
+.parse-error {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  background: #fff5f5;
+  border: 1px solid #fc8181;
+  border-radius: 8px;
+  color: #c53030;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}

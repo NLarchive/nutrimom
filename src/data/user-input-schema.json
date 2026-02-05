@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "user-input-schema.json",
+  "title": "User Profile Input",
+  "description": "Variables the user provides to calculate personalized nutrition needs",
+  "type": "object",
+  "required": ["age_years", "sex", "weight_kg", "height_cm", "activity_level"],
+  "properties": {
+    "age_years": {
+      "type": "number",
+      "minimum": 14,
+      "maximum": 120,
+      "description": "User's age in years"
+    },
+    "sex": {
+      "type": "string",
+      "enum": ["female", "male"],
+      "description": "Biological sex (currently female-focused, male support planned)"
+    },
+    "weight_kg": {
+      "type": "number",
+      "minimum": 30,
+      "maximum": 300,
+      "description": "Current body weight in kilograms"
+    },
+    "height_cm": {
+      "type": "number",
+      "minimum": 100,
+      "maximum": 250,
+      "description": "Height in centimeters"
+    },
+    "activity_level": {
+      "type": "string",
+      "enum": ["sedentary", "light", "moderate", "active", "very_active"],
+      "description": "Physical activity level for energy calculation"
+    },
+    "is_pregnant": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether user is currently pregnant"
+    },
+    "pregnancy_week": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 42,
+      "description": "Current week of pregnancy (1-42). Required if is_pregnant=true"
+    },
+    "pre_pregnancy_weight_kg": {
+      "type": "number",
+      "minimum": 30,
+      "maximum": 300,
+      "description": "Weight before pregnancy (kg). Used for weight gain tracking if pregnant"
+    },
+    "is_lactating": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether user is currently breastfeeding (affects nutrient needs)"
+    },
+    "lactation_months": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 24,
+      "description": "Months postpartum if lactating"
+    },
+    "multiples_count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "default": 1,
+      "description": "Number of fetuses (1=singleton, 2=twins, etc.)"
+    },
+    "dietary_pattern": {
+      "type": "string",
+      "enum": ["omnivore", "vegetarian", "vegan", "pescatarian", "other"],
+      "default": "omnivore",
+      "description": "General dietary pattern (affects food suggestions, not RDA values)"
+    },
+    "medical_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "anemia",
+          "gestational_diabetes",
+          "preeclampsia",
+          "hyperemesis",
+          "celiac",
+          "lactose_intolerance",
+          "kidney_disease",
+          "thyroid_disorder",
+          "none"
+        ]
+      },
+      "default": ["none"],
+      "description": "Relevant medical conditions that may affect nutrition guidance"
+    },
+    "supplements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nutrient_code": { "type": "string" },
+          "amount": { "type": "number" },
+          "unit": { "type": "string" }
+        }
+      },
+      "default": [],
+      "description": "Current supplements user is taking (e.g., prenatal vitamin)"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "is_pregnant": { "const": true } }
+      },
+      "then": {
+        "required": ["pregnancy_week"]
+      }
+    }
+  ]
+}

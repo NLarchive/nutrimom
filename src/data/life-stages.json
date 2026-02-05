@@ -1,0 +1,89 @@
+[
+  {
+    "code": "female_nonpregnant",
+    "name": "Female (Non-pregnant)",
+    "description": "Baseline nutrition needs for non-pregnant, non-lactating women",
+    "is_pregnant": false,
+    "trimester": null,
+    "pregnancy_week_min": null,
+    "pregnancy_week_max": null,
+    "energy_increment_kcal": 0
+  },
+  {
+    "code": "pregnant_t1",
+    "name": "Pregnancy - Trimester 1",
+    "description": "Weeks 1-13. Critical period for neural tube closure (weeks 3-4). Folate extremely important. No additional energy needed yet.",
+    "is_pregnant": true,
+    "trimester": 1,
+    "pregnancy_week_min": 1,
+    "pregnancy_week_max": 13,
+    "energy_increment_kcal": 0,
+    "key_developments": [
+      "Neural tube forms (weeks 3-4)",
+      "Heart begins beating (week 5-6)",
+      "Major organs forming",
+      "Limb buds appear",
+      "Placenta developing"
+    ],
+    "common_symptoms": ["Nausea", "Fatigue", "Food aversions", "Breast tenderness"],
+    "nutrition_priorities": ["Folate", "Vitamin B12", "Iodine", "Hydration despite nausea"]
+  },
+  {
+    "code": "pregnant_t2",
+    "name": "Pregnancy - Trimester 2",
+    "description": "Weeks 14-27. Rapid fetal growth. Energy needs increase by 340 kcal/day.",
+    "is_pregnant": true,
+    "trimester": 2,
+    "pregnancy_week_min": 14,
+    "pregnancy_week_max": 27,
+    "energy_increment_kcal": 340,
+    "key_developments": [
+      "Rapid growth and weight gain",
+      "Fetal movements felt",
+      "Hearing develops",
+      "Vernix and lanugo form",
+      "Viability threshold (~24 weeks)"
+    ],
+    "common_symptoms": ["Reduced nausea", "Increased appetite", "Back pain beginning", "Round ligament pain"],
+    "nutrition_priorities": ["Protein", "Iron", "Calcium", "DHA", "Adequate calories"]
+  },
+  {
+    "code": "pregnant_t3",
+    "name": "Pregnancy - Trimester 3",
+    "description": "Weeks 28-42. Maximum fetal growth and brain development. Energy needs increase by 452 kcal/day.",
+    "is_pregnant": true,
+    "trimester": 3,
+    "pregnancy_week_min": 28,
+    "pregnancy_week_max": 42,
+    "energy_increment_kcal": 452,
+    "key_developments": [
+      "Rapid brain development",
+      "Lungs maturing",
+      "Fat accumulation for temperature regulation",
+      "Fetal position settling",
+      "Final weight gain (4-6 lbs typical)"
+    ],
+    "common_symptoms": ["Heartburn", "Shortness of breath", "Frequent urination", "Difficulty sleeping", "Braxton Hicks"],
+    "nutrition_priorities": ["DHA for brain", "Protein", "Iron stores for baby", "Calcium", "Fiber for constipation"]
+  },
+  {
+    "code": "lactating_0_6",
+    "name": "Lactating (0-6 months postpartum)",
+    "description": "Exclusively breastfeeding. Highest nutrient demands.",
+    "is_pregnant": false,
+    "is_lactating": true,
+    "lactation_period": "0-6 months",
+    "energy_increment_kcal": 500,
+    "nutrition_priorities": ["Energy", "Protein", "Calcium", "DHA", "Iodine", "Choline", "Hydration"]
+  },
+  {
+    "code": "lactating_7_12",
+    "name": "Lactating (7-12 months postpartum)",
+    "description": "Continued breastfeeding with complementary foods introduced.",
+    "is_pregnant": false,
+    "is_lactating": true,
+    "lactation_period": "7-12 months",
+    "energy_increment_kcal": 400,
+    "nutrition_priorities": ["Energy", "Protein", "Calcium", "Vitamin D"]
+  }
+]

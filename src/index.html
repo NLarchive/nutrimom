@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriMom - Pregnancy Nutrition Calculator</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤰</text></svg>">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <a href="#" class="logo nav-tab" data-target="calculator-view">
+          <span class="logo-icon">🤰</span>
+          <div class="logo-text">
+            <h1>NutriMom</h1>
+          </div>
+        </a>
+        <nav class="main-nav">
+          <button class="nav-tab active" data-target="calculator-view">Calculator</button>
+          <button class="nav-tab" data-target="tracker-view">Food Tracker</button>
+        </nav>
+        <div class="data-actions">
+          <button class="btn btn-icon" id="btn-export-data" title="Download your data">
+            <span>💾</span>
+          </button>
+          <button class="btn btn-icon" id="btn-import-data" title="Import saved data">
+            <span>📂</span>
+          </button>
+          <button class="btn btn-icon btn-danger" id="btn-clear-data" title="Clear all data">
+            <span>🗑️</span>
+          </button>
+          <input type="file" id="import-file-input" accept=".json" hidden>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div id="calculator-view" class="view-content active">
+        <!-- Input Section -->
+        <section class="section" id="input-section">
+        <div class="section-header">
+          <span class="section-icon">📝</span>
+          <h2>Your Profile</h2>
+        </div>
+
+        <form id="profile-form" class="profile-form">
+          <!-- Basic Info Card -->
+          <div class="form-card">
+            <h3 class="form-card-title">Basic Information</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="age">
+                  <span class="label-text">Age</span>
+                  <span class="label-hint">years</span>
+                </label>
+                <input type="number" id="age" name="ageYears" min="14" max="60" placeholder="28" required>
+              </div>
+
+              <div class="form-group">
+                <label for="sex">
+                  <span class="label-text">Sex</span>
+                </label>
+                <select id="sex" name="sex" required>
+                  <option value="">Select sex</option>
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="weight">
+                  <span class="label-text">Weight</span>
+                  <span class="label-hint">kg</span>
+                </label>
+                <input type="number" id="weight" name="weightKg" min="30" max="250" step="0.1" placeholder="65" required>
+              </div>
+
+              <div class="form-group">
+                <label for="height">
+                  <span class="label-text">Height</span>
+                  <span class="label-hint">cm</span>
+                </label>
+                <input type="number" id="height" name="heightCm" min="100" max="250" placeholder="165" required>
+              </div>
+            </div>
+
+            <div class="form-group form-group-full">
+              <label for="activity">
+                <span class="label-text">Activity Level</span>
+              </label>
+              <select id="activity" name="activityLevel" required>
+                <option value="">Select activity level</option>
+                <option value="sedentary">Sedentary - Little or no exercise</option>
+                <option value="lightly_active">Lightly Active - Exercise 1-3 days/week</option>
+                <option value="moderately_active">Moderately Active - Exercise 3-5 days/week</option>
+                <option value="very_active">Very Active - Hard exercise 6-7 days/week</option>
+                <option value="extra_active">Extra Active - Very hard exercise or physical job</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Pregnancy/Lactation Card (Female Only) -->
+          <div class="form-card pregnancy-card" id="pregnancy-section" style="display: none;">
+            <h3 class="form-card-title">
+              <span class="title-icon">👶</span>
+              Pregnancy & Lactation Status
+            </h3>
+            
+            <div class="toggle-group">
+              <label class="toggle-option">
+                <input type="radio" name="status" value="none" checked>
+                <span class="toggle-label">
+                  <span class="toggle-icon">👩</span>
+                  <span class="toggle-text">Not Pregnant</span>
+                </span>
+              </label>
+              
+              <label class="toggle-option">
+                <input type="radio" name="status" value="pregnant">
+                <span class="toggle-label">
+                  <span class="toggle-icon">🤰</span>
+                  <span class="toggle-text">Pregnant</span>
+                </span>
+              </label>
+              
+              <label class="toggle-option">
+                <input type="radio" name="status" value="lactating">
+                <span class="toggle-label">
+                  <span class="toggle-icon">🤱</span>
+                  <span class="toggle-text">Breastfeeding</span>
+                </span>
+              </label>
+            </div>
+
+            <!-- Pregnancy Fields -->
+            <div class="conditional-fields" id="pregnancy-fields" style="display: none;">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="pregnancy-week">
+                    <span class="label-text">Pregnancy Week</span>
+                    <span class="label-hint">1-42</span>
+                  </label>
+                  <input type="number" id="pregnancy-week" name="pregnancyWeek" min="1" max="42" placeholder="20">
+                  <span class="input-helper" id="trimester-display"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="pre-pregnancy-weight">
+                    <span class="label-text">Pre-Pregnancy Weight</span>
+                    <span class="label-hint">kg (optional)</span>
+                  </label>
+                  <input type="number" id="pre-pregnancy-weight" name="prePregnancyWeightKg" min="30" max="250" step="0.1" placeholder="60">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="is-twins" name="isMultiples">
+                  <span>Expecting twins or multiples</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Lactation Fields -->
+            <div class="conditional-fields" id="lactation-fields" style="display: none;">
+              <div class="form-group">
+                <label for="lactation-months">
+                  <span class="label-text">Months Postpartum</span>
+                </label>
+                <input type="number" id="lactation-months" name="lactationMonths" min="0" max="24" placeholder="3">
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn btn-primary btn-lg">
+            <span class="btn-icon">✨</span>
+            Calculate My Nutrition Needs
+          </button>
+        </form>
+      </section>
+
+      <!-- Results Section -->
+      <section class="section results-section" id="results-section" style="display: none;">
+        
+        <!-- Profile Summary -->
+        <div class="result-card profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" id="profile-avatar">👩</div>
+            <div class="profile-info">
+              <h3 id="profile-stage-label">Your Profile</h3>
+              <p class="profile-subtitle" id="profile-subtitle">Age group • Activity level</p>
+            </div>
+            <div class="profile-bmi" id="profile-bmi-display">
+              <span class="bmi-value">--</span>
+              <span class="bmi-label">BMI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Energy Dashboard -->
+        <div class="result-card energy-card">
+          <div class="section-header">
+            <span class="section-icon">⚡</span>
+            <h2>Daily Energy Needs</h2>
+          </div>
+          
+          <div class="energy-grid" id="energy-content">
+            <div class="energy-stat">
+              <div class="stat-value" id="bmr-value">--</div>
+              <div class="stat-label">BMR</div>
+              <div class="stat-desc">Basal Metabolic Rate</div>
+            </div>
+            <div class="energy-stat">
+              <div class="stat-value" id="tdee-value">--</div>
+              <div class="stat-label">TDEE</div>
+              <div class="stat-desc">With Activity</div>
+            </div>
+            <div class="energy-stat accent" id="pregnancy-increment-stat" style="display: none;">
+              <div class="stat-value" id="increment-value">+0</div>
+              <div class="stat-label">Pregnancy</div>
+              <div class="stat-desc">Extra Energy</div>
+            </div>
+            <div class="energy-stat primary">
+              <div class="stat-value" id="total-energy-value">--</div>
+              <div class="stat-label">TOTAL</div>
+              <div class="stat-desc">kcal/day</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Weight Gain Recommendation -->
+        <div class="result-card weight-card" id="weight-gain-card" style="display: none;">
+          <div class="section-header">
+            <span class="section-icon">📊</span>
+            <h2>Recommended Weight Gain</h2>
+          </div>
+          <div class="weight-recommendation" id="weight-recommendation"></div>
+        </div>
+
+        <!-- Nutrient Targets -->
+        <div class="result-card nutrients-card">
+          <div class="section-header">
+            <span class="section-icon">🥗</span>
+            <h2>Daily Nutrient Targets</h2>
+          </div>
+          
+          <div class="nutrient-tabs" id="nutrient-tabs">
+            <button class="nutrient-tab active" data-category="macro">
+              <span class="tab-icon">🍞</span>
+              Macros
+            </button>
+            <button class="nutrient-tab" data-category="vitamin">
+              <span class="tab-icon">🍊</span>
+              Vitamins
+            </button>
+            <button class="nutrient-tab" data-category="mineral">
+              <span class="tab-icon">💎</span>
+              Minerals
+            </button>
+            <button class="nutrient-tab" data-category="fatty_acid">
+              <span class="tab-icon">🐟</span>
+              Fatty Acids
+            </button>
+          </div>
+          
+          <div class="nutrient-grid" id="nutrient-grid"></div>
+        </div>
+
+        <!-- Pregnancy Comparison -->
+        <div class="result-card comparison-card" id="comparison-block" style="display: none;">
+          <div class="section-header">
+            <span class="section-icon">📈</span>
+            <h2>Changes During Pregnancy</h2>
+          </div>
+          <p class="comparison-intro">Key nutrients that increase during pregnancy:</p>
+          <div class="comparison-list" id="comparison-content"></div>
+        </div>
+
+        <!-- Critical Nutrients -->
+        <div class="result-card critical-card" id="critical-nutrients-card" style="display: none;">
+          <div class="section-header">
+            <span class="section-icon">⚠️</span>
+            <h2>Focus On These Nutrients</h2>
+          </div>
+          <div class="critical-grid" id="critical-nutrients"></div>
+        </div>
+
+        <!-- Go to Tracker CTA -->
+        <div class="result-card tracker-cta-card">
+          <div class="tracker-cta-content">
+            <div class="cta-info">
+              <span class="cta-icon">🍽️</span>
+              <div class="cta-text">
+                <h3>Ready to track your intake?</h3>
+                <p>Use our AI-powered food diary to see if you're hitting these targets.</p>
+              </div>
+            </div>
+            <button class="btn btn-primary nav-tab" data-target="tracker-view">
+              Go to Food Tracker
+            </button>
+          </div>
+        </div>
+      </section>
+      </div><!-- /calculator-view -->
+
+      <!-- Food Tracker View -->
+      <div id="tracker-view" class="view-content">
+        <section class="section">
+          <!-- Profile Warning Banner -->
+          <div class="profile-warning-banner" id="profile-warning-banner" style="display: none;">
+            <div class="warning-icon">⚠️</div>
+            <div class="warning-content">
+              <strong>Complete Your Profile First</strong>
+              <p>To get accurate nutrient comparisons, please fill out your profile in the Calculator tab.</p>
+            </div>
+            <button class="btn btn-secondary btn-sm nav-tab" data-target="calculator-view">Go to Calculator</button>
+          </div>
+          <div id="food-tracker-container">
+            <div style="text-align: center; padding: 40px; color: var(--gray-400);">
+              <p>Loading Food Tracker...</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p class="disclaimer">
+          <strong>Disclaimer:</strong> This calculator provides general nutrition guidance based on IOM Dietary Reference Intakes. 
+          Individual needs may vary. Always consult with a healthcare provider or registered dietitian for personalized advice.
+        </p>
+        <p class="credits">Data sources: IOM DRI • Mifflin-St Jeor (1990) • IOM Weight Gain Guidelines (2009)</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/nutrition-engine.js"></script>
+  <!-- Food Tracker Plugin -->
+  <link rel="stylesheet" href="plugins/food-tracker/food-tracker.css">
+  <script src="plugins/food-tracker/llm-config.js"></script>
+  <script src="plugins/food-tracker/food-tracker-engine.js"></script>
+  <script src="plugins/food-tracker/food-tracker-ui.js"></script>
+  <script src="plugins/food-tracker/index.js"></script>
+  <!-- Main App -->
+  <script src="js/app.js"></script>
+</body>
+</html>

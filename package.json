@@ -1,0 +1,39 @@
+{
+  "name": "nutrimom",
+  "version": "1.0.0",
+  "description": "NutriMom - Pregnancy Nutrition Calculator based on IOM Dietary Reference Intakes",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "npx http-server src -p 8080 -c-1",
+    "test": "npx playwright test --project=chromium",
+    "test:all": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:headed": "npx playwright test --headed --project=chromium",
+    "test:debug": "npx playwright test --debug",
+    "test:live": "BASE_URL=https://nicolaslarenas.github.io/nutrimom npx playwright test --project=chromium"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicolaslarenas/nutrimom"
+  },
+  "keywords": [
+    "pregnancy",
+    "nutrition",
+    "calculator",
+    "health",
+    "maternal-health",
+    "dietary-reference-intakes",
+    "IOM",
+    "BMR",
+    "TDEE"
+  ],
+  "author": "Nicolas Ivan Larenas Bustamante",
+  "license": "CC-BY-NC-SA-4.0",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

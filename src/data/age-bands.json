@@ -1,0 +1,30 @@
+[
+  {
+    "code": "14_18",
+    "label": "14–18 years",
+    "age_min": 14,
+    "age_max": 18.999,
+    "notes": "Adolescent; higher calcium (1300mg) and phosphorus (1250mg) needs for bone development"
+  },
+  {
+    "code": "19_30",
+    "label": "19–30 years",
+    "age_min": 19,
+    "age_max": 30.999,
+    "notes": "Young adult; peak bone mass achieved in this period"
+  },
+  {
+    "code": "31_50",
+    "label": "31–50 years",
+    "age_min": 31,
+    "age_max": 50.999,
+    "notes": "Adult; most common pregnancy age range"
+  },
+  {
+    "code": "51_plus",
+    "label": "51+ years",
+    "age_min": 51,
+    "age_max": null,
+    "notes": "Postmenopausal; some nutrient needs change (higher calcium, lower iron after menopause)"
+  }
+]

@@ -1,0 +1,341 @@
+[
+  {
+    "code": "energy_kcal",
+    "name": "Energy",
+    "category": "macro",
+    "unit": "kcal",
+    "description": "Total daily energy (calories). Calculated from user's age, sex, weight, height, and activity level using Mifflin-St Jeor equation.",
+    "calculation_note": "Base TEE from equation + pregnancy increment if applicable",
+    "importance_pregnancy": "Energy needs increase in T2 (+340 kcal/day) and T3 (+452 kcal/day)",
+    "food_sources": ["All macronutrient-containing foods"]
+  },
+  {
+    "code": "protein_g",
+    "name": "Protein",
+    "category": "macro",
+    "unit": "g",
+    "description": "Essential for tissue building, enzymes, hormones, and immune function.",
+    "importance_pregnancy": "Critical for fetal growth, placenta development, and increased blood volume. RDA increases from 46g to 71g/day.",
+    "food_sources": ["Meat", "Poultry", "Fish", "Eggs", "Dairy", "Legumes", "Nuts", "Tofu"]
+  },
+  {
+    "code": "carbs_g",
+    "name": "Carbohydrate",
+    "category": "macro",
+    "unit": "g",
+    "description": "Primary energy source for body and brain. Minimum needed to spare protein and prevent ketosis.",
+    "importance_pregnancy": "Minimum increases from 130g to 175g/day. Glucose is the primary fuel for fetal brain development.",
+    "food_sources": ["Whole grains", "Fruits", "Vegetables", "Legumes", "Dairy"]
+  },
+  {
+    "code": "fat_g",
+    "name": "Total Fat",
+    "category": "macro",
+    "unit": "g",
+    "description": "Essential for hormone production, nutrient absorption (A, D, E, K), and cell membranes.",
+    "calculation_note": "Target is 20-35% of total energy (AMDR). Grams calculated from energy target.",
+    "importance_pregnancy": "Essential fatty acids critical for fetal brain and eye development.",
+    "food_sources": ["Oils", "Nuts", "Seeds", "Fatty fish", "Avocado", "Dairy fat"]
+  },
+  {
+    "code": "fiber_g",
+    "name": "Dietary Fiber",
+    "category": "macro",
+    "unit": "g",
+    "description": "Supports digestive health, blood sugar control, and cholesterol management.",
+    "importance_pregnancy": "Helps prevent constipation (common in pregnancy). AI increases to 28g/day.",
+    "food_sources": ["Whole grains", "Vegetables", "Fruits", "Legumes", "Nuts", "Seeds"]
+  },
+  {
+    "code": "water_l",
+    "name": "Total Water",
+    "category": "macro",
+    "unit": "L",
+    "description": "From all beverages and foods. Essential for all body functions.",
+    "importance_pregnancy": "Needs increase to 3.0 L/day to support expanded blood volume and amniotic fluid.",
+    "food_sources": ["Beverages", "Water-rich fruits/vegetables", "Soups"]
+  },
+  {
+    "code": "ala_omega3_g",
+    "name": "Omega-3 (ALA)",
+    "category": "macro",
+    "unit": "g",
+    "description": "Alpha-linolenic acid. Essential fatty acid the body cannot make.",
+    "importance_pregnancy": "AI increases from 1.1g to 1.4g/day. Precursor for longer-chain omega-3s.",
+    "food_sources": ["Flaxseed", "Chia seeds", "Walnuts", "Canola oil", "Soybean oil"]
+  },
+  {
+    "code": "dha_mg",
+    "name": "DHA (Omega-3)",
+    "category": "macro",
+    "unit": "mg",
+    "description": "Docosahexaenoic acid. Long-chain omega-3 important for brain and eye tissue.",
+    "importance_pregnancy": "Target 200-300mg/day for fetal brain and retinal development. Most critical in T3.",
+    "food_sources": ["Fatty fish (salmon, sardines)", "Fish oil", "Algae oil", "DHA-fortified eggs"]
+  },
+  {
+    "code": "folate_dfe_ug",
+    "name": "Folate (DFE)",
+    "category": "vitamin",
+    "unit": "μg",
+    "description": "B vitamin essential for DNA synthesis and cell division. DFE = Dietary Folate Equivalents.",
+    "importance_pregnancy": "CRITICAL. Prevents neural tube defects. RDA increases from 400μg to 600μg DFE. Supplementation recommended before and during early pregnancy.",
+    "food_sources": ["Leafy greens", "Legumes", "Fortified grains", "Citrus", "Asparagus"],
+    "upper_limit_note": "UL of 1000μg applies to synthetic folic acid from supplements/fortified foods, not food folate."
+  },
+  {
+    "code": "vitamin_b12_ug",
+    "name": "Vitamin B12",
+    "category": "vitamin",
+    "unit": "μg",
+    "description": "Essential for nerve function, DNA synthesis, and red blood cell formation.",
+    "importance_pregnancy": "RDA increases from 2.4μg to 2.6μg. Deficiency can cause neural tube defects and developmental issues. Vegans require supplementation.",
+    "food_sources": ["Meat", "Fish", "Dairy", "Eggs", "Fortified foods"]
+  },
+  {
+    "code": "iron_mg",
+    "name": "Iron",
+    "category": "mineral",
+    "unit": "mg",
+    "description": "Essential for hemoglobin (oxygen transport) and many enzymes.",
+    "importance_pregnancy": "RDA increases dramatically from 18mg to 27mg/day. Supports 50% increase in blood volume and fetal iron stores. Deficiency causes anemia.",
+    "food_sources": ["Red meat", "Poultry", "Fish", "Legumes", "Fortified cereals", "Spinach"],
+    "absorption_note": "Heme iron (animal sources) better absorbed. Vitamin C enhances non-heme absorption."
+  },
+  {
+    "code": "calcium_mg",
+    "name": "Calcium",
+    "category": "mineral",
+    "unit": "mg",
+    "description": "Essential for bones, teeth, muscle function, and nerve signaling.",
+    "importance_pregnancy": "RDA stays at 1000mg (1300mg for teens). Fetal skeleton requires ~30g calcium total. If intake is low, calcium is mobilized from maternal bones.",
+    "food_sources": ["Dairy", "Fortified plant milks", "Tofu (calcium-set)", "Leafy greens", "Sardines with bones"]
+  },
+  {
+    "code": "vitamin_d_ug",
+    "name": "Vitamin D",
+    "category": "vitamin",
+    "unit": "μg",
+    "description": "Essential for calcium absorption, bone health, and immune function. 1μg = 40 IU.",
+    "importance_pregnancy": "RDA is 15μg (600 IU). Deficiency linked to preeclampsia, gestational diabetes, and low birth weight. Many women are deficient.",
+    "food_sources": ["Fatty fish", "Fortified milk", "Fortified cereals", "Egg yolks", "Sunlight exposure"]
+  },
+  {
+    "code": "iodine_ug",
+    "name": "Iodine",
+    "category": "mineral",
+    "unit": "μg",
+    "description": "Essential for thyroid hormone production.",
+    "importance_pregnancy": "RDA increases from 150μg to 220μg. Critical for fetal brain development. Severe deficiency causes cretinism.",
+    "food_sources": ["Iodized salt", "Seafood", "Dairy", "Seaweed (variable)"]
+  },
+  {
+    "code": "zinc_mg",
+    "name": "Zinc",
+    "category": "mineral",
+    "unit": "mg",
+    "description": "Essential for immune function, protein synthesis, wound healing, and DNA synthesis.",
+    "importance_pregnancy": "RDA increases from 8mg to 11-12mg. Important for fetal growth and development.",
+    "food_sources": ["Oysters", "Red meat", "Poultry", "Beans", "Nuts", "Whole grains"]
+  },
+  {
+    "code": "choline_mg",
+    "name": "Choline",
+    "category": "vitamin",
+    "unit": "mg",
+    "description": "Essential for cell membrane structure, neurotransmitter synthesis, and gene expression.",
+    "importance_pregnancy": "AI increases from 425mg to 450mg. Critical for fetal brain development and may reduce neural tube defect risk. Often under-consumed.",
+    "food_sources": ["Eggs (yolks)", "Liver", "Meat", "Fish", "Soybeans", "Cruciferous vegetables"]
+  },
+  {
+    "code": "vitamin_a_rae_ug",
+    "name": "Vitamin A (RAE)",
+    "category": "vitamin",
+    "unit": "μg",
+    "description": "Essential for vision, immune function, and cell differentiation. RAE = Retinol Activity Equivalents.",
+    "importance_pregnancy": "RDA increases from 700μg to 750-770μg. Important for fetal development. CAUTION: Excess preformed vitamin A (retinol) is teratogenic.",
+    "food_sources": ["Liver (caution: very high)", "Sweet potato", "Carrots", "Spinach", "Dairy"],
+    "upper_limit_note": "UL of 3000μg applies to preformed retinol, not beta-carotene from plants."
+  },
+  {
+    "code": "vitamin_c_mg",
+    "name": "Vitamin C",
+    "category": "vitamin",
+    "unit": "mg",
+    "description": "Antioxidant, essential for collagen synthesis, immune function, and iron absorption.",
+    "importance_pregnancy": "RDA increases from 75mg to 85mg. Supports placental development and iron absorption.",
+    "food_sources": ["Citrus fruits", "Bell peppers", "Strawberries", "Broccoli", "Tomatoes"]
+  },
+  {
+    "code": "vitamin_e_mg",
+    "name": "Vitamin E",
+    "category": "vitamin",
+    "unit": "mg",
+    "description": "Antioxidant protecting cell membranes from oxidative damage.",
+    "importance_pregnancy": "RDA stays at 15mg. Supports immune function and may protect against preeclampsia.",
+    "food_sources": ["Vegetable oils", "Nuts", "Seeds", "Leafy greens", "Fortified cereals"]
+  },
+  {
+    "code": "vitamin_k_ug",
+    "name": "Vitamin K",
+    "category": "vitamin",
+    "unit": "μg",
+    "description": "Essential for blood clotting and bone metabolism.",
+    "importance_pregnancy": "AI stays at 90μg. Newborns receive vitamin K injection due to low stores at birth.",
+    "food_sources": ["Leafy greens", "Broccoli", "Brussels sprouts", "Vegetable oils"]
+  },
+  {
+    "code": "thiamin_mg",
+    "name": "Thiamin (B1)",
+    "category": "vitamin",
+    "unit": "mg",
+    "description": "Essential for energy metabolism and nerve function.",
+    "importance_pregnancy": "RDA increases from 1.1mg to 1.4mg. Supports increased energy metabolism.",
+    "food_sources": ["Whole grains", "Pork", "Legumes", "Nuts", "Fortified cereals"]
+  },
+  {
+    "code": "riboflavin_mg",
+    "name": "Riboflavin (B2)",
+    "category": "vitamin",
+    "unit": "mg",
+    "description": "Essential for energy metabolism and cellular function.",
+    "importance_pregnancy": "RDA increases from 1.1mg to 1.4mg.",
+    "food_sources": ["Dairy", "Meat", "Eggs", "Fortified cereals", "Almonds"]
+  },
+  {
+    "code": "niacin_mg_ne",
+    "name": "Niacin (B3)",
+    "category": "vitamin",
+    "unit": "mg",
+    "description": "Essential for energy metabolism. NE = Niacin Equivalents (includes conversion from tryptophan).",
+    "importance_pregnancy": "RDA increases from 14mg to 18mg NE.",
+    "food_sources": ["Meat", "Poultry", "Fish", "Fortified cereals", "Peanuts"],
+    "upper_limit_note": "UL applies to supplemental niacin (can cause flushing)."
+  },
+  {
+    "code": "vitamin_b6_mg",
+    "name": "Vitamin B6",
+    "category": "vitamin",
+    "unit": "mg",
+    "description": "Essential for protein metabolism, neurotransmitter synthesis, and immune function.",
+    "importance_pregnancy": "RDA increases from 1.3mg to 1.9mg. May help reduce nausea in early pregnancy.",
+    "food_sources": ["Poultry", "Fish", "Potatoes", "Bananas", "Fortified cereals"]
+  },
+  {
+    "code": "magnesium_mg",
+    "name": "Magnesium",
+    "category": "mineral",
+    "unit": "mg",
+    "description": "Essential for muscle and nerve function, blood sugar control, and bone health.",
+    "importance_pregnancy": "RDA increases from 310-320mg to 350-360mg. May help prevent preeclampsia and preterm labor.",
+    "food_sources": ["Nuts", "Seeds", "Whole grains", "Leafy greens", "Legumes"]
+  },
+  {
+    "code": "phosphorus_mg",
+    "name": "Phosphorus",
+    "category": "mineral",
+    "unit": "mg",
+    "description": "Essential for bones, teeth, and energy metabolism (ATP).",
+    "importance_pregnancy": "RDA stays at 700mg (1250mg for teens). Works with calcium for bone development.",
+    "food_sources": ["Dairy", "Meat", "Fish", "Legumes", "Nuts"]
+  },
+  {
+    "code": "potassium_mg",
+    "name": "Potassium",
+    "category": "mineral",
+    "unit": "mg",
+    "description": "Essential for fluid balance, muscle contractions, and nerve signals.",
+    "importance_pregnancy": "AI increases from 2600mg to 2900mg. Helps regulate blood pressure.",
+    "food_sources": ["Bananas", "Potatoes", "Beans", "Yogurt", "Salmon", "Avocado"]
+  },
+  {
+    "code": "sodium_mg",
+    "name": "Sodium",
+    "category": "mineral",
+    "unit": "mg",
+    "description": "Essential for fluid balance and nerve function. Most people consume excess.",
+    "importance_pregnancy": "General limit of 2300mg/day applies. Not restricted in normal pregnancy unless hypertension present.",
+    "food_sources": ["Salt", "Processed foods", "Canned foods", "Restaurant food"]
+  },
+  {
+    "code": "selenium_ug",
+    "name": "Selenium",
+    "category": "mineral",
+    "unit": "μg",
+    "description": "Antioxidant and essential for thyroid function.",
+    "importance_pregnancy": "RDA increases from 55μg to 60μg.",
+    "food_sources": ["Brazil nuts (very high)", "Seafood", "Meat", "Eggs", "Grains (varies by soil)"]
+  },
+  {
+    "code": "copper_ug",
+    "name": "Copper",
+    "category": "mineral",
+    "unit": "μg",
+    "description": "Essential for iron metabolism, connective tissue, and energy production.",
+    "importance_pregnancy": "RDA increases from 900μg to 1000μg.",
+    "food_sources": ["Liver", "Shellfish", "Nuts", "Seeds", "Whole grains", "Chocolate"]
+  },
+  {
+    "code": "manganese_mg",
+    "name": "Manganese",
+    "category": "mineral",
+    "unit": "mg",
+    "description": "Essential for bone formation, metabolism, and antioxidant function.",
+    "importance_pregnancy": "AI increases from 1.8mg to 2.0mg.",
+    "food_sources": ["Whole grains", "Nuts", "Legumes", "Tea", "Leafy vegetables"]
+  },
+  {
+    "code": "chromium_ug",
+    "name": "Chromium",
+    "category": "mineral",
+    "unit": "μg",
+    "description": "Enhances insulin action for blood sugar regulation.",
+    "importance_pregnancy": "AI increases to 30μg. May be relevant for gestational diabetes risk.",
+    "food_sources": ["Broccoli", "Grape juice", "Whole grains", "Meat"]
+  },
+  {
+    "code": "molybdenum_ug",
+    "name": "Molybdenum",
+    "category": "mineral",
+    "unit": "μg",
+    "description": "Cofactor for several enzymes in amino acid metabolism.",
+    "importance_pregnancy": "RDA increases from 45μg to 50μg.",
+    "food_sources": ["Legumes", "Grains", "Nuts"]
+  },
+  {
+    "code": "chloride_mg",
+    "name": "Chloride",
+    "category": "mineral",
+    "unit": "mg",
+    "description": "Essential for fluid balance and stomach acid production.",
+    "importance_pregnancy": "AI is 2300mg/day.",
+    "food_sources": ["Salt (sodium chloride)", "Seaweed", "Tomatoes", "Celery"]
+  },
+  {
+    "code": "fluoride_mg",
+    "name": "Fluoride",
+    "category": "mineral",
+    "unit": "mg",
+    "description": "Supports dental health and bone structure.",
+    "importance_pregnancy": "AI is 3mg/day. Fetal teeth begin forming in utero.",
+    "food_sources": ["Fluoridated water", "Tea", "Marine fish"]
+  },
+  {
+    "code": "pantothenic_acid_mg",
+    "name": "Pantothenic Acid (B5)",
+    "category": "vitamin",
+    "unit": "mg",
+    "description": "Essential for synthesis of coenzyme A, required for metabolism.",
+    "importance_pregnancy": "AI increases from 5mg to 6mg.",
+    "food_sources": ["Meat", "Whole grains", "Avocado", "Broccoli", "Eggs"]
+  },
+  {
+    "code": "biotin_ug",
+    "name": "Biotin (B7)",
+    "category": "vitamin",
+    "unit": "μg",
+    "description": "Essential for metabolism of fats, carbohydrates, and proteins.",
+    "importance_pregnancy": "AI is 30μg. Marginal deficiency may be common in pregnancy.",
+    "food_sources": ["Eggs", "Nuts", "Legumes", "Whole grains", "Liver"]
+  }
+]

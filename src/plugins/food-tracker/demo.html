@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriMom - Food Tracker</title>
+  <link rel="stylesheet" href="food-tracker.css">
+  <style>
+    /* Page-level styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+      min-height: 100vh;
+      color: #2d3748;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #667eea;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      font-size: 1.75rem;
+    }
+
+    nav a {
+      color: #718096;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover {
+      background: #edf2f7;
+      color: #4a5568;
+    }
+
+    nav a.active {
+      background: #667eea;
+      color: white;
+    }
+
+    main {
+      max-width: 100%;
+      padding: 0 1rem 2rem;
+    }
+
+    /* Demo Mode Banner */
+    .demo-banner {
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+      border: 1px solid #667eea40;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .demo-banner h3 {
+      color: #5a67d8;
+      margin-bottom: 0.5rem;
+    }
+
+    .demo-banner p {
+      color: #718096;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .demo-banner code {
+      background: #edf2f7;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    /* Mock Test Section */
+    .mock-test-section {
+      max-width: 800px;
+      margin: 2rem auto 0;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .mock-test-section h3 {
+      margin-bottom: 1rem;
+      color: #2d3748;
+    }
+
+    .test-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .test-btn {
+      padding: 0.75rem 1.25rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      background: white;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .test-btn:hover {
+      border-color: #667eea;
+      background: #f8fafc;
+    }
+
+    .test-output {
+      background: #1a202c;
+      color: #e2e8f0;
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      max-height: 400px;
+      overflow: auto;
+    }
+
+    .test-output pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    /* Sample Image Section */
+    .sample-image-container {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 10px;
+    }
+
+    .sample-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sample-info {
+      flex: 1;
+    }
+
+    .sample-info p {
+      margin: 0 0 0.5rem 0;
+      color: #4a5568;
+    }
+
+    .sample-tip {
+      font-size: 0.85rem;
+      color: #718096 !important;
+    }
+
+    @media (max-width: 480px) {
+      .sample-image-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="../../index.html" class="logo">
+        <span class="logo-icon">🤰</span>
+        <div class="logo-text">
+          <h1 style="font-size: 1.5rem; font-weight: 700; margin: 0;">NutriMom</h1>
+        </div>
+      </a>
+      <nav>
+        <a href="../../index.html">Calculator</a>
+        <a href="#" class="active">Food Tracker</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="demo-banner">
+      <h3>🧪 Demo Mode</h3>
+      <p>
+        This plugin supports multiple ways to analyze food:
+        <br>• <strong>Camera:</strong> Take photos directly on mobile devices
+        <br>• <strong>Upload:</strong> Select images from your device
+        <br>• <strong>Manual AI:</strong> Copy the prompt, use your own AI (ChatGPT, Gemini, Claude), and paste the response
+      </p>
+    </div>
+
+    <!-- Food Tracker Plugin Container -->
+    <div id="food-tracker-container"></div>
+
+    <!-- Sample Image Test Section -->
+    <div class="mock-test-section">
+      <h3>📸 Sample Image Test</h3>
+      <div class="sample-image-container">
+        <img src="croqueta-casera-de-bacalao-bardetodos-unidad.webp" 
+             alt="Homemade cod croquette" 
+             class="sample-image"
+             id="sample-image">
+        <div class="sample-info">
+          <p><strong>Sample:</strong> Croqueta casera de bacalao (Homemade cod croquette)</p>
+          <p class="sample-tip">Click the button below to load this image into the food tracker</p>
+        </div>
+      </div>
+      <button class="test-btn" onclick="loadSampleImage()" style="width: 100%; margin-top: 1rem;">
+        📷 Load Sample Image for Testing
+      </button>
+    </div>
+
+    <!-- Mock Test Section -->
+    <div class="mock-test-section">
+      <h3>🔬 Quick Tests (Mock Data)</h3>
+      <div class="test-buttons">
+        <button class="test-btn" onclick="testFalafelAnalysis()">
+          🥙 Add Falafel Plate
+        </button>
+        <button class="test-btn" onclick="testOatmealAnalysis()">
+          🥣 Add Breakfast Oatmeal
+        </button>
+        <button class="test-btn" onclick="testSalmonAnalysis()">
+          🐟 Add Grilled Salmon
+        </button>
+        <button class="test-btn" onclick="testCroquetaAnalysis()">
+          🍤 Add Cod Croquette
+        </button>
+        <button class="test-btn" onclick="showDailySummary()">
+          📊 Show Daily Summary
+        </button>
+        <button class="test-btn" onclick="clearAllData()">
+          🗑️ Clear All Data
+        </button>
+      </div>
+      <div class="test-output">
+        <pre id="test-output">Click a test button to see results...</pre>
+      </div>
+    </div>
+  </main>
+
+  <!-- Load plugin scripts -->
+  <script src="llm-config.js"></script>
+  <script src="mock-responses.js"></script>
+  <script src="food-tracker-engine.js"></script>
+  <script src="food-tracker-ui.js"></script>
+  <script src="index.js"></script>
+
+  <script>
+    // Initialize plugin
+    let foodTracker;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mock user targets (would come from NutritionEngine in production)
+      const mockTargets = {
+        energy: { rdi: 2200, unit: 'kcal' },
+        protein: { rdi: 71, unit: 'g' },
+        fibre: { rdi: 28, unit: 'g' },
+        iron: { rdi: 27, ul: 45, unit: 'mg' },
+        calcium: { rdi: 1000, ul: 2500, unit: 'mg' },
+        folate: { rdi: 600, ul: 1000, unit: 'µg' },
+        vitamin_c: { rdi: 85, ul: 2000, unit: 'mg' },
+        vitamin_d: { rdi: 15, ul: 100, unit: 'µg' },
+        vitamin_a: { rdi: 770, ul: 3000, unit: 'µg' },
+        zinc: { rdi: 11, ul: 40, unit: 'mg' },
+        omega3_dha_epa: { ai: 200, unit: 'mg' }
+      };
+
+      // Initialize the plugin
+      foodTracker = new FoodTrackerPlugin({
+        containerId: 'food-tracker-container',
+        useMock: true,
+        userTargets: mockTargets,
+        onMealAdded: (dailyLog) => {
+          console.log('Meal added! Daily log:', dailyLog);
+        }
+      });
+
+      foodTracker.init();
+      
+      log('Plugin initialized with mock mode enabled.');
+    });
+
+    // Test Functions
+    function log(message) {
+      const output = document.getElementById('test-output');
+      const timestamp = new Date().toLocaleTimeString();
+      
+      if (typeof message === 'object') {
+        output.textContent = `[${timestamp}] \n` + JSON.stringify(message, null, 2);
+      } else {
+        output.textContent = `[${timestamp}] ${message}`;
+      }
+    }
+
+    async function testFalafelAnalysis() {
+      log('Testing falafel plate analysis...');
+      
+      try {
+        // Manually trigger mock analysis (simulating image upload)
+        const analysis = MockFoodResponses.falafelSaladPlate;
+        analysis.timestamp = new Date().toISOString();
+        analysis.analysis_id = 'test_falafel_' + Date.now();
+        
+        // Add to log
+        foodTracker.addToLog(analysis, null);
+        
+        log({
+          message: 'Falafel plate added to log!',
+          analysis: analysis
+        });
+      } catch (error) {
+        log('Error: ' + error.message);
+      }
+    }
+
+    async function testOatmealAnalysis() {
+      log('Testing breakfast oatmeal analysis...');
+      
+      try {
+        const analysis = MockFoodResponses.breakfastOatmeal;
+        analysis.timestamp = new Date().toISOString();
+        analysis.analysis_id = 'test_oatmeal_' + Date.now();
+        
+        foodTracker.addToLog(analysis, null);
+        
+        log({
+          message: 'Breakfast oatmeal added to log!',
+          analysis: analysis
+        });
+      } catch (error) {
+        log('Error: ' + error.message);
+      }
+    }
+
+    async function testSalmonAnalysis() {
+      log('Testing grilled salmon analysis...');
+      
+      try {
+        const analysis = MockFoodResponses.grilledSalmon;
+        analysis.timestamp = new Date().toISOString();
+        analysis.analysis_id = 'test_salmon_' + Date.now();
+        
+        foodTracker.addToLog(analysis, null);
+        
+        log({
+          message: 'Grilled salmon dinner added to log!',
+          analysis: analysis
+        });
+      } catch (error) {
+        log('Error: ' + error.message);
+      }
+    }
+
+    function showDailySummary() {
+      try {
+        const summary = foodTracker.getDailySummary();
+        log(summary);
+      } catch (error) {
+        log('Error: ' + error.message);
+      }
+    }
+
+    function clearAllData() {
+      foodTracker.clearAll();
+      log('All food log data cleared!');
+    }
+
+    // Load sample image into the food tracker
+    async function loadSampleImage() {
+      log('Loading sample image...');
+      
+      try {
+        const img = document.getElementById('sample-image');
+        const response = await fetch(img.src);
+        const blob = await response.blob();
+        const file = new File([blob], 'croqueta-casera-de-bacalao.webp', { type: 'image/webp' });
+        
+        // Get the UI component and trigger file handling
+        const ui = foodTracker.getUI();
+        ui._handleFile(file);
+        
+        // Set a suggested title
+        setTimeout(() => {
+          const titleInput = document.getElementById('ft-photo-title');
+          if (titleInput) {
+            titleInput.value = 'Croqueta casera de bacalao (Homemade cod croquette) - Spanish tapa';
+            // Trigger input event to update prompt
+            titleInput.dispatchEvent(new Event('input'));
+          }
+        }, 100);
+        
+        log('Sample image loaded! You can now:\n1. Click "Analyze Food" for mock analysis\n2. Copy the prompt and use it with ChatGPT/Gemini/Claude\n3. Paste the AI response to calculate nutrition');
+        
+        // Scroll to the tracker
+        document.getElementById('food-tracker-container').scrollIntoView({ behavior: 'smooth' });
+        
+      } catch (error) {
+        log('Error loading sample image: ' + error.message);
+      }
+    }
+
+    // Test with cod croquette mock data
+    async function testCroquetaAnalysis() {
+      log('Testing cod croquette analysis...');
+      
+      try {
+        const analysis = MockFoodResponses.codCroquette;
+        analysis.timestamp = new Date().toISOString();
+        analysis.analysis_id = 'test_croqueta_' + Date.now();
+        
+        foodTracker.addToLog(analysis, null);
+        
+        log({
+          message: 'Cod croquette added to log!',
+          analysis: analysis
+        });
+      } catch (error) {
+        log('Error: ' + error.message);
+      }
+    }
+  </script>
+</body>
+</html>
