@@ -45,7 +45,7 @@ Or simply:
 
 ```bash
 # Using Python
-cd src && python -m http.server 8080
+python -m http.server 8080
 ```
 
 ---
@@ -54,19 +54,19 @@ cd src && python -m http.server 8080
 
 ```
 nutrimom/
-├── src/
-│   ├── index.html                  # Main application
-│   ├── css/styles.css              # Styling
-│   ├── js/
-│   │   ├── nutrition-engine.js     # Core calculation engine
-│   │   └── app.js                  # UI controller
-│   └── data/                       # JSON data files
-│       ├── nutrients.json          # 38 nutrients with descriptions
-│       ├── nutrient-targets.json   # RDA/AI/UL by life-stage
-│       ├── age-bands.json          # Age range definitions
-│       ├── life-stages.json        # Pregnancy/lactation stages
-│       ├── pregnancy_weeks.json    # Week→trimester mapping
-│       └── formulas.json           # Equations and factors
+├── index.html                  # Main application
+├── css/styles.css              # Styling
+├── js/
+│   ├── nutrition-engine.js     # Core calculation engine
+│   └── app.js                  # UI controller
+├── data/                       # JSON data files
+│   ├── nutrients.json          # 38 nutrients with descriptions
+│   ├── nutrient-targets.json   # RDA/AI/UL by life-stage
+│   ├── age-bands.json          # Age range definitions
+│   ├── life-stages.json        # Pregnancy/lactation stages
+│   ├── pregnancy_weeks.json    # Week→trimester mapping
+│   └── formulas.json           # Equations and factors
+├── src/                        # (Removed - migrated to root)
 ├── tests/
 │   └── nutrimom.spec.js            # Playwright E2E tests
 ├── docs/

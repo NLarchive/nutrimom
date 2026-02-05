@@ -477,6 +477,24 @@
       ]
     },
     {
+      "task_name": "Repository Restructuring for Pages",
+      "description": "Moved application source from src/ to root directory to fix GitHub Pages serving README.md instead of the app. Updated package.json and playwright.config.js.",
+      "start_date": "2026-02-05",
+      "end_date": "2026-02-05",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 1,
+      "actual_hours": 1,
+      "is_critical_path": true,
+      "tags": ["deployment", "structure", "GitHub-Pages"],
+      "category_name": "DevOps & Deployment",
+      "assigned_workers": [],
+      "dependencies": [
+        { "predecessor_task_name": "GitHub Actions CI/CD Setup", "type": "FS", "lag_days": 0 }
+      ]
+    },
+    {
       "task_name": "Production Deployment",
       "description": "Push to GitHub and deploy via GitHub Pages using the CI/CD workflows",
       "start_date": "2026-02-05",
