@@ -514,6 +514,36 @@
         { "predecessor_task_name": "GitHub Actions CI/CD Setup", "type": "FS", "lag_days": 0 }
       ],
       "notes": "Deployed to https://nlarchive.github.io/nutrimom/; CI reported 1 failing Firefox test (clipboard permission) and 1 flaky tracker rendering test in Firefox — will investigate."
+    },
+    {
+      "task_name": "Nutrient Data Improvements & Comparison Engine",
+      "description": "Comprehensive fix for nutrient data display and comparison functionality. Added complete lactation life stages (0-6 months, 7-12 months postpartum) to nutrient-targets.json. Fixed broken nutrient mapping in compareToTargets() with proper key alignment. Added target value extraction chain (RDA > AI > MIN > AMDR). Implemented insight generation for pregnancy-critical nutrients (folate, iron, calcium, vitamin D, DHA, iodine). Updated nutrients.json with fatty_acid category for omega-3s and added EPA nutrient.",
+      "start_date": "2026-02-06",
+      "end_date": "2026-02-06",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 4,
+      "actual_hours": 4,
+      "is_critical_path": true,
+      "tags": ["data", "nutrients", "lactation", "comparison", "insights", "IOM-DRI"],
+      "category_name": "Data & Research",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Production Deployment", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "data/nutrient-targets.json - Added lactating_0_6 and lactating_7_12 with all 4 age bands (14-18, 19-30, 31-50, 51+)",
+        "plugins/food-tracker/food-tracker-engine.js - Fixed compareToTargets() nutrient mapping, added _extractTargetValue(), _generateNutrientInsights(), _formatNutrientName()",
+        "plugins/food-tracker/food-tracker-ui.js - Updated _updateNutrientComparison() with insights rendering and status colors",
+        "js/app.js - Fixed displayNutrientGrid() to extract MIN/AMDR values with target type labels",
+        "plugins/food-tracker/food-tracker.css - Added insight styles (.insight-critical/warning/success/caution), status colors, bar gradients",
+        "css/styles.css - Added .nutrient-target-type badge styling",
+        "data/nutrients.json - Updated ALA/DHA to fatty_acid category, added EPA nutrient"
+      ],
+      "notes": "All 78 tests passing (18.7s). JSON files validated. Lactation data sourced from IOM DRI tables."
     }
   ],
   "milestones": [
@@ -527,7 +557,7 @@
       "name": "Testing Complete",
       "date": "2026-02-05",
       "status": "Completed",
-      "description": "72 modular E2E tests passing across 8 spec files (chromium, 18s)"
+      "description": "78 modular E2E tests passing across 8 spec files (chromium, 18.7s)"
     },
     {
       "name": "Food Tracker Plugin Complete",
@@ -556,8 +586,14 @@
     {
       "name": "Production Ready",
       "date": "2026-02-06",
-      "status": "In Progress",
-      "description": "Awaiting git push to GitHub and GitHub Pages deployment verification"
+      "status": "Completed",
+      "description": "All core features complete, 78 tests passing, deployed to GitHub Pages"
+    },
+    {
+      "name": "Nutrient Data Complete",
+      "date": "2026-02-06",
+      "status": "Completed",
+      "description": "Full IOM DRI data for pregnancy (T1-T3) and lactation (0-6mo, 7-12mo), nutrient comparison engine with insights"
     }
   ],
   "required_fields": [

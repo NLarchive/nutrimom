@@ -946,3 +946,111 @@
   font-size: 0.85rem;
   white-space: pre-wrap;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Nutrient Insights & Comparison Enhancements
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.nutrient-insights {
+  margin-bottom: 1.5rem;
+}
+
+.insight-item {
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.insight-item p {
+  margin: 0;
+}
+
+.insight-item small {
+  display: block;
+  margin-top: 0.35rem;
+  opacity: 0.85;
+}
+
+.insight-critical {
+  background: linear-gradient(135deg, #fed7d720 0%, #fc818120 100%);
+  border-left: 4px solid #e53e3e;
+  color: #742a2a;
+}
+
+.insight-warning {
+  background: linear-gradient(135deg, #fefcbf20 0%, #fbbf2420 100%);
+  border-left: 4px solid #d69e2e;
+  color: #744210;
+}
+
+.insight-success {
+  background: linear-gradient(135deg, #c6f6d520 0%, #9ae6b420 100%);
+  border-left: 4px solid #38a169;
+  color: #22543d;
+}
+
+.insight-caution {
+  background: linear-gradient(135deg, #feebc820 0%, #ed893620 100%);
+  border-left: 4px solid #dd6b20;
+  color: #7b341e;
+}
+
+/* Success state for comparison alerts */
+.comparison-alert.success {
+  background: #f0fff4;
+  color: #276749;
+  border-left: 3px solid #48bb78;
+}
+
+/* Status colors for percentage labels */
+.nutrient-bar-percent.optimal {
+  color: #38a169;
+  font-weight: 600;
+}
+
+.nutrient-bar-percent.adequate {
+  color: #68d391;
+}
+
+.nutrient-bar-percent.low {
+  color: #d69e2e;
+}
+
+.nutrient-bar-percent.deficient {
+  color: #e53e3e;
+  font-weight: 600;
+}
+
+.nutrient-bar-percent.exceeded {
+  color: #c05621;
+  font-weight: 600;
+}
+
+/* Enhanced bar fill colors */
+.nutrient-bar-fill.optimal {
+  background: linear-gradient(90deg, #48bb78, #38a169);
+}
+
+.nutrient-bar-fill.adequate {
+  background: linear-gradient(90deg, #68d391, #48bb78);
+}
+
+.nutrient-bar-fill.low {
+  background: linear-gradient(90deg, #ecc94b, #d69e2e);
+}
+
+.nutrient-bar-fill.deficient {
+  background: linear-gradient(90deg, #fc8181, #e53e3e);
+}
+
+.nutrient-bar-fill.exceeded {
+  background: linear-gradient(90deg, #ed8936, #dd6b20);
+}
+
+/* Nutrient bar values styling */
+.nutrient-bar-values {
+  font-size: 0.8rem;
+  color: #718096;
+}

@@ -375,10 +375,26 @@ class FoodTrackerEngine {
   // ─────────────────────────────────────────────────────────────────────────────
 
   /**
+   * Extract target value from nutrient data (handles RDA, AI, MIN, AMDR)
+   * @param {Object} targetData - Target data object with RDA/AI/MIN/AMDR keys
+   * @returns {number|null} The target value or null
+   */
+  _extractTargetValue(targetData) {
+    if (!targetData) return null;
+    // Priority: RDA > AI > MIN > AMDR_MIN
+    if (typeof targetData.RDA === 'number') return targetData.RDA;
+    if (typeof targetData.AI === 'number') return targetData.AI;
+    if (typeof targetData.MIN === 'number') return targetData.MIN;
+    if (typeof targetData.AMDR_MIN === 'number') return targetData.AMDR_MIN;
+    if (typeof targetData.target === 'number') return targetData.target;
+    return null;
+  }
+
+  /**
    * Compare daily intake against nutrient targets
-   * @param {Object} targets - Nutrient targets from NutritionEngine
+   * @param {Object} targets - Nutrient targets from NutritionEngine (keyed by nutrient code)
    * @param {string} date - Date to compare (defaults to today)
-   * @returns {Object} Comparison results
+   * @returns {Object} Comparison results with insights
    */
   compareToTargets(targets, date = null) {
     const dayLog = this.getDailyLog(date);
@@ -393,54 +409,72 @@ class FoodTrackerEngine {
         exceeded: [],
         deficit: [],
         noData: []
-      }
+      },
+      insights: []
     };
 
-    // Map our intake nutrients to target nutrients
+    // Direct mapping from intake keys to target keys (they should match)
+    // Intake keys from _emptyTotals() → Target keys from nutrient-targets.json
     const nutrientMapping = {
-      'energy_kcal': 'energy',
-      'protein_g': 'protein',
-      'carbs_g': null, // No direct target
-      'fat_g': null, // No direct target
-      'fiber_g': 'fibre',
-      'calcium_mg': 'calcium',
-      'iron_mg': 'iron',
-      'zinc_mg': 'zinc',
-      'folate_ug': 'folate',
-      'vitamin_a_ug': 'vitamin_a',
-      'vitamin_c_mg': 'vitamin_c',
-      'vitamin_d_ug': 'vitamin_d',
-      'omega3_mg': 'omega3_dha_epa'
+      'energy_kcal': 'energy_kcal',
+      'protein_g': 'protein_g',
+      'carbs_g': 'carbs_g',
+      'fat_g': 'fat_g',
+      'fiber_g': 'fiber_g',
+      'calcium_mg': 'calcium_mg',
+      'iron_mg': 'iron_mg',
+      'zinc_mg': 'zinc_mg',
+      'folate_ug': 'folate_dfe_ug',
+      'vitamin_a_ug': 'vitamin_a_rae_ug',
+      'vitamin_c_mg': 'vitamin_c_mg',
+      'vitamin_d_ug': 'vitamin_d_ug',
+      'omega3_mg': 'dha_mg'
     };
+
+    // Track critical pregnancy nutrients for insights
+    const criticalNutrients = ['folate_dfe_ug', 'iron_mg', 'calcium_mg', 'vitamin_d_ug', 'dha_mg', 'iodine_ug'];
+    const criticalStatus = {};
 
     Object.entries(nutrientMapping).forEach(([intakeKey, targetKey]) => {
-      if (!targetKey) return; // Skip nutrients without targets
-
       const intakeValue = intake[intakeKey] || 0;
-      const target = targets[targetKey];
+      const targetData = targets[targetKey];
 
-      if (!target) {
+      if (!targetData) {
         comparison.summary.noData.push(intakeKey);
         return;
       }
 
-      const rdi = target.rdi || target.ai;
-      const ul = target.ul;
-      const percentage = rdi ? (intakeValue / rdi) * 100 : null;
+      // Extract the primary target value (RDA/AI/MIN)
+      const targetValue = this._extractTargetValue(targetData);
+      const ul = targetData.UL;
+      const unit = targetData.unit || '';
+      
+      if (targetValue === null || targetValue === 0) {
+        comparison.summary.noData.push(intakeKey);
+        return;
+      }
+
+      const percentage = (intakeValue / targetValue) * 100;
+      const status = this._getNutrientStatus(intakeValue, targetValue, ul);
 
       comparison.nutrients[intakeKey] = {
+        name: targetData.name || this._formatNutrientName(intakeKey),
         intake: intakeValue,
-        target: rdi,
-        upper_limit: ul,
-        percentage,
-        unit: target.unit,
-        status: this._getNutrientStatus(intakeValue, rdi, ul)
+        target: targetValue,
+        upper_limit: ul || null,
+        percentage: Math.round(percentage * 10) / 10,
+        unit,
+        status,
+        targetType: targetData.RDA ? 'RDA' : targetData.AI ? 'AI' : 'MIN'
       };
 
+      // Track critical nutrient status
+      if (criticalNutrients.includes(targetKey)) {
+        criticalStatus[targetKey] = { percentage, status, name: targetData.name };
+      }
+
       // Categorize
-      if (percentage === null) {
-        comparison.summary.noData.push(intakeKey);
-      } else if (percentage >= 80 && (!ul || intakeValue <= ul)) {
+      if (percentage >= 80 && (!ul || intakeValue <= ul)) {
         comparison.summary.met.push(intakeKey);
       } else if (ul && intakeValue > ul) {
         comparison.summary.exceeded.push(intakeKey);
@@ -453,7 +487,82 @@ class FoodTrackerEngine {
       }
     });
 
+    // Generate pregnancy-specific insights
+    comparison.insights = this._generateNutrientInsights(comparison, criticalStatus);
+
     return comparison;
+  }
+
+  /**
+   * Generate actionable insights based on nutrient comparison
+   * @private
+   */
+  _generateNutrientInsights(comparison, criticalStatus) {
+    const insights = [];
+
+    // Check critical nutrients for pregnancy
+    Object.entries(criticalStatus).forEach(([code, data]) => {
+      if (data.percentage < 50) {
+        insights.push({
+          type: 'critical',
+          nutrient: data.name || code,
+          message: `⚠️ ${data.name || code} is critically low (${Math.round(data.percentage)}%). This is essential during pregnancy.`,
+          suggestion: this._getFoodSuggestion(code)
+        });
+      } else if (data.percentage < 80) {
+        insights.push({
+          type: 'warning',
+          nutrient: data.name || code,
+          message: `${data.name || code} is below target (${Math.round(data.percentage)}%).`,
+          suggestion: this._getFoodSuggestion(code)
+        });
+      }
+    });
+
+    // Overall status insights
+    if (comparison.summary.deficit.length === 0 && comparison.summary.exceeded.length === 0) {
+      insights.push({
+        type: 'success',
+        message: '✓ Great job! Your nutrient intake looks balanced today.'
+      });
+    }
+
+    if (comparison.summary.exceeded.length > 0) {
+      insights.push({
+        type: 'caution',
+        message: `Some nutrients exceed upper limits: ${comparison.summary.exceeded.join(', ')}. Consider moderating intake.`
+      });
+    }
+
+    return insights;
+  }
+
+  /**
+   * Format nutrient code to human-readable name
+   * @private
+   */
+  _formatNutrientName(code) {
+    const names = {
+      'energy_kcal': 'Calories',
+      'protein_g': 'Protein',
+      'carbs_g': 'Carbohydrates',
+      'fat_g': 'Fat',
+      'fiber_g': 'Fiber',
+      'iron_mg': 'Iron',
+      'calcium_mg': 'Calcium',
+      'folate_ug': 'Folate',
+      'folate_dfe_ug': 'Folate',
+      'vitamin_a_ug': 'Vitamin A',
+      'vitamin_a_rae_ug': 'Vitamin A',
+      'vitamin_c_mg': 'Vitamin C',
+      'vitamin_d_ug': 'Vitamin D',
+      'zinc_mg': 'Zinc',
+      'omega3_mg': 'Omega-3 (DHA)',
+      'dha_mg': 'DHA (Omega-3)',
+      'iodine_ug': 'Iodine',
+      'choline_mg': 'Choline'
+    };
+    return names[code] || code.replace(/_/g, ' ');
   }
 
   /**

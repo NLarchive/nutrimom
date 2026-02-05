@@ -58,20 +58,29 @@
   {
     "code": "ala_omega3_g",
     "name": "Omega-3 (ALA)",
-    "category": "macro",
+    "category": "fatty_acid",
     "unit": "g",
     "description": "Alpha-linolenic acid. Essential fatty acid the body cannot make.",
-    "importance_pregnancy": "AI increases from 1.1g to 1.4g/day. Precursor for longer-chain omega-3s.",
+    "importance_pregnancy": "AI increases from 1.1g to 1.4g/day. Precursor for longer-chain omega-3s (EPA/DHA).",
     "food_sources": ["Flaxseed", "Chia seeds", "Walnuts", "Canola oil", "Soybean oil"]
   },
   {
     "code": "dha_mg",
     "name": "DHA (Omega-3)",
-    "category": "macro",
+    "category": "fatty_acid",
     "unit": "mg",
-    "description": "Docosahexaenoic acid. Long-chain omega-3 important for brain and eye tissue.",
-    "importance_pregnancy": "Target 200-300mg/day for fetal brain and retinal development. Most critical in T3.",
+    "description": "Docosahexaenoic acid. Long-chain omega-3 critical for brain and retinal tissue.",
+    "importance_pregnancy": "Target 200-300mg/day for fetal brain and retinal development. Most critical in T3 when brain grows rapidly.",
     "food_sources": ["Fatty fish (salmon, sardines)", "Fish oil", "Algae oil", "DHA-fortified eggs"]
+  },
+  {
+    "code": "epa_mg",
+    "name": "EPA (Omega-3)",
+    "category": "fatty_acid",
+    "unit": "mg",
+    "description": "Eicosapentaenoic acid. Long-chain omega-3 with anti-inflammatory properties.",
+    "importance_pregnancy": "Supports cardiovascular health and may help reduce preterm birth risk. Often consumed with DHA.",
+    "food_sources": ["Fatty fish", "Fish oil", "Algae oil"]
   },
   {
     "code": "folate_dfe_ug",

@@ -725,40 +725,69 @@ class FoodTrackerUI {
     if (!this.userTargets) return;
 
     const comparison = this.tracker.compareToTargets(this.userTargets);
+    
+    // Don't show comparison if no intake data
+    const hasIntakeData = Object.values(comparison.nutrients).some(n => n.intake > 0);
+    if (!hasIntakeData) {
+      this.elements.comparison.style.display = 'none';
+      return;
+    }
+    
     this.elements.comparison.style.display = 'block';
 
     const nutrients = Object.entries(comparison.nutrients);
     
+    // Build insights HTML
+    const insightsHtml = comparison.insights && comparison.insights.length > 0 ? `
+      <div class="nutrient-insights">
+        ${comparison.insights.map(insight => `
+          <div class="insight-item insight-${insight.type}">
+            <p>${insight.message}</p>
+            ${insight.suggestion ? `<small>💡 Try: ${insight.suggestion}</small>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    ` : '';
+
     this.elements.comparisonContent.innerHTML = `
       <div class="nutrient-bars">
         ${nutrients.map(([key, data]) => {
           const percent = Math.min(data.percentage || 0, 150);
           const statusClass = data.status;
+          const displayName = data.name || this._formatNutrientName(key);
           return `
             <div class="nutrient-bar-item">
               <div class="nutrient-bar-label">
-                <span>${this._formatNutrientName(key)}</span>
-                <span>${data.intake.toFixed(1)} / ${data.target} ${data.unit}</span>
+                <span>${displayName}</span>
+                <span class="nutrient-bar-values">${data.intake.toFixed(1)} / ${data.target} ${data.unit}</span>
               </div>
               <div class="nutrient-bar-track">
                 <div class="nutrient-bar-fill ${statusClass}" style="width: ${percent}%"></div>
                 <div class="nutrient-bar-target"></div>
               </div>
-              <span class="nutrient-bar-percent">${Math.round(data.percentage || 0)}%</span>
+              <span class="nutrient-bar-percent ${statusClass}">${Math.round(data.percentage || 0)}%</span>
             </div>
           `;
         }).join('')}
       </div>
 
+      ${insightsHtml}
+
       ${comparison.summary.deficit.length > 0 ? `
         <div class="comparison-alert deficit">
-          <strong>Low intake:</strong> ${comparison.summary.deficit.map(n => this._formatNutrientName(n)).join(', ')}
+          <strong>⚠️ Below target:</strong> ${comparison.summary.deficit.map(n => this._formatNutrientName(n)).join(', ')}
         </div>
       ` : ''}
 
       ${comparison.summary.exceeded.length > 0 ? `
         <div class="comparison-alert exceeded">
-          <strong>Exceeded:</strong> ${comparison.summary.exceeded.map(n => this._formatNutrientName(n)).join(', ')}
+          <strong>⚡ Exceeded limit:</strong> ${comparison.summary.exceeded.map(n => this._formatNutrientName(n)).join(', ')}
+        </div>
+      ` : ''}
+
+      ${comparison.summary.met.length > 0 ? `
+        <div class="comparison-alert success">
+          <strong>✓ On track:</strong> ${comparison.summary.met.map(n => this._formatNutrientName(n)).join(', ')}
         </div>
       ` : ''}
     `;

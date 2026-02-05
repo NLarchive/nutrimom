@@ -482,7 +482,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     grid.innerHTML = filtered.map(([code, data]) => {
-      const target = data.target || data.RDA || data.AI || '-';
+      // Extract target value with proper priority: RDA > AI > MIN > AMDR_MIN
+      let target = '-';
+      let targetLabel = '';
+      
+      if (data.target !== undefined && data.target !== null) {
+        target = data.target;
+        targetLabel = '';
+      } else if (data.RDA !== undefined) {
+        target = data.RDA;
+        targetLabel = 'RDA';
+      } else if (data.AI !== undefined) {
+        target = data.AI;
+        targetLabel = 'AI';
+      } else if (data.MIN !== undefined) {
+        target = data.MIN;
+        targetLabel = 'min';
+      } else if (data.AMDR_MIN !== undefined && data.AMDR_MAX !== undefined) {
+        target = `${data.AMDR_MIN}-${data.AMDR_MAX}`;
+        targetLabel = 'AMDR';
+      } else if (data.MAX !== undefined) {
+        target = data.MAX;
+        targetLabel = 'max';
+      }
+      
       const ul = data.UL;
       const sources = data.foodSources || [];
       
@@ -495,6 +518,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           <div class="nutrient-target">
             <span class="nutrient-target-value">${formatNum(target)}</span>
             <span class="nutrient-target-unit">${data.unit || ''}</span>
+            ${targetLabel ? `<span class="nutrient-target-type">${targetLabel}</span>` : ''}
           </div>
           <div class="nutrient-ul">
             ${ul ? `<div class="nutrient-ul-label">Upper Limit</div><div class="nutrient-ul-value">${formatNum(ul)} ${data.unit || ''}</div>` : '<div class="nutrient-ul-value">-</div>'}
