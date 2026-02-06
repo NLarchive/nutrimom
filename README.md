@@ -8,7 +8,8 @@ A client-side web application providing **personalized daily nutrition recommend
 
 **Author:** Nicolas Ivan Larenas Bustamante
 
-![NutriMom Screenshot](/.playwright-mcp/page-2026-02-03T15-42-25-434Z.png)
+live page 
+https://nlarchive.github.io/nutrimom/
 
 ---
 
