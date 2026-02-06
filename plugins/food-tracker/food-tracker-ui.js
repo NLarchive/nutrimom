@@ -152,7 +152,7 @@ class FoodTrackerUI {
     // Detect API configuration status
     const hasApi = this.tracker.apiProvider && this.tracker.apiKey;
     
-    const apiStatusBlock = hasApi ? `
+    const apiStatusBanner = hasApi ? `
       <div class="api-status-banner api-connected">
         <span class="api-status-icon">✅</span>
         <div class="api-status-content">
@@ -180,99 +180,128 @@ class FoodTrackerUI {
       </div>
     `;
 
-    this.container.innerHTML = `${apiStatusBlock}
-      
-      <!-- Manual LLM Section -->
-      <div class="manual-llm-section" id="ft-manual-section">
-        <h3>🤖 Your Dedicated AI Nutritionist</h3>
-        <p class="section-description">
-          <strong>Step 1:</strong> Copy the prompt below and paste it into <strong>ChatGPT, Gemini, or Claude</strong>.<br>
-          <strong>Step 2:</strong> Once sent, your AI chat becomes a dedicated tracker—just send it photos or food names anytime.<br>
-          <strong>Step 3:</strong> Paste the AI's JSON code response here to sync your nutrition progress.
-        </p>
-        
-        <!-- Prompt Generator -->
-        <div class="prompt-generator">
-          <label for="ft-prompt-output">AI Prompt (copy this along with your food image):</label>
-          <textarea id="ft-prompt-output" class="prompt-textarea" readonly></textarea>
-          <button class="btn btn-secondary" id="ft-copy-prompt">
-            📋 Copy Prompt to Clipboard
-          </button>
-          <span class="copy-feedback" id="ft-copy-feedback"></span>
-        </div>
-
-        <!-- Response Parser -->
-        <div class="response-parser">
-          <label for="ft-llm-response">Paste AI Response Here:</label>
-          <textarea id="ft-llm-response" class="response-textarea" 
-                    placeholder="Paste the JSON response from your AI model here..."></textarea>
-          <button class="btn btn-primary" id="ft-parse-response">
-            📊 Parse & Calculate Nutrition
-          </button>
-          <div class="parse-error" id="ft-parse-error" style="display: none;"></div>
-        </div>
-      </div>
-
+    this.container.innerHTML = `
       <div class="food-tracker">
         <!-- Header -->
         <div class="tracker-header">
           <h2>🍽️ Daily Food Tracker</h2>
-          <p class="tracker-subtitle">Track your meals and monitor nutrient intake</p>
+          <p class="tracker-subtitle">Track your meals & automated nutritional analysis</p>
         </div>
 
-        <!-- Upload Section -->
-        <div class="upload-section">
-          <div class="upload-area" id="ft-upload-area">
-            <div class="upload-icon">📷</div>
-            <p>Drop food image here or click to upload</p>
-            <p class="upload-hint">Supports JPG, PNG, WebP</p>
-            <!-- Hidden file inputs - separate for camera and gallery -->
-            <input type="file" id="ft-file-input" accept="image/*" hidden>
-            <input type="file" id="ft-camera-input" accept="image/*" capture="environment" hidden>
-          </div>
-          
-          <div class="upload-actions">
-            <button class="btn btn-primary" id="ft-camera-btn">
-              📸 Take Photo
-            </button>
-            <button class="btn btn-secondary" id="ft-browse-btn">
-              📁 Browse Files
-            </button>
-          </div>
+        <!-- Manual AI Tracker (Dropdown) -->
+        <details class="tracker-workflow-dropdown manual-workflow" ${!hasApi ? 'open' : ''}>
+          <summary class="workflow-summary">
+            <div class="summary-title">
+              <span class="summary-icon">🤖</span>
+              <strong>Manual AI Tracker (D.I.Y.)</strong>
+            </div>
+            <span class="summary-badge ${!hasApi ? 'badge-recommended' : 'badge-optional'}">${!hasApi ? 'Recommended' : 'Optional'}</span>
+          </summary>
+          <div class="workflow-content">
+            ${apiStatusBanner}
+            
+            <div class="manual-llm-section" id="ft-manual-section">
+              <h3>🤖 Your Dedicated AI Nutritionist</h3>
+              <p class="section-description">
+                <strong>Step 1:</strong> Copy the prompt below and paste it into <strong>ChatGPT, Gemini, or Claude</strong>.<br>
+                <strong>Step 2:</strong> Once sent, your AI chat becomes a dedicated tracker—just send it photos or food names anytime.<br>
+                <strong>Step 3:</strong> Paste the AI's JSON code response here to sync your nutrition progress.
+              </p>
+              
+              <div class="prompt-generator">
+                <label for="ft-prompt-output">AI Prompt (copy this along with your food image):</label>
+                <textarea id="ft-prompt-output" class="prompt-textarea" readonly></textarea>
+                <button class="btn btn-secondary" id="ft-copy-prompt">
+                  📋 Copy Prompt to Clipboard
+                </button>
+                <span class="copy-feedback" id="ft-copy-feedback"></span>
+              </div>
 
-          <!-- Image Preview -->
-          <div class="image-preview" id="ft-preview" style="display: none;">
-            <img id="ft-preview-img" src="" alt="Food preview">
-            <div class="preview-overlay">
-              <button class="btn btn-small" id="ft-remove-preview">✕ Remove</button>
+              <div class="response-parser">
+                <label for="ft-llm-response">Paste AI Response Here:</label>
+                <textarea id="ft-llm-response" class="response-textarea" 
+                          placeholder="Paste the JSON response from your AI model here..."></textarea>
+                <button class="btn btn-primary" id="ft-parse-response">
+                  📊 Parse & Calculate Nutrition
+                </button>
+                <div class="parse-error" id="ft-parse-error" style="display: none;"></div>
+              </div>
             </div>
           </div>
+        </details>
 
-          <!-- Photo Title Input -->
-          <div class="photo-title-section" id="ft-title-section">
-            <label for="ft-photo-title">Photo Title (optional context):</label>
-            <input type="text" id="ft-photo-title" class="text-input" 
-                   placeholder="e.g., Homemade cod croquette, Spanish tapa..."
-                   maxlength="200">
-            <p class="input-hint">Add context to help the AI better identify your food</p>
-          </div>
+        <!-- Automated AI Analysis (Dropdown) -->
+        <details class="tracker-workflow-dropdown auto-workflow" ${hasApi ? 'open' : ''}>
+          <summary class="workflow-summary">
+            <div class="summary-title">
+              <span class="summary-icon">🔍</span>
+              <strong>Automated AI Analysis</strong>
+            </div>
+            <span class="summary-badge ${hasApi ? 'badge-connected' : 'badge-unavailable'}">${hasApi ? 'Connected' : 'No API'}</span>
+          </summary>
+          <div class="workflow-content">
+            ${!hasApi ? `
+              <div class="api-warning-info">
+                <span class="warning-icon">⚠️</span>
+                <p><strong>Note:</strong> Automated image analysis requires a connected Vision LLM API. 
+                Use the <strong>Manual AI Tracker</strong> above to analyze images for free using ChatGPT/Gemini.</p>
+              </div>
+            ` : ''}
 
-          <!-- Meal Type Selection -->
-          <div class="meal-type-selector" id="ft-meal-selector">
-            <label>Meal Type:</label>
-            <div class="meal-options">
-              <button class="meal-option" data-meal="breakfast">🌅 Breakfast</button>
-              <button class="meal-option" data-meal="lunch">☀️ Lunch</button>
-              <button class="meal-option" data-meal="dinner">🌙 Dinner</button>
-              <button class="meal-option active" data-meal="snack">🍎 Snack</button>
+            <div class="automated-analysis-form">
+              <!-- Photo Title Input (First) -->
+              <div class="photo-title-section" id="ft-title-section">
+                <label for="ft-photo-title">Photo Title (optional context):</label>
+                <input type="text" id="ft-photo-title" class="text-input" 
+                       placeholder="e.g., Homemade cod croquette, Spanish tapa..."
+                       maxlength="200">
+                <p class="input-hint">Add context to help the AI better identify your food</p>
+              </div>
+
+              <!-- Upload Section (Second) -->
+              <div class="upload-section">
+                <div class="upload-area" id="ft-upload-area">
+                  <div class="upload-icon">📷</div>
+                  <p>Drop food image here or click to upload</p>
+                  <p class="upload-hint">Supports JPG, PNG, WebP</p>
+                  <input type="file" id="ft-file-input" accept="image/*" hidden>
+                  <input type="file" id="ft-camera-input" accept="image/*" capture="environment" hidden>
+                </div>
+                
+                <div class="upload-actions">
+                  <button class="btn btn-primary" id="ft-camera-btn">
+                    📸 Take Photo
+                  </button>
+                  <button class="btn btn-secondary" id="ft-browse-btn">
+                    📁 Browse Files
+                  </button>
+                </div>
+
+                <div class="image-preview" id="ft-preview" style="display: none;">
+                  <img id="ft-preview-img" src="" alt="Food preview">
+                  <div class="preview-overlay">
+                    <button class="btn btn-small" id="ft-remove-preview">✕ Remove</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Meal Type Selection -->
+              <div class="meal-type-selector" id="ft-meal-selector">
+                <label>Meal Type:</label>
+                <div class="meal-options">
+                  <button class="meal-option" data-meal="breakfast">🌅 Breakfast</button>
+                  <button class="meal-option" data-meal="lunch">☀️ Lunch</button>
+                  <button class="meal-option" data-meal="dinner">🌙 Dinner</button>
+                  <button class="meal-option active" data-meal="snack">🍎 Snack</button>
+                </div>
+              </div>
+
+              <button class="btn btn-analyze" id="ft-analyze-btn" style="display: none;">
+                🔍 Analyze Food
+              </button>
             </div>
           </div>
-
-          <!-- Analyze Button -->
-          <button class="btn btn-analyze" id="ft-analyze-btn" style="display: none;">
-            🔍 Analyze Food
-          </button>
-        </div>
+        </details>
 
         <!-- Loading State -->
         <div class="loading-state" id="ft-loading" style="display: none;">

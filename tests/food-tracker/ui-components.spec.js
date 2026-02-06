@@ -16,7 +16,7 @@ test.describe('Food Tracker UI Components', () => {
 
   test('should render Food Tracker header', async ({ page }) => {
     await expect(page.locator('.tracker-header h2')).toContainText('Daily Food Tracker');
-    await expect(page.locator('.tracker-subtitle')).toContainText('Track your meals and monitor nutrient intake');
+    await expect(page.locator('.tracker-subtitle')).toContainText('Track your meals');
   });
 
   test('should render upload area with instructions', async ({ page }) => {
