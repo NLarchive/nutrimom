@@ -17,12 +17,12 @@ test.describe('Food Tracker API Status', () => {
   test('should show no-API banner when no API is configured', async ({ page }) => {
     const banner = page.locator('.api-status-banner.api-not-connected');
     await expect(banner).toBeVisible();
-    await expect(banner).toContainText('No LLM Vision API Connected');
+    await expect(banner).toContainText('Personal AI Tracker Mode');
   });
 
   test('should display manual workflow guidance in no-API banner', async ({ page }) => {
     const banner = page.locator('.api-status-banner.api-not-connected');
-    await expect(banner).toContainText('manual AI workflow');
+    await expect(banner).toContainText('dedicated pregnancy nutrition assistant');
     await expect(banner).toContainText('ChatGPT');
     await expect(banner).toContainText('Gemini');
     await expect(banner).toContainText('Claude');

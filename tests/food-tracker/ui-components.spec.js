@@ -50,7 +50,7 @@ test.describe('Food Tracker UI Components', () => {
 
   test('should render manual LLM section with prompt and response areas', async ({ page }) => {
     await expect(page.locator('#ft-manual-section')).toBeVisible();
-    await expect(page.locator('#ft-manual-section h3')).toContainText('Use Your Own AI Model');
+    await expect(page.locator('#ft-manual-section h3')).toContainText('Your Dedicated AI Nutritionist');
     await expect(page.locator('.section-description')).toContainText('Copy the prompt below');
 
     // Prompt generator

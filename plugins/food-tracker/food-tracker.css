@@ -11,9 +11,10 @@
 
 /* API Status Banner */
 .api-status-banner {
+  max-width: 800px;
+  margin: 0 auto 1.5rem auto;
   padding: 1rem 1.25rem;
   border-radius: 10px;
-  margin-bottom: 1.5rem;
   display: flex;
   gap: 1rem;
   align-items: flex-start;
@@ -43,26 +44,42 @@
   display: block;
   color: #2d3748;
   margin-bottom: 0.35rem;
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 .api-status-content p {
-  color: #4a5568;
-  font-size: 0.9rem;
+  color: #2d3748;
+  font-size: 1rem;
   line-height: 1.5;
   margin: 0 0 0.5rem 0;
 }
 
 .api-status-content ol {
-  margin: 0.5rem 0 0 0;
-  padding-left: 1.25rem;
-  color: #4a5568;
-  font-size: 0.88rem;
+  margin: 0.75rem 0 0 0;
+  padding-left: 1.5rem;
+  color: #2d3748;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
+.diy-instructions-highlight {
+  background: rgba(255, 255, 255, 0.4);
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  margin-top: 1rem;
+}
+
+.diy-pro-tip {
+  font-weight: 700;
+  color: #c05621;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 1.1rem;
+}
+
 .api-status-content ol li {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Analysis Error */
@@ -829,24 +846,30 @@
    ───────────────────────────────────────────────────────────────────────────── */
 
 .manual-llm-section {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   padding: 1.5rem;
-  margin-bottom: 2rem;
   border: 2px solid #e2e8f0;
 }
 
 .manual-llm-section h3 {
   color: #2d3748;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
 }
 
 .section-description {
-  color: #718096;
-  font-size: 0.9rem;
+  color: #2d3748;
+  font-size: 1.05rem;
   margin-bottom: 1.5rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
 }
 
 /* Prompt Generator */

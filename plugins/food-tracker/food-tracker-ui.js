@@ -164,19 +164,55 @@ class FoodTrackerUI {
       <div class="api-status-banner api-not-connected" id="ft-api-status">
         <span class="api-status-icon">ℹ️</span>
         <div class="api-status-content">
-          <strong>No LLM Vision API Connected</strong>
-          <p>Direct image analysis is not available. You can still track your meals using the <strong>manual AI workflow</strong>:</p>
-          <ol>
-            <li>Upload or take a photo of your meal</li>
-            <li>Copy the AI prompt from the section below</li>
-            <li>Use it with your image in <strong>ChatGPT</strong>, <strong>Gemini</strong>, or <strong>Claude</strong></li>
-            <li>Paste the AI's JSON response back here to calculate nutrition</li>
-          </ol>
+          <strong>Personal AI Tracker Mode (D.I.Y.)</strong>
+          <p>No direct API connected? No problem! You can turn any AI (ChatGPT, Gemini, Claude) into your dedicated pregnancy nutrition assistant:</p>
+          
+          <div class="diy-instructions-highlight">
+            <span class="diy-pro-tip">💡 How to create your dedicated tracker:</span>
+            <ol>
+              <li><strong>Initial Setup:</strong> Copy the AI prompt from the section below and paste it into a new chat with your favorite AI. Send it once to "train" the chat.</li>
+              <li><strong>Track Anything:</strong> From now on, just send that same chat your food photos, dish titles, or even lists of ingredients.</li>
+              <li><strong>Get Instant Data:</strong> The AI will respond with a structured JSON block specifically for this system.</li>
+              <li><strong>Sync Progress:</strong> Paste that AI response back here to instantly calculate and track your daily nutrient targets!</li>
+            </ol>
+          </div>
         </div>
       </div>
     `;
 
     this.container.innerHTML = `${apiStatusBlock}
+      
+      <!-- Manual LLM Section -->
+      <div class="manual-llm-section" id="ft-manual-section">
+        <h3>🤖 Your Dedicated AI Nutritionist</h3>
+        <p class="section-description">
+          <strong>Step 1:</strong> Copy the prompt below and paste it into <strong>ChatGPT, Gemini, or Claude</strong>.<br>
+          <strong>Step 2:</strong> Once sent, your AI chat becomes a dedicated tracker—just send it photos or food names anytime.<br>
+          <strong>Step 3:</strong> Paste the AI's JSON code response here to sync your nutrition progress.
+        </p>
+        
+        <!-- Prompt Generator -->
+        <div class="prompt-generator">
+          <label for="ft-prompt-output">AI Prompt (copy this along with your food image):</label>
+          <textarea id="ft-prompt-output" class="prompt-textarea" readonly></textarea>
+          <button class="btn btn-secondary" id="ft-copy-prompt">
+            📋 Copy Prompt to Clipboard
+          </button>
+          <span class="copy-feedback" id="ft-copy-feedback"></span>
+        </div>
+
+        <!-- Response Parser -->
+        <div class="response-parser">
+          <label for="ft-llm-response">Paste AI Response Here:</label>
+          <textarea id="ft-llm-response" class="response-textarea" 
+                    placeholder="Paste the JSON response from your AI model here..."></textarea>
+          <button class="btn btn-primary" id="ft-parse-response">
+            📊 Parse & Calculate Nutrition
+          </button>
+          <div class="parse-error" id="ft-parse-error" style="display: none;"></div>
+        </div>
+      </div>
+
       <div class="food-tracker">
         <!-- Header -->
         <div class="tracker-header">
@@ -236,36 +272,6 @@ class FoodTrackerUI {
           <button class="btn btn-analyze" id="ft-analyze-btn" style="display: none;">
             🔍 Analyze Food
           </button>
-        </div>
-
-        <!-- Manual LLM Section -->
-        <div class="manual-llm-section" id="ft-manual-section">
-          <h3>🤖 Use Your Own AI Model</h3>
-          <p class="section-description">
-            Copy the prompt below and use it with ChatGPT, Gemini, Claude, or any vision AI. 
-            Then paste the response to calculate nutrition.
-          </p>
-          
-          <!-- Prompt Generator -->
-          <div class="prompt-generator">
-            <label for="ft-prompt-output">AI Prompt (copy this along with your food image):</label>
-            <textarea id="ft-prompt-output" class="prompt-textarea" readonly></textarea>
-            <button class="btn btn-secondary" id="ft-copy-prompt">
-              📋 Copy Prompt to Clipboard
-            </button>
-            <span class="copy-feedback" id="ft-copy-feedback"></span>
-          </div>
-
-          <!-- Response Parser -->
-          <div class="response-parser">
-            <label for="ft-llm-response">Paste AI Response Here:</label>
-            <textarea id="ft-llm-response" class="response-textarea" 
-                      placeholder="Paste the JSON response from your AI model here..."></textarea>
-            <button class="btn btn-primary" id="ft-parse-response">
-              📊 Parse & Calculate Nutrition
-            </button>
-            <div class="parse-error" id="ft-parse-error" style="display: none;"></div>
-          </div>
         </div>
 
         <!-- Loading State -->

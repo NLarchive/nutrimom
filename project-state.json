@@ -544,6 +544,31 @@
         "data/nutrients.json - Updated ALA/DHA to fatty_acid category, added EPA nutrient"
       ],
       "notes": "All 78 tests passing (18.7s). JSON files validated. Lactation data sourced from IOM DRI tables."
+    },
+    {
+      "task_name": "UX Enhancement: D.I.Y. Tracking Visibility",
+      "description": "Improved visibility and contrast of manual AI workflow instructions. Moved Manual LLM section to the top of the tracker view for better workflow flow. Added guidance on creating a 'dedicated tracker' by pasting the initial prompt into ChatGPT/Gemini/Claude chats to enable seamless photo/text tracking without repeated prompts.",
+      "start_date": "2026-02-06",
+      "end_date": "2026-02-06",
+      "priority": "Medium",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 1,
+      "actual_hours": 2,
+      "is_critical_path": false,
+      "tags": ["UI", "UX", "Instructions", "Manual-Workflow", "AI-Onboarding", "Relocation"],
+      "category_name": "UI/UX",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Nutrient Data Improvements & Comparison Engine", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "plugins/food-tracker/food-tracker-ui.js - Relocated manual-llm-section above main tracker; updated content with 'Dedicated Tracker' instructions",
+        "plugins/food-tracker/food-tracker.css - Updated .manual-llm-section and .api-status-banner with consistent max-width/centering layout",
+        "tests/food-tracker/*.spec.js - Updated test expectations to match new content"
+      ]
     }
   ],
   "milestones": [
