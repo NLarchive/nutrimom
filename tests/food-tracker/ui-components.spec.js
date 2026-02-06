@@ -20,12 +20,26 @@ test.describe('Food Tracker UI Components', () => {
   });
 
   test('should render upload area with instructions', async ({ page }) => {
+    // Open Automated AI Analysis dropdown if closed
+    const autoDetails = page.locator('details.auto-workflow');
+    const isOpen = await autoDetails.evaluate(el => el.open);
+    if (!isOpen) {
+      await autoDetails.locator('summary').click();
+    }
+    
     await expect(page.locator('#ft-upload-area')).toBeVisible();
     await expect(page.locator('.upload-icon')).toContainText('📷');
     await expect(page.locator('#ft-upload-area')).toContainText('Drop food image here');
   });
 
   test('should render camera and browse buttons', async ({ page }) => {
+    // Open Automated AI Analysis dropdown if closed
+    const autoDetails = page.locator('details.auto-workflow');
+    const isOpen = await autoDetails.evaluate(el => el.open);
+    if (!isOpen) {
+      await autoDetails.locator('summary').click();
+    }
+
     await expect(page.locator('#ft-camera-btn')).toBeVisible();
     await expect(page.locator('#ft-browse-btn')).toBeVisible();
     await expect(page.locator('#ft-camera-btn')).toContainText('Take Photo');
@@ -33,6 +47,13 @@ test.describe('Food Tracker UI Components', () => {
   });
 
   test('should render photo title input', async ({ page }) => {
+    // Open Automated AI Analysis dropdown if closed
+    const autoDetails = page.locator('details.auto-workflow');
+    const isOpen = await autoDetails.evaluate(el => el.open);
+    if (!isOpen) {
+      await autoDetails.locator('summary').click();
+    }
+
     await expect(page.locator('#ft-title-section')).toBeVisible();
     await expect(page.locator('#ft-photo-title')).toBeVisible();
     await expect(page.locator('#ft-title-section label')).toContainText('Photo Title');
@@ -49,9 +70,16 @@ test.describe('Food Tracker UI Components', () => {
   });
 
   test('should render manual LLM section with prompt and response areas', async ({ page }) => {
+    // Ensure manual workflow dropdown is open (it's open by default if no API, but let's be safe)
+    const manualDetails = page.locator('details.manual-workflow');
+    const isOpen = await manualDetails.evaluate(el => el.open);
+    if (!isOpen) {
+      await manualDetails.locator('summary').click();
+    }
+
     await expect(page.locator('#ft-manual-section')).toBeVisible();
     await expect(page.locator('#ft-manual-section h3')).toContainText('Your Dedicated AI Nutritionist');
-    await expect(page.locator('.section-description')).toContainText('Copy the prompt below');
+    await expect(page.locator('.section-description')).toContainText('Step 1');
 
     // Prompt generator
     await expect(page.locator('#ft-prompt-output')).toBeVisible();
@@ -83,6 +111,13 @@ test.describe('Food Tracker UI Components', () => {
   });
 
   test('should update prompt when photo title changes', async ({ page }) => {
+    // Open Automated AI Analysis dropdown to reach title input
+    const autoDetails = page.locator('details.auto-workflow');
+    const isOpen = await autoDetails.evaluate(el => el.open);
+    if (!isOpen) {
+      await autoDetails.locator('summary').click();
+    }
+
     const initialPrompt = await page.locator('#ft-prompt-output').inputValue();
 
     await page.fill('#ft-photo-title', 'Spanish Paella with Seafood');

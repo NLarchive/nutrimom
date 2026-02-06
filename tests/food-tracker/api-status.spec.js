@@ -40,7 +40,16 @@ test.describe('Food Tracker API Status', () => {
   });
 
   test('should still show all Food Tracker components despite no API', async ({ page }) => {
-    // All core components should be visible regardless of API status
+    // Open dropdowns if they are closed to verify internal components
+    for (const selector of ['details.manual-workflow', 'details.auto-workflow']) {
+      const details = page.locator(selector);
+      const isOpen = await details.evaluate(el => el.open);
+      if (!isOpen) {
+        await details.locator('summary').click();
+      }
+    }
+
+    // All core components should be visible when dropdowns are open
     await expect(page.locator('#ft-upload-area')).toBeVisible();
     await expect(page.locator('#ft-camera-btn')).toBeVisible();
     await expect(page.locator('#ft-browse-btn')).toBeVisible();
