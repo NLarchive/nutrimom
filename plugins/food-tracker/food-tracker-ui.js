@@ -188,6 +188,19 @@ class FoodTrackerUI {
           <p class="tracker-subtitle">Track your meals & automated nutritional analysis</p>
         </div>
 
+        <!-- Global Meal Context -->
+        <div class="tracker-global-settings">
+          <div class="meal-type-selector" id="ft-meal-selector">
+            <label>I am logging:</label>
+            <div class="meal-options">
+              <button class="meal-option" data-meal="breakfast">🌅 Breakfast</button>
+              <button class="meal-option" data-meal="lunch">☀️ Lunch</button>
+              <button class="meal-option" data-meal="dinner">🌙 Dinner</button>
+              <button class="meal-option active" data-meal="snack">🍎 Snack</button>
+            </div>
+          </div>
+        </div>
+
         <!-- Manual AI Tracker (Dropdown) -->
         <details class="tracker-workflow-dropdown manual-workflow" ${!hasApi ? 'open' : ''}>
           <summary class="workflow-summary">
@@ -286,16 +299,6 @@ class FoodTrackerUI {
               </div>
 
               <!-- Meal Type Selection -->
-              <div class="meal-type-selector" id="ft-meal-selector">
-                <label>Meal Type:</label>
-                <div class="meal-options">
-                  <button class="meal-option" data-meal="breakfast">🌅 Breakfast</button>
-                  <button class="meal-option" data-meal="lunch">☀️ Lunch</button>
-                  <button class="meal-option" data-meal="dinner">🌙 Dinner</button>
-                  <button class="meal-option active" data-meal="snack">🍎 Snack</button>
-                </div>
-              </div>
-
               <button class="btn btn-analyze" id="ft-analyze-btn" style="display: none;">
                 🔍 Analyze Food
               </button>
@@ -452,6 +455,7 @@ class FoodTrackerUI {
         document.querySelectorAll('.meal-option').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         this.selectedMealType = btn.dataset.meal;
+        this._updatePrompt(); // Update prompt when meal type changes
       });
     });
 
@@ -875,9 +879,11 @@ class FoodTrackerUI {
    */
   _getManualPrompt() {
     const photoTitle = this.elements.photoTitle?.value?.trim() || '';
+    const mealType = this.selectedMealType || 'snack';
     const titleContext = photoTitle 
       ? `\n\nPHOTO CONTEXT: The user identifies this image as "${photoTitle}". Use this as your primary identification guide.\n` 
       : '';
+    const mealTypedContext = `\nMEAL TYPE: This is for ${mealType.toUpperCase()}.\n`;
 
     // Generate dynamic user context string
     let userPersona = 'a general adult';
@@ -896,7 +902,7 @@ class FoodTrackerUI {
     return `FOOD IMAGE NUTRITIONAL ANALYSIS REQUEST
 
 USER PROFILE: Analysis is for a ${userPersona}. 
-Please tailor "pregnancy_relevant_notes" specifically to this profile.${titleContext}
+Please tailor "pregnancy_relevant_notes" specifically to this profile.${mealTypedContext}${titleContext}
 
 ROLE: You are a highly precise nutrition expert and vision AI. 
 TASK: Analyze the food image provided and estimate its nutritional content for the ENTIRE MEAL shown (NOT per 100g).

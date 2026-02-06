@@ -358,19 +358,29 @@
   right: 0.5rem;
 }
 
+.tracker-global-settings {
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
 /* ─────────────────────────────────────────────────────────────────────────────
    Meal Type Selector
    ───────────────────────────────────────────────────────────────────────────── */
 
 .meal-type-selector {
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .meal-type-selector label {
   display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: #4a5568;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 1.1rem;
 }
 
 .meal-options {
