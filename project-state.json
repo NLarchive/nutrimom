@@ -569,6 +569,31 @@
         "plugins/food-tracker/food-tracker.css - Updated .manual-llm-section and .api-status-banner with consistent max-width/centering layout",
         "tests/food-tracker/*.spec.js - Updated test expectations to match new content"
       ]
+    },
+    {
+      "task_name": "Food Tracker UI Cleanup & Collapsible Containers",
+      "description": "Implemented collapsible dropdown containers for Manual and Automated tracking sections. Reordered automated fields (Title first, then Photo). Added AI-only warning for automated section. Updated tests to match new structure and validated passing status.",
+      "start_date": "2026-02-06",
+      "end_date": "2026-02-06",
+      "priority": "Medium",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 2,
+      "actual_hours": 2,
+      "is_critical_path": false,
+      "tags": ["UI", "UX", "Food Tracker", "Refactoring", "Collapsible"],
+      "category_name": "UI/UX",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "UX Enhancement: D.I.Y. Tracking Visibility", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "plugins/food-tracker/food-tracker-ui.js - Added _renderCollapsibleContainer utility, restructured UI with Details/Summary, reordered fields, added AI warning",
+        "plugins/food-tracker/food-tracker.css - Added styles for summary/details and warning banners",
+        "tests/food-tracker/ui-components.spec.js - Updated tests for new container structure"
+      ]
     }
   ],
   "milestones": [
@@ -619,6 +644,12 @@
       "date": "2026-02-06",
       "status": "Completed",
       "description": "Full IOM DRI data for pregnancy (T1-T3) and lactation (0-6mo, 7-12mo), nutrient comparison engine with insights"
+    },
+    {
+      "name": "Food Tracker UI Optimized",
+      "date": "2026-02-06",
+      "status": "Completed",
+      "description": "Food Tracker UI restructured with collapsible containers, reordered fields, and improved AI warnings."
     }
   ],
   "required_fields": [
