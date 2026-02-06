@@ -155,7 +155,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           const profile = data.profile;
           const sanitizedProfile = {
             ageYears: sanitizeNumber(profile.ageYears, 14, 60),
-            sex: ['male', 'female'].includes(profile.sex) ? profile.sex : null,
+            // The system supports 'male' for future project recycling, 
+            // even though the current UI is female-focused.
+            sex: ['male', 'female'].includes(profile.sex) ? profile.sex : 'female',
             weightKg: sanitizeNumber(profile.weightKg, 30, 250),
             heightCm: sanitizeNumber(profile.heightCm, 100, 250),
             activityLevel: ['sedentary', 'lightly_active', 'moderately_active', 'very_active', 'extra_active'].includes(profile.activityLevel) 
@@ -306,6 +308,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   // Sex change - show/hide pregnancy section
+  // NOTE: This field is currently hidden in index.html to focus on pregnancy.
+  // We keep this event listener so the logic remains functional if the field is re-enabled
+  // for other nutrition projects.
   sexSelect.addEventListener('change', () => {
     pregnancySection.style.display = sexSelect.value === 'female' ? 'block' : 'none';
   });

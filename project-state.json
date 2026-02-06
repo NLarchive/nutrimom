@@ -643,6 +643,51 @@
         "tests/food-tracker/api-status.spec.js - Updated visibility checks for collapsible sections",
         "Verified all 78 tests passing (18.7s on chromium)"
       ]
+    },
+    {
+      "task_name": "Profile UI Optimization: Female-Only Restriction",
+      "description": "Restricted profile settings to female-only for NutriMom specialization. Hidden the sex selection field in the UI. Set the pregnancy/lactation section to be visible by default. Updated E2E tests and test helpers to accommodate UI changes.",
+      "start_date": "2026-02-06",
+      "end_date": "2026-02-06",
+      "priority": "Medium",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 2,
+      "actual_hours": 2,
+      "is_critical_path": false,
+      "tags": ["UI", "UX", "Restriction", "Female-Only", "Testing", "Playwright"],
+      "category_name": "UI/UX",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Food Tracker E2E Test Fixes (Collapsible UI)", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "index.html - Hidden sex field, set female as default, showed pregnancy section by default",
+        "tests/helpers/test-data.js - Updated selectors/actions to handle hidden sex field",
+        "tests/calculator/profile-form.spec.js - Updated tests for female-only profile flow"
+      ]
+    },
+    {
+      "task_name": "Engine recycling documentation & Test Automation",
+      "description": "Added documentation to preserve male system logic for future use. Configured Playwright to run unattended without auto-opening reports.",
+      "start_date": "2026-02-06",
+      "end_date": "2026-02-06",
+      "priority": "Medium",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 1,
+      "actual_hours": 1,
+      "is_critical_path": false,
+      "tags": ["documentation", "test-automation", "recycling", "maintenance"],
+      "category_name": "Documentation",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Profile UI Optimization: Female-Only Restriction", "type": "FS", "lag_days": 0 }
+      ]
     }
   ],
   "milestones": [
@@ -705,6 +750,12 @@
       "date": "2026-02-06",
       "status": "Completed",
       "description": "Meal type selector relocated to global header and integrated into AI prompt generation."
+    },
+    {
+      "name": "Female-Only Profile Restriction",
+      "date": "2026-02-06",
+      "status": "Completed",
+      "description": "Simplified user profile flow by restricting sex to female and making pregnancy options visible by default."
     }
   ],
   "required_fields": [

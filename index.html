@@ -59,13 +59,15 @@
                 <input type="number" id="age" name="ageYears" min="14" max="60" placeholder="28" required>
               </div>
 
-              <div class="form-group">
+              <!-- Sex field is hidden to simplify the UI for the target (pregnancy) demographic.
+                   The underlying engine and this structure still support 'male' for future 
+                   recycling in other nutrition tools. -->
+              <div class="form-group" style="display: none;">
                 <label for="sex">
                   <span class="label-text">Sex</span>
                 </label>
-                <select id="sex" name="sex" required>
-                  <option value="">Select sex</option>
-                  <option value="female">Female</option>
+                <select id="sex" name="sex">
+                  <option value="female" selected>Female</option>
                   <option value="male">Male</option>
                 </select>
               </div>
@@ -104,8 +106,8 @@
             </div>
           </div>
 
-          <!-- Pregnancy/Lactation Card (Female Only) -->
-          <div class="form-card pregnancy-card" id="pregnancy-section" style="display: none;">
+          <!-- Pregnancy/Lactation Card -->
+          <div class="form-card pregnancy-card" id="pregnancy-section" style="display: block;">
             <h3 class="form-card-title">
               <span class="title-icon">👶</span>
               Pregnancy & Lactation Status

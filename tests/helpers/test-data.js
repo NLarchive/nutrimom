@@ -178,13 +178,12 @@ async function navigateToTracker(page) {
  */
 async function fillProfile(page, opts = {}) {
   const age = opts.age || '28';
-  const sex = opts.sex || 'female';
   const weight = opts.weight || '65';
   const height = opts.height || '165';
   const activity = opts.activity || 'lightly_active';
 
   await page.fill('#age', age);
-  await page.selectOption('#sex', sex);
+  // Sex is now pre-fixed to "female" and hidden in the UI
   await page.fill('#weight', weight);
   await page.fill('#height', height);
   await page.selectOption('#activity', activity);

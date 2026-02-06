@@ -71,3 +71,9 @@ D:\web\web-maternity\README.md
 
 update state and tasks on:
 "D:\web\web-maternity\project-state.json"
+
+Latest Update:
+- Restructured profile form to be female-only (hidden sex field).
+- Added comments to NutritionEngine regarding male system preservation for future recycling.
+- Configured Playwright to run unattended (disabled auto-open of HTML reports).
+- All 78 tests verified.

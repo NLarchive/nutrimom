@@ -92,6 +92,10 @@ class NutritionEngine {
    * @param {boolean} profile.isLactating - Is the user lactating
    * @param {number} profile.lactationMonths - Months postpartum
    * @returns {string} Life stage code
+   * 
+   * NOTE: While this app currently targets pregnancy (female only), 
+   * the 'male' logic is preserved here to allow recycling this engine 
+   * for other nutrition projects in the future.
    */
   getLifeStage(profile) {
     const { sex, isPregnant, pregnancyWeek, isLactating, lactationMonths } = profile;
@@ -144,6 +148,8 @@ class NutritionEngine {
    * @param {number} params.heightCm - Height in centimeters
    * @param {number} params.ageYears - Age in years
    * @returns {number} BMR in kcal/day
+   * 
+   * NOTE: Male BMR logic is preserved for future engine recycling.
    */
   calculateBMR({ sex, weightKg, heightCm, ageYears }) {
     // Mifflin-St Jeor Equation
