@@ -594,6 +594,30 @@
         "plugins/food-tracker/food-tracker.css - Added styles for summary/details and warning banners",
         "tests/food-tracker/ui-components.spec.js - Updated tests for new container structure"
       ]
+    },
+    {
+      "task_name": "Global Meal Selection & Prompt Optimization",
+      "description": "Relocated the Meal Type selector to be a global setting at the top of the Food Tracker for better visibility. Updated the manual AI prompt generator to include the selected meal type context in instructions. Ensured UI consistency with new CSS styling for the global settings area.",
+      "start_date": "2026-02-06",
+      "end_date": "2026-02-06",
+      "priority": "Medium",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 2,
+      "actual_hours": 2,
+      "is_critical_path": false,
+      "tags": ["UI", "UX", "Food-Tracker", "Meal-Type", "AI-Prompt"],
+      "category_name": "UI/UX",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Food Tracker UI Cleanup & Collapsible Containers", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "plugins/food-tracker/food-tracker-ui.js - Moved meal selector to top, updated _getManualPrompt with MEAL TYPE context",
+        "plugins/food-tracker/food-tracker.css - Added .tracker-global-settings and updated meal-option styles"
+      ]
     }
   ],
   "milestones": [
@@ -650,6 +674,12 @@
       "date": "2026-02-06",
       "status": "Completed",
       "description": "Food Tracker UI restructured with collapsible containers, reordered fields, and improved AI warnings."
+    },
+    {
+      "name": "Global Meal Context Integrated",
+      "date": "2026-02-06",
+      "status": "Completed",
+      "description": "Meal type selector relocated to global header and integrated into AI prompt generation."
     }
   ],
   "required_fields": [
