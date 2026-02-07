@@ -688,6 +688,73 @@
       "dependencies": [
         { "predecessor_task_name": "Profile UI Optimization: Female-Only Restriction", "type": "FS", "lag_days": 0 }
       ]
+    },
+    {
+      "task_name": "Food Log Dashboard & Multi-Day Memory",
+      "description": "Comprehensive multi-day food tracking system with dashboard visualization. Extended FoodTrackerEngine with metadata tracking (_meta), day transition detection, weekly averages, and import/export payloads. Created FoodLogDashboard component with summary cards (days tracked, total meals, avg calories/protein/folate/iron), CSS-based weekly bar charts (calories + protein with target lines), horizontal micronutrient progress bars, AI-generated insights (consistency, calorie trends, protein/folate/iron warnings), and a full day-by-day table with macro/micronutrient columns. Added Log navigation tab to SPA. Created importable sample-week-log.json with 7 days of realistic pregnancy nutrition data (22 meals, full macro+micronutrient profiles). Cache-DB architecture with server-sync readiness (_meta.syncStatus, lastSyncDate).",
+      "start_date": "2026-02-07",
+      "end_date": "2026-02-07",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 8,
+      "actual_hours": 8,
+      "is_critical_path": true,
+      "tags": ["food-tracker", "dashboard", "multi-day", "visualization", "charts", "insights", "import", "log", "cache-db"],
+      "category_name": "Core Development",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Nutrient Data Improvements & Comparison Engine", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "data/sample-week-log.json - 7 days (2026-02-01 to 2026-02-07), 22 meals, full macro+micronutrient data, importable format v2.0",
+        "plugins/food-tracker/food-tracker-engine.js - Added _meta management, day transition detection, getAllDaysSummary(), getWeeklyAverages(), importFoodLog(), getExportPayload()",
+        "plugins/food-tracker/food-log-dashboard.js - New FoodLogDashboard class: summary cards, weekly bar charts, micronutrient bars, insights engine, day table",
+        "plugins/food-tracker/food-log-dashboard.css - Complete responsive dashboard styles with charts, cards, tables",
+        "plugins/food-tracker/index.js - Dashboard integration, getDashboard(), setUserTargets propagation",
+        "index.html - Added Log nav tab, #log-view container, dashboard CSS/JS references",
+        "js/app.js - Log view navigation refresh handler",
+        "tests/food-tracker/log-import.spec.js - 20 E2E tests: navigation, import, data integrity, dashboard rendering, summary cards, charts, table, insights"
+      ],
+      "features": [
+        "Multi-day memory with metadata tracking (firstEntryDate, lastEntryDate, totalDaysLogged, totalMealsLogged)",
+        "Day transition detection - auto-marks past days as completed",
+        "Weekly averages with calorie/protein trend analysis (rising/falling/stable)",
+        "CSS-based vertical bar charts for daily calories and protein with target lines",
+        "Horizontal micronutrient progress bars (folate, iron, calcium, vitD, zinc, omega-3, vitC, vitA)",
+        "AI-driven insights: tracking consistency, calorie adequacy, protein deficit, folate/iron warnings, meal variety",
+        "Day-by-day table with status, meal emojis, calories, protein, carbs, fat, iron, folate, calcium",
+        "Cache-DB architecture with syncStatus and lastSyncDate fields for future server integration",
+        "Import/export payload system with version tracking"
+      ],
+      "notes": "97 chromium tests passing (24.6s). 1 pre-existing flaky test (nutrimom-basic upload area visibility behind collapsible). All 20 new log-import tests pass."
+    },
+    {
+      "task_name": "Fat Macronutrient Unit Correction & AMDR Logic",
+      "description": "Fixed critical bug where Fat was displayed as a percentage and immediately appeared 'met' regardless of intake. Implemented AMDR to gram conversion in NutritionEngine: Fat targets are now dynamically calculated in grams (Energy kcal * AMDR% / 9) based on the user's total daily calorie target. Updated FoodTrackerEngine to prioritize calculated gram targets over raw AMDR percentages. Fixed energy_kcal target synchronization. Restored 'Fat (g)' display in Food Tracker UI with correct 'Left' value logic.",
+      "start_date": "2026-02-07",
+      "end_date": "2026-02-07",
+      "priority": "Critical",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 2,
+      "actual_hours": 2,
+      "is_critical_path": true,
+      "tags": ["bugfix", "nutrition-logic", "AMDR", "fat-unit", "calculations", "macro-tracking"],
+      "category_name": "Core Development",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Food Log Dashboard & Multi-Day Memory", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "js/nutrition-engine.js - Added AMDR-to-gram conversion logic for fat_g and carbs_g; ensured energy_kcal synchronization",
+        "plugins/food-tracker/food-tracker-engine.js - Updated _extractTargetValue to prioritize calculated 'target' property highest",
+        "plugins/food-tracker/food-tracker-ui.js - Verified unit rendering for macros to ensure gram-based display"
+      ]
     }
   ],
   "milestones": [
@@ -701,7 +768,7 @@
       "name": "Testing Complete",
       "date": "2026-02-06",
       "status": "Completed",
-      "description": "78 modular E2E tests passing across 9 spec files (chromium, 13.1s). Fixed collapsible UI interaction bugs."
+      "description": "78 modular E2E tests passing across 9 spec files (chromium, 13.1s). Fixed collapsible UI interaction bugs. Updated to 98 tests across 10 spec files including food log import tests."
     },
     {
       "name": "Food Tracker Plugin Complete",
@@ -756,6 +823,12 @@
       "date": "2026-02-06",
       "status": "Completed",
       "description": "Simplified user profile flow by restricting sex to female and making pregnancy options visible by default."
+    },
+    {
+      "name": "Food Log Dashboard & Multi-Day Tracking",
+      "date": "2026-02-07",
+      "status": "Completed",
+      "description": "Multi-day food tracking with dashboard visualization (summary cards, weekly charts, micronutrient bars, insights, day table), Cache-DB architecture, importable sample data, 20 new E2E tests. 98 total chromium tests."
     }
   ],
   "required_fields": [

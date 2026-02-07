@@ -1,0 +1,486 @@
+/**
+ * Food Log Dashboard Styles
+ * 
+ * @author Nicolas Ivan Larenas Bustamante
+ * @license CC-BY-NC-SA-4.0
+ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Dashboard Layout
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.log-dashboard {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.log-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.log-header h2 {
+  font-size: 1.75rem;
+  color: #2d3748;
+  margin: 0 0 0.5rem 0;
+}
+
+.log-subtitle {
+  color: #718096;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.log-section {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.log-section h3 {
+  color: #2d3748;
+  margin: 0 0 1rem 0;
+  font-size: 1.15rem;
+}
+
+.section-note {
+  color: #718096;
+  font-size: 0.85rem;
+  margin: -0.5rem 0 1rem 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Empty State
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.log-empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #a0aec0;
+}
+
+.log-empty-state .empty-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.log-empty-state h3 {
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+.log-empty-state p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Summary Cards
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.log-summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.log-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: 1.25rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.log-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.log-card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.log-card-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2d3748;
+  line-height: 1.2;
+}
+
+.log-card-label {
+  font-size: 0.8rem;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.25rem;
+}
+
+.log-card.accent-folate { border-bottom: 3px solid #48bb78; }
+.log-card.accent-iron { border-bottom: 3px solid #e53e3e; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Weekly Bar Chart
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.log-charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.log-chart-container {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.log-chart-container h4 {
+  color: #4a5568;
+  font-size: 0.9rem;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 200px;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 100%;
+  gap: 4px;
+  padding-bottom: 24px;
+}
+
+.chart-bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.chart-bar-value {
+  font-size: 0.7rem;
+  color: #4a5568;
+  font-weight: 600;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.chart-bar-track {
+  width: 100%;
+  max-width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
+}
+
+.chart-bar-fill {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.5s ease;
+  min-height: 4px;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+}
+
+.chart-bar-fill.protein {
+  background: linear-gradient(180deg, #48bb78 0%, #38a169 100%);
+}
+
+.chart-bar-fill.on-track {
+  opacity: 1;
+}
+
+.chart-bar-fill.below {
+  opacity: 0.65;
+}
+
+.chart-bar-label {
+  font-size: 0.7rem;
+  color: #718096;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.chart-target-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 2px dashed #e53e3e;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.chart-target-line span {
+  position: absolute;
+  right: 0;
+  top: -18px;
+  font-size: 0.65rem;
+  color: #e53e3e;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Micronutrient Bars
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.micro-bars-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.micro-bar-item {
+  display: grid;
+  grid-template-columns: 160px 1fr 50px;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.micro-bar-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.micro-name {
+  font-weight: 500;
+  color: #2d3748;
+  font-size: 0.9rem;
+}
+
+.micro-values {
+  font-size: 0.75rem;
+  color: #a0aec0;
+}
+
+.micro-bar-track {
+  height: 10px;
+  background: #edf2f7;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.micro-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.5s ease;
+  min-width: 4px;
+}
+
+.micro-pct {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.micro-met { color: #38a169; }
+.micro-close { color: #68d391; }
+.micro-low { color: #d69e2e; }
+.micro-deficient { color: #e53e3e; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Insights
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.log-insights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.log-insight {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.log-insight p {
+  margin: 0;
+}
+
+.insight-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.log-insight-success {
+  background: linear-gradient(135deg, #c6f6d520, #9ae6b420);
+  border-left: 4px solid #38a169;
+  color: #22543d;
+}
+
+.log-insight-info {
+  background: linear-gradient(135deg, #bee3f820, #63b3ed20);
+  border-left: 4px solid #4299e1;
+  color: #2a4365;
+}
+
+.log-insight-warning {
+  background: linear-gradient(135deg, #fefcbf20, #fbbf2420);
+  border-left: 4px solid #d69e2e;
+  color: #744210;
+}
+
+.log-insight-critical {
+  background: linear-gradient(135deg, #fed7d720, #fc818120);
+  border-left: 4px solid #e53e3e;
+  color: #742a2a;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Day Table
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.log-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.log-table thead th {
+  background: #f7fafc;
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.75rem 0.6rem;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+.log-table tbody td {
+  padding: 0.75rem 0.6rem;
+  border-bottom: 1px solid #edf2f7;
+  color: #2d3748;
+}
+
+.log-table-row:hover {
+  background: #f7fafc;
+}
+
+.log-table-row.row-today {
+  background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+  font-weight: 500;
+}
+
+.col-status {
+  width: 30px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.col-date {
+  white-space: nowrap;
+}
+
+.day-name {
+  font-weight: 600;
+  color: #2d3748;
+  margin-right: 0.35rem;
+}
+
+.date-str {
+  color: #718096;
+  font-size: 0.82rem;
+}
+
+.col-meals {
+  white-space: nowrap;
+}
+
+.meals-count {
+  font-weight: 600;
+  color: #4a5568;
+  margin-left: 0.25rem;
+}
+
+.col-cal {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.col-protein, .col-carbs, .col-fat {
+  color: #4a5568;
+}
+
+.col-iron { color: #e53e3e; }
+.col-folate { color: #38a169; }
+.col-calcium { color: #4299e1; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Responsive
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .log-summary-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .log-charts-row {
+    grid-template-columns: 1fr;
+  }
+
+  .micro-bar-item {
+    grid-template-columns: 120px 1fr 45px;
+  }
+
+  .log-table {
+    font-size: 0.8rem;
+  }
+
+  .log-table thead th,
+  .log-table tbody td {
+    padding: 0.5rem 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .log-dashboard {
+    padding: 1rem;
+  }
+
+  .log-summary-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .log-card-value {
+    font-size: 1.35rem;
+  }
+
+  .micro-bar-item {
+    grid-template-columns: 100px 1fr 40px;
+  }
+
+  .micro-name {
+    font-size: 0.8rem;
+  }
+}

@@ -37,6 +37,12 @@ test.describe('NutriMom Basic Tests', () => {
     
     // Check core UI elements are present
     await expect(page.locator('h2:has-text("Daily Food Tracker")')).toBeVisible();
+
+    // Ensure automated workflow section is expanded to show upload area (auto disabled by default when no API)
+    const autoSummary = page.locator('details.auto-workflow summary');
+    await autoSummary.click();
+    await page.waitForTimeout(200);
+
     await expect(page.locator('#ft-upload-area')).toBeVisible();
     await expect(page.locator('#ft-camera-btn')).toBeVisible();
     await expect(page.locator('#ft-browse-btn')).toBeVisible();

@@ -649,6 +649,37 @@
   font-size: 0.8rem;
   color: #718096;
   text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.left-to-eat {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left-val {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.left-to-eat.pending .left-val {
+  color: #f59e0b;
+}
+
+.left-to-eat.met .left-val {
+  color: #10b981;
+}
+
+.left-label {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -756,8 +787,22 @@
 }
 
 .nutrient-comparison h3 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: #2d3748;
+}
+
+.nutrient-comparison-header {
+  display: grid;
+  grid-template-columns: 1.2fr 1.5fr 1fr 50px;
+  gap: 1rem;
+  padding: 0 0 0.75rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .nutrient-bars {
@@ -768,7 +813,7 @@
 
 .nutrient-bar-item {
   display: grid;
-  grid-template-columns: 1fr 2fr auto;
+  grid-template-columns: 1.2fr 1.5fr 1fr 50px;
   gap: 1rem;
   align-items: center;
 }
@@ -779,22 +824,54 @@
   gap: 0.15rem;
 }
 
-.nutrient-bar-label span:first-child {
-  font-weight: 500;
-  color: #2d3748;
+.nutrient-bar-label strong {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.95rem;
 }
 
-.nutrient-bar-label span:last-child {
-  font-size: 0.8rem;
-  color: #a0aec0;
+.nutrient-bar-label .nutrient-bar-values {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.nutrient-bar-track-container {
+  width: 100%;
 }
 
 .nutrient-bar-track {
-  height: 12px;
-  background: #edf2f7;
-  border-radius: 6px;
+  height: 10px;
+  background: #f1f5f9;
+  border-radius: 5px;
   overflow: hidden;
   position: relative;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.nutrient-remaining-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+.remaining-value {
+  font-weight: 700;
+  color: #475569;
+}
+
+.nutrient-remaining-column.met .remaining-value {
+  color: #10b981;
+}
+
+.nutrient-remaining-column.pending .remaining-value {
+  color: #f59e0b;
+}
+
+.remaining-unit {
+  font-size: 0.7rem;
+  color: #94a3b8;
 }
 
 .nutrient-bar-fill {
@@ -856,19 +933,29 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .nutrient-comparison-header {
+    display: none;
+  }
+
   .nutrient-bar-item {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "label percent"
+      "track track"
+      "remaining .";
     gap: 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f1f5f9;
   }
 
-  .nutrient-bar-label {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .nutrient-bar-percent {
-    text-align: left;
-    min-width: auto;
+  .nutrient-bar-label { grid-area: label; }
+  .nutrient-bar-percent { grid-area: percent; text-align: right; }
+  .nutrient-bar-track-container { grid-area: track; }
+  .nutrient-remaining-column { 
+    grid-area: remaining; 
+    flex-direction: row; 
+    align-items: baseline; 
+    gap: 0.25rem;
   }
 
   .upload-actions {

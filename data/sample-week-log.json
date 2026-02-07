@@ -1,0 +1,715 @@
+{
+  "version": "2.0",
+  "exportDate": "2026-02-07T16:00:00.000Z",
+  "profile": {
+    "ageYears": 28,
+    "sex": "female",
+    "weightKg": 67,
+    "heightCm": 165,
+    "activityLevel": "moderately_active",
+    "isPregnant": true,
+    "pregnancyWeek": 24,
+    "prePregnancyWeightKg": 62,
+    "isLactating": false,
+    "lactationMonths": null,
+    "isMultiples": false
+  },
+  "plan": null,
+  "foodLog": {
+    "_meta": {
+      "version": "2.0",
+      "firstEntryDate": "2026-02-01",
+      "lastEntryDate": "2026-02-07",
+      "lastModified": "2026-02-07T13:05:00.000Z",
+      "totalDaysLogged": 7,
+      "totalMealsLogged": 22,
+      "syncStatus": "local_only",
+      "lastSyncDate": null
+    },
+    "2026-02-01": {
+      "date": "2026-02-01",
+      "completed": true,
+      "completedAt": "2026-02-01T23:59:59.000Z",
+      "meals": [
+        {
+          "id": "meal_20260201_0815",
+          "timestamp": "2026-02-01T08:15:00.000Z",
+          "meal_type": "breakfast",
+          "food_items": [
+            {
+              "name": "Oatmeal with milk",
+              "quantity": 1,
+              "unit": "cup",
+              "estimated_weight_g": 240,
+              "preparation_method": "boiled",
+              "nutrients": { "energy_kcal": 165, "protein_g": 6.0, "carbs_g": 28.0, "fat_g": 3.5, "fiber_g": 4.0, "sugar_g": 1.0, "sodium_mg": 115, "saturated_fat_g": 0.7 },
+              "micronutrients": { "vitamin_a_ug": 45, "vitamin_c_mg": 0, "vitamin_d_ug": 1.0, "folate_ug": 14, "iron_mg": 1.7, "calcium_mg": 130, "zinc_mg": 1.5, "omega3_mg": 25 }
+            },
+            {
+              "name": "Blueberries",
+              "quantity": 0.5,
+              "unit": "cup",
+              "estimated_weight_g": 74,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 42, "protein_g": 0.5, "carbs_g": 10.7, "fat_g": 0.2, "fiber_g": 1.8, "sugar_g": 7.4, "sodium_mg": 1, "saturated_fat_g": 0 },
+              "micronutrients": { "vitamin_a_ug": 2, "vitamin_c_mg": 7.2, "vitamin_d_ug": 0, "folate_ug": 4, "iron_mg": 0.2, "calcium_mg": 4, "zinc_mg": 0.1, "omega3_mg": 45 }
+            }
+          ],
+          "totals": { "energy_kcal": 207, "protein_g": 6.5, "carbs_g": 38.7, "fat_g": 3.7, "fiber_g": 5.8, "sodium_mg": 116 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Oatmeal provides fiber for digestive health during pregnancy", "Blueberries are rich in antioxidants"]
+        },
+        {
+          "id": "meal_20260201_1230",
+          "timestamp": "2026-02-01T12:30:00.000Z",
+          "meal_type": "lunch",
+          "food_items": [
+            {
+              "name": "Grilled chicken breast",
+              "quantity": 1,
+              "unit": "piece",
+              "estimated_weight_g": 150,
+              "preparation_method": "grilled",
+              "nutrients": { "energy_kcal": 248, "protein_g": 46.5, "carbs_g": 0, "fat_g": 5.4, "fiber_g": 0, "sugar_g": 0, "sodium_mg": 104, "saturated_fat_g": 1.5 },
+              "micronutrients": { "vitamin_a_ug": 9, "vitamin_c_mg": 0, "vitamin_d_ug": 0.2, "folate_ug": 6, "iron_mg": 1.1, "calcium_mg": 15, "zinc_mg": 1.2, "omega3_mg": 40 }
+            },
+            {
+              "name": "Mixed green salad with avocado",
+              "quantity": 1.5,
+              "unit": "cup",
+              "estimated_weight_g": 180,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 145, "protein_g": 2.8, "carbs_g": 9.2, "fat_g": 11.5, "fiber_g": 5.4, "sugar_g": 1.8, "sodium_mg": 18, "saturated_fat_g": 1.8 },
+              "micronutrients": { "vitamin_a_ug": 85, "vitamin_c_mg": 15.0, "vitamin_d_ug": 0, "folate_ug": 78, "iron_mg": 0.9, "calcium_mg": 32, "zinc_mg": 0.5, "omega3_mg": 65 }
+            }
+          ],
+          "totals": { "energy_kcal": 393, "protein_g": 49.3, "carbs_g": 9.2, "fat_g": 16.9, "fiber_g": 5.4, "sodium_mg": 122 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Excellent protein source for fetal growth", "Avocado provides healthy fats for brain development"]
+        },
+        {
+          "id": "meal_20260201_1530",
+          "timestamp": "2026-02-01T15:30:00.000Z",
+          "meal_type": "snack",
+          "food_items": [
+            {
+              "name": "Apple with almond butter",
+              "quantity": 1,
+              "unit": "serving",
+              "estimated_weight_g": 215,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 195, "protein_g": 3.5, "carbs_g": 27.0, "fat_g": 9.5, "fiber_g": 4.5, "sugar_g": 19.0, "sodium_mg": 3, "saturated_fat_g": 0.9 },
+              "micronutrients": { "vitamin_a_ug": 5, "vitamin_c_mg": 8.5, "vitamin_d_ug": 0, "folate_ug": 10, "iron_mg": 0.6, "calcium_mg": 55, "zinc_mg": 0.5, "omega3_mg": 5 }
+            }
+          ],
+          "totals": { "energy_kcal": 195, "protein_g": 3.5, "carbs_g": 27.0, "fat_g": 9.5, "fiber_g": 4.5, "sodium_mg": 3 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Good source of fiber and healthy fats"]
+        },
+        {
+          "id": "meal_20260201_1900",
+          "timestamp": "2026-02-01T19:00:00.000Z",
+          "meal_type": "dinner",
+          "food_items": [
+            {
+              "name": "Grilled salmon fillet",
+              "quantity": 1,
+              "unit": "piece",
+              "estimated_weight_g": 170,
+              "preparation_method": "grilled",
+              "nutrients": { "energy_kcal": 350, "protein_g": 39.0, "carbs_g": 0, "fat_g": 21.0, "fiber_g": 0, "sugar_g": 0, "sodium_mg": 75, "saturated_fat_g": 4.0 },
+              "micronutrients": { "vitamin_a_ug": 15, "vitamin_c_mg": 0, "vitamin_d_ug": 14.5, "folate_ug": 44, "iron_mg": 0.7, "calcium_mg": 20, "zinc_mg": 0.8, "omega3_mg": 2260 }
+            },
+            {
+              "name": "Steamed broccoli",
+              "quantity": 1,
+              "unit": "cup",
+              "estimated_weight_g": 156,
+              "preparation_method": "steamed",
+              "nutrients": { "energy_kcal": 55, "protein_g": 3.7, "carbs_g": 11.2, "fat_g": 0.6, "fiber_g": 5.1, "sugar_g": 2.2, "sodium_mg": 64, "saturated_fat_g": 0.1 },
+              "micronutrients": { "vitamin_a_ug": 60, "vitamin_c_mg": 101.0, "vitamin_d_ug": 0, "folate_ug": 168, "iron_mg": 1.0, "calcium_mg": 62, "zinc_mg": 0.6, "omega3_mg": 186 }
+            },
+            {
+              "name": "Brown rice",
+              "quantity": 0.5,
+              "unit": "cup",
+              "estimated_weight_g": 100,
+              "preparation_method": "boiled",
+              "nutrients": { "energy_kcal": 110, "protein_g": 2.6, "carbs_g": 22.4, "fat_g": 0.9, "fiber_g": 1.8, "sugar_g": 0.4, "sodium_mg": 5, "saturated_fat_g": 0.2 },
+              "micronutrients": { "vitamin_a_ug": 0, "vitamin_c_mg": 0, "vitamin_d_ug": 0, "folate_ug": 4, "iron_mg": 0.5, "calcium_mg": 10, "zinc_mg": 0.6, "omega3_mg": 14 }
+            }
+          ],
+          "totals": { "energy_kcal": 515, "protein_g": 45.3, "carbs_g": 33.6, "fat_g": 22.5, "fiber_g": 6.9, "sodium_mg": 144 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Excellent omega-3 DHA from salmon for baby's brain development", "Broccoli is rich in folate"]
+        }
+      ],
+      "dailyTotals": {
+        "energy_kcal": 1310, "protein_g": 104.6, "carbs_g": 108.5, "fat_g": 52.6, "fiber_g": 22.6, "sodium_mg": 385,
+        "vitamin_a_ug": 221, "vitamin_c_mg": 131.7, "vitamin_d_ug": 15.7, "folate_ug": 328, "iron_mg": 6.7, "calcium_mg": 328, "zinc_mg": 5.8, "omega3_mg": 2640
+      }
+    },
+    "2026-02-02": {
+      "date": "2026-02-02",
+      "completed": true,
+      "completedAt": "2026-02-02T23:59:59.000Z",
+      "meals": [
+        {
+          "id": "meal_20260202_0900",
+          "timestamp": "2026-02-02T09:00:00.000Z",
+          "meal_type": "breakfast",
+          "food_items": [
+            {
+              "name": "Greek yogurt with granola and honey",
+              "quantity": 1,
+              "unit": "serving",
+              "estimated_weight_g": 250,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 310, "protein_g": 18.0, "carbs_g": 42.0, "fat_g": 8.5, "fiber_g": 2.5, "sugar_g": 22.0, "sodium_mg": 85, "saturated_fat_g": 3.5 },
+              "micronutrients": { "vitamin_a_ug": 12, "vitamin_c_mg": 0.5, "vitamin_d_ug": 0.5, "folate_ug": 18, "iron_mg": 0.8, "calcium_mg": 200, "zinc_mg": 1.2, "omega3_mg": 30 }
+            }
+          ],
+          "totals": { "energy_kcal": 310, "protein_g": 18.0, "carbs_g": 42.0, "fat_g": 8.5, "fiber_g": 2.5, "sodium_mg": 85 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Greek yogurt is an excellent source of calcium and protein"]
+        },
+        {
+          "id": "meal_20260202_1300",
+          "timestamp": "2026-02-02T13:00:00.000Z",
+          "meal_type": "lunch",
+          "food_items": [
+            {
+              "name": "Red lentil soup",
+              "quantity": 1.5,
+              "unit": "cup",
+              "estimated_weight_g": 360,
+              "preparation_method": "boiled",
+              "nutrients": { "energy_kcal": 270, "protein_g": 18.0, "carbs_g": 40.0, "fat_g": 3.5, "fiber_g": 12.0, "sugar_g": 5.0, "sodium_mg": 450, "saturated_fat_g": 0.5 },
+              "micronutrients": { "vitamin_a_ug": 120, "vitamin_c_mg": 5.0, "vitamin_d_ug": 0, "folate_ug": 180, "iron_mg": 3.5, "calcium_mg": 38, "zinc_mg": 1.8, "omega3_mg": 20 }
+            },
+            {
+              "name": "Whole wheat bread roll",
+              "quantity": 1,
+              "unit": "piece",
+              "estimated_weight_g": 60,
+              "preparation_method": "baked",
+              "nutrients": { "energy_kcal": 150, "protein_g": 5.0, "carbs_g": 27.0, "fat_g": 2.0, "fiber_g": 3.0, "sugar_g": 3.0, "sodium_mg": 250, "saturated_fat_g": 0.4 },
+              "micronutrients": { "vitamin_a_ug": 0, "vitamin_c_mg": 0, "vitamin_d_ug": 0, "folate_ug": 30, "iron_mg": 1.5, "calcium_mg": 50, "zinc_mg": 0.8, "omega3_mg": 15 }
+            }
+          ],
+          "totals": { "energy_kcal": 420, "protein_g": 23.0, "carbs_g": 67.0, "fat_g": 5.5, "fiber_g": 15.0, "sodium_mg": 700 },
+          "warnings": ["Higher sodium content from soup"],
+          "pregnancy_relevant_notes": ["Lentils are excellent for folate and iron during pregnancy", "High fiber helps with pregnancy-related constipation"]
+        },
+        {
+          "id": "meal_20260202_1930",
+          "timestamp": "2026-02-02T19:30:00.000Z",
+          "meal_type": "dinner",
+          "food_items": [
+            {
+              "name": "Lean beef strips stir-fry",
+              "quantity": 1,
+              "unit": "serving",
+              "estimated_weight_g": 140,
+              "preparation_method": "sauteed",
+              "nutrients": { "energy_kcal": 280, "protein_g": 32.0, "carbs_g": 2.0, "fat_g": 16.0, "fiber_g": 0, "sugar_g": 0, "sodium_mg": 65, "saturated_fat_g": 6.5 },
+              "micronutrients": { "vitamin_a_ug": 5, "vitamin_c_mg": 0, "vitamin_d_ug": 0.3, "folate_ug": 12, "iron_mg": 3.2, "calcium_mg": 18, "zinc_mg": 5.5, "omega3_mg": 30 }
+            },
+            {
+              "name": "Mixed vegetables (bell peppers, snap peas, carrots)",
+              "quantity": 1,
+              "unit": "cup",
+              "estimated_weight_g": 150,
+              "preparation_method": "sauteed",
+              "nutrients": { "energy_kcal": 65, "protein_g": 2.5, "carbs_g": 13.0, "fat_g": 0.5, "fiber_g": 3.5, "sugar_g": 6.0, "sodium_mg": 35, "saturated_fat_g": 0.1 },
+              "micronutrients": { "vitamin_a_ug": 450, "vitamin_c_mg": 65.0, "vitamin_d_ug": 0, "folate_ug": 40, "iron_mg": 0.8, "calcium_mg": 35, "zinc_mg": 0.4, "omega3_mg": 10 }
+            },
+            {
+              "name": "Jasmine rice",
+              "quantity": 0.75,
+              "unit": "cup",
+              "estimated_weight_g": 140,
+              "preparation_method": "boiled",
+              "nutrients": { "energy_kcal": 180, "protein_g": 3.5, "carbs_g": 40.0, "fat_g": 0.3, "fiber_g": 0.5, "sugar_g": 0, "sodium_mg": 2, "saturated_fat_g": 0.1 },
+              "micronutrients": { "vitamin_a_ug": 0, "vitamin_c_mg": 0, "vitamin_d_ug": 0, "folate_ug": 3, "iron_mg": 0.3, "calcium_mg": 5, "zinc_mg": 0.4, "omega3_mg": 5 }
+            }
+          ],
+          "totals": { "energy_kcal": 525, "protein_g": 38.0, "carbs_g": 55.0, "fat_g": 16.8, "fiber_g": 4.0, "sodium_mg": 102 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Beef is an excellent source of iron and zinc for pregnancy", "Colorful vegetables provide essential vitamins"]
+        }
+      ],
+      "dailyTotals": {
+        "energy_kcal": 1255, "protein_g": 79.0, "carbs_g": 164.0, "fat_g": 30.8, "fiber_g": 21.5, "sodium_mg": 887,
+        "vitamin_a_ug": 587, "vitamin_c_mg": 70.5, "vitamin_d_ug": 0.8, "folate_ug": 283, "iron_mg": 10.1, "calcium_mg": 346, "zinc_mg": 10.1, "omega3_mg": 110
+      }
+    },
+    "2026-02-03": {
+      "date": "2026-02-03",
+      "completed": true,
+      "completedAt": "2026-02-03T23:59:59.000Z",
+      "meals": [
+        {
+          "id": "meal_20260203_0745",
+          "timestamp": "2026-02-03T07:45:00.000Z",
+          "meal_type": "breakfast",
+          "food_items": [
+            {
+              "name": "Avocado toast on whole wheat",
+              "quantity": 2,
+              "unit": "slice",
+              "estimated_weight_g": 200,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 280, "protein_g": 7.5, "carbs_g": 30.0, "fat_g": 15.0, "fiber_g": 8.0, "sugar_g": 2.0, "sodium_mg": 280, "saturated_fat_g": 2.5 },
+              "micronutrients": { "vitamin_a_ug": 10, "vitamin_c_mg": 5.0, "vitamin_d_ug": 0, "folate_ug": 80, "iron_mg": 1.5, "calcium_mg": 30, "zinc_mg": 0.9, "omega3_mg": 70 }
+            },
+            {
+              "name": "Fried egg",
+              "quantity": 1,
+              "unit": "piece",
+              "estimated_weight_g": 50,
+              "preparation_method": "fried",
+              "nutrients": { "energy_kcal": 90, "protein_g": 6.3, "carbs_g": 0.4, "fat_g": 7.0, "fiber_g": 0, "sugar_g": 0.2, "sodium_mg": 95, "saturated_fat_g": 2.0 },
+              "micronutrients": { "vitamin_a_ug": 80, "vitamin_c_mg": 0, "vitamin_d_ug": 1.1, "folate_ug": 24, "iron_mg": 0.9, "calcium_mg": 28, "zinc_mg": 0.6, "omega3_mg": 40 }
+            }
+          ],
+          "totals": { "energy_kcal": 370, "protein_g": 13.8, "carbs_g": 30.4, "fat_g": 22.0, "fiber_g": 8.0, "sodium_mg": 375 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Eggs provide choline essential for fetal brain development", "Avocado is rich in folate and healthy fats"]
+        },
+        {
+          "id": "meal_20260203_1215",
+          "timestamp": "2026-02-03T12:15:00.000Z",
+          "meal_type": "lunch",
+          "food_items": [
+            {
+              "name": "Tuna salad sandwich on rye",
+              "quantity": 1,
+              "unit": "serving",
+              "estimated_weight_g": 250,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 420, "protein_g": 28.0, "carbs_g": 38.0, "fat_g": 18.0, "fiber_g": 4.0, "sugar_g": 4.0, "sodium_mg": 620, "saturated_fat_g": 2.5 },
+              "micronutrients": { "vitamin_a_ug": 30, "vitamin_c_mg": 3.0, "vitamin_d_ug": 1.8, "folate_ug": 25, "iron_mg": 2.0, "calcium_mg": 45, "zinc_mg": 1.5, "omega3_mg": 320 }
+            }
+          ],
+          "totals": { "energy_kcal": 420, "protein_g": 28.0, "carbs_g": 38.0, "fat_g": 18.0, "fiber_g": 4.0, "sodium_mg": 620 },
+          "warnings": ["Limit tuna to 2-3 servings per week during pregnancy due to mercury"],
+          "pregnancy_relevant_notes": ["Tuna provides omega-3 but limit intake due to mercury content", "Choose light tuna over albacore for lower mercury"]
+        },
+        {
+          "id": "meal_20260203_1600",
+          "timestamp": "2026-02-03T16:00:00.000Z",
+          "meal_type": "snack",
+          "food_items": [
+            {
+              "name": "Banana with peanut butter",
+              "quantity": 1,
+              "unit": "serving",
+              "estimated_weight_g": 150,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 220, "protein_g": 7.0, "carbs_g": 30.0, "fat_g": 10.0, "fiber_g": 3.5, "sugar_g": 16.0, "sodium_mg": 75, "saturated_fat_g": 2.0 },
+              "micronutrients": { "vitamin_a_ug": 4, "vitamin_c_mg": 10.5, "vitamin_d_ug": 0, "folate_ug": 28, "iron_mg": 0.5, "calcium_mg": 15, "zinc_mg": 0.6, "omega3_mg": 15 }
+            }
+          ],
+          "totals": { "energy_kcal": 220, "protein_g": 7.0, "carbs_g": 30.0, "fat_g": 10.0, "fiber_g": 3.5, "sodium_mg": 75 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Banana provides potassium helpful for managing blood pressure during pregnancy"]
+        },
+        {
+          "id": "meal_20260203_1845",
+          "timestamp": "2026-02-03T18:45:00.000Z",
+          "meal_type": "dinner",
+          "food_items": [
+            {
+              "name": "Chicken pasta with tomato sauce and spinach",
+              "quantity": 1,
+              "unit": "serving",
+              "estimated_weight_g": 350,
+              "preparation_method": "boiled",
+              "nutrients": { "energy_kcal": 520, "protein_g": 35.0, "carbs_g": 62.0, "fat_g": 14.0, "fiber_g": 5.0, "sugar_g": 8.0, "sodium_mg": 480, "saturated_fat_g": 3.5 },
+              "micronutrients": { "vitamin_a_ug": 250, "vitamin_c_mg": 18.0, "vitamin_d_ug": 0.2, "folate_ug": 120, "iron_mg": 3.8, "calcium_mg": 85, "zinc_mg": 2.5, "omega3_mg": 50 }
+            }
+          ],
+          "totals": { "energy_kcal": 520, "protein_g": 35.0, "carbs_g": 62.0, "fat_g": 14.0, "fiber_g": 5.0, "sodium_mg": 480 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Spinach in the pasta adds folate and iron", "Good balance of protein and complex carbohydrates"]
+        }
+      ],
+      "dailyTotals": {
+        "energy_kcal": 1530, "protein_g": 83.8, "carbs_g": 160.4, "fat_g": 64.0, "fiber_g": 20.5, "sodium_mg": 1550,
+        "vitamin_a_ug": 374, "vitamin_c_mg": 36.5, "vitamin_d_ug": 3.1, "folate_ug": 277, "iron_mg": 8.7, "calcium_mg": 203, "zinc_mg": 6.1, "omega3_mg": 495
+      }
+    },
+    "2026-02-04": {
+      "date": "2026-02-04",
+      "completed": true,
+      "completedAt": "2026-02-04T23:59:59.000Z",
+      "meals": [
+        {
+          "id": "meal_20260204_0800",
+          "timestamp": "2026-02-04T08:00:00.000Z",
+          "meal_type": "breakfast",
+          "food_items": [
+            {
+              "name": "Green smoothie (banana, spinach, milk, protein powder)",
+              "quantity": 1,
+              "unit": "serving",
+              "estimated_weight_g": 400,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 310, "protein_g": 22.0, "carbs_g": 42.0, "fat_g": 5.5, "fiber_g": 4.0, "sugar_g": 22.0, "sodium_mg": 180, "saturated_fat_g": 1.5 },
+              "micronutrients": { "vitamin_a_ug": 280, "vitamin_c_mg": 18.0, "vitamin_d_ug": 2.0, "folate_ug": 110, "iron_mg": 2.5, "calcium_mg": 310, "zinc_mg": 1.8, "omega3_mg": 40 }
+            }
+          ],
+          "totals": { "energy_kcal": 310, "protein_g": 22.0, "carbs_g": 42.0, "fat_g": 5.5, "fiber_g": 4.0, "sodium_mg": 180 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Spinach provides folate and iron", "Protein powder supports increased pregnancy protein needs"]
+        },
+        {
+          "id": "meal_20260204_1245",
+          "timestamp": "2026-02-04T12:45:00.000Z",
+          "meal_type": "lunch",
+          "food_items": [
+            {
+              "name": "Falafel (chickpea patties)",
+              "quantity": 3,
+              "unit": "piece",
+              "estimated_weight_g": 105,
+              "preparation_method": "fried",
+              "nutrients": { "energy_kcal": 189, "protein_g": 7.8, "carbs_g": 18.9, "fat_g": 9.6, "fiber_g": 4.5, "sugar_g": 0.9, "sodium_mg": 330, "saturated_fat_g": 1.2 },
+              "micronutrients": { "vitamin_a_ug": 3, "vitamin_c_mg": 1.2, "vitamin_d_ug": 0, "folate_ug": 84, "iron_mg": 2.1, "calcium_mg": 42, "zinc_mg": 1.2, "omega3_mg": 45 }
+            },
+            {
+              "name": "Hummus",
+              "quantity": 3,
+              "unit": "tablespoon",
+              "estimated_weight_g": 45,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 78, "protein_g": 3.5, "carbs_g": 6.5, "fat_g": 5.0, "fiber_g": 2.0, "sugar_g": 0.5, "sodium_mg": 145, "saturated_fat_g": 0.7 },
+              "micronutrients": { "vitamin_a_ug": 2, "vitamin_c_mg": 3.0, "vitamin_d_ug": 0, "folate_ug": 35, "iron_mg": 1.0, "calcium_mg": 18, "zinc_mg": 0.5, "omega3_mg": 20 }
+            },
+            {
+              "name": "Tabbouleh salad",
+              "quantity": 0.75,
+              "unit": "cup",
+              "estimated_weight_g": 130,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 140, "protein_g": 3.0, "carbs_g": 18.0, "fat_g": 7.0, "fiber_g": 3.5, "sugar_g": 2.0, "sodium_mg": 200, "saturated_fat_g": 1.0 },
+              "micronutrients": { "vitamin_a_ug": 55, "vitamin_c_mg": 22.0, "vitamin_d_ug": 0, "folate_ug": 25, "iron_mg": 1.5, "calcium_mg": 25, "zinc_mg": 0.5, "omega3_mg": 15 }
+            }
+          ],
+          "totals": { "energy_kcal": 407, "protein_g": 14.3, "carbs_g": 43.4, "fat_g": 21.6, "fiber_g": 10.0, "sodium_mg": 675 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Chickpeas in falafel and hummus provide excellent folate", "Mediterranean diet components support healthy pregnancy"]
+        },
+        {
+          "id": "meal_20260204_1915",
+          "timestamp": "2026-02-04T19:15:00.000Z",
+          "meal_type": "dinner",
+          "food_items": [
+            {
+              "name": "Baked cod fillet",
+              "quantity": 1,
+              "unit": "piece",
+              "estimated_weight_g": 180,
+              "preparation_method": "baked",
+              "nutrients": { "energy_kcal": 190, "protein_g": 38.0, "carbs_g": 0, "fat_g": 3.5, "fiber_g": 0, "sugar_g": 0, "sodium_mg": 90, "saturated_fat_g": 0.7 },
+              "micronutrients": { "vitamin_a_ug": 12, "vitamin_c_mg": 2.0, "vitamin_d_ug": 1.8, "folate_ug": 12, "iron_mg": 0.5, "calcium_mg": 22, "zinc_mg": 0.7, "omega3_mg": 250 }
+            },
+            {
+              "name": "Baked sweet potato",
+              "quantity": 1,
+              "unit": "piece",
+              "estimated_weight_g": 180,
+              "preparation_method": "baked",
+              "nutrients": { "energy_kcal": 160, "protein_g": 3.5, "carbs_g": 37.0, "fat_g": 0.2, "fiber_g": 5.5, "sugar_g": 12.0, "sodium_mg": 65, "saturated_fat_g": 0 },
+              "micronutrients": { "vitamin_a_ug": 1100, "vitamin_c_mg": 22.0, "vitamin_d_ug": 0, "folate_ug": 12, "iron_mg": 1.0, "calcium_mg": 45, "zinc_mg": 0.5, "omega3_mg": 5 }
+            },
+            {
+              "name": "Steamed asparagus",
+              "quantity": 6,
+              "unit": "piece",
+              "estimated_weight_g": 100,
+              "preparation_method": "steamed",
+              "nutrients": { "energy_kcal": 20, "protein_g": 2.2, "carbs_g": 3.9, "fat_g": 0.1, "fiber_g": 2.1, "sugar_g": 1.2, "sodium_mg": 2, "saturated_fat_g": 0 },
+              "micronutrients": { "vitamin_a_ug": 38, "vitamin_c_mg": 5.6, "vitamin_d_ug": 0, "folate_ug": 52, "iron_mg": 2.1, "calcium_mg": 24, "zinc_mg": 0.5, "omega3_mg": 10 }
+            }
+          ],
+          "totals": { "energy_kcal": 370, "protein_g": 43.7, "carbs_g": 40.9, "fat_g": 3.8, "fiber_g": 7.6, "sodium_mg": 157 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Cod is a low-mercury fish safe for pregnancy", "Sweet potato is the best source of vitamin A", "Asparagus is exceptionally high in folate"]
+        }
+      ],
+      "dailyTotals": {
+        "energy_kcal": 1087, "protein_g": 80.0, "carbs_g": 126.3, "fat_g": 30.9, "fiber_g": 21.6, "sodium_mg": 1012,
+        "vitamin_a_ug": 1490, "vitamin_c_mg": 73.8, "vitamin_d_ug": 3.8, "folate_ug": 330, "iron_mg": 10.7, "calcium_mg": 486, "zinc_mg": 5.7, "omega3_mg": 385
+      }
+    },
+    "2026-02-05": {
+      "date": "2026-02-05",
+      "completed": true,
+      "completedAt": "2026-02-05T23:59:59.000Z",
+      "meals": [
+        {
+          "id": "meal_20260205_0730",
+          "timestamp": "2026-02-05T07:30:00.000Z",
+          "meal_type": "breakfast",
+          "food_items": [
+            {
+              "name": "Scrambled eggs",
+              "quantity": 2,
+              "unit": "piece",
+              "estimated_weight_g": 100,
+              "preparation_method": "sauteed",
+              "nutrients": { "energy_kcal": 180, "protein_g": 12.6, "carbs_g": 0.8, "fat_g": 14.0, "fiber_g": 0, "sugar_g": 0.4, "sodium_mg": 190, "saturated_fat_g": 4.0 },
+              "micronutrients": { "vitamin_a_ug": 160, "vitamin_c_mg": 0, "vitamin_d_ug": 2.2, "folate_ug": 48, "iron_mg": 1.8, "calcium_mg": 56, "zinc_mg": 1.2, "omega3_mg": 80 }
+            },
+            {
+              "name": "Whole wheat toast with butter",
+              "quantity": 2,
+              "unit": "slice",
+              "estimated_weight_g": 70,
+              "preparation_method": "baked",
+              "nutrients": { "energy_kcal": 175, "protein_g": 5.5, "carbs_g": 26.0, "fat_g": 5.5, "fiber_g": 3.0, "sugar_g": 3.0, "sodium_mg": 280, "saturated_fat_g": 2.5 },
+              "micronutrients": { "vitamin_a_ug": 35, "vitamin_c_mg": 0, "vitamin_d_ug": 0.1, "folate_ug": 30, "iron_mg": 1.5, "calcium_mg": 55, "zinc_mg": 0.7, "omega3_mg": 15 }
+            }
+          ],
+          "totals": { "energy_kcal": 355, "protein_g": 18.1, "carbs_g": 26.8, "fat_g": 19.5, "fiber_g": 3.0, "sodium_mg": 470 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Eggs are one of the best sources of choline for fetal brain development", "Vitamin D from eggs supports calcium absorption"]
+        },
+        {
+          "id": "meal_20260205_1230",
+          "timestamp": "2026-02-05T12:30:00.000Z",
+          "meal_type": "lunch",
+          "food_items": [
+            {
+              "name": "Grilled chicken wrap with lettuce, tomato, cheese",
+              "quantity": 1,
+              "unit": "serving",
+              "estimated_weight_g": 280,
+              "preparation_method": "grilled",
+              "nutrients": { "energy_kcal": 450, "protein_g": 32.0, "carbs_g": 38.0, "fat_g": 18.0, "fiber_g": 3.5, "sugar_g": 4.0, "sodium_mg": 680, "saturated_fat_g": 5.5 },
+              "micronutrients": { "vitamin_a_ug": 65, "vitamin_c_mg": 10.0, "vitamin_d_ug": 0.3, "folate_ug": 35, "iron_mg": 1.8, "calcium_mg": 120, "zinc_mg": 2.0, "omega3_mg": 35 }
+            }
+          ],
+          "totals": { "energy_kcal": 450, "protein_g": 32.0, "carbs_g": 38.0, "fat_g": 18.0, "fiber_g": 3.5, "sodium_mg": 680 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Good protein and calcium from cheese and chicken"]
+        },
+        {
+          "id": "meal_20260205_1630",
+          "timestamp": "2026-02-05T16:30:00.000Z",
+          "meal_type": "snack",
+          "food_items": [
+            {
+              "name": "Cheese and whole grain crackers",
+              "quantity": 1,
+              "unit": "serving",
+              "estimated_weight_g": 60,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 210, "protein_g": 8.0, "carbs_g": 15.0, "fat_g": 13.0, "fiber_g": 1.5, "sugar_g": 1.0, "sodium_mg": 320, "saturated_fat_g": 6.0 },
+              "micronutrients": { "vitamin_a_ug": 50, "vitamin_c_mg": 0, "vitamin_d_ug": 0.3, "folate_ug": 12, "iron_mg": 0.5, "calcium_mg": 180, "zinc_mg": 0.8, "omega3_mg": 10 }
+            }
+          ],
+          "totals": { "energy_kcal": 210, "protein_g": 8.0, "carbs_g": 15.0, "fat_g": 13.0, "fiber_g": 1.5, "sodium_mg": 320 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Cheese provides calcium essential for baby's bone development"]
+        },
+        {
+          "id": "meal_20260205_1900",
+          "timestamp": "2026-02-05T19:00:00.000Z",
+          "meal_type": "dinner",
+          "food_items": [
+            {
+              "name": "Turkey meatballs",
+              "quantity": 4,
+              "unit": "piece",
+              "estimated_weight_g": 120,
+              "preparation_method": "baked",
+              "nutrients": { "energy_kcal": 220, "protein_g": 24.0, "carbs_g": 5.0, "fat_g": 11.0, "fiber_g": 0.5, "sugar_g": 1.0, "sodium_mg": 350, "saturated_fat_g": 3.0 },
+              "micronutrients": { "vitamin_a_ug": 15, "vitamin_c_mg": 0, "vitamin_d_ug": 0.5, "folate_ug": 15, "iron_mg": 1.8, "calcium_mg": 30, "zinc_mg": 2.5, "omega3_mg": 20 }
+            },
+            {
+              "name": "Whole wheat spaghetti with marinara",
+              "quantity": 1,
+              "unit": "cup",
+              "estimated_weight_g": 200,
+              "preparation_method": "boiled",
+              "nutrients": { "energy_kcal": 280, "protein_g": 10.0, "carbs_g": 50.0, "fat_g": 4.0, "fiber_g": 6.0, "sugar_g": 6.0, "sodium_mg": 420, "saturated_fat_g": 0.6 },
+              "micronutrients": { "vitamin_a_ug": 40, "vitamin_c_mg": 12.0, "vitamin_d_ug": 0, "folate_ug": 35, "iron_mg": 2.2, "calcium_mg": 35, "zinc_mg": 1.0, "omega3_mg": 15 }
+            }
+          ],
+          "totals": { "energy_kcal": 500, "protein_g": 34.0, "carbs_g": 55.0, "fat_g": 15.0, "fiber_g": 6.5, "sodium_mg": 770 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Whole wheat pasta provides more fiber and iron than regular pasta", "Turkey is a lean protein source"]
+        }
+      ],
+      "dailyTotals": {
+        "energy_kcal": 1515, "protein_g": 92.1, "carbs_g": 134.8, "fat_g": 65.5, "fiber_g": 14.5, "sodium_mg": 2240,
+        "vitamin_a_ug": 365, "vitamin_c_mg": 22.0, "vitamin_d_ug": 3.4, "folate_ug": 175, "iron_mg": 9.6, "calcium_mg": 476, "zinc_mg": 8.2, "omega3_mg": 175
+      }
+    },
+    "2026-02-06": {
+      "date": "2026-02-06",
+      "completed": true,
+      "completedAt": "2026-02-06T23:59:59.000Z",
+      "meals": [
+        {
+          "id": "meal_20260206_0830",
+          "timestamp": "2026-02-06T08:30:00.000Z",
+          "meal_type": "breakfast",
+          "food_items": [
+            {
+              "name": "Whole wheat pancakes with maple syrup",
+              "quantity": 3,
+              "unit": "piece",
+              "estimated_weight_g": 180,
+              "preparation_method": "fried",
+              "nutrients": { "energy_kcal": 320, "protein_g": 9.0, "carbs_g": 52.0, "fat_g": 8.5, "fiber_g": 3.5, "sugar_g": 18.0, "sodium_mg": 380, "saturated_fat_g": 2.0 },
+              "micronutrients": { "vitamin_a_ug": 30, "vitamin_c_mg": 0, "vitamin_d_ug": 0.5, "folate_ug": 30, "iron_mg": 2.0, "calcium_mg": 115, "zinc_mg": 1.0, "omega3_mg": 15 }
+            },
+            {
+              "name": "Mixed berries (strawberries, raspberries)",
+              "quantity": 0.75,
+              "unit": "cup",
+              "estimated_weight_g": 115,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 45, "protein_g": 0.8, "carbs_g": 10.5, "fat_g": 0.3, "fiber_g": 3.5, "sugar_g": 6.0, "sodium_mg": 1, "saturated_fat_g": 0 },
+              "micronutrients": { "vitamin_a_ug": 2, "vitamin_c_mg": 55.0, "vitamin_d_ug": 0, "folate_ug": 28, "iron_mg": 0.5, "calcium_mg": 18, "zinc_mg": 0.2, "omega3_mg": 35 }
+            }
+          ],
+          "totals": { "energy_kcal": 365, "protein_g": 9.8, "carbs_g": 62.5, "fat_g": 8.8, "fiber_g": 7.0, "sodium_mg": 381 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Berries provide vitamin C which enhances iron absorption", "Whole wheat pancakes provide more fiber than white flour"]
+        },
+        {
+          "id": "meal_20260206_1300",
+          "timestamp": "2026-02-06T13:00:00.000Z",
+          "meal_type": "lunch",
+          "food_items": [
+            {
+              "name": "Black bean and cheese quesadilla",
+              "quantity": 1,
+              "unit": "serving",
+              "estimated_weight_g": 250,
+              "preparation_method": "fried",
+              "nutrients": { "energy_kcal": 480, "protein_g": 22.0, "carbs_g": 48.0, "fat_g": 22.0, "fiber_g": 8.0, "sugar_g": 3.0, "sodium_mg": 650, "saturated_fat_g": 8.0 },
+              "micronutrients": { "vitamin_a_ug": 80, "vitamin_c_mg": 5.0, "vitamin_d_ug": 0.2, "folate_ug": 145, "iron_mg": 3.0, "calcium_mg": 280, "zinc_mg": 2.5, "omega3_mg": 20 }
+            }
+          ],
+          "totals": { "energy_kcal": 480, "protein_g": 22.0, "carbs_g": 48.0, "fat_g": 22.0, "fiber_g": 8.0, "sodium_mg": 650 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Black beans are rich in folate and fiber", "Cheese provides calcium and protein"]
+        },
+        {
+          "id": "meal_20260206_1930",
+          "timestamp": "2026-02-06T19:30:00.000Z",
+          "meal_type": "dinner",
+          "food_items": [
+            {
+              "name": "Grilled shrimp",
+              "quantity": 8,
+              "unit": "piece",
+              "estimated_weight_g": 150,
+              "preparation_method": "grilled",
+              "nutrients": { "energy_kcal": 150, "protein_g": 30.0, "carbs_g": 1.5, "fat_g": 2.5, "fiber_g": 0, "sugar_g": 0, "sodium_mg": 280, "saturated_fat_g": 0.5 },
+              "micronutrients": { "vitamin_a_ug": 55, "vitamin_c_mg": 2.0, "vitamin_d_ug": 0.5, "folate_ug": 5, "iron_mg": 0.5, "calcium_mg": 80, "zinc_mg": 1.5, "omega3_mg": 350 }
+            },
+            {
+              "name": "Cilantro lime rice",
+              "quantity": 0.75,
+              "unit": "cup",
+              "estimated_weight_g": 145,
+              "preparation_method": "boiled",
+              "nutrients": { "energy_kcal": 190, "protein_g": 3.5, "carbs_g": 40.0, "fat_g": 2.0, "fiber_g": 0.5, "sugar_g": 0, "sodium_mg": 5, "saturated_fat_g": 0.3 },
+              "micronutrients": { "vitamin_a_ug": 5, "vitamin_c_mg": 3.0, "vitamin_d_ug": 0, "folate_ug": 5, "iron_mg": 0.4, "calcium_mg": 8, "zinc_mg": 0.4, "omega3_mg": 8 }
+            },
+            {
+              "name": "Mixed green salad with lime dressing",
+              "quantity": 1,
+              "unit": "cup",
+              "estimated_weight_g": 100,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 55, "protein_g": 1.5, "carbs_g": 5.0, "fat_g": 3.5, "fiber_g": 2.0, "sugar_g": 2.0, "sodium_mg": 40, "saturated_fat_g": 0.5 },
+              "micronutrients": { "vitamin_a_ug": 95, "vitamin_c_mg": 15.0, "vitamin_d_ug": 0, "folate_ug": 40, "iron_mg": 0.8, "calcium_mg": 25, "zinc_mg": 0.3, "omega3_mg": 20 }
+            }
+          ],
+          "totals": { "energy_kcal": 395, "protein_g": 35.0, "carbs_g": 46.5, "fat_g": 8.0, "fiber_g": 2.5, "sodium_mg": 325 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Shrimp is a safe low-mercury seafood choice during pregnancy", "Provides omega-3 and iodine"]
+        }
+      ],
+      "dailyTotals": {
+        "energy_kcal": 1240, "protein_g": 66.8, "carbs_g": 157.0, "fat_g": 38.8, "fiber_g": 17.5, "sodium_mg": 1356,
+        "vitamin_a_ug": 267, "vitamin_c_mg": 80.0, "vitamin_d_ug": 1.2, "folate_ug": 253, "iron_mg": 7.2, "calcium_mg": 526, "zinc_mg": 5.9, "omega3_mg": 448
+      }
+    },
+    "2026-02-07": {
+      "date": "2026-02-07",
+      "completed": false,
+      "completedAt": null,
+      "meals": [
+        {
+          "id": "meal_20260207_0800",
+          "timestamp": "2026-02-07T08:00:00.000Z",
+          "meal_type": "breakfast",
+          "food_items": [
+            {
+              "name": "Poached eggs on sourdough toast",
+              "quantity": 1,
+              "unit": "serving",
+              "estimated_weight_g": 180,
+              "preparation_method": "boiled",
+              "nutrients": { "energy_kcal": 280, "protein_g": 16.0, "carbs_g": 26.0, "fat_g": 12.5, "fiber_g": 1.5, "sugar_g": 2.0, "sodium_mg": 380, "saturated_fat_g": 3.5 },
+              "micronutrients": { "vitamin_a_ug": 140, "vitamin_c_mg": 0, "vitamin_d_ug": 2.0, "folate_ug": 50, "iron_mg": 2.0, "calcium_mg": 65, "zinc_mg": 1.3, "omega3_mg": 75 }
+            },
+            {
+              "name": "Orange juice (fresh)",
+              "quantity": 1,
+              "unit": "cup",
+              "estimated_weight_g": 248,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 112, "protein_g": 1.7, "carbs_g": 26.0, "fat_g": 0.5, "fiber_g": 0.5, "sugar_g": 21.0, "sodium_mg": 2, "saturated_fat_g": 0 },
+              "micronutrients": { "vitamin_a_ug": 25, "vitamin_c_mg": 124.0, "vitamin_d_ug": 0, "folate_ug": 74, "iron_mg": 0.5, "calcium_mg": 27, "zinc_mg": 0.1, "omega3_mg": 15 }
+            }
+          ],
+          "totals": { "energy_kcal": 392, "protein_g": 17.7, "carbs_g": 52.0, "fat_g": 13.0, "fiber_g": 2.0, "sodium_mg": 382 },
+          "warnings": [],
+          "pregnancy_relevant_notes": ["Vitamin C from orange juice enhances iron absorption from eggs", "Folate from OJ supports neural development"]
+        },
+        {
+          "id": "meal_20260207_1305",
+          "timestamp": "2026-02-07T13:05:00.000Z",
+          "meal_type": "lunch",
+          "food_items": [
+            {
+              "name": "Minestrone soup",
+              "quantity": 1.5,
+              "unit": "cup",
+              "estimated_weight_g": 370,
+              "preparation_method": "boiled",
+              "nutrients": { "energy_kcal": 180, "protein_g": 8.0, "carbs_g": 28.0, "fat_g": 4.5, "fiber_g": 5.5, "sugar_g": 6.0, "sodium_mg": 550, "saturated_fat_g": 0.8 },
+              "micronutrients": { "vitamin_a_ug": 180, "vitamin_c_mg": 12.0, "vitamin_d_ug": 0, "folate_ug": 45, "iron_mg": 1.8, "calcium_mg": 55, "zinc_mg": 0.8, "omega3_mg": 15 }
+            },
+            {
+              "name": "Turkey and cheese sandwich on whole wheat",
+              "quantity": 1,
+              "unit": "serving",
+              "estimated_weight_g": 220,
+              "preparation_method": "raw",
+              "nutrients": { "energy_kcal": 380, "protein_g": 25.0, "carbs_g": 35.0, "fat_g": 15.0, "fiber_g": 4.0, "sugar_g": 4.0, "sodium_mg": 720, "saturated_fat_g": 5.0 },
+              "micronutrients": { "vitamin_a_ug": 40, "vitamin_c_mg": 3.0, "vitamin_d_ug": 0.3, "folate_ug": 30, "iron_mg": 2.0, "calcium_mg": 150, "zinc_mg": 2.0, "omega3_mg": 20 }
+            }
+          ],
+          "totals": { "energy_kcal": 560, "protein_g": 33.0, "carbs_g": 63.0, "fat_g": 19.5, "fiber_g": 9.5, "sodium_mg": 1270 },
+          "warnings": ["Higher sodium content from soup and deli meat"],
+          "pregnancy_relevant_notes": ["Variety of vegetables in minestrone provides multiple micronutrients", "Ensure deli meat is heated to steaming to reduce listeria risk"]
+        }
+      ],
+      "dailyTotals": {
+        "energy_kcal": 952, "protein_g": 50.7, "carbs_g": 115.0, "fat_g": 32.5, "fiber_g": 11.5, "sodium_mg": 1652,
+        "vitamin_a_ug": 385, "vitamin_c_mg": 139.0, "vitamin_d_ug": 2.3, "folate_ug": 199, "iron_mg": 6.3, "calcium_mg": 297, "zinc_mg": 4.2, "omega3_mg": 125
+      }
+    }
+  }
+}

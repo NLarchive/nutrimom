@@ -68,6 +68,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         foodTracker.getUI().refresh();
       }
     }
+
+    // Refresh dashboard when navigating to Log view
+    if (target === 'log-view') {
+      if (foodTracker && foodTracker.getDashboard()) {
+        foodTracker.getDashboard().render();
+      }
+    }
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -292,10 +299,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  // Load saved profile after data is ready
-  loadSavedProfile();
-
-  // ONLY NOW initialize Food Tracker Plugin (after engine data is loaded and profile is restored)
+  // ONLY NOW initialize Food Tracker Plugin (after engine data is loaded)
   try {
     foodTracker = new FoodTrackerPlugin({
       containerId: 'food-tracker-container',
@@ -306,6 +310,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch (err) {
     console.error('Failed to initialize Food Tracker Plugin:', err);
   }
+
+  // Load saved profile AFTER tracker is ready so targets are synced
+  loadSavedProfile();
 
   // Sex change - show/hide pregnancy section
   // NOTE: This field is currently hidden in index.html to focus on pregnancy.

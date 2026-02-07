@@ -21,6 +21,7 @@
         <nav class="main-nav">
           <button class="nav-tab active" data-target="calculator-view">Calculator</button>
           <button class="nav-tab" data-target="tracker-view">Food Tracker</button>
+          <button class="nav-tab" data-target="log-view">Log</button>
         </nav>
         <div class="data-actions">
           <button class="btn btn-icon" id="btn-export-data" title="Download your data">
@@ -329,6 +330,17 @@
             </div>
           </div>
         </section>
+      </div><!-- /tracker-view -->
+
+      <!-- Nutrition Log View -->
+      <div id="log-view" class="view-content">
+        <section class="section">
+          <div id="food-log-dashboard">
+            <div style="text-align: center; padding: 40px; color: var(--gray-400);">
+              <p>Loading Nutrition Log...</p>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
 
@@ -347,9 +359,11 @@
   <script src="js/nutrition-engine.js"></script>
   <!-- Food Tracker Plugin -->
   <link rel="stylesheet" href="plugins/food-tracker/food-tracker.css">
+  <link rel="stylesheet" href="plugins/food-tracker/food-log-dashboard.css">
   <script src="plugins/food-tracker/llm-config.js"></script>
   <script src="plugins/food-tracker/food-tracker-engine.js"></script>
   <script src="plugins/food-tracker/food-tracker-ui.js"></script>
+  <script src="plugins/food-tracker/food-log-dashboard.js"></script>
   <script src="plugins/food-tracker/index.js"></script>
   <!-- Main App -->
   <script src="js/app.js"></script>

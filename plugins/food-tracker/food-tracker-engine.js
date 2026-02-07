@@ -18,9 +18,278 @@ class FoodTrackerEngine {
     this.apiKey = options.apiKey || null;
     this.nutritionEngine = options.nutritionEngine || null;
     this.onUpdate = options.onUpdate || null;
+    this.onDayTransition = options.onDayTransition || null;
     
     // Load existing data from localStorage
     this.foodLog = this._loadFromStorage();
+    
+    // Ensure metadata exists
+    this._ensureMeta();
+
+    // Recalculate totals for all days to ensure consistency (handles legacy data/string bugs)
+    this.getAllDates().forEach(date => {
+      this._recalculateDailyTotals(date);
+    });
+    
+    // Check for day transition on load
+    this._checkDayTransition();
+  }
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // Metadata & Multi-Day Memory
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  /**
+   * Ensure _meta key exists in foodLog
+   * @private
+   */
+  _ensureMeta() {
+    if (!this.foodLog._meta) {
+      this.foodLog._meta = {
+        version: '2.0',
+        firstEntryDate: null,
+        lastEntryDate: null,
+        lastModified: null,
+        totalDaysLogged: 0,
+        totalMealsLogged: 0,
+        syncStatus: 'local_only',
+        lastSyncDate: null
+      };
+    }
+  }
+
+  /**
+   * Update metadata after any foodLog mutation
+   * @private
+   */
+  _updateMeta() {
+    const dates = this.getAllDates();
+    const totalMeals = dates.reduce((sum, d) => {
+      return sum + (this.foodLog[d]?.meals?.length || 0);
+    }, 0);
+
+    this.foodLog._meta = {
+      ...this.foodLog._meta,
+      version: '2.0',
+      firstEntryDate: dates.length > 0 ? dates[0] : null,
+      lastEntryDate: dates.length > 0 ? dates[dates.length - 1] : null,
+      lastModified: new Date().toISOString(),
+      totalDaysLogged: dates.length,
+      totalMealsLogged: totalMeals,
+      syncStatus: this.foodLog._meta?.syncStatus || 'local_only'
+    };
+  }
+
+  /**
+   * Check if a new day has started since the last entry.
+   * Marks previous days as completed.
+   * @private
+   */
+  _checkDayTransition() {
+    const today = this._getDateKey();
+    const dates = this.getAllDates();
+    let changed = false;
+
+    dates.forEach(date => {
+      if (date < today && this.foodLog[date] && !this.foodLog[date].completed) {
+        this.foodLog[date].completed = true;
+        this.foodLog[date].completedAt = new Date(date + 'T23:59:59.000Z').toISOString();
+        changed = true;
+      }
+    });
+
+    if (changed) {
+      this._updateMeta();
+      this._saveToStorage();
+      if (this.onDayTransition) {
+        this.onDayTransition(today);
+      }
+    }
+  }
+
+  /**
+   * Get all logged dates (sorted ascending), excluding _meta
+   * @returns {string[]} Array of date strings (YYYY-MM-DD)
+   */
+  getAllDates() {
+    return Object.keys(this.foodLog)
+      .filter(k => k !== '_meta' && /^\d{4}-\d{2}-\d{2}$/.test(k))
+      .sort();
+  }
+
+  /**
+   * Get number of days with logged data
+   * @returns {number}
+   */
+  getDayCount() {
+    return this.getAllDates().length;
+  }
+
+  /**
+   * Get all days summary for table/list display
+   * @returns {Array<Object>} Array of daily summaries sorted by date desc
+   */
+  getAllDaysSummary() {
+    return this.getAllDates().map(date => {
+      const day = this.foodLog[date];
+      return {
+        date: day.date,
+        completed: day.completed || false,
+        mealsCount: day.meals.length,
+        mealTypes: [...new Set(day.meals.map(m => m.meal_type))],
+        dailyTotals: day.dailyTotals || this._emptyTotals(),
+        firstMealTime: day.meals.length > 0 ? day.meals[0].timestamp : null,
+        lastMealTime: day.meals.length > 0 ? day.meals[day.meals.length - 1].timestamp : null
+      };
+    }).reverse(); // Most recent first
+  }
+
+  /**
+   * Get weekly averages for a period ending on the given date
+   * @param {string} endDate - End date (YYYY-MM-DD), defaults to today
+   * @param {number} days - Number of days to average (default 7)
+   * @returns {Object} Weekly averages and trends
+   */
+  getWeeklyAverages(endDate = null, days = 7) {
+    const end = endDate || this._getDateKey();
+    const startDate = new Date(end);
+    startDate.setDate(startDate.getDate() - (days - 1));
+    const start = this._formatDate(startDate);
+
+    const logs = this.getLogRange(start, end);
+    const daysWithData = logs.filter(d => d.meals.length > 0);
+
+    if (daysWithData.length === 0) {
+      return {
+        period: { start, end },
+        daysTracked: 0,
+        daysTotal: days,
+        averages: this._emptyTotals(),
+        dailyData: [],
+        trends: {}
+      };
+    }
+
+    // Sum up all daily totals
+    const sums = this._emptyTotals();
+    const dailyData = [];
+
+    daysWithData.forEach(day => {
+      const t = day.dailyTotals;
+      Object.keys(sums).forEach(key => {
+        sums[key] += t[key] || 0;
+      });
+      dailyData.push({
+        date: day.date,
+        calories: t.energy_kcal || 0,
+        protein: t.protein_g || 0,
+        carbs: t.carbs_g || 0,
+        fat: t.fat_g || 0,
+        mealsCount: day.meals.length
+      });
+    });
+
+    // Calculate averages
+    const count = daysWithData.length;
+    const averages = {};
+    Object.keys(sums).forEach(key => {
+      averages[key] = Math.round((sums[key] / count) * 10) / 10;
+    });
+
+    // Calculate trends (compare last 3 days vs first 3 days if enough data)
+    const trends = {};
+    if (daysWithData.length >= 4) {
+      const half = Math.floor(daysWithData.length / 2);
+      const firstHalf = daysWithData.slice(0, half);
+      const secondHalf = daysWithData.slice(half);
+
+      const avgFirst = firstHalf.reduce((s, d) => s + (d.dailyTotals.energy_kcal || 0), 0) / firstHalf.length;
+      const avgSecond = secondHalf.reduce((s, d) => s + (d.dailyTotals.energy_kcal || 0), 0) / secondHalf.length;
+
+      trends.calories = {
+        direction: avgSecond > avgFirst ? 'up' : avgSecond < avgFirst ? 'down' : 'stable',
+        change: Math.round(avgSecond - avgFirst)
+      };
+
+      const proteinFirst = firstHalf.reduce((s, d) => s + (d.dailyTotals.protein_g || 0), 0) / firstHalf.length;
+      const proteinSecond = secondHalf.reduce((s, d) => s + (d.dailyTotals.protein_g || 0), 0) / secondHalf.length;
+      trends.protein = {
+        direction: proteinSecond > proteinFirst ? 'up' : proteinSecond < proteinFirst ? 'down' : 'stable',
+        change: Math.round((proteinSecond - proteinFirst) * 10) / 10
+      };
+    }
+
+    return {
+      period: { start, end },
+      daysTracked: count,
+      daysTotal: days,
+      averages,
+      dailyData,
+      trends
+    };
+  }
+
+  /**
+   * Get metadata
+   * @returns {Object} Current metadata
+   */
+  getMeta() {
+    return this.foodLog._meta || {};
+  }
+
+  /**
+   * Import food log data (for restore/sync)
+   * Merges imported data with existing, preferring newer entries
+   * @param {Object} importedLog - Food log object to import
+   * @returns {Object} Import summary
+   */
+  importFoodLog(importedLog) {
+    let daysImported = 0;
+    let mealsImported = 0;
+
+    Object.keys(importedLog).forEach(key => {
+      if (key === '_meta') return;
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(key)) return;
+
+      const imported = importedLog[key];
+      if (!imported || !Array.isArray(imported.meals)) return;
+
+      // If date doesn't exist, add entire day
+      if (!this.foodLog[key]) {
+        this.foodLog[key] = imported;
+        daysImported++;
+        mealsImported += imported.meals.length;
+      } else {
+        // Merge meals (avoid duplicates by id)
+        const existingIds = new Set(this.foodLog[key].meals.map(m => m.id));
+        imported.meals.forEach(meal => {
+          if (!existingIds.has(meal.id)) {
+            this.foodLog[key].meals.push(meal);
+            mealsImported++;
+          }
+        });
+        this._recalculateDailyTotals(key);
+        if (!daysImported) daysImported++;
+      }
+    });
+
+    this._updateMeta();
+    this._saveToStorage();
+
+    return { daysImported, mealsImported };
+  }
+
+  /**
+   * Get export payload for server sync
+   * @returns {Object} Serializable food log with metadata
+   */
+  getExportPayload() {
+    this._updateMeta();
+    return {
+      version: '2.0',
+      exportDate: new Date().toISOString(),
+      foodLog: JSON.parse(JSON.stringify(this.foodLog))
+    };
   }
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -176,9 +445,14 @@ class FoodTrackerEngine {
   addToLog(analysis, imageDataUrl = null) {
     const date = this._getDateKey();
     
+    // Check for day transition before adding
+    this._checkDayTransition();
+    
     if (!this.foodLog[date]) {
       this.foodLog[date] = {
         date,
+        completed: false,
+        completedAt: null,
         meals: [],
         dailyTotals: this._emptyTotals()
       };
@@ -197,6 +471,7 @@ class FoodTrackerEngine {
 
     this.foodLog[date].meals.push(entry);
     this._recalculateDailyTotals(date);
+    this._updateMeta();
     this._saveToStorage();
 
     if (this.onUpdate) {
@@ -216,6 +491,7 @@ class FoodTrackerEngine {
 
     this.foodLog[date].meals = this.foodLog[date].meals.filter(m => m.id !== mealId);
     this._recalculateDailyTotals(date);
+    this._updateMeta();
     this._saveToStorage();
 
     if (this.onUpdate) {
@@ -262,6 +538,7 @@ class FoodTrackerEngine {
    */
   clearAll() {
     this.foodLog = {};
+    this._ensureMeta();
     this._saveToStorage();
   }
 
@@ -274,11 +551,14 @@ class FoodTrackerEngine {
   }
 
   /**
-   * Format date as YYYY-MM-DD
+   * Format date as YYYY-MM-DD (Local Time)
    * @private
    */
   _formatDate(date) {
-    return date.toISOString().split('T')[0];
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   }
 
   /**
@@ -316,29 +596,34 @@ class FoodTrackerEngine {
     const totals = this._emptyTotals();
 
     dayLog.meals.forEach(meal => {
-      // Sum up macros from meal totals
+      // Sum up macros from meal totals (ensure numeric addition)
       if (meal.totals) {
-        totals.energy_kcal += meal.totals.energy_kcal || 0;
-        totals.protein_g += meal.totals.protein_g || 0;
-        totals.carbs_g += meal.totals.carbs_g || 0;
-        totals.fat_g += meal.totals.fat_g || 0;
-        totals.fiber_g += meal.totals.fiber_g || 0;
-        totals.sodium_mg += meal.totals.sodium_mg || 0;
+        totals.energy_kcal += parseFloat(meal.totals.energy_kcal) || 0;
+        totals.protein_g += parseFloat(meal.totals.protein_g) || 0;
+        totals.carbs_g += parseFloat(meal.totals.carbs_g) || 0;
+        totals.fat_g += parseFloat(meal.totals.fat_g) || 0;
+        totals.fiber_g += parseFloat(meal.totals.fiber_g) || 0;
+        totals.sodium_mg += parseFloat(meal.totals.sodium_mg) || 0;
       }
 
-      // Sum up micronutrients from individual items
+      // Sum up micronutrients from individual items (ensure numeric addition)
       meal.food_items.forEach(item => {
         if (item.micronutrients) {
-          totals.vitamin_a_ug += item.micronutrients.vitamin_a_ug || 0;
-          totals.vitamin_c_mg += item.micronutrients.vitamin_c_mg || 0;
-          totals.vitamin_d_ug += item.micronutrients.vitamin_d_ug || 0;
-          totals.folate_ug += item.micronutrients.folate_ug || 0;
-          totals.iron_mg += item.micronutrients.iron_mg || 0;
-          totals.calcium_mg += item.micronutrients.calcium_mg || 0;
-          totals.zinc_mg += item.micronutrients.zinc_mg || 0;
-          totals.omega3_mg += item.micronutrients.omega3_mg || 0;
+          totals.vitamin_a_ug += parseFloat(item.micronutrients.vitamin_a_ug) || 0;
+          totals.vitamin_c_mg += parseFloat(item.micronutrients.vitamin_c_mg) || 0;
+          totals.vitamin_d_ug += parseFloat(item.micronutrients.vitamin_d_ug) || 0;
+          totals.folate_ug += parseFloat(item.micronutrients.folate_ug) || 0;
+          totals.iron_mg += parseFloat(item.micronutrients.iron_mg) || 0;
+          totals.calcium_mg += parseFloat(item.micronutrients.calcium_mg) || 0;
+          totals.zinc_mg += parseFloat(item.micronutrients.zinc_mg) || 0;
+          totals.omega3_mg += parseFloat(item.micronutrients.omega3_mg) || 0;
         }
       });
+    });
+
+    // Round values to 1 decimal place to avoid floating point issues
+    Object.keys(totals).forEach(key => {
+      totals[key] = Math.round(totals[key] * 10) / 10;
     });
 
     dayLog.dailyTotals = totals;
@@ -381,12 +666,12 @@ class FoodTrackerEngine {
    */
   _extractTargetValue(targetData) {
     if (!targetData) return null;
-    // Priority: RDA > AI > MIN > AMDR_MIN
+    // Priority: target (explicitly set) > RDA > AI > MIN > AMDR_MIN
+    if (typeof targetData.target === 'number') return targetData.target;
     if (typeof targetData.RDA === 'number') return targetData.RDA;
     if (typeof targetData.AI === 'number') return targetData.AI;
     if (typeof targetData.MIN === 'number') return targetData.MIN;
     if (typeof targetData.AMDR_MIN === 'number') return targetData.AMDR_MIN;
-    if (typeof targetData.target === 'number') return targetData.target;
     return null;
   }
 
@@ -456,11 +741,13 @@ class FoodTrackerEngine {
 
       const percentage = (intakeValue / targetValue) * 100;
       const status = this._getNutrientStatus(intakeValue, targetValue, ul);
+      const remaining = Math.max(0, targetValue - intakeValue);
 
       comparison.nutrients[intakeKey] = {
         name: targetData.name || this._formatNutrientName(intakeKey),
         intake: intakeValue,
         target: targetValue,
+        remaining: Math.round(remaining * 10) / 10,
         upper_limit: ul || null,
         percentage: Math.round(percentage * 10) / 10,
         unit,

@@ -319,9 +319,34 @@ class NutritionEngine {
       };
     }
 
-    // Override energy target with calculated value
-    if (enrichedTargets.energy_kcal) {
+    // Ensure energy_kcal target exists and is synchronized with calculations
+    if (!enrichedTargets.energy_kcal) {
+      const energyNutrient = nutrients.find(n => n.code === 'energy_kcal');
+      enrichedTargets.energy_kcal = {
+        name: energyNutrient?.name || 'Energy',
+        category: energyNutrient?.category || 'macro',
+        unit: 'kcal',
+        target: energy.totalEnergy
+      };
+    } else {
       enrichedTargets.energy_kcal.target = energy.totalEnergy;
+    }
+
+    // Convert AMDR % to grams for fat_g if defined as %
+    const fatTarget = enrichedTargets.fat_g;
+    if (fatTarget && fatTarget.unit === '%' && (fatTarget.AMDR_MIN || fatTarget.AMDR_MAX)) {
+      const percent = fatTarget.AMDR_MIN || 20; // Default to 20% if only max is defined (unlikely)
+      fatTarget.target = Math.round((energy.totalEnergy * (percent / 100)) / 9);
+      fatTarget.unit = 'g';
+      fatTarget.note = `Based on ${percent}% of ${energy.totalEnergy} kcal energy target`;
+    }
+
+    // Convert AMDR % to grams for carbs if it doesn't already have a gram-based target
+    const carbTarget = enrichedTargets.carbs_g;
+    if (carbTarget && carbTarget.unit === '%' && (carbTarget.AMDR_MIN || carbTarget.AMDR_MAX)) {
+      const percent = carbTarget.AMDR_MIN || 45; 
+      carbTarget.target = Math.round((energy.totalEnergy * (percent / 100)) / 4);
+      carbTarget.unit = 'g';
     }
 
     return {

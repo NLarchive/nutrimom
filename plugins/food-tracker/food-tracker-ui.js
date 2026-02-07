@@ -330,18 +330,18 @@ class FoodTrackerUI {
           </div>
         </div>
 
+        <!-- Nutrient Comparison -->
+        <div class="nutrient-comparison" id="ft-comparison" style="display: none;">
+          <h3>Nutrient Status</h3>
+          <div class="comparison-content" id="ft-comparison-content"></div>
+        </div>
+
         <!-- Meals Log -->
         <div class="meals-log" id="ft-meals-log">
           <h3>Logged Meals</h3>
           <div class="meals-list" id="ft-meals-list">
             <!-- Meals will be rendered here -->
           </div>
-        </div>
-
-        <!-- Nutrient Comparison -->
-        <div class="nutrient-comparison" id="ft-comparison" style="display: none;">
-          <h3>Nutrient Status</h3>
-          <div class="comparison-content" id="ft-comparison-content"></div>
         </div>
       </div>
     `;
@@ -685,34 +685,76 @@ class FoodTrackerUI {
     const dailyLog = this.tracker.getDailyLog();
     
     // Update summary
-    if (dailyLog.meals.length === 0) {
+    if (dailyLog.meals.length === 0 && !this.userTargets) {
       this.elements.summaryContent.innerHTML = `
         <p class="empty-state">No meals logged today. Upload a food photo to get started!</p>
       `;
     } else {
       const totals = dailyLog.dailyTotals;
+      const getLeft = (key, intake) => {
+        if (!this.userTargets) return null;
+        
+        // Handle target key mapping (intake keys might differ from target keys)
+        const mapping = {
+          'folate_ug': 'folate_dfe_ug',
+          'vitamin_a_ug': 'vitamin_a_rae_ug',
+          'omega3_mg': 'dha_mg'
+        };
+        const targetKey = mapping[key] || key;
+        
+        if (!this.userTargets[targetKey]) return null;
+        
+        const target = this.tracker._extractTargetValue(this.userTargets[targetKey]);
+        if (target === null) return null;
+        
+        const left = Math.max(0, target - intake);
+        return { 
+          left: left < 1 ? left.toFixed(2) : left.toFixed(1), 
+          target: target.toFixed(0),
+          isMet: left <= 0
+        };
+      };
+
+      const macroSummary = [
+        { key: 'energy_kcal', label: 'Calories', val: totals.energy_kcal },
+        { key: 'protein_g', label: 'Protein', val: totals.protein_g },
+        { key: 'carbs_g', label: 'Carbs', val: totals.carbs_g },
+        { key: 'fat_g', label: 'Fat', val: totals.fat_g },
+        { key: 'fiber_g', label: 'Fiber', val: totals.fiber_g }
+      ];
+
+      // Add critical pregnancy micronutrients if not yet met
+      const criticalMicros = [
+        { key: 'iron_mg', label: 'Iron' },
+        { key: 'folate_ug', label: 'Folate' },
+        { key: 'calcium_mg', label: 'Calcium' }
+      ];
+
+      criticalMicros.forEach(m => {
+        const leftData = getLeft(m.key, totals[m.key] || 0);
+        if (leftData && !leftData.isMet) {
+          macroSummary.push({ ...m, val: totals[m.key] || 0 });
+        }
+      });
+
       this.elements.summaryContent.innerHTML = `
         <div class="daily-totals-grid">
-          <div class="daily-total">
-            <span class="value">${Math.round(totals.energy_kcal)}</span>
-            <span class="label">Calories</span>
-          </div>
-          <div class="daily-total">
-            <span class="value">${totals.protein_g.toFixed(1)}g</span>
-            <span class="label">Protein</span>
-          </div>
-          <div class="daily-total">
-            <span class="value">${totals.carbs_g.toFixed(1)}g</span>
-            <span class="label">Carbs</span>
-          </div>
-          <div class="daily-total">
-            <span class="value">${totals.fat_g.toFixed(1)}g</span>
-            <span class="label">Fat</span>
-          </div>
-          <div class="daily-total">
-            <span class="value">${totals.fiber_g.toFixed(1)}g</span>
-            <span class="label">Fiber</span>
-          </div>
+          ${macroSummary.map(m => {
+            const leftData = getLeft(m.key, m.val);
+            const valDisplay = m.val === 0 ? '0' : m.val < 10 ? m.val.toFixed(1) : Math.round(m.val);
+            return `
+              <div class="daily-total ${leftData && leftData.isMet ? 'goal-met' : ''}">
+                <span class="value">${valDisplay}</span>
+                <span class="label">${m.label}</span>
+                ${leftData ? `
+                  <div class="left-to-eat ${leftData.isMet ? 'met' : 'pending'}">
+                    <span class="left-val">${leftData.isMet ? '✓' : leftData.left}</span>
+                    <span class="left-label">${leftData.isMet ? 'Goal Met' : 'Left'}</span>
+                  </div>
+                ` : ''}
+              </div>
+            `;
+          }).join('')}
         </div>
       `;
     }
@@ -755,7 +797,7 @@ class FoodTrackerUI {
     }
 
     // Update nutrient comparison if targets available
-    if (this.userTargets && dailyLog.meals.length > 0) {
+    if (this.userTargets) {
       this._updateNutrientComparison();
     }
   }
@@ -764,13 +806,6 @@ class FoodTrackerUI {
     if (!this.userTargets) return;
 
     const comparison = this.tracker.compareToTargets(this.userTargets);
-    
-    // Don't show comparison if no intake data
-    const hasIntakeData = Object.values(comparison.nutrients).some(n => n.intake > 0);
-    if (!hasIntakeData) {
-      this.elements.comparison.style.display = 'none';
-      return;
-    }
     
     this.elements.comparison.style.display = 'block';
 
@@ -789,20 +824,34 @@ class FoodTrackerUI {
     ` : '';
 
     this.elements.comparisonContent.innerHTML = `
+      <div class="nutrient-comparison-header">
+        <span>Nutrient</span>
+        <span>Goal Progress</span>
+        <span>Left to Eat</span>
+        <span>%</span>
+      </div>
       <div class="nutrient-bars">
         ${nutrients.map(([key, data]) => {
           const percent = Math.min(data.percentage || 0, 150);
           const statusClass = data.status;
           const displayName = data.name || this._formatNutrientName(key);
+          const isMet = data.percentage >= 100;
+          
           return `
             <div class="nutrient-bar-item">
               <div class="nutrient-bar-label">
-                <span>${displayName}</span>
-                <span class="nutrient-bar-values">${data.intake.toFixed(1)} / ${data.target} ${data.unit}</span>
+                <strong>${displayName}</strong>
+                <span class="nutrient-bar-values">${data.intake.toFixed(1)} / ${data.target}</span>
               </div>
-              <div class="nutrient-bar-track">
-                <div class="nutrient-bar-fill ${statusClass}" style="width: ${percent}%"></div>
-                <div class="nutrient-bar-target"></div>
+              <div class="nutrient-bar-track-container">
+                <div class="nutrient-bar-track">
+                  <div class="nutrient-bar-fill ${statusClass}" style="width: ${percent}%"></div>
+                  <div class="nutrient-bar-target"></div>
+                </div>
+              </div>
+              <div class="nutrient-remaining-column ${isMet ? 'met' : 'pending'}">
+                <span class="remaining-value">${isMet ? '✓' : data.remaining}</span>
+                <span class="remaining-unit">${data.unit}</span>
               </div>
               <span class="nutrient-bar-percent ${statusClass}">${Math.round(data.percentage || 0)}%</span>
             </div>

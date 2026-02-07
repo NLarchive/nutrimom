@@ -34,6 +34,7 @@ class FoodTrackerPlugin {
   constructor(options = {}) {
     this.options = {
       containerId: options.containerId || 'food-tracker-container',
+      dashboardContainerId: options.dashboardContainerId || 'food-log-dashboard',
       storageKey: options.storageKey || 'nutrimom_food_log',
       apiProvider: options.apiProvider || null,
       apiKey: options.apiKey || null,
@@ -46,6 +47,7 @@ class FoodTrackerPlugin {
 
     this.engine = null;
     this.ui = null;
+    this.dashboard = null;
     this._initialized = false;
   }
 
@@ -80,6 +82,14 @@ class FoodTrackerPlugin {
       userTargets: this.options.userTargets
     });
 
+    // Create Dashboard
+    this.dashboard = new FoodLogDashboard({
+      containerId: this.options.dashboardContainerId,
+      tracker: this.engine,
+      userTargets: this.options.userTargets
+    });
+    this.dashboard.init();
+
     this._initialized = true;
     return this;
   }
@@ -93,6 +103,9 @@ class FoodTrackerPlugin {
     this.options.userTargets = targets;
     if (this.ui) {
       this.ui.setUserTargets(targets);
+    }
+    if (this.dashboard) {
+      this.dashboard.setUserTargets(targets);
     }
     return this;
   }
@@ -172,6 +185,9 @@ class FoodTrackerPlugin {
     if (this.ui) {
       this.ui.refresh();
     }
+    if (this.dashboard) {
+      this.dashboard.render();
+    }
     return this;
   }
 
@@ -190,6 +206,14 @@ class FoodTrackerPlugin {
   getUI() {
     return this.ui;
   }
+
+  /**
+   * Get the log dashboard component
+   * @returns {FoodLogDashboard}
+   */
+  getDashboard() {
+    return this.dashboard;
+  }
 }
 
 // Export for module systems
@@ -198,6 +222,7 @@ if (typeof module !== 'undefined' && module.exports) {
     FoodTrackerPlugin,
     FoodTrackerEngine,
     FoodTrackerUI,
+    FoodLogDashboard,
     LLMFoodConfig
   };
 }
