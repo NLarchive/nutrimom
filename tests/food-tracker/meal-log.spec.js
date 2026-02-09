@@ -72,14 +72,20 @@ test.describe('Food Tracker Meal Log', () => {
     expect(foodLog).toBeTruthy();
 
     const parsed = JSON.parse(foodLog);
-    const today = new Date().toISOString().split('T')[0];
+    // Use local date matching engine logic
+    const now = new Date();
+    const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    
     expect(parsed[today]).toBeTruthy();
     expect(parsed[today].meals).toHaveLength(1);
     expect(parsed[today].meals[0].food_items[0].name).toBe('Avocado Toast');
   });
 
   test('should load persisted food log on page refresh', async ({ page }) => {
-    const today = new Date().toISOString().split('T')[0];
+    // Use local date matching engine logic
+    const now = new Date();
+    const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    
     await page.evaluate((date) => {
       const foodLog = {};
       foodLog[date] = {
@@ -97,7 +103,11 @@ test.describe('Food Tracker Meal Log', () => {
           }],
           totals: { energy_kcal: 180, protein_g: 6, carbs_g: 12, fat_g: 13 }
         }],
-        dailyTotals: { energy_kcal: 180, protein_g: 6, carbs_g: 12, fat_g: 13, fiber_g: 0, sodium_mg: 0 }
+        dailyTotals: { 
+          energy_kcal: 180, protein_g: 6, carbs_g: 12, fat_g: 13, fiber_g: 0, sodium_mg: 0,
+          vitamin_a_rae_ug: 0, vitamin_b12_ug: 0, vitamin_c_mg: 0, vitamin_d_ug: 0,
+          folate_dfe_ug: 0, iron_mg: 0, calcium_mg: 0, zinc_mg: 0, dha_mg: 0
+        }
       };
       localStorage.setItem('nutrimom_food_log', JSON.stringify(foodLog));
     }, today);

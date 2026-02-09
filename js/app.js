@@ -1,5 +1,5 @@
 /**
- * NutriMom - Pregnancy Nutrition Calculator
+ * NutriMom - Nutrition Calculator for Everyone
  * Main application controller
  */
 document.addEventListener('DOMContentLoaded', async () => {
@@ -161,17 +161,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (data.profile) {
           const profile = data.profile;
           const sanitizedProfile = {
-            ageYears: sanitizeNumber(profile.ageYears, 14, 60),
-            // The system supports 'male' for future project recycling, 
-            // even though the current UI is female-focused.
+            ageYears: sanitizeNumber(profile.ageYears, 1, 120),
             sex: ['male', 'female'].includes(profile.sex) ? profile.sex : 'female',
-            weightKg: sanitizeNumber(profile.weightKg, 30, 250),
-            heightCm: sanitizeNumber(profile.heightCm, 100, 250),
+            weightKg: sanitizeNumber(profile.weightKg, 5, 250),
+            heightCm: sanitizeNumber(profile.heightCm, 45, 250),
             activityLevel: ['sedentary', 'lightly_active', 'moderately_active', 'very_active', 'extra_active'].includes(profile.activityLevel) 
               ? profile.activityLevel : null,
             isPregnant: profile.isPregnant === true,
             pregnancyWeek: sanitizeNumber(profile.pregnancyWeek, 1, 42),
-            prePregnancyWeightKg: sanitizeNumber(profile.prePregnancyWeightKg, 30, 250),
+            prePregnancyWeightKg: sanitizeNumber(profile.prePregnancyWeightKg, 25, 250),
             isLactating: profile.isLactating === true,
             lactationMonths: sanitizeNumber(profile.lactationMonths, 0, 24),
             isMultiples: profile.isMultiples === true
@@ -253,10 +251,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (profile.ageYears) document.getElementById('age').value = profile.ageYears;
       if (profile.sex) {
         document.getElementById('sex').value = profile.sex;
-        if (profile.sex === 'female') {
-          pregnancySection.style.display = 'block';
-        }
       }
+      // Update pregnancy section visibility based on sex + age
+      updatePregnancySectionVisibility();
       if (profile.weightKg) document.getElementById('weight').value = profile.weightKg;
       if (profile.heightCm) document.getElementById('height').value = profile.heightCm;
       if (profile.activityLevel) document.getElementById('activity').value = profile.activityLevel;
@@ -292,8 +289,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           calculateAndDisplay();
         }, 100);
       }
-
-      console.log('Loaded saved profile');
     } catch (err) {
       console.error('Failed to load saved profile:', err);
     }
@@ -306,6 +301,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       nutritionEngine: engine
     });
     foodTracker.init();
+    
+    // Expose for debugging and testing
+    window.foodTracker = foodTracker;
+    window.foodTrackerEngine = foodTracker.getEngine();
+    
     console.log('Food Tracker Plugin initialized successfully');
   } catch (err) {
     console.error('Failed to initialize Food Tracker Plugin:', err);
@@ -314,13 +314,27 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Load saved profile AFTER tracker is ready so targets are synced
   loadSavedProfile();
 
-  // Sex change - show/hide pregnancy section
-  // NOTE: This field is currently hidden in index.html to focus on pregnancy.
-  // We keep this event listener so the logic remains functional if the field is re-enabled
-  // for other nutrition projects.
-  sexSelect.addEventListener('change', () => {
-    pregnancySection.style.display = sexSelect.value === 'female' ? 'block' : 'none';
-  });
+  // Sex/Age change - show/hide pregnancy section
+  function updatePregnancySectionVisibility() {
+    const sex = sexSelect.value;
+    const age = parseInt(document.getElementById('age').value) || 0;
+    const showPregnancy = sex === 'female' && age >= 14 && age <= 50;
+    pregnancySection.style.display = showPregnancy ? 'block' : 'none';
+    
+    // If hiding pregnancy section, reset status to 'none'
+    if (!showPregnancy) {
+      const noneRadio = document.querySelector('input[name="status"][value="none"]');
+      if (noneRadio) noneRadio.checked = true;
+      pregnancyFields.style.display = 'none';
+      lactationFields.style.display = 'none';
+    }
+  }
+
+  sexSelect.addEventListener('change', updatePregnancySectionVisibility);
+  document.getElementById('age').addEventListener('input', updatePregnancySectionVisibility);
+
+  // Set initial visibility based on default values
+  updatePregnancySectionVisibility();
 
   // Status radio buttons
   document.querySelectorAll('input[name="status"]').forEach(radio => {
@@ -427,6 +441,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       
       displayCriticalNutrients(currentPlan.targets);
       criticalCard.style.display = 'block';
+    } else if (profile.isLactating) {
+      // Show critical nutrients for lactation too
+      displayCriticalNutrients(currentPlan.targets);
+      criticalCard.style.display = 'block';
+      comparisonBlock.style.display = 'none';
     } else {
       comparisonBlock.style.display = 'none';
       criticalCard.style.display = 'none';
@@ -445,7 +464,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     const bmi = engine.calculateBMI(profile.weightKg, profile.heightCm);
     const bmiCategory = engine.getBMICategory(bmi);
     
-    avatar.textContent = profile.isPregnant ? '🤰' : profile.isLactating ? '🤱' : '👩';
+    // Choose avatar based on sex, age, and stage
+    if (profile.isPregnant) {
+      avatar.textContent = '🤰';
+    } else if (profile.isLactating) {
+      avatar.textContent = '🤱';
+    } else if (profile.ageYears < 9) {
+      avatar.textContent = '🧒';  // Child
+    } else if (profile.sex === 'male') {
+      avatar.textContent = '👨';  // Man
+    } else {
+      avatar.textContent = '👩';  // Woman
+    }
+    
     stageLabel.textContent = plan.classification.lifeStageLabel;
     subtitle.textContent = `${formatAgeBand(plan.classification.ageBand)} • ${formatActivity(profile.activityLevel)}`;
     bmiDisplay.querySelector('.bmi-value').textContent = bmi;
@@ -582,7 +613,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Helpers
   function formatAgeBand(code) {
-    const labels = { '14_18': '14-18 years', '19_30': '19-30 years', '31_50': '31-50 years', '51_plus': '51+ years' };
+    const labels = {
+      '1_3': '1-3 years', '4_8': '4-8 years', '9_13': '9-13 years',
+      '14_18': '14-18 years', '19_30': '19-30 years', '31_50': '31-50 years', '51_plus': '51+ years'
+    };
     return labels[code] || code;
   }
   

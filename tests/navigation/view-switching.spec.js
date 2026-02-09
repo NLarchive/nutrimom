@@ -14,7 +14,7 @@ test.describe('Navigation & View Switching', () => {
   });
 
   test('should load the application with correct title', async ({ page }) => {
-    await expect(page).toHaveTitle('NutriMom - Pregnancy Nutrition Calculator');
+    await expect(page).toHaveTitle('NutriMom - Nutrition Calculator');
     await expect(page.locator('h1')).toContainText('NutriMom');
   });
 

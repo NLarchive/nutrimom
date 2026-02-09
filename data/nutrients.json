@@ -15,6 +15,7 @@
     "category": "macro",
     "unit": "g",
     "description": "Essential for tissue building, enzymes, hormones, and immune function.",
+    "calculation_note": "Target calculated as RDA per kg body weight (0.8 g/kg non-pregnant, 1.1 g/kg pregnant/lactating) × user's weight.",
     "importance_pregnancy": "Critical for fetal growth, placenta development, and increased blood volume. RDA increases from 46g to 71g/day.",
     "food_sources": ["Meat", "Poultry", "Fish", "Eggs", "Dairy", "Legumes", "Nuts", "Tofu"]
   },
@@ -52,6 +53,7 @@
     "category": "macro",
     "unit": "L",
     "description": "From all beverages and foods. Essential for all body functions.",
+    "calculation_note": "Target calculated as AI per kg body weight (45 ml/kg non-pregnant, 50 ml/kg pregnant, 63 ml/kg lactating) × user's weight.",
     "importance_pregnancy": "Needs increase to 3.0 L/day to support expanded blood volume and amniotic fluid.",
     "food_sources": ["Beverages", "Water-rich fruits/vegetables", "Soups"]
   },

@@ -469,6 +469,44 @@ class FoodTrackerEngine {
       pregnancy_relevant_notes: analysis.pregnancy_relevant_notes || []
     };
 
+    // Recompute meal-level totals from the supplied food_items to ensure
+    // micronutrients and all tracked nutrients are present and consistent
+    // even when the AI response omitted some totals.
+    try {
+      const mealTotals = this._emptyTotals();
+
+      entry.food_items.forEach(item => {
+        if (item.nutrients) {
+          Object.keys(item.nutrients).forEach(k => {
+            const v = parseFloat(item.nutrients[k]) || 0;
+            if (mealTotals.hasOwnProperty(k)) mealTotals[k] += v;
+          });
+        }
+
+        if (item.micronutrients) {
+          Object.keys(item.micronutrients).forEach(k => {
+            let v = parseFloat(item.micronutrients[k]) || 0;
+            let targetKey = k;
+            if (k === 'vitamin_a_ug') targetKey = 'vitamin_a_rae_ug';
+            if (k === 'folate_ug') targetKey = 'folate_dfe_ug';
+            if (k === 'omega3_mg') targetKey = 'dha_mg';
+            if (mealTotals.hasOwnProperty(targetKey)) mealTotals[targetKey] += v;
+          });
+        }
+      });
+
+      // Round to 1 decimal like other aggregates
+      Object.keys(mealTotals).forEach(key => {
+        mealTotals[key] = Math.round(mealTotals[key] * 10) / 10;
+      });
+
+      // Overwrite entry.totals with computed, but keep any explicitly provided top-level totals as backup
+      entry.totals = { ...entry.totals, ...mealTotals };
+    } catch (err) {
+      // Non-fatal: keep original totals if computation fails
+      console.warn('Failed to compute meal totals from items:', err);
+    }
+
     this.foodLog[date].meals.push(entry);
     this._recalculateDailyTotals(date);
     this._updateMeta();
@@ -562,7 +600,7 @@ class FoodTrackerEngine {
   }
 
   /**
-   * Create empty totals object
+   * Create empty totals object covering all tracked nutrients
    * @private
    */
   _emptyTotals() {
@@ -573,20 +611,49 @@ class FoodTrackerEngine {
       fat_g: 0,
       fiber_g: 0,
       sodium_mg: 0,
-      // Micronutrients
-      vitamin_a_ug: 0,
+      
+      // Vitamins
+      vitamin_a_rae_ug: 0,
+      vitamin_b12_ug: 0,
       vitamin_c_mg: 0,
       vitamin_d_ug: 0,
-      folate_ug: 0,
+      vitamin_e_mg: 0,
+      vitamin_k_ug: 0,
+      vitamin_b6_mg: 0,
+      thiamin_mg: 0,
+      riboflavin_mg: 0,
+      niacin_mg_ne: 0,
+      pantothenic_acid_mg: 0,
+      biotin_ug: 0,
+      folate_dfe_ug: 0,
+      choline_mg: 0,
+
+      // Minerals
       iron_mg: 0,
       calcium_mg: 0,
       zinc_mg: 0,
-      omega3_mg: 0
+      iodine_ug: 0,
+      magnesium_mg: 0,
+      potassium_mg: 0,
+      phosphorus_mg: 0,
+      selenium_ug: 0,
+      copper_ug: 0,
+      manganese_mg: 0,
+      chromium_ug: 0,
+      molybdenum_ug: 0,
+      chloride_mg: 0,
+      fluoride_mg: 0,
+      
+      // Fatty Acids
+      dha_mg: 0,
+      epa_mg: 0,
+      ala_omega3_g: 0
     };
   }
 
   /**
    * Recalculate daily totals from meals
+   * Re-aggregates strictly from food items to ensure consistency (ignoring LLM-provided meal totals)
    * @private
    */
   _recalculateDailyTotals(date) {
@@ -596,29 +663,38 @@ class FoodTrackerEngine {
     const totals = this._emptyTotals();
 
     dayLog.meals.forEach(meal => {
-      // Sum up macros from meal totals (ensure numeric addition)
-      if (meal.totals) {
-        totals.energy_kcal += parseFloat(meal.totals.energy_kcal) || 0;
-        totals.protein_g += parseFloat(meal.totals.protein_g) || 0;
-        totals.carbs_g += parseFloat(meal.totals.carbs_g) || 0;
-        totals.fat_g += parseFloat(meal.totals.fat_g) || 0;
-        totals.fiber_g += parseFloat(meal.totals.fiber_g) || 0;
-        totals.sodium_mg += parseFloat(meal.totals.sodium_mg) || 0;
-      }
+      // Sum strictly from food items to ensure data consistency
+      // Previously relied on meal.totals which caused double-counting with micronutrients
+      if (Array.isArray(meal.food_items)) {
+        meal.food_items.forEach(item => {
+          // 1. Process base nutrients (macros + some micros)
+          if (item.nutrients) {
+            Object.keys(item.nutrients).forEach(key => {
+              const val = parseFloat(item.nutrients[key]) || 0;
+              if (totals.hasOwnProperty(key)) {
+                totals[key] += val;
+              }
+            });
+          }
 
-      // Sum up micronutrients from individual items (ensure numeric addition)
-      meal.food_items.forEach(item => {
-        if (item.micronutrients) {
-          totals.vitamin_a_ug += parseFloat(item.micronutrients.vitamin_a_ug) || 0;
-          totals.vitamin_c_mg += parseFloat(item.micronutrients.vitamin_c_mg) || 0;
-          totals.vitamin_d_ug += parseFloat(item.micronutrients.vitamin_d_ug) || 0;
-          totals.folate_ug += parseFloat(item.micronutrients.folate_ug) || 0;
-          totals.iron_mg += parseFloat(item.micronutrients.iron_mg) || 0;
-          totals.calcium_mg += parseFloat(item.micronutrients.calcium_mg) || 0;
-          totals.zinc_mg += parseFloat(item.micronutrients.zinc_mg) || 0;
-          totals.omega3_mg += parseFloat(item.micronutrients.omega3_mg) || 0;
-        }
-      });
+          // 2. Process separate micronutrients object (if present)
+          if (item.micronutrients) {
+            Object.keys(item.micronutrients).forEach(key => {
+              const val = parseFloat(item.micronutrients[key]) || 0;
+              
+              // Normalize nutrient keys relative to our internal schema
+              let targetKey = key;
+              if (key === 'vitamin_a_ug') targetKey = 'vitamin_a_rae_ug';
+              if (key === 'folate_ug') targetKey = 'folate_dfe_ug';
+              if (key === 'omega3_mg') targetKey = 'dha_mg';
+              
+              if (totals.hasOwnProperty(targetKey)) {
+                totals[targetKey] += val;
+              }
+            });
+          }
+        });
+      }
     });
 
     // Round values to 1 decimal place to avoid floating point issues
@@ -698,33 +774,19 @@ class FoodTrackerEngine {
       insights: []
     };
 
-    // Direct mapping from intake keys to target keys (they should match)
-    // Intake keys from _emptyTotals() → Target keys from nutrient-targets.json
-    const nutrientMapping = {
-      'energy_kcal': 'energy_kcal',
-      'protein_g': 'protein_g',
-      'carbs_g': 'carbs_g',
-      'fat_g': 'fat_g',
-      'fiber_g': 'fiber_g',
-      'calcium_mg': 'calcium_mg',
-      'iron_mg': 'iron_mg',
-      'zinc_mg': 'zinc_mg',
-      'folate_ug': 'folate_dfe_ug',
-      'vitamin_a_ug': 'vitamin_a_rae_ug',
-      'vitamin_c_mg': 'vitamin_c_mg',
-      'vitamin_d_ug': 'vitamin_d_ug',
-      'omega3_mg': 'dha_mg'
-    };
-
-    // Track critical pregnancy nutrients for insights
-    const criticalNutrients = ['folate_dfe_ug', 'iron_mg', 'calcium_mg', 'vitamin_d_ug', 'dha_mg', 'iodine_ug'];
+    // Map from intake keys (dailyTotals) to target keys (nutrient-targets.json)
+    const intakeKeys = Object.keys(intake);
+    const criticalNutrients = ['folate_dfe_ug', 'iron_mg', 'calcium_mg', 'vitamin_d_ug', 'dha_mg', 'iodine_ug', 'choline_mg'];
     const criticalStatus = {};
 
-    Object.entries(nutrientMapping).forEach(([intakeKey, targetKey]) => {
+    intakeKeys.forEach((intakeKey) => {
       const intakeValue = intake[intakeKey] || 0;
+      // Most keys match directly. f.ex: protein_g -> protein_g
+      const targetKey = intakeKey; 
       const targetData = targets[targetKey];
 
       if (!targetData) {
+        // Only report as noData if there's no entry in targets at all
         comparison.summary.noData.push(intakeKey);
         return;
       }
@@ -838,16 +900,37 @@ class FoodTrackerEngine {
       'iron_mg': 'Iron',
       'calcium_mg': 'Calcium',
       'folate_ug': 'Folate',
-      'folate_dfe_ug': 'Folate',
+      'folate_dfe_ug': 'Folate (DFE)',
       'vitamin_a_ug': 'Vitamin A',
-      'vitamin_a_rae_ug': 'Vitamin A',
+      'vitamin_a_rae_ug': 'Vitamin A (RAE)',
       'vitamin_c_mg': 'Vitamin C',
       'vitamin_d_ug': 'Vitamin D',
+      'vitamin_e_mg': 'Vitamin E',
+      'vitamin_k_ug': 'Vitamin K',
+      'vitamin_b6_mg': 'Vitamin B6',
+      'vitamin_b12_ug': 'Vitamin B12',
+      'thiamin_mg': 'Thiamin (B1)',
+      'riboflavin_mg': 'Riboflavin (B2)',
+      'niacin_mg_ne': 'Niacin (B3)',
+      'pantothenic_acid_mg': 'Pantothenic Acid (B5)',
+      'biotin_ug': 'Biotin (B7)',
       'zinc_mg': 'Zinc',
-      'omega3_mg': 'Omega-3 (DHA)',
-      'dha_mg': 'DHA (Omega-3)',
+      'selenium_ug': 'Selenium',
+      'magnesium_mg': 'Magnesium',
+      'potassium_mg': 'Potassium',
+      'phosphorus_mg': 'Phosphorus',
+      'copper_ug': 'Copper',
+      'manganese_mg': 'Manganese',
+      'chromium_ug': 'Chromium',
+      'molybdenum_ug': 'Molybdenum',
+      'chloride_mg': 'Chloride',
+      'fluoride_mg': 'Fluoride',
       'iodine_ug': 'Iodine',
-      'choline_mg': 'Choline'
+      'choline_mg': 'Choline',
+      'omega3_mg': 'Omega-3',
+      'ala_omega3_g': 'Omega-3 (ALA)',
+      'dha_mg': 'DHA',
+      'epa_mg': 'EPA'
     };
     return names[code] || code.replace(/_/g, ' ');
   }

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NutriMom - Pregnancy Nutrition Calculator</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤰</text></svg>">
+  <title>NutriMom - Nutrition Calculator</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>�</text></svg>">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -57,9 +57,21 @@
                   <span class="label-text">Age</span>
                   <span class="label-hint">years</span>
                 </label>
-                <input type="number" id="age" name="ageYears" min="14" max="60" placeholder="28" required>
+                <input type="number" id="age" name="ageYears" min="1" max="120" placeholder="28" required>
               </div>
 
+              <div class="form-group">
+                <label for="sex">
+                  <span class="label-text">Sex</span>
+                </label>
+                <select id="sex" name="sex" required>
+                  <option value="female" selected>Female</option>
+                  <option value="male">Male</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
               <div class="form-group">
                 <label for="activity">
                   <span class="label-text">Activity Level</span>
@@ -75,26 +87,13 @@
               </div>
             </div>
 
-            <!-- Sex field is hidden to simplify the UI for the target (pregnancy) demographic.
-                 The underlying engine and this structure still support 'male' for future 
-                 recycling in other nutrition tools. -->
-            <div class="form-group" style="display: none;">
-              <label for="sex">
-                <span class="label-text">Sex</span>
-              </label>
-              <select id="sex" name="sex">
-                <option value="female" selected>Female</option>
-                <option value="male">Male</option>
-              </select>
-            </div>
-
             <div class="form-row">
               <div class="form-group">
                 <label for="weight">
                   <span class="label-text">Weight</span>
                   <span class="label-hint">kg</span>
                 </label>
-                <input type="number" id="weight" name="weightKg" min="30" max="250" step="0.1" placeholder="65" required>
+                <input type="number" id="weight" name="weightKg" min="5" max="250" step="0.1" placeholder="65" required>
               </div>
 
               <div class="form-group">
@@ -102,13 +101,13 @@
                   <span class="label-text">Height</span>
                   <span class="label-hint">cm</span>
                 </label>
-                <input type="number" id="height" name="heightCm" min="100" max="250" placeholder="165" required>
+                <input type="number" id="height" name="heightCm" min="45" max="250" placeholder="165" required>
               </div>
             </div>
           </div>
 
           <!-- Pregnancy/Lactation Card -->
-          <div class="form-card pregnancy-card" id="pregnancy-section" style="display: block;">
+          <div class="form-card pregnancy-card" id="pregnancy-section" style="display: none;">
             <h3 class="form-card-title">
               <span class="title-icon">👶</span>
               Pregnancy & Lactation Status
@@ -351,7 +350,7 @@
           <strong>Disclaimer:</strong> This calculator provides general nutrition guidance based on IOM Dietary Reference Intakes. 
           Individual needs may vary. Always consult with a healthcare provider or registered dietitian for personalized advice.
         </p>
-        <p class="credits">Data sources: IOM DRI • Mifflin-St Jeor (1990) • IOM Weight Gain Guidelines (2009)</p>
+        <p class="credits">Data sources: IOM DRI • NASEM 2019 • Mifflin-St Jeor (1990) • Schofield (1985) • IOM Weight Gain Guidelines (2009)</p>
       </div>
     </footer>
   </div>

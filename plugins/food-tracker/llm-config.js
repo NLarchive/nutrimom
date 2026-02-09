@@ -64,6 +64,7 @@ Respond ONLY with valid JSON matching this exact structure:
       },
       "micronutrients": {
         "vitamin_a_ug": number or null,
+        "vitamin_b12_ug": number or null,
         "vitamin_c_mg": number or null,
         "vitamin_d_ug": number or null,
         "vitamin_e_mg": number or null,
@@ -74,7 +75,10 @@ Respond ONLY with valid JSON matching this exact structure:
         "potassium_mg": number or null,
         "magnesium_mg": number or null,
         "zinc_mg": number or null,
-        "omega3_mg": number or null
+        "iodine_ug": number or null,
+        "choline_mg": number or null,
+        "dha_mg": number or null,
+        "epa_mg": number or null
       }
     }
   ],
@@ -84,7 +88,8 @@ Respond ONLY with valid JSON matching this exact structure:
     "carbs_g": number,
     "fat_g": number,
     "fiber_g": number,
-    "sodium_mg": number
+    "sodium_mg": number,
+    "folate_dfe_ug": number
   },
   "warnings": ["array of any nutritional warnings or notes"],
   "pregnancy_relevant_notes": ["notes specifically relevant for pregnant women"]
@@ -156,6 +161,7 @@ Respond ONLY with valid JSON matching this exact structure:
               "type": "object",
               "properties": {
                 "vitamin_a_ug": { "type": ["number", "null"] },
+                "vitamin_b12_ug": { "type": ["number", "null"] },
                 "vitamin_c_mg": { "type": ["number", "null"] },
                 "vitamin_d_ug": { "type": ["number", "null"] },
                 "vitamin_e_mg": { "type": ["number", "null"] },
@@ -166,7 +172,10 @@ Respond ONLY with valid JSON matching this exact structure:
                 "potassium_mg": { "type": ["number", "null"] },
                 "magnesium_mg": { "type": ["number", "null"] },
                 "zinc_mg": { "type": ["number", "null"] },
-                "omega3_mg": { "type": ["number", "null"] }
+                "iodine_ug": { "type": ["number", "null"] },
+                "choline_mg": { "type": ["number", "null"] },
+                "dha_mg": { "type": ["number", "null"] },
+                "epa_mg": { "type": ["number", "null"] }
               }
             }
           }
@@ -181,7 +190,8 @@ Respond ONLY with valid JSON matching this exact structure:
           "carbs_g": { "type": "number" },
           "fat_g": { "type": "number" },
           "fiber_g": { "type": "number" },
-          "sodium_mg": { "type": "number" }
+          "sodium_mg": { "type": "number" },
+          "folate_dfe_ug": { "type": "number" }
         }
       },
       "warnings": {

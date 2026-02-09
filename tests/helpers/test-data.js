@@ -174,16 +174,17 @@ async function navigateToTracker(page) {
 }
 
 /**
- * Fill a standard non-pregnant female profile
+ * Fill a standard profile
  */
 async function fillProfile(page, opts = {}) {
   const age = opts.age || '28';
+  const sex = opts.sex || 'female';
   const weight = opts.weight || '65';
   const height = opts.height || '165';
   const activity = opts.activity || 'lightly_active';
 
   await page.fill('#age', age);
-  // Sex is now pre-fixed to "female" and hidden in the UI
+  await page.selectOption('#sex', sex);
   await page.fill('#weight', weight);
   await page.fill('#height', height);
   await page.selectOption('#activity', activity);
@@ -193,7 +194,7 @@ async function fillProfile(page, opts = {}) {
  * Fill a pregnant female profile and submit
  */
 async function fillPregnantProfile(page, week = '24') {
-  await fillProfile(page);
+  await fillProfile(page, { sex: 'female', age: '28' });
   await page.waitForSelector('#pregnancy-section', { state: 'visible' });
   await page.locator('.toggle-option:has(input[value="pregnant"])').click();
   await page.waitForSelector('#pregnancy-fields', { state: 'visible' });

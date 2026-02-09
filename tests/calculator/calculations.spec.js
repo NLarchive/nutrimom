@@ -21,7 +21,7 @@ test.describe('Nutrition Calculations', () => {
       await fillProfile(page);
       await submitProfile(page);
 
-      await expect(page.locator('#profile-stage-label')).toContainText('Non-Pregnant Female');
+      await expect(page.locator('#profile-stage-label')).toContainText('Female');
     });
 
     test('should display correct BMI for 65kg, 165cm', async ({ page }) => {

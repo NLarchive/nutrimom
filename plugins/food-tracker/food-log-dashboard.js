@@ -101,7 +101,7 @@ class FoodLogDashboard {
     const avgCal = Math.round(weeklyAvg.averages.energy_kcal || 0);
     const avgProtein = Math.round((weeklyAvg.averages.protein_g || 0) * 10) / 10;
     const avgIron = Math.round((weeklyAvg.averages.iron_mg || 0) * 10) / 10;
-    const avgFolate = Math.round(weeklyAvg.averages.folate_ug || 0);
+    const avgFolate = Math.round(weeklyAvg.averages.folate_dfe_ug || weeklyAvg.averages.folate_ug || 0);
 
     return `
       <div class="log-summary-cards" id="log-summary-cards">
@@ -224,18 +224,24 @@ class FoodLogDashboard {
     if (weeklyAvg.daysTracked === 0) return '';
 
     const micronutrients = [
-      { key: 'folate_ug', name: 'Folate', unit: 'µg', targetKey: 'folate_dfe_ug', color: '#48bb78' },
+      { key: 'folate_dfe_ug', name: 'Folate', unit: 'µg', targetKey: 'folate_dfe_ug', color: '#48bb78' },
       { key: 'iron_mg', name: 'Iron', unit: 'mg', targetKey: 'iron_mg', color: '#e53e3e' },
       { key: 'calcium_mg', name: 'Calcium', unit: 'mg', targetKey: 'calcium_mg', color: '#4299e1' },
+      { key: 'dha_mg', name: 'DHA', unit: 'mg', targetKey: 'dha_mg', color: '#319795' },
+      { key: 'iodine_ug', name: 'Iodine', unit: 'µg', targetKey: 'iodine_ug', color: '#d69e2e' },
+      { key: 'choline_mg', name: 'Choline', unit: 'mg', targetKey: 'choline_mg', color: '#9b2c2c' },
       { key: 'vitamin_d_ug', name: 'Vitamin D', unit: 'µg', targetKey: 'vitamin_d_ug', color: '#ecc94b' },
       { key: 'zinc_mg', name: 'Zinc', unit: 'mg', targetKey: 'zinc_mg', color: '#9f7aea' },
-      { key: 'omega3_mg', name: 'Omega-3', unit: 'mg', targetKey: 'dha_mg', color: '#38b2ac' },
-      { key: 'vitamin_c_mg', name: 'Vitamin C', unit: 'mg', targetKey: 'vitamin_c_mg', color: '#ed8936' },
-      { key: 'vitamin_a_ug', name: 'Vitamin A', unit: 'µg', targetKey: 'vitamin_a_rae_ug', color: '#667eea' }
+      { key: 'vitamin_b12_ug', name: 'Vit B12', unit: 'µg', targetKey: 'vitamin_b12_ug', color: '#805ad5' },
+      { key: 'vitamin_b6_mg', name: 'Vit B6', unit: 'mg', targetKey: 'vitamin_b6_mg', color: '#ed64a6' },
+      { key: 'vitamin_a_rae_ug', name: 'Vitamin A', unit: 'µg', targetKey: 'vitamin_a_rae_ug', color: '#667eea' },
+      { key: 'magnesium_mg', name: 'Magnesium', unit: 'mg', targetKey: 'magnesium_mg', color: '#38b2ac' },
+      { key: 'selenium_ug', name: 'Selenium', unit: 'µg', targetKey: 'selenium_ug', color: '#38a169' }
     ];
 
     const bars = micronutrients.map(n => {
-      const avg = weeklyAvg.averages[n.key] || 0;
+      // Handle key mapping if necessary (historical fallback)
+      const avg = weeklyAvg.averages[n.key] || weeklyAvg.averages[n.key.replace('_dfe', '').replace('_rae', '')] || 0;
       const target = this.userTargets ? this._extractTarget(this.userTargets[n.targetKey]) : 0;
       const pct = target > 0 ? Math.min((avg / target) * 100, 150) : 0;
       const status = pct >= 100 ? 'met' : pct >= 80 ? 'close' : pct >= 50 ? 'low' : 'deficient';
@@ -318,6 +324,22 @@ class FoodLogDashboard {
           insights.push({ type: 'critical', icon: '🩸', message: `Iron intake is only ${Math.round(pct)}% of target. Iron is essential for increased blood volume.` });
         }
       }
+
+      const iodineTarget = this._extractTarget(this.userTargets.iodine_ug);
+      if (iodineTarget && weeklyAvg.averages.iodine_ug) {
+        const pct = (weeklyAvg.averages.iodine_ug / iodineTarget) * 100;
+        if (pct < 60) {
+          insights.push({ type: 'critical', icon: '🧠', message: `Iodine intake is low (${Math.round(pct)}%). Iodine is vital for fetal brain and thyroid development.` });
+        }
+      }
+
+      const cholineTarget = this._extractTarget(this.userTargets.choline_mg);
+      if (cholineTarget && weeklyAvg.averages.choline_mg) {
+        const pct = (weeklyAvg.averages.choline_mg / cholineTarget) * 100;
+        if (pct < 60) {
+          insights.push({ type: 'critical', icon: '🥚', message: `Choline intake is only ${Math.round(pct)}% of target. Choline supports fetal brain and spinal cord development.` });
+        }
+      }
     }
 
     // Meal variety
@@ -372,7 +394,7 @@ class FoodLogDashboard {
           <td class="col-carbs">${(t.carbs_g || 0).toFixed(1)}</td>
           <td class="col-fat">${(t.fat_g || 0).toFixed(1)}</td>
           <td class="col-iron">${(t.iron_mg || 0).toFixed(1)}</td>
-          <td class="col-folate">${Math.round(t.folate_ug || 0)}</td>
+          <td class="col-folate">${Math.round(t.folate_dfe_ug || t.folate_ug || 0)}</td>
           <td class="col-calcium">${Math.round(t.calcium_mg || 0)}</td>
         </tr>
       `;

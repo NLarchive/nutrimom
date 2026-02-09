@@ -726,14 +726,19 @@ class FoodTrackerUI {
       // Add critical pregnancy micronutrients if not yet met
       const criticalMicros = [
         { key: 'iron_mg', label: 'Iron' },
-        { key: 'folate_ug', label: 'Folate' },
-        { key: 'calcium_mg', label: 'Calcium' }
+        { key: 'folate_dfe_ug', label: 'Folate' },
+        { key: 'calcium_mg', label: 'Calcium' },
+        { key: 'dha_mg', label: 'DHA' },
+        { key: 'iodine_ug', label: 'Iodine' },
+        { key: 'choline_mg', label: 'Choline' },
+        { key: 'vitamin_d_ug', label: 'Vitamin D' }
       ];
 
       criticalMicros.forEach(m => {
-        const leftData = getLeft(m.key, totals[m.key] || 0);
+        const val = totals[m.key] || 0;
+        const leftData = getLeft(m.key, val);
         if (leftData && !leftData.isMet) {
-          macroSummary.push({ ...m, val: totals[m.key] || 0 });
+          macroSummary.push({ ...m, val });
         }
       });
 
@@ -909,14 +914,27 @@ class FoodTrackerUI {
       'fiber_g': 'Fiber',
       'iron_mg': 'Iron',
       'calcium_mg': 'Calcium',
+      'folate_dfe_ug': 'Folate (DFE)',
       'folate_ug': 'Folate',
       'vitamin_c_mg': 'Vitamin C',
       'vitamin_d_ug': 'Vitamin D',
+      'vitamin_a_rae_ug': 'Vitamin A (RAE)',
       'vitamin_a_ug': 'Vitamin A',
       'zinc_mg': 'Zinc',
-      'omega3_mg': 'Omega-3'
+      'dha_mg': 'DHA (Omega-3)',
+      'omega3_mg': 'Omega-3',
+      'iodine_ug': 'Iodine',
+      'choline_mg': 'Choline',
+      'magnesium_mg': 'Magnesium',
+      'vitamin_b12_ug': 'Vitamin B12',
+      'vitamin_b6_mg': 'Vitamin B6',
+      'vitamin_k_ug': 'Vitamin K',
+      'vitamin_e_mg': 'Vitamin E',
+      'potassium_mg': 'Potassium',
+      'water_l': 'Water',
+      'selenium_ug': 'Selenium'
     };
-    return names[key] || key;
+    return names[key] || key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
   }
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -956,17 +974,12 @@ Please tailor "pregnancy_relevant_notes" specifically to this profile.${mealType
 ROLE: You are a highly precise nutrition expert and vision AI. 
 TASK: Analyze the food image provided and estimate its nutritional content for the ENTIRE MEAL shown (NOT per 100g).
 
-INSTRUCTIONS:
+CRITICAL REQUIREMENTS:
 1. IDENTIFY: List all food items, ingredients, and toppings (e.g., "Homemade Cod Croquette", "Sesame seeds", "Olive oil").
 2. QUANTIFY: Estimate portion sizes and total edible weight in grams for the whole plate.
-3. CALCULATE: Provide full macro and micronutrient data for the entire portion.
+3. CALCULATE: Provide FULL macro and micronutrient data for the entire portion - this is MANDATORY.
 4. VALIDATE: Ensure the 'totals' mathematically match the sum of 'food_items'.
-5. PREGNANCY SPECIFIC: Focus on critical nutrients: Folate, Iron, Calcium, Zinc, Vitamin D, and Omega-3 (DHA/EPA).
-
-CONSISTENCY RULES:
-- All values MUST represent the total intake for the portion shown.
-- Micronutrients are mandatory (use best estimates based on standard databases).
-- If context says "Croqueta de bacalao", do not confuse it with "Falafel". Identification must follow PHOTO CONTEXT.
+5. MICRONUTRIENTS ARE REQUIRED: You MUST include realistic estimates for ALL micronutrients listed below, even if approximate. Do not skip or set to zero.
 
 OUTPUT FORMAT (Respond with VALID JSON only):
 {
@@ -985,17 +998,27 @@ OUTPUT FORMAT (Respond with VALID JSON only):
         "fiber_g": 0,
         "sugar_g": 0,
         "sodium_mg": 0,
-        "saturated_fat_g": 0
+        "saturated_fat_g": 0,
+        "potassium_mg": 0,
+        "magnesium_mg": 0
       },
       "micronutrients": {
-        "vitamin_a_ug": 0,
-        "vitamin_c_mg": 0,
-        "vitamin_d_ug": 0,
-        "folate_ug": 0,
+        "folate_dfe_ug": 0,
         "iron_mg": 0,
         "calcium_mg": 0,
+        "vitamin_d_ug": 0,
+        "dha_mg": 0,
+        "epa_mg": 0,
+        "iodine_ug": 0,
+        "choline_mg": 0,
+        "vitamin_a_ug": 0,
+        "vitamin_b12_ug": 0,
+        "vitamin_b6_mg": 0,
+        "vitamin_c_mg": 0,
+        "vitamin_e_mg": 0,
+        "vitamin_k_ug": 0,
         "zinc_mg": 0,
-        "omega3_mg": 0
+        "selenium_ug": 0
       }
     }
   ],
@@ -1005,13 +1028,19 @@ OUTPUT FORMAT (Respond with VALID JSON only):
     "carbs_g": 0,
     "fat_g": 0,
     "fiber_g": 0,
-    "sodium_mg": 0
+    "folate_dfe_ug": 0,
+    "iron_mg": 0,
+    "calcium_mg": 0,
+    "vitamin_b12_ug": 0,
+    "dha_mg": 0
   },
   "meal_type": "breakfast|lunch|dinner|snack",
   "confidence_overall": 0.9,
   "warnings": ["Identify any risks like undercooked fish, excessive caffeine, etc."],
   "pregnancy_relevant_notes": ["Specific advice for a ${userPersona} regarding these items"]
 }
+
+IMPORTANT: Micronutrients are ESSENTIAL for accurate tracking. Use standard nutritional databases (USDA, etc.) to estimate realistic values. Do not omit them.
 
 FINAL CHECK: Ensure the JSON is valid and contains no preamble or postamble.`;
   }
@@ -1162,6 +1191,8 @@ FINAL CHECK: Ensure the JSON is valid and contains no preamble or postamble.`;
 
         if (item.micronutrients) {
           this._validateNutrientObject(item.micronutrients, `Item ${i + 1} micronutrients`, errors);
+        } else {
+          errors.push(`Item ${i + 1}: Missing micronutrients object - micronutrients are required for accurate tracking`);
         }
       });
     }
@@ -1189,8 +1220,11 @@ FINAL CHECK: Ensure the JSON is valid and contains no preamble or postamble.`;
     const limits = this.VALIDATION_LIMITS;
     const allowedNutrientKeys = [
       'energy_kcal', 'protein_g', 'carbs_g', 'fat_g', 'fiber_g', 'sugar_g',
-      'sodium_mg', 'saturated_fat_g', 'vitamin_a_ug', 'vitamin_c_mg',
-      'vitamin_d_ug', 'folate_ug', 'iron_mg', 'calcium_mg', 'zinc_mg', 'omega3_mg'
+      'sodium_mg', 'saturated_fat_g', 'potassium_mg', 'magnesium_mg',
+      'vitamin_a_rae_ug', 'vitamin_a_ug', 'vitamin_c_mg', 'vitamin_d_ug', 
+      'folate_dfe_ug', 'folate_ug', 'iron_mg', 'calcium_mg', 'zinc_mg', 
+      'dha_mg', 'epa_mg', 'omega3_mg', 'iodine_ug', 'choline_mg',
+      'vitamin_b12_ug', 'vitamin_b6_mg', 'vitamin_k_ug', 'vitamin_e_mg', 'selenium_ug'
     ];
 
     Object.entries(obj).forEach(([key, value]) => {
@@ -1237,17 +1271,27 @@ FINAL CHECK: Ensure the JSON is valid and contains no preamble or postamble.`;
           fiber_g: this._sanitizeNumber(item.nutrients?.fiber_g),
           sugar_g: this._sanitizeNumber(item.nutrients?.sugar_g),
           sodium_mg: this._sanitizeNumber(item.nutrients?.sodium_mg),
-          saturated_fat_g: this._sanitizeNumber(item.nutrients?.saturated_fat_g)
+          saturated_fat_g: this._sanitizeNumber(item.nutrients?.saturated_fat_g),
+          potassium_mg: this._sanitizeNumber(item.nutrients?.potassium_mg),
+          magnesium_mg: this._sanitizeNumber(item.nutrients?.magnesium_mg)
         },
         micronutrients: {
-          vitamin_a_ug: this._sanitizeNumber(item.micronutrients?.vitamin_a_ug),
+          vitamin_a_rae_ug: this._sanitizeNumber(item.micronutrients?.vitamin_a_rae_ug || item.micronutrients?.vitamin_a_ug),
           vitamin_c_mg: this._sanitizeNumber(item.micronutrients?.vitamin_c_mg),
           vitamin_d_ug: this._sanitizeNumber(item.micronutrients?.vitamin_d_ug),
-          folate_ug: this._sanitizeNumber(item.micronutrients?.folate_ug),
+          folate_dfe_ug: this._sanitizeNumber(item.micronutrients?.folate_dfe_ug || item.micronutrients?.folate_ug),
           iron_mg: this._sanitizeNumber(item.micronutrients?.iron_mg),
           calcium_mg: this._sanitizeNumber(item.micronutrients?.calcium_mg),
           zinc_mg: this._sanitizeNumber(item.micronutrients?.zinc_mg),
-          omega3_mg: this._sanitizeNumber(item.micronutrients?.omega3_mg)
+          dha_mg: this._sanitizeNumber(item.micronutrients?.dha_mg || item.micronutrients?.omega3_mg),
+          epa_mg: this._sanitizeNumber(item.micronutrients?.epa_mg),
+          iodine_ug: this._sanitizeNumber(item.micronutrients?.iodine_ug),
+          choline_mg: this._sanitizeNumber(item.micronutrients?.choline_mg),
+          vitamin_b12_ug: this._sanitizeNumber(item.micronutrients?.vitamin_b12_ug),
+          vitamin_b6_mg: this._sanitizeNumber(item.micronutrients?.vitamin_b6_mg),
+          vitamin_k_ug: this._sanitizeNumber(item.micronutrients?.vitamin_k_ug),
+          vitamin_e_mg: this._sanitizeNumber(item.micronutrients?.vitamin_e_mg),
+          selenium_ug: this._sanitizeNumber(item.micronutrients?.selenium_ug)
         }
       })),
       totals: {
@@ -1256,7 +1300,12 @@ FINAL CHECK: Ensure the JSON is valid and contains no preamble or postamble.`;
         carbs_g: this._sanitizeNumber(parsed.totals?.carbs_g),
         fat_g: this._sanitizeNumber(parsed.totals?.fat_g),
         fiber_g: this._sanitizeNumber(parsed.totals?.fiber_g),
-        sodium_mg: this._sanitizeNumber(parsed.totals?.sodium_mg)
+        sodium_mg: this._sanitizeNumber(parsed.totals?.sodium_mg),
+        folate_dfe_ug: this._sanitizeNumber(parsed.totals?.folate_dfe_ug || parsed.totals?.folate_ug),
+        iron_mg: this._sanitizeNumber(parsed.totals?.iron_mg),
+        calcium_mg: this._sanitizeNumber(parsed.totals?.calcium_mg),
+        vitamin_b12_ug: this._sanitizeNumber(parsed.totals?.vitamin_b12_ug),
+        dha_mg: this._sanitizeNumber(parsed.totals?.dha_mg || parsed.totals?.omega3_mg)
       },
       warnings: Array.isArray(parsed.warnings) 
         ? parsed.warnings.slice(0, 10).map(w => this._sanitizeString(w, 500)) 

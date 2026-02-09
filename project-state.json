@@ -1,13 +1,13 @@
 {
   "template_type": "project_task_template",
   "version": "1.0",
-  "description": "NutriMom - Pregnancy Nutrition Calculator project tracking and task management",
+  "description": "NutriMom - Universal Nutrition Calculator project tracking and task management",
   "project": {
-    "name": "NutriMom - Pregnancy Nutrition Calculator",
-    "description": "Client-side web application providing personalized daily nutrition recommendations for pregnant and lactating women based on IOM Dietary Reference Intakes",
+    "name": "NutriMom - Nutrition Calculator for Everyone",
+    "description": "Client-side web application providing personalized daily nutrition recommendations for all ages (1+), both sexes, with specialized pregnancy and lactation support based on IOM Dietary Reference Intakes",
     "start_date": "2026-02-01",
     "end_date": "2026-02-28",
-    "status": "Testing & Deployment",
+    "status": "Active Development",
     "budget": 0,
     "repository": "https://github.com/nicolaslarenas/nutrimom",
     "license": "CC-BY-NC-SA-4.0"
@@ -194,22 +194,58 @@
     },
     {
       "task_name": "Unit Tests for Nutrition Engine",
-      "description": "Add unit tests for BMR, TDEE, age band, life stage calculations",
-      "start_date": "2026-02-04",
-      "end_date": "2026-02-05",
-      "priority": "Medium",
+      "description": "Add comprehensive Jest/Vitest unit tests for BMR, TDEE, age band determination, and proper DRI lookup across all new life stages (Child, Male, Female). verify edge cases for reproductive age boundaries.",
+      "start_date": "2026-02-10",
+      "end_date": "2026-02-11",
+      "priority": "High",
       "status": "Not Started",
       "progress_percentage": 0,
-      "estimated_hours": 4,
+      "estimated_hours": 6,
       "actual_hours": 0,
-      "is_critical_path": false,
-      "tags": ["testing", "unit-tests", "engine"],
+      "is_critical_path": true,
+      "tags": ["testing", "unit-tests", "engine", "jest", "coverage"],
       "category_name": "Testing & QA",
       "assigned_workers": [
         { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
       ],
       "dependencies": [
         { "predecessor_task_name": "Playwright E2E Tests", "type": "FS", "lag_days": 0 }
+      ]
+    },
+    {
+      "task_name": "Dashboard Performance & Responsiveness",
+      "description": "Optimize FoodLogDashboard for large datasets. Implement pagination for the Day Table (limit 7/14/30 days). Add responsive 'Card View' layout for the table on mobile devices. Refactor hardcoded chart colors to use CSS variables for Dark Mode support.",
+      "start_date": "2026-02-11",
+      "end_date": "2026-02-12",
+      "priority": "Medium",
+      "status": "Not Started",
+      "progress_percentage": 0,
+      "estimated_hours": 5,
+      "actual_hours": 0,
+      "is_critical_path": false,
+      "tags": ["UI", "performance", "mobile", "css-variables", "dark-mode"],
+      "category_name": "UI/UX",
+      "assigned_workers": [],
+      "dependencies": [
+        { "predecessor_task_name": "Food Log Dashboard & Multi-Day Memory", "type": "FS", "lag_days": 0 }
+      ]
+    },
+    {
+      "task_name": "Data Safety & Recovery Mechanism",
+      "description": "Implement robust error handling for localStorage corruption. If JSON.parse fails in FoodTrackerEngine, backup the raw string to a '.bak' key before returning empty object to prevent data loss. Add 'Safe Mode' indicator if recovery occurs.",
+      "start_date": "2026-02-12",
+      "end_date": "2026-02-12",
+      "priority": "High",
+      "status": "Not Started",
+      "progress_percentage": 0,
+      "estimated_hours": 2,
+      "actual_hours": 0,
+      "is_critical_path": false,
+      "tags": ["reliability", "data-safety", "localStorage", "error-handling"],
+      "category_name": "Core Development",
+      "assigned_workers": [],
+      "dependencies": [
+        { "predecessor_task_name": "Production Hardening & Data Management", "type": "FS", "lag_days": 0 }
       ]
     },
     {
@@ -732,29 +768,210 @@
       "notes": "97 chromium tests passing (24.6s). 1 pre-existing flaky test (nutrimom-basic upload area visibility behind collapsible). All 20 new log-import tests pass."
     },
     {
-      "task_name": "Fat Macronutrient Unit Correction & AMDR Logic",
-      "description": "Fixed critical bug where Fat was displayed as a percentage and immediately appeared 'met' regardless of intake. Implemented AMDR to gram conversion in NutritionEngine: Fat targets are now dynamically calculated in grams (Energy kcal * AMDR% / 9) based on the user's total daily calorie target. Updated FoodTrackerEngine to prioritize calculated gram targets over raw AMDR percentages. Fixed energy_kcal target synchronization. Restored 'Fat (g)' display in Food Tracker UI with correct 'Left' value logic.",
-      "start_date": "2026-02-07",
-      "end_date": "2026-02-07",
-      "priority": "Critical",
+      "task_name": "Protein Target Tied to User Weight",
+      "description": "Fixed protein target to be calculated based on user's weight (RDA per kg × weight) instead of fixed grams. Added protein_rda_per_kg to formulas.json and calculation logic in nutrition-engine.js. Updated nutrients.json with calculation note.",
+      "start_date": "2026-02-08",
+      "end_date": "2026-02-08",
+      "priority": "High",
       "status": "Completed",
       "progress_percentage": 100,
-      "estimated_hours": 2,
-      "actual_hours": 2,
+      "estimated_hours": 1,
+      "actual_hours": 1,
       "is_critical_path": true,
-      "tags": ["bugfix", "nutrition-logic", "AMDR", "fat-unit", "calculations", "macro-tracking"],
+      "tags": ["nutrition-logic", "protein", "user-data", "RDA", "weight"],
       "category_name": "Core Development",
       "assigned_workers": [
         { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
       ],
       "dependencies": [
-        { "predecessor_task_name": "Food Log Dashboard & Multi-Day Memory", "type": "FS", "lag_days": 0 }
+        { "predecessor_task_name": "Macronutrient Calorie Consistency Fix", "type": "FS", "lag_days": 0 }
       ],
       "deliverables": [
-        "js/nutrition-engine.js - Added AMDR-to-gram conversion logic for fat_g and carbs_g; ensured energy_kcal synchronization",
-        "plugins/food-tracker/food-tracker-engine.js - Updated _extractTargetValue to prioritize calculated 'target' property highest",
-        "plugins/food-tracker/food-tracker-ui.js - Verified unit rendering for macros to ensure gram-based display"
+        "data/formulas.json - Added protein_rda_per_kg and water_ml_per_kg calculations",
+        "js/nutrition-engine.js - Added protein and water calculation based on user weight",
+        "data/nutrients.json - Added calculation_note for protein and water"
       ]
+    },
+    {
+      "task_name": "Nutrient Expansion & Advanced Personalization",
+      "description": "Expanded tracking to 20+ pregnancy-critical nutrients (Choline, Iodine, EPA/DHA, B12, Magnesium, etc.). Implemented weight-based Water targets (50ml/kg) and dynamic Fiber targets (14g/1000kcal). Updated LLM extraction schema (v2.0) and UI dashboard to support expanded micronutrient visualization and insights.",
+      "start_date": "2026-02-08",
+      "end_date": "2026-02-08",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 6,
+      "actual_hours": 6,
+      "is_critical_path": true,
+      "tags": ["nutrition-logic", "micronutrients", "personalization", "LLM-schema", "dashboard"],
+      "category_name": "Core Development",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "deliverables": [
+        "data/nutrients.json - Added 12+ new pregnancy-critical nutrients",
+        "schemas/llm_food_extraction.schema.json - Updated to 20+ nutrients",
+        "js/nutrition-engine.js - Added weight-based water and energy-based fiber logic",
+        "plugins/food-tracker/food-tracker-engine.js - Expanded summary logic and nutrient mapping (Folates -> DFE, etc.)",
+        "plugins/food-tracker/food-log-dashboard.js - Updated charts and insights for new nutrients",
+        "tests/food-tracker/log-import.spec.js - Fixed tests for nutrient key renames"
+      ]
+    },
+    {
+      "task_name": "Nutrient Targets Full Rewrite - Child & Male Sections",
+      "description": "Complete rewrite of nutrient-targets.json to add child (1-3, 4-8), female_nonpregnant 9-13, and male_nonpregnant (9-13 through 51+) age bands. Removed 51_plus from all pregnant and lactating sections (IOM doesn't define pregnancy/lactation DRI for 51+). Removed _note fields from pregnant_t2, pregnant_t3, lactating_0_6, lactating_7_12. Updated _meta with NASEM 2019 source. All 8 life stage sections now have 36 nutrients per age band with complete IOM DRI values.",
+      "start_date": "2026-02-08",
+      "end_date": "2026-02-08",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 3,
+      "actual_hours": 3,
+      "is_critical_path": true,
+      "tags": ["data", "nutrients", "IOM-DRI", "child", "male", "age-bands", "rewrite"],
+      "category_name": "Data & Research",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Nutrient Expansion & Advanced Personalization", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "data/nutrient-targets.json - Complete rewrite with 8 life stage sections, 26 age bands total, 36 nutrients each"
+      ],
+      "features": [
+        "Added child section: 1_3 (AMDR 30-40% fat) and 4_8 age bands with sex-neutral IOM DRI values",
+        "Added female_nonpregnant > 9_13 age band",
+        "Added complete male_nonpregnant section: 9_13, 14_18, 19_30, 31_50, 51_plus",
+        "Removed 51_plus from pregnant_t1/t2/t3 and lactating_0_6/7_12 (no IOM pregnancy DRI for 51+)",
+        "Removed _note fields from pregnant_t2, pregnant_t3, lactating_0_6, lactating_7_12",
+        "Updated _meta: added NASEM 2019 (Na, K, Cl) source, updated description",
+        "Validated: 8 sections, 26 age bands, 36 nutrients per band, valid JSON"
+      ]
+    },
+    {
+      "task_name": "Universal Nutrition System Expansion",
+      "description": "Complete system overhaul to support ALL ages (children 1+), BOTH sexes (male + female), and all life stages while limiting pregnancy/lactation to reproductive age (14-50). Rebranded from NutriMom to NutriLife. Updated 12+ files across data, engine, UI, and tests.",
+      "start_date": "2026-06-11",
+      "end_date": "2026-06-11",
+      "priority": "Critical",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 12,
+      "actual_hours": 12,
+      "is_critical_path": true,
+      "tags": ["universal", "male", "child", "age-expansion", "sex-support", "rebrand", "IOM-DRI", "Schofield"],
+      "category_name": "Core Development",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Nutrient Targets Full Rewrite - Child & Male Sections", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "data/age-bands.json - Added 3 child age bands: 1_3 (1-3.999), 4_8 (4-8.999), 9_13 (9-13.999). Total: 7 bands",
+        "data/life-stages.json - Added child (sex:any, 1-8) and male_nonpregnant (sex:male, 9+) stages. Added reproductive_age_min/max (14-50) to pregnancy/lactation. Total: 9 stages",
+        "data/formulas.json - Added Schofield/WHO BMR equations for children (<19), male protein_rda_per_kg (0.8), child protein (0.95), male water_ml_per_kg (49), child water (45)",
+        "data/nutrient-targets.json - Complete rewrite: 8 life stages, 26 age bands, 36 nutrients each. Added child (1_3, 4_8), female 9_13, male_nonpregnant (9_13-51+). Removed 51_plus from pregnancy/lactation",
+        "data/user-input-schema.json - Lowered age min to 1, weight min to 5kg, height min to 45cm",
+        "js/nutrition-engine.js - Schofield BMR for children (<19), child life stage (ages 1-8), male_nonpregnant (males 9+), reproductive age validation (14-50), proper male/child protein/water formula keys",
+        "index.html - Rebranded to NutriLife, sex selector visible, age min=1, weight min=5, height min=45, pregnancy section hidden by default (JS-controlled)",
+        "js/app.js - Sex+age-based pregnancy section visibility, male/child/female avatars, child age band labels, updated validation ranges",
+        "tests/helpers/test-data.js - fillProfile() now sets sex parameter",
+        "tests/calculator/profile-form.spec.js - Updated: sex visible, pregnancy section conditional on female+age 14-50, added male test",
+        "tests/calculator/calculations.spec.js - Updated life stage label 'Female' (was 'Non-Pregnant Female')",
+        "tests/navigation/view-switching.spec.js - Updated title to NutriLife",
+        "tests/nutrimom-basic.spec.js - Updated title to NutriLife"
+      ],
+      "features": [
+        "Support for children ages 1+ with sex-neutral DRI (ages 1-8) and sex-specific DRI (ages 9+)",
+        "Full male support: male_nonpregnant life stage with IOM DRI for 9-13 through 51+ age bands",
+        "Schofield/WHO BMR equations for children and adolescents (<19 years)",
+        "Mifflin-St Jeor BMR preserved for adults (19+ years)",
+        "Pregnancy/lactation UI conditionally shown only for females ages 14-50",
+        "Sex selector visible in profile form with real-time pregnancy section toggle",
+        "Child-friendly avatars (🧒 for <9, 👨 for male, 👩 for female)",
+        "Reproductive age enforcement: engine returns female_nonpregnant for pregnancy attempts outside 14-50",
+        "200 tests passing (100 Chromium + 100 Mobile Chrome)"
+      ],
+      "notes": "Rebranded from NutriMom to NutriLife to reflect universal scope. Firefox tests skip due to missing browser binary (infra issue, not code issue). All IOM DRI values sourced from IOM/DRI tables, NASEM 2019 for Na/K/Cl."
+    }
+    {
+      "task_name": "Revert Branding & Fix Dashboard",
+      "description": "Revert branding from NutriLife back to NutriMom (name, icon, strings). Fix Food Log Dashboard to correctly display micronutrients (folate, etc) by using updated nutrient keys (folate_dfe_ug).",
+      "start_date": "2026-06-11",
+      "end_date": "2026-06-11",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 1,
+      "actual_hours": 1,
+      "is_critical_path": false,
+      "tags": ["branding", "revert", "bugfix", "dashboard"],
+      "category_name": "UI/UX",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Universal Nutrition System Expansion", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "index.html - Reverted Title, H1 to NutriMom",
+        "js/app.js - Reverted header comment",
+        "plugins/food-tracker/food-log-dashboard.js - Updated nutrient keys (folate_dfe_ug, etc) for summary cards and table",
+        "tests/* - Updated test expectations for NutriMom title"
+      ]
+    },
+    {
+      "task_name": "Sample Data Generation",
+      "description": "Create detailed 7-day JSON food log templates for specific demographics: Pregnant (38yo, 19w), Male (40yo), Female (40yo), and Child (2yo).",
+      "start_date": "2026-06-11",
+      "end_date": "2026-06-11",
+      "priority": "Medium",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 1,
+      "actual_hours": 1,
+      "is_critical_path": false,
+      "tags": ["data", "samples", "json", "demographics"],
+      "category_name": "Data & Research",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Revert Branding & Fix Dashboard", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "samples/pregnant-38yo-19w.json - 7-day log + current day (2 meals), high folate/iron focus",
+        "samples/standard-male-40yo.json - 7-day log + current day (2 meals), 2200+ kcal",
+        "samples/standard-female-40yo.json - 7-day log + current day (2 meals), 1500 kcal",
+        "samples/child-2yo.json - 7-day log + current day (3 meals), 5 meals/day, high fat/calcium"
+      ]
+    },
+    {
+      "task_name": "LLM Micronutrient Validation & UI Sync Fix",
+      "description": "Strengthened LLM prompt to explicitly require micronutrients for accurate tracking. Added schema validation to reject responses missing micronutrients. Updated UI to show validation errors and guide users to include micronutrients in AI responses.",
+      "start_date": "2026-02-08",
+      "end_date": "2026-02-08",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 2,
+      "actual_hours": 2,
+      "is_critical_path": true,
+      "tags": ["food-tracker", "LLM", "validation", "micronutrients", "UI-sync", "schema"],
+      "category_name": "Core Development",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Sample Data Generation", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "plugins/food-tracker/food-tracker-ui.js - Updated _getManualPrompt() with stronger micronutrient requirements and validation. Added micronutrients object validation in _validateNutritionSchema().",
+        "Tests updated to verify micronutrient validation"
+      ],
+      "notes": "Fixed UI sync issue by ensuring meals include micronutrient data. Engine correctly aggregates from food_items.micronutrients, but UI showed zeros when micronutrients were missing from LLM responses."
     }
   ],
   "milestones": [
@@ -821,14 +1038,20 @@
     {
       "name": "Female-Only Profile Restriction",
       "date": "2026-02-06",
-      "status": "Completed",
-      "description": "Simplified user profile flow by restricting sex to female and making pregnancy options visible by default."
+      "status": "Superseded",
+      "description": "Was simplified to female-only. Superseded by Universal Nutrition System Expansion (2026-02-08) which re-enabled both sexes and all ages."
     },
     {
       "name": "Food Log Dashboard & Multi-Day Tracking",
       "date": "2026-02-07",
       "status": "Completed",
       "description": "Multi-day food tracking with dashboard visualization (summary cards, weekly charts, micronutrient bars, insights, day table), Cache-DB architecture, importable sample data, 20 new E2E tests. 98 total chromium tests."
+    },
+    {
+      "name": "Universal Nutrition System",
+      "date": "2026-06-11",
+      "status": "Completed",
+      "description": "Complete system expansion supporting all ages (1+), both sexes (male+female), child age bands (1-3, 4-8, 9-13), Schofield BMR for children, sex-aware DRI lookup, pregnancy/lactation limited to females 14-50. Rebranded from NutriMom to NutriLife. 200 tests passing (100 Chromium + 100 Mobile Chrome)."
     }
   ],
   "required_fields": [

@@ -8,26 +8,26 @@
   "properties": {
     "age_years": {
       "type": "number",
-      "minimum": 14,
+      "minimum": 1,
       "maximum": 120,
-      "description": "User's age in years"
+      "description": "User's age in years (1+ supported; pregnancy/lactation limited to 14-50)"
     },
     "sex": {
       "type": "string",
       "enum": ["female", "male"],
-      "description": "Biological sex (currently female-focused, male support planned)"
+      "description": "Biological sex — determines DRI tables and available life stages"
     },
     "weight_kg": {
       "type": "number",
-      "minimum": 30,
+      "minimum": 5,
       "maximum": 300,
-      "description": "Current body weight in kilograms"
+      "description": "Current body weight in kilograms (min 5 for toddlers)"
     },
     "height_cm": {
       "type": "number",
-      "minimum": 100,
+      "minimum": 45,
       "maximum": 250,
-      "description": "Height in centimeters"
+      "description": "Height in centimeters (min 45 for toddlers)"
     },
     "activity_level": {
       "type": "string",
@@ -47,7 +47,7 @@
     },
     "pre_pregnancy_weight_kg": {
       "type": "number",
-      "minimum": 30,
+      "minimum": 25,
       "maximum": 300,
       "description": "Weight before pregnancy (kg). Used for weight gain tracking if pregnant"
     },

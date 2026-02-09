@@ -1,6 +1,7 @@
 /**
- * Pregnancy Nutrition Engine
+ * NutriMom Nutrition Engine
  * Static JavaScript engine for calculating personalized nutrition needs
+ * Supports all ages (1+), both sexes, pregnancy, and lactation
  * 
  * @license MIT
  */
@@ -79,36 +80,51 @@ class NutritionEngine {
         return band.code;
       }
     }
-    // Default to adult band if out of range
-    return age < 14 ? '14_18' : '51_plus';
+    // Default fallback
+    if (age < 1) return '1_3';
+    return '51_plus';
+  }
+
+  /**
+   * Check if age is within reproductive range for pregnancy/lactation
+   * @param {number} age - Age in years
+   * @returns {boolean}
+   */
+  isReproductiveAge(age) {
+    return age >= 14 && age <= 50;
   }
 
   /**
    * Determine life stage from user profile
    * @param {Object} profile - User profile
    * @param {string} profile.sex - "female" or "male"
+   * @param {number} profile.ageYears - Age in years
    * @param {boolean} profile.isPregnant - Is the user pregnant
    * @param {number} profile.pregnancyWeek - Week of pregnancy (1-42)
    * @param {boolean} profile.isLactating - Is the user lactating
    * @param {number} profile.lactationMonths - Months postpartum
    * @returns {string} Life stage code
-   * 
-   * NOTE: While this app currently targets pregnancy (female only), 
-   * the 'male' logic is preserved here to allow recycling this engine 
-   * for other nutrition projects in the future.
    */
   getLifeStage(profile) {
-    const { sex, isPregnant, pregnancyWeek, isLactating, lactationMonths } = profile;
+    const { sex, ageYears, isPregnant, pregnancyWeek, isLactating, lactationMonths } = profile;
+    const age = ageYears || 30;
 
-    if (sex === 'male') {
-      return 'male_adult';
+    // Children ages 1-8: sex-neutral "child" stage
+    if (age < 9) {
+      return 'child';
     }
 
-    if (isLactating) {
+    // Males 9+: always male_nonpregnant
+    if (sex === 'male') {
+      return 'male_nonpregnant';
+    }
+
+    // Females 9+: check pregnancy/lactation (only if reproductive age)
+    if (isLactating && this.isReproductiveAge(age)) {
       return lactationMonths <= 6 ? 'lactating_0_6' : 'lactating_7_12';
     }
 
-    if (isPregnant && pregnancyWeek) {
+    if (isPregnant && pregnancyWeek && this.isReproductiveAge(age)) {
       const weeks = Array.isArray(this.data.pregnancyWeeks) 
         ? this.data.pregnancyWeeks 
         : this.data.pregnancyWeeks?.weeks || [];
@@ -141,23 +157,41 @@ class NutritionEngine {
   // ─────────────────────────────────────────────────────────────────────────────
 
   /**
-   * Calculate Basal Metabolic Rate using Mifflin-St Jeor equation
+   * Calculate Basal Metabolic Rate
+   * Uses Schofield/WHO equations for children (< 19), Mifflin-St Jeor for adults (19+)
    * @param {Object} params
    * @param {string} params.sex - "female" or "male"
    * @param {number} params.weightKg - Weight in kilograms
    * @param {number} params.heightCm - Height in centimeters
    * @param {number} params.ageYears - Age in years
    * @returns {number} BMR in kcal/day
-   * 
-   * NOTE: Male BMR logic is preserved for future engine recycling.
    */
   calculateBMR({ sex, weightKg, heightCm, ageYears }) {
-    // Mifflin-St Jeor Equation
-    // Male:   10 × weight(kg) + 6.25 × height(cm) − 5 × age(y) + 5
-    // Female: 10 × weight(kg) + 6.25 × height(cm) − 5 × age(y) − 161
+    // Children and adolescents (< 19): Schofield/WHO weight-only equations
+    if (ageYears < 19) {
+      return this._calculateChildBMR(sex, weightKg, ageYears);
+    }
 
+    // Adults (19+): Mifflin-St Jeor Equation
     const base = 10 * weightKg + 6.25 * heightCm - 5 * ageYears;
     return sex === 'male' ? base + 5 : base - 161;
+  }
+
+  /**
+   * Calculate BMR for children/adolescents using Schofield equations
+   * @private
+   */
+  _calculateChildBMR(sex, weightKg, ageYears) {
+    // Schofield equations (weight-only)
+    if (sex === 'male') {
+      if (ageYears < 3)  return 59.512 * weightKg - 30.4;
+      if (ageYears < 10) return 22.706 * weightKg + 504.3;
+      return 17.686 * weightKg + 658.2; // 10-18
+    } else {
+      if (ageYears < 3)  return 58.317 * weightKg - 31.1;
+      if (ageYears < 10) return 20.315 * weightKg + 485.9;
+      return 13.384 * weightKg + 692.6; // 10-18
+    }
   }
 
   /**
@@ -269,24 +303,19 @@ class NutritionEngine {
    * @returns {Object} Nutrient targets keyed by nutrient code
    */
   getNutrientTargets(lifeStage, ageBand) {
-    // this.data.targets is the nutrient-targets.json content
-    // Life stages are at the root level (e.g., pregnant_t2, female_nonpregnant)
     const targets = this.data.targets;
 
-    // Handle male_adult - map to female_nonpregnant targets (simplified approach)
-    const effectiveLifeStage = lifeStage === 'male_adult' ? 'female_nonpregnant' : lifeStage;
-
-    if (!targets[effectiveLifeStage]) {
-      console.warn(`Life stage "${effectiveLifeStage}" not found in targets`);
+    if (!targets[lifeStage]) {
+      console.warn(`Life stage "${lifeStage}" not found in targets`);
       return {};
     }
 
-    if (!targets[effectiveLifeStage][ageBand]) {
-      console.warn(`Age band "${ageBand}" not found for life stage "${effectiveLifeStage}"`);
+    if (!targets[lifeStage][ageBand]) {
+      console.warn(`Age band "${ageBand}" not found for life stage "${lifeStage}"`);
       return {};
     }
 
-    return targets[effectiveLifeStage][ageBand];
+    return targets[lifeStage][ageBand];
   }
 
   /**
@@ -319,6 +348,38 @@ class NutritionEngine {
       };
     }
 
+    // Calculate protein_g based on RDA per kg body weight
+    const proteinTarget = enrichedTargets.protein_g;
+    if (proteinTarget && profile.weightKg) {
+      const rdaPerKg = this.data.formulas.macronutrient_calculations.protein_rda_per_kg;
+      let rdaKey = lifeStage;
+      if (lifeStage.startsWith('pregnant')) rdaKey = 'pregnant';
+      else if (lifeStage.startsWith('lactating')) rdaKey = 'lactating';
+      else if (lifeStage === 'child') rdaKey = 'child';
+      else if (lifeStage === 'male_nonpregnant') rdaKey = 'male_nonpregnant';
+      else rdaKey = 'female_nonpregnant';
+      const rdaPerKgValue = rdaPerKg[rdaKey] || 0.8;
+      const calculatedProtein = Math.round(rdaPerKgValue * profile.weightKg);
+      proteinTarget.target = calculatedProtein;
+      proteinTarget.note = `Calculated as ${rdaPerKgValue} g/kg × ${profile.weightKg} kg = ${calculatedProtein} g`;
+    }
+
+    // Calculate water_l based on ml per kg body weight
+    const waterTarget = enrichedTargets.water_l;
+    if (waterTarget && profile.weightKg) {
+      const mlPerKg = this.data.formulas.macronutrient_calculations.water_ml_per_kg;
+      let waterKey = lifeStage;
+      if (lifeStage.startsWith('pregnant')) waterKey = 'pregnant';
+      else if (lifeStage.startsWith('lactating')) waterKey = 'lactating';
+      else if (lifeStage === 'child') waterKey = 'child';
+      else if (lifeStage === 'male_nonpregnant') waterKey = 'male_nonpregnant';
+      else waterKey = 'female_nonpregnant';
+      const mlPerKgValue = mlPerKg[waterKey] || 45;
+      const calculatedWater = (mlPerKgValue * profile.weightKg) / 1000;
+      waterTarget.target = Math.round(calculatedWater * 10) / 10; // to 1 decimal
+      waterTarget.note = `Calculated as ${mlPerKgValue} ml/kg × ${profile.weightKg} kg = ${calculatedWater.toFixed(1)} L`;
+    }
+
     // Ensure energy_kcal target exists and is synchronized with calculations
     if (!enrichedTargets.energy_kcal) {
       const energyNutrient = nutrients.find(n => n.code === 'energy_kcal');
@@ -343,10 +404,25 @@ class NutritionEngine {
 
     // Convert AMDR % to grams for carbs if it doesn't already have a gram-based target
     const carbTarget = enrichedTargets.carbs_g;
-    if (carbTarget && carbTarget.unit === '%' && (carbTarget.AMDR_MIN || carbTarget.AMDR_MAX)) {
-      const percent = carbTarget.AMDR_MIN || 45; 
-      carbTarget.target = Math.round((energy.totalEnergy * (percent / 100)) / 4);
-      carbTarget.unit = 'g';
+    if (proteinTarget && fatTarget && carbTarget) {
+      const proteinKcal = (proteinTarget.target || proteinTarget.RDA || 0) * 4;
+      const fatKcal = fatTarget.target * 9;
+      const remainingKcal = energy.totalEnergy - proteinKcal - fatKcal;
+      if (remainingKcal > 0) {
+        carbTarget.target = Math.round(remainingKcal / 4);
+        carbTarget.unit = 'g';
+        carbTarget.note = `Calculated as remaining energy after protein (${proteinKcal} kcal) and fat (${fatKcal} kcal)`;
+      }
+    }
+
+    // Adjust fiber_g target based on energy intake (14g per 1000 kcal)
+    const fiberTarget = enrichedTargets.fiber_g;
+    if (fiberTarget) {
+      const calculatedFiber = Math.round((energy.totalEnergy / 1000) * 14);
+      const driFiber = fiberTarget.AI || fiberTarget.target || 25;
+      // Use the higher of calculated or DRI to ensure adequacy
+      fiberTarget.target = Math.max(calculatedFiber, driFiber);
+      fiberTarget.note = `Target is the higher of DRI (${driFiber}g) or rule-of-thumb (14g/1000kcal = ${calculatedFiber}g)`;
     }
 
     return {
@@ -377,13 +453,14 @@ class NutritionEngine {
    */
   getLifeStageLabel(code) {
     const labels = {
-      female_nonpregnant: 'Non-Pregnant Female',
+      child: 'Child',
+      female_nonpregnant: 'Female',
+      male_nonpregnant: 'Male',
       pregnant_t1: 'Pregnant - First Trimester',
       pregnant_t2: 'Pregnant - Second Trimester',
       pregnant_t3: 'Pregnant - Third Trimester',
       lactating_0_6: 'Lactating (0-6 months postpartum)',
       lactating_7_12: 'Lactating (7-12 months postpartum)',
-      male_adult: 'Adult Male',
     };
     return labels[code] || code;
   }

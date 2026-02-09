@@ -14,7 +14,7 @@ test.describe('NutriMom Basic Tests', () => {
   });
 
   test('should load the application successfully', async ({ page }) => {
-    await expect(page).toHaveTitle('NutriMom - Pregnancy Nutrition Calculator');
+    await expect(page).toHaveTitle('NutriMom - Nutrition Calculator');
     await expect(page.locator('h1')).toContainText('NutriMom');
   });
 

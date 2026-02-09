@@ -1,0 +1,147 @@
+{
+  "version": "2.0",
+  "exportDate": "2026-02-08T10:00:00.000Z",
+  "profile": {
+    "ageYears": 38,
+    "sex": "female",
+    "weightKg": 68,
+    "heightCm": 162,
+    "activityLevel": "lightly_active",
+    "isPregnant": true,
+    "pregnancyWeek": 19,
+    "prePregnancyWeightKg": 62,
+    "isLactating": false,
+    "lactationMonths": null,
+    "isMultiples": false
+  },
+  "plan": null,
+  "foodLog": {
+    "_meta": {
+      "version": "2.0",
+      "firstEntryDate": "2026-03-01",
+      "lastEntryDate": "2026-02-08",
+      "lastModified": "2026-02-08T10:00:00.000Z",
+      "totalDaysLogged": 8,
+      "totalMealsLogged": 23,
+      "syncStatus": "local_only"
+    },
+    "2026-03-01": {
+      "date": "2026-03-01",
+      "completed": true,
+      "meals": [
+        {
+          "id": "m1", "meal_type": "breakfast", "timestamp": "2026-03-01T08:00:00Z",
+          "food_items": [
+            { "name": "Fortified Oatmeal with Flaxseed", "nutrients": { "energy_kcal": 250, "protein_g": 8, "carbs_g": 45, "fat_g": 6, "fiber_g": 6, "iron_mg": 10, "folate_dfe_ug": 150, "calcium_mg": 100, "dha_mg": 0 } },
+            { "name": "Strawberries", "nutrients": { "energy_kcal": 50, "protein_g": 1, "carbs_g": 12, "fat_g": 0, "fiber_g": 3, "vitamin_c_mg": 85 } }
+          ],
+          "totals": { "energy_kcal": 300, "protein_g": 9, "carbs_g": 57, "fat_g": 6, "iron_mg": 10.5, "folate_dfe_ug": 160 }
+        },
+        {
+          "id": "m2", "meal_type": "lunch", "timestamp": "2026-03-01T13:00:00Z",
+          "food_items": [
+            { "name": "Spinach & Lentil Soup", "nutrients": { "energy_kcal": 300, "protein_g": 15, "carbs_g": 40, "fat_g": 8, "fiber_g": 10, "iron_mg": 5, "folate_dfe_ug": 200 } },
+            { "name": "Whole Wheat Roll", "nutrients": { "energy_kcal": 120, "protein_g": 4, "carbs_g": 25, "fat_g": 1 } }
+          ],
+          "totals": { "energy_kcal": 420, "protein_g": 19, "carbs_g": 65, "fat_g": 9, "iron_mg": 6, "folate_dfe_ug": 210 }
+        },
+        {
+          "id": "m3", "meal_type": "dinner", "timestamp": "2026-03-01T19:00:00Z",
+          "food_items": [
+            { "name": "Grilled Salmon (3.5oz)", "nutrients": { "energy_kcal": 200, "protein_g": 22, "fat_g": 12, "dha_mg": 1000, "vitamin_d_ug": 10 } },
+            { "name": "Quinoa Salad", "nutrients": { "energy_kcal": 200, "protein_g": 6, "carbs_g": 35, "fat_g": 5, "folate_dfe_ug": 80 } },
+            { "name": "Steamed Broccoli", "nutrients": { "energy_kcal": 55, "protein_g": 4, "carbs_g": 10, "fiber_g": 5, "calcium_mg": 60, "folate_dfe_ug": 100 } }
+          ],
+          "totals": { "energy_kcal": 455, "protein_g": 32, "carbs_g": 45, "fat_g": 17, "dha_mg": 1000, "folate_dfe_ug": 180, "calcium_mg": 80 }
+        }
+      ],
+      "dailyTotals": { "energy_kcal": 1175, "protein_g": 60, "carbs_g": 167, "fat_g": 32, "iron_mg": 18, "folate_dfe_ug": 550, "calcium_mg": 300, "dha_mg": 1000 }
+    },
+    "2026-03-02": {
+      "date": "2026-03-02",
+      "completed": true,
+      "meals": [
+        {
+          "id": "m4", "meal_type": "breakfast", "timestamp": "2026-03-02T08:00:00Z",
+          "food_items": [
+            { "name": "Greek Yogurt Parfait (Walnuts, Berry)", "nutrients": { "energy_kcal": 350, "protein_g": 18, "fat_g": 12, "carbs_g": 40, "calcium_mg": 250, "dha_mg": 50 } }
+          ],
+          "totals": { "energy_kcal": 350, "protein_g": 18, "fat_g": 12, "carbs_g": 40, "calcium_mg": 250, "dha_mg": 50 }
+        },
+        {
+          "id": "m5", "meal_type": "lunch", "timestamp": "2026-03-02T12:30:00Z",
+          "food_items": [
+            { "name": "Chicken Spinach Wrap", "nutrients": { "energy_kcal": 450, "protein_g": 30, "carbs_g": 45, "fat_g": 15, "iron_mg": 3, "folate_dfe_ug": 100 } }
+          ],
+          "totals": { "energy_kcal": 450, "protein_g": 30, "carbs_g": 45, "fat_g": 15, "iron_mg": 3, "folate_dfe_ug": 100 }
+        },
+        {
+          "id": "m6", "meal_type": "dinner", "timestamp": "2026-03-02T19:00:00Z",
+          "food_items": [
+            { "name": "Beef Stir Fry with Bell Peppers", "nutrients": { "energy_kcal": 500, "protein_g": 35, "carbs_g": 50, "fat_g": 18, "iron_mg": 5, "vitamin_c_mg": 120 } }
+          ],
+          "totals": { "energy_kcal": 500, "protein_g": 35, "carbs_g": 50, "fat_g": 18, "iron_mg": 5, "vitamin_c_mg": 120 }
+        }
+      ],
+      "dailyTotals": { "energy_kcal": 1300, "protein_g": 83, "carbs_g": 135, "fat_g": 45, "iron_mg": 9, "folate_dfe_ug": 150, "calcium_mg": 300, "dha_mg": 50 }
+    },
+    "2026-03-03": {
+      "date": "2026-03-03",
+      "completed": true,
+      "meals": [
+        { "id": "m7", "meal_type": "breakfast", "totals": { "energy_kcal": 400, "protein_g": 15, "folate_dfe_ug": 100, "iron_mg": 4 }, "food_items": [{"name": "Avocado Toast with Egg", "nutrients": {"energy_kcal": 400, "protein_g": 15, "folate_dfe_ug": 100, "iron_mg": 4, "choline_mg": 150}}] },
+        { "id": "m8", "meal_type": "lunch", "totals": { "energy_kcal": 500, "protein_g": 25, "folate_dfe_ug": 150, "iron_mg": 4 }, "food_items": [{"name": "Chickpea Salad Bowl", "nutrients": {"energy_kcal": 500, "protein_g": 25, "folate_dfe_ug": 150, "iron_mg": 4}}] },
+        { "id": "m9", "meal_type": "dinner", "totals": { "energy_kcal": 600, "protein_g": 40, "dha_mg": 200 }, "food_items": [{"name": "Baked Cod & Sweet Potato", "nutrients": {"energy_kcal": 600, "protein_g": 40, "dha_mg": 200, "vitamin_a_rae_ug": 800}}] }
+      ],
+      "dailyTotals": { "energy_kcal": 1500, "protein_g": 80, "folate_dfe_ug": 300, "iron_mg": 10, "dha_mg": 200, "choline_mg": 150, "vitamin_a_rae_ug": 850 }
+    },
+    "2026-03-04": {
+      "date": "2026-03-04",
+      "completed": true,
+      "meals": [
+        { "id": "m10", "meal_type": "breakfast", "totals": { "energy_kcal": 350, "protein_g": 10, "calcium_mg": 300 }, "food_items": [{"name": "Smoothie (Spinach, Milk, Banana)", "nutrients": {"energy_kcal": 350, "protein_g": 10, "calcium_mg": 300, "folate_dfe_ug": 80}}] },
+        { "id": "m11", "meal_type": "lunch", "totals": { "energy_kcal": 450, "protein_g": 20, "iron_mg": 3 }, "food_items": [{"name": "Turkey Sandwich", "nutrients": {"energy_kcal": 450, "protein_g": 20, "iron_mg": 3}}] },
+        { "id": "m12", "meal_type": "dinner", "totals": { "energy_kcal": 550, "protein_g": 30, "iron_mg": 5 }, "food_items": [{"name": "Lean Beef Pasta", "nutrients": {"energy_kcal": 550, "protein_g": 30, "iron_mg": 5}}] }
+      ],
+      "dailyTotals": { "energy_kcal": 1350, "protein_g": 60, "iron_mg": 9, "folate_dfe_ug": 120, "calcium_mg": 400 }
+    },
+    "2026-03-05": {
+      "date": "2026-03-05",
+      "completed": true,
+      "meals": [
+        { "id": "m13", "meal_type": "breakfast", "totals": { "energy_kcal": 300, "protein_g": 8 }, "food_items": [{"name": "Oatmeal", "nutrients": {"energy_kcal": 300, "protein_g": 8, "fiber_g": 5}}] },
+        { "id": "m14", "meal_type": "lunch", "totals": { "energy_kcal": 500, "protein_g": 25, "folate_dfe_ug": 200 }, "food_items": [{"name": "Lentil Curry", "nutrients": {"energy_kcal": 500, "protein_g": 25, "folate_dfe_ug": 200, "iron_mg": 6}}] },
+        { "id": "m15", "meal_type": "dinner", "totals": { "energy_kcal": 600, "protein_g": 45, "dha_mg": 1200 }, "food_items": [{"name": "Salmon poke bowl (cooked)", "nutrients": {"energy_kcal": 600, "protein_g": 45, "dha_mg": 1200, "iron_mg": 2}}] }
+      ],
+      "dailyTotals": { "energy_kcal": 1400, "protein_g": 78, "folate_dfe_ug": 250, "iron_mg": 10, "dha_mg": 1200 }
+    },
+    "2026-03-06": {
+      "date": "2026-03-06",
+      "completed": true,
+      "meals": [
+        { "id": "m16", "meal_type": "breakfast", "totals": { "energy_kcal": 350, "protein_g": 12 }, "food_items": [{"name": "Scrambled Eggs & Toast", "nutrients": {"energy_kcal": 350, "protein_g": 12, "choline_mg": 140, "vitamin_d_ug": 2}}] },
+        { "id": "m17", "meal_type": "lunch", "totals": { "energy_kcal": 450, "protein_g": 30 }, "food_items": [{"name": "Chicken Salad", "nutrients": {"energy_kcal": 450, "protein_g": 30, "iron_mg": 2}}] },
+        { "id": "m18", "meal_type": "dinner", "totals": { "energy_kcal": 550, "protein_g": 25 }, "food_items": [{"name": "Tofu Vegetable Stir Fry", "nutrients": {"energy_kcal": 550, "protein_g": 25, "calcium_mg": 300, "iron_mg": 4}}] }
+      ],
+      "dailyTotals": { "energy_kcal": 1350, "protein_g": 67, "choline_mg": 140, "iron_mg": 7, "calcium_mg": 400 }
+    },
+    "2026-03-07": {
+      "date": "2026-03-07",
+      "completed": true,
+      "meals": [
+        { "id": "m19", "meal_type": "breakfast", "totals": { "energy_kcal": 400, "protein_g": 10 }, "food_items": [{"name": "Pancakes with Fruit", "nutrients": {"energy_kcal": 400, "protein_g": 10, "carbs_g": 60}}] },
+        { "id": "m20", "meal_type": "lunch", "totals": { "energy_kcal": 500, "protein_g": 25 }, "food_items": [{"name": "Grilled Cheese & Tomato Soup", "nutrients": {"energy_kcal": 500, "protein_g": 25, "calcium_mg": 400}}] },
+        { "id": "m21", "meal_type": "dinner", "totals": { "energy_kcal": 600, "protein_g": 35 }, "food_items": [{"name": "Roast Chicken Dinner", "nutrients": {"energy_kcal": 600, "protein_g": 35, "iron_mg": 3}}] }
+      ],
+      "dailyTotals": { "energy_kcal": 1500, "protein_g": 70, "carbs_g": 180, "calcium_mg": 500, "iron_mg": 5 }
+    },
+    "2026-02-08": {
+      "date": "2026-02-08",
+      "completed": false,
+      "meals": [
+        { "id": "m22", "meal_type": "breakfast", "totals": { "energy_kcal": 350, "protein_g": 12, "folate_dfe_ug": 100 }, "food_items": [{"name": "Spinach Omelette", "nutrients": {"energy_kcal": 350, "protein_g": 12, "folate_dfe_ug": 100, "iron_mg": 2}}] },
+        { "id": "m23", "meal_type": "lunch", "totals": { "energy_kcal": 450, "protein_g": 20, "calcium_mg": 200 }, "food_items": [{"name": "Lentil Soup with Yogurt", "nutrients": {"energy_kcal": 450, "protein_g": 20, "calcium_mg": 200}}] }
+      ]
+    }
+  }
+}
