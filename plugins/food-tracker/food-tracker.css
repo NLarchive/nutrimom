@@ -181,6 +181,20 @@
 
 /* Analysis Error */
 .analysis-error {
+  
+}
+
+/* Micronutrient grouping UI */
+.micros-dropdown { margin-top: 12px; }
+.micros-dropdown summary { cursor: pointer; font-weight: 600; padding: 8px; background: var(--surface-1, #f7fafc); border-radius: 6px; }
+.micros-dropdown .micros-content { padding: 8px 12px; }
+.nutrient-category summary { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 6px 0; }
+.nutrient-category .category-items { padding: 6px 12px 12px; display:flex; flex-direction:column; gap:6px; }
+.micro-item { display:flex; justify-content:space-between; font-size:0.95rem; }
+.nutrient-bar-item.small { padding: 6px 0; border-bottom: 1px dashed #eee; }
+.category-summary { color: #666; font-size: 0.85rem; margin-left: 8px; }
+
+.analysis-error {
   text-align: center;
   padding: 1.5rem;
 }

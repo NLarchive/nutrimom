@@ -327,6 +327,12 @@ class FoodTrackerUI {
           <h3>Today's Intake</h3>
           <div class="summary-content" id="ft-summary-content">
             <p class="empty-state">No meals logged today. Upload a food photo to get started!</p>
+            <details class="micros-dropdown">
+              <summary>Micronutrients <small>Set profile to view micronutrient status</small></summary>
+              <div class="micros-content">
+                <p class="small">Create or load a profile to view micronutrient status.</p>
+              </div>
+            </details>
           </div>
         </div>
 
@@ -688,6 +694,12 @@ class FoodTrackerUI {
     if (dailyLog.meals.length === 0 && !this.userTargets) {
       this.elements.summaryContent.innerHTML = `
         <p class="empty-state">No meals logged today. Upload a food photo to get started!</p>
+        <details class="micros-dropdown">
+          <summary>Micronutrients <small>Set profile to view micronutrient status</small></summary>
+          <div class="micros-content">
+            <p class="small">Create or load a profile to view micronutrient status.</p>
+          </div>
+        </details>
       `;
     } else {
       const totals = dailyLog.dailyTotals;
@@ -761,6 +773,35 @@ class FoodTrackerUI {
             `;
           }).join('')}
         </div>
+
+        <!-- Grouped Micronutrients (collapsed for clarity) -->
+        <details class="micros-dropdown">
+          <summary class="micros-summary">Micronutrients <small>${this.userTargets ? 'Click to expand and view categories' : 'Set profile to view micronutrient status'}</small></summary>
+          <div class="micros-content">
+            ${this.userTargets ? (() => {
+              // Use existing comparison to present grouped categories with concise status
+              const comparison = this.tracker.compareToTargets(this.userTargets);
+              const groups = this._groupNutrients(Object.fromEntries(Object.entries(comparison.nutrients)));
+              return Object.entries(groups).map(([cat, items]) => {
+                const total = items.length;
+                const met = items.filter(([,d]) => d && d.percentage >= 100).length;
+                return `
+                  <details class="nutrient-category">
+                    <summary>${cat} <small class="category-summary">${met}/${total} met</small></summary>
+                    <div class="category-items">
+                      ${items.map(([key, data]) => `
+                        <div class="micro-item">
+                          <span class="micro-name">${data.name || this._formatNutrientName(key)}</span>
+                          <span class="micro-values">${data.intake.toFixed(1)} ${data.unit || ''} • ${Math.round(data.percentage||0)}%</span>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </details>
+                `;
+              }).join('');
+            })() : '<p class="small">Create or load a profile to view micronutrient status.</p>'}
+          </div>
+        </details>
       `;
     }
 
@@ -828,6 +869,48 @@ class FoodTrackerUI {
       </div>
     ` : '';
 
+    // Group nutrients into categories for a cleaner, collapsible UI
+    const nutrientObj = Object.fromEntries(nutrients);
+    const groups = this._groupNutrients(nutrientObj);
+
+    const groupedHtml = Object.entries(groups).map(([cat, items]) => {
+      const total = items.length;
+      const met = items.filter(([, d]) => d && d.percentage >= 100).length;
+      const avg = total ? Math.round(items.reduce((s, [, d]) => s + (d && d.percentage || 0), 0) / total) : 0;
+
+      return `
+        <details class="nutrient-category">
+          <summary>${cat} <small class="category-summary">${met}/${total} met • ${avg}% avg</small></summary>
+          <div class="category-items">
+            ${items.map(([key, data]) => {
+              const percent = Math.min(data.percentage || 0, 150);
+              const statusClass = data.status;
+              const displayName = data.name || this._formatNutrientName(key);
+              const isMet = data.percentage >= 100;
+              return `
+                <div class="nutrient-bar-item small">
+                  <div class="nutrient-bar-label">
+                    <strong>${displayName}</strong>
+                    <span class="nutrient-bar-values">${data.intake.toFixed(1)} ${data.unit || ''} / ${data.target}</span>
+                  </div>
+                  <div class="nutrient-bar-track-container">
+                    <div class="nutrient-bar-track">
+                      <div class="nutrient-bar-fill ${statusClass}" style="width: ${percent}%"></div>
+                    </div>
+                  </div>
+                  <div class="nutrient-remaining-column ${isMet ? 'met' : 'pending'}">
+                    <span class="remaining-value">${isMet ? '✓' : data.remaining}</span>
+                    <span class="remaining-unit">${data.unit || ''}</span>
+                  </div>
+                  <span class="nutrient-bar-percent ${statusClass}">${Math.round(data.percentage || 0)}%</span>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </details>
+      `;
+    }).join('');
+
     this.elements.comparisonContent.innerHTML = `
       <div class="nutrient-comparison-header">
         <span>Nutrient</span>
@@ -835,33 +918,9 @@ class FoodTrackerUI {
         <span>Left to Eat</span>
         <span>%</span>
       </div>
-      <div class="nutrient-bars">
-        ${nutrients.map(([key, data]) => {
-          const percent = Math.min(data.percentage || 0, 150);
-          const statusClass = data.status;
-          const displayName = data.name || this._formatNutrientName(key);
-          const isMet = data.percentage >= 100;
-          
-          return `
-            <div class="nutrient-bar-item">
-              <div class="nutrient-bar-label">
-                <strong>${displayName}</strong>
-                <span class="nutrient-bar-values">${data.intake.toFixed(1)} / ${data.target}</span>
-              </div>
-              <div class="nutrient-bar-track-container">
-                <div class="nutrient-bar-track">
-                  <div class="nutrient-bar-fill ${statusClass}" style="width: ${percent}%"></div>
-                  <div class="nutrient-bar-target"></div>
-                </div>
-              </div>
-              <div class="nutrient-remaining-column ${isMet ? 'met' : 'pending'}">
-                <span class="remaining-value">${isMet ? '✓' : data.remaining}</span>
-                <span class="remaining-unit">${data.unit}</span>
-              </div>
-              <span class="nutrient-bar-percent ${statusClass}">${Math.round(data.percentage || 0)}%</span>
-            </div>
-          `;
-        }).join('')}
+
+      <div class="nutrient-groups">
+        ${groupedHtml}
       </div>
 
       ${insightsHtml}
@@ -938,6 +997,33 @@ class FoodTrackerUI {
   }
 
   // ─────────────────────────────────────────────────────────────────────────────
+  // Nutrient Grouping Helpers (for compact UI)
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  _nutrientCategoryMap() {
+    return {
+      'Macronutrients': ['energy_kcal','protein_g','carbs_g','fat_g','fiber_g','water_l'],
+      'B Vitamins': ['vitamin_b1_mg','vitamin_b2_mg','vitamin_b3_mg','vitamin_b5_mg','vitamin_b6_mg','biotin_ug','folate_dfe_ug','vitamin_b12_ug'],
+      'Vitamins': ['vitamin_a_rae_ug','vitamin_c_mg','vitamin_d_ug','vitamin_e_mg','vitamin_k_ug'],
+      'Minerals': ['iron_mg','calcium_mg','magnesium_mg','zinc_mg','potassium_mg','selenium_ug','iodine_ug'],
+      'Fatty Acids': ['dha_mg','epa_mg','omega3_mg']
+    };
+  }
+
+  _groupNutrients(nutrientsObj) {
+    const map = this._nutrientCategoryMap();
+    const groups = {};
+    for (const [cat, keys] of Object.entries(map)) {
+      groups[cat] = keys.map(k => [k, nutrientsObj[k]]).filter(([k, d]) => d !== undefined && d !== null);
+    }
+    // include any remaining nutrients under 'Other'
+    const mappedKeys = new Set(Object.values(map).flat());
+    const others = Object.entries(nutrientsObj).filter(([k]) => !mappedKeys.has(k));
+    if (others.length) groups['Other'] = others;
+    return groups;
+  }
+
+  // ─────────────────────────────────────────────────────────────────────────────
   // Manual LLM Prompt & Response Handling
   // ─────────────────────────────────────────────────────────────────────────────
 
@@ -979,7 +1065,12 @@ CRITICAL REQUIREMENTS:
 2. QUANTIFY: Estimate portion sizes and total edible weight in grams for the whole plate.
 3. CALCULATE: Provide FULL macro and micronutrient data for the entire portion - this is MANDATORY.
 4. VALIDATE: Ensure the 'totals' mathematically match the sum of 'food_items'.
-5. MICRONUTRIENTS ARE REQUIRED: You MUST include realistic estimates for ALL micronutrients listed below, even if approximate. Do not skip or set to zero.
+5. REQUIRED NUTRIENTS: You MUST include realistic estimates for the following macros and micronutrients (even approximate). Do not omit or set them to null/zero if you can reasonably estimate them.
+
+- Macronutrients: energy_kcal, protein_g, carbs_g, fat_g, fiber_g, sugar_g, saturated_fat_g, sodium_mg, potassium_mg, water_l
+- B-complex & Vitamins: folate_dfe_ug, vitamin_b12_ug, vitamin_b6_mg, biotin_ug, niacin_mg, riboflavin_mg, thiamin_mg, vitamin_c_mg, vitamin_d_ug, vitamin_a_rae_ug, vitamin_e_mg, vitamin_k_ug
+- Minerals & Other: iron_mg, calcium_mg, magnesium_mg, zinc_mg, selenium_ug, iodine_ug, choline_mg, potassium_mg
+- Fatty acids & omega-3s: dha_mg, epa_mg, omega3_mg
 
 OUTPUT FORMAT (Respond with VALID JSON only):
 {
@@ -997,28 +1088,34 @@ OUTPUT FORMAT (Respond with VALID JSON only):
         "fat_g": 0,
         "fiber_g": 0,
         "sugar_g": 0,
-        "sodium_mg": 0,
         "saturated_fat_g": 0,
+        "sodium_mg": 0,
         "potassium_mg": 0,
-        "magnesium_mg": 0
+        "magnesium_mg": 0,
+        "water_l": 0
       },
       "micronutrients": {
         "folate_dfe_ug": 0,
         "iron_mg": 0,
         "calcium_mg": 0,
-        "vitamin_d_ug": 0,
-        "dha_mg": 0,
-        "epa_mg": 0,
-        "iodine_ug": 0,
-        "choline_mg": 0,
-        "vitamin_a_ug": 0,
         "vitamin_b12_ug": 0,
         "vitamin_b6_mg": 0,
+        "biotin_ug": 0,
+        "niacin_mg": 0,
+        "riboflavin_mg": 0,
+        "thiamin_mg": 0,
         "vitamin_c_mg": 0,
+        "vitamin_d_ug": 0,
+        "vitamin_a_rae_ug": 0,
         "vitamin_e_mg": 0,
         "vitamin_k_ug": 0,
         "zinc_mg": 0,
-        "selenium_ug": 0
+        "selenium_ug": 0,
+        "iodine_ug": 0,
+        "choline_mg": 0,
+        "dha_mg": 0,
+        "epa_mg": 0,
+        "omega3_mg": 0
       }
     }
   ],
@@ -1028,11 +1125,17 @@ OUTPUT FORMAT (Respond with VALID JSON only):
     "carbs_g": 0,
     "fat_g": 0,
     "fiber_g": 0,
+    "sugar_g": 0,
     "folate_dfe_ug": 0,
     "iron_mg": 0,
     "calcium_mg": 0,
     "vitamin_b12_ug": 0,
-    "dha_mg": 0
+    "vitamin_b6_mg": 0,
+    "vitamin_c_mg": 0,
+    "vitamin_d_ug": 0,
+    "dha_mg": 0,
+    "epa_mg": 0,
+    "omega3_mg": 0
   },
   "meal_type": "breakfast|lunch|dinner|snack",
   "confidence_overall": 0.9,

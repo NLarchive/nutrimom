@@ -96,6 +96,9 @@ test.describe('Food Tracker UI Components', () => {
     await expect(page.locator('#ft-daily-summary')).toBeVisible();
     await expect(page.locator('#ft-daily-summary h3')).toContainText("Today's Intake");
     await expect(page.locator('.empty-state')).toContainText('No meals logged today');
+
+    // Micronutrients grouping should be available to avoid overwhelming users
+    await expect(page.locator('#ft-daily-summary')).toContainText('Micronutrients');
   });
 
   test('should render meals log section', async ({ page }) => {

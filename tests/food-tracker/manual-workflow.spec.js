@@ -33,6 +33,9 @@ test.describe('Food Tracker Manual Workflow', () => {
 
     const clipboardText = await page.evaluate(() => navigator.clipboard.readText());
     expect(clipboardText).toContain('FOOD IMAGE NUTRITIONAL ANALYSIS REQUEST');
+    // Must include the explicit required nutrients section
+    expect(clipboardText).toContain('Macronutrients');
+    expect(clipboardText).toContain('folate_dfe_ug');
   });
 
   test('should validate and parse valid JSON response', async ({ page }) => {
