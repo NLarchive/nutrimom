@@ -878,8 +878,9 @@ class FoodTrackerUI {
       const met = items.filter(([, d]) => d && d.percentage >= 100).length;
       const avg = total ? Math.round(items.reduce((s, [, d]) => s + (d && d.percentage || 0), 0) / total) : 0;
 
+      const isOpen = cat === 'Macronutrients' ? 'open' : '';
       return `
-        <details class="nutrient-category">
+        <details class="nutrient-category" ${isOpen}>
           <summary>${cat} <small class="category-summary">${met}/${total} met • ${avg}% avg</small></summary>
           <div class="category-items">
             ${items.map(([key, data]) => {
@@ -971,27 +972,43 @@ class FoodTrackerUI {
       'carbs_g': 'Carbs',
       'fat_g': 'Fat',
       'fiber_g': 'Fiber',
-      'iron_mg': 'Iron',
-      'calcium_mg': 'Calcium',
+      'water_l': 'Water',
+      'sodium_mg': 'Sodium',
+      // B Vitamins
+      'thiamin_mg': 'Thiamin (B1)',
+      'riboflavin_mg': 'Riboflavin (B2)',
+      'niacin_mg_ne': 'Niacin (B3)',
+      'pantothenic_acid_mg': 'Pantothenic Acid (B5)',
+      'vitamin_b6_mg': 'Vitamin B6',
+      'biotin_ug': 'Biotin (B7)',
       'folate_dfe_ug': 'Folate (DFE)',
-      'folate_ug': 'Folate',
+      'vitamin_b12_ug': 'Vitamin B12',
+      'choline_mg': 'Choline',
+      // Vitamins
+      'vitamin_a_rae_ug': 'Vitamin A (RAE)',
       'vitamin_c_mg': 'Vitamin C',
       'vitamin_d_ug': 'Vitamin D',
-      'vitamin_a_rae_ug': 'Vitamin A (RAE)',
-      'vitamin_a_ug': 'Vitamin A',
-      'zinc_mg': 'Zinc',
-      'dha_mg': 'DHA (Omega-3)',
-      'omega3_mg': 'Omega-3',
-      'iodine_ug': 'Iodine',
-      'choline_mg': 'Choline',
-      'magnesium_mg': 'Magnesium',
-      'vitamin_b12_ug': 'Vitamin B12',
-      'vitamin_b6_mg': 'Vitamin B6',
-      'vitamin_k_ug': 'Vitamin K',
       'vitamin_e_mg': 'Vitamin E',
+      'vitamin_k_ug': 'Vitamin K',
+      // Minerals
+      'iron_mg': 'Iron',
+      'calcium_mg': 'Calcium',
+      'magnesium_mg': 'Magnesium',
+      'zinc_mg': 'Zinc',
       'potassium_mg': 'Potassium',
-      'water_l': 'Water',
-      'selenium_ug': 'Selenium'
+      'phosphorus_mg': 'Phosphorus',
+      'selenium_ug': 'Selenium',
+      'iodine_ug': 'Iodine',
+      'copper_ug': 'Copper',
+      'manganese_mg': 'Manganese',
+      'chromium_ug': 'Chromium',
+      'molybdenum_ug': 'Molybdenum',
+      'chloride_mg': 'Chloride',
+      'fluoride_mg': 'Fluoride',
+      // Fatty Acids
+      'dha_mg': 'DHA (Omega-3)',
+      'epa_mg': 'EPA (Omega-3)',
+      'ala_omega3_g': 'ALA (Omega-3)'
     };
     return names[key] || key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
   }
@@ -1003,10 +1020,10 @@ class FoodTrackerUI {
   _nutrientCategoryMap() {
     return {
       'Macronutrients': ['energy_kcal','protein_g','carbs_g','fat_g','fiber_g','water_l'],
-      'B Vitamins': ['vitamin_b1_mg','vitamin_b2_mg','vitamin_b3_mg','vitamin_b5_mg','vitamin_b6_mg','biotin_ug','folate_dfe_ug','vitamin_b12_ug'],
+      'B Vitamins': ['thiamin_mg','riboflavin_mg','niacin_mg_ne','pantothenic_acid_mg','vitamin_b6_mg','biotin_ug','folate_dfe_ug','vitamin_b12_ug','choline_mg'],
       'Vitamins': ['vitamin_a_rae_ug','vitamin_c_mg','vitamin_d_ug','vitamin_e_mg','vitamin_k_ug'],
-      'Minerals': ['iron_mg','calcium_mg','magnesium_mg','zinc_mg','potassium_mg','selenium_ug','iodine_ug'],
-      'Fatty Acids': ['dha_mg','epa_mg','omega3_mg']
+      'Minerals': ['iron_mg','calcium_mg','magnesium_mg','zinc_mg','potassium_mg','phosphorus_mg','selenium_ug','iodine_ug','copper_ug','manganese_mg','chromium_ug','molybdenum_ug','sodium_mg','chloride_mg','fluoride_mg'],
+      'Fatty Acids': ['dha_mg','epa_mg','ala_omega3_g']
     };
   }
 
@@ -1068,9 +1085,10 @@ CRITICAL REQUIREMENTS:
 5. REQUIRED NUTRIENTS: You MUST include realistic estimates for the following macros and micronutrients (even approximate). Do not omit or set them to null/zero if you can reasonably estimate them.
 
 - Macronutrients: energy_kcal, protein_g, carbs_g, fat_g, fiber_g, sugar_g, saturated_fat_g, sodium_mg, potassium_mg, water_l
-- B-complex & Vitamins: folate_dfe_ug, vitamin_b12_ug, vitamin_b6_mg, biotin_ug, niacin_mg, riboflavin_mg, thiamin_mg, vitamin_c_mg, vitamin_d_ug, vitamin_a_rae_ug, vitamin_e_mg, vitamin_k_ug
-- Minerals & Other: iron_mg, calcium_mg, magnesium_mg, zinc_mg, selenium_ug, iodine_ug, choline_mg, potassium_mg
-- Fatty acids & omega-3s: dha_mg, epa_mg, omega3_mg
+- B-complex vitamins: thiamin_mg (B1), riboflavin_mg (B2), niacin_mg_ne (B3), pantothenic_acid_mg (B5), vitamin_b6_mg, biotin_ug (B7), folate_dfe_ug, vitamin_b12_ug, choline_mg
+- Other vitamins: vitamin_a_rae_ug, vitamin_c_mg, vitamin_d_ug, vitamin_e_mg, vitamin_k_ug
+- Minerals: iron_mg, calcium_mg, magnesium_mg, zinc_mg, phosphorus_mg, selenium_ug, iodine_ug, copper_ug, manganese_mg, chromium_ug
+- Fatty acids & omega-3s: dha_mg, epa_mg, ala_omega3_g
 
 OUTPUT FORMAT (Respond with VALID JSON only):
 {
@@ -1101,21 +1119,26 @@ OUTPUT FORMAT (Respond with VALID JSON only):
         "vitamin_b12_ug": 0,
         "vitamin_b6_mg": 0,
         "biotin_ug": 0,
-        "niacin_mg": 0,
+        "niacin_mg_ne": 0,
         "riboflavin_mg": 0,
         "thiamin_mg": 0,
+        "pantothenic_acid_mg": 0,
+        "choline_mg": 0,
         "vitamin_c_mg": 0,
         "vitamin_d_ug": 0,
         "vitamin_a_rae_ug": 0,
         "vitamin_e_mg": 0,
         "vitamin_k_ug": 0,
         "zinc_mg": 0,
+        "phosphorus_mg": 0,
         "selenium_ug": 0,
         "iodine_ug": 0,
-        "choline_mg": 0,
+        "copper_ug": 0,
+        "manganese_mg": 0,
+        "chromium_ug": 0,
         "dha_mg": 0,
         "epa_mg": 0,
-        "omega3_mg": 0
+        "ala_omega3_g": 0
       }
     }
   ],
@@ -1135,7 +1158,7 @@ OUTPUT FORMAT (Respond with VALID JSON only):
     "vitamin_d_ug": 0,
     "dha_mg": 0,
     "epa_mg": 0,
-    "omega3_mg": 0
+    "ala_omega3_g": 0
   },
   "meal_type": "breakfast|lunch|dinner|snack",
   "confidence_overall": 0.9,

@@ -895,7 +895,7 @@
         "200 tests passing (100 Chromium + 100 Mobile Chrome)"
       ],
       "notes": "Rebranded from NutriMom to NutriLife to reflect universal scope. Firefox tests skip due to missing browser binary (infra issue, not code issue). All IOM DRI values sourced from IOM/DRI tables, NASEM 2019 for Na/K/Cl."
-    }
+    },
     {
       "task_name": "Revert Branding & Fix Dashboard",
       "description": "Revert branding from NutriLife back to NutriMom (name, icon, strings). Fix Food Log Dashboard to correctly display micronutrients (folate, etc) by using updated nutrient keys (folate_dfe_ug).",
@@ -972,6 +972,33 @@
         "Tests updated to verify micronutrient validation"
       ],
       "notes": "Fixed UI sync issue by ensuring meals include micronutrient data. Engine correctly aggregates from food_items.micronutrients, but UI showed zeros when micronutrients were missing from LLM responses."
+    },
+    {
+      "task_name": "Nutrient Key Alignment & UI Grouping Sync",
+      "description": "Comprehensive sync of nutrient keys across UI category map, AI prompt, and engine _emptyTotals(). Fixed _nutrientCategoryMap() wrong keys (vitamin_b1_mg→thiamin_mg, vitamin_b2_mg→riboflavin_mg, vitamin_b3_mg→niacin_mg_ne, vitamin_b5_mg→pantothenic_acid_mg, omega3_mg→ala_omega3_g). Added missing minerals (phosphorus_mg, copper_ug, manganese_mg, chromium_ug, molybdenum_ug, sodium_mg, chloride_mg, fluoride_mg) and choline_mg to B Vitamins group. Set Macronutrients category open by default. Updated _formatNutrientName() with all 37 tracked nutrients. Fixed AI prompt JSON template to use correct engine keys (niacin_mg_ne, ala_omega3_g, pantothenic_acid_mg, etc.) and added missing nutrients.",
+      "start_date": "2026-06-12",
+      "end_date": "2026-06-12",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 2,
+      "actual_hours": 2,
+      "is_critical_path": true,
+      "tags": ["food-tracker", "nutrient-sync", "key-alignment", "prompt", "UI", "bugfix"],
+      "category_name": "Core Development",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "LLM Micronutrient Validation & UI Sync Fix", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "plugins/food-tracker/food-tracker-ui.js - Fixed _nutrientCategoryMap() with engine-canonical keys (37 nutrients across 5 groups)",
+        "plugins/food-tracker/food-tracker-ui.js - Updated _formatNutrientName() with all tracked nutrient display names",
+        "plugins/food-tracker/food-tracker-ui.js - Fixed _getManualPrompt() JSON template keys (niacin_mg_ne, ala_omega3_g, pantothenic_acid_mg, phosphorus_mg, copper_ug, manganese_mg, chromium_ug)",
+        "plugins/food-tracker/food-tracker-ui.js - Added 'open' attribute to Macronutrients <details> in _updateNutrientComparison()"
+      ],
+      "notes": "All 103 Playwright tests passing. Source of truth: _emptyTotals() in food-tracker-engine.js (37 canonical keys). Fatty Acids group was appearing empty because UI used omega3_mg key which doesn't exist in engine totals."
     }
   ],
   "milestones": [
