@@ -228,6 +228,7 @@ class FoodLogDashboard {
       { key: 'iron_mg', name: 'Iron', unit: 'mg', targetKey: 'iron_mg', color: '#e53e3e' },
       { key: 'calcium_mg', name: 'Calcium', unit: 'mg', targetKey: 'calcium_mg', color: '#4299e1' },
       { key: 'dha_mg', name: 'DHA', unit: 'mg', targetKey: 'dha_mg', color: '#319795' },
+      { key: 'epa_mg', name: 'EPA', unit: 'mg', targetKey: 'epa_mg', color: '#2C7A7B' },
       { key: 'iodine_ug', name: 'Iodine', unit: 'µg', targetKey: 'iodine_ug', color: '#d69e2e' },
       { key: 'choline_mg', name: 'Choline', unit: 'mg', targetKey: 'choline_mg', color: '#9b2c2c' },
       { key: 'vitamin_d_ug', name: 'Vitamin D', unit: 'µg', targetKey: 'vitamin_d_ug', color: '#ecc94b' },

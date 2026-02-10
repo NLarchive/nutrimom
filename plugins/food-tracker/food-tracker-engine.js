@@ -776,7 +776,7 @@ class FoodTrackerEngine {
 
     // Map from intake keys (dailyTotals) to target keys (nutrient-targets.json)
     const intakeKeys = Object.keys(intake);
-    const criticalNutrients = ['folate_dfe_ug', 'iron_mg', 'calcium_mg', 'vitamin_d_ug', 'dha_mg', 'iodine_ug', 'choline_mg'];
+    const criticalNutrients = ['folate_dfe_ug', 'iron_mg', 'calcium_mg', 'vitamin_d_ug', 'dha_mg', 'epa_mg', 'iodine_ug', 'choline_mg'];
     const criticalStatus = {};
 
     intakeKeys.forEach((intakeKey) => {

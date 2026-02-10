@@ -1032,6 +1032,31 @@
         "compareToTargets validation: EPA now appears in comparison output, below-target nutrients correctly flagged"
       ],
       "notes": "All 117 Playwright tests passing (22.1s). All DRI values confirmed accurate against IOM/NIH tables from Deep Research analysis. Key research corrections documented: Choline AI 450mg not RDA, Folate 5mg only per RCOG for BMI≥30, saturated fat <10% is general population guidance, Protein RDA formally 0.8g/kg."
+    },
+    {
+      "task_name": "Nutrient Logic Integration - EPA Support",
+      "description": "Integrated the newly added EPA nutrient into the application logic and UI. Updated the critical nutrients list in the Insight Engine to generate warnings for low EPA intake. Added EPA to the Food Log Dashboard micronutrient charts with a teal color (#2C7A7B). Updated the main calculator Critical Nutrients display to explain why EPA matters. Verified integration with full regression testing.",
+      "start_date": "2026-06-12",
+      "end_date": "2026-06-12",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 1,
+      "actual_hours": 1,
+      "is_critical_path": true,
+      "tags": ["logic", "UI", "EPA", "integration", "dashboard", "insights"],
+      "category_name": "Core Development",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Nutrient Research Validation & EPA Gap Fix", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "plugins/food-tracker/food-tracker-engine.js - Added epa_mg to criticalNutrients array for insight generation",
+        "plugins/food-tracker/food-log-dashboard.js - Added epa_mg to _renderMicronutrientChart logic with visual config",
+        "js/app.js - Added epa_mg to displayCriticalNutrients() logic for main calculator UI"
+      ]
     }
   ],
   "milestones": [
@@ -1114,10 +1139,10 @@
       "description": "Complete system expansion supporting all ages (1+), both sexes (male+female), child age bands (1-3, 4-8, 9-13), Schofield BMR for children, sex-aware DRI lookup, pregnancy/lactation limited to females 14-50. Rebranded from NutriMom to NutriLife. 200 tests passing (100 Chromium + 100 Mobile Chrome)."
     },
     {
-      "name": "Nutrient Data Research-Validated",
+      "name": "Nutrient Data Research-Validated & Integrated",
       "date": "2026-06-12",
       "status": "Completed",
-      "description": "All nutrient DRI values cross-validated against IOM/NIH/NASEM/Cochrane research. EPA target gap filled across all 26 age bands. 9 nutrient descriptions enriched with 2025-2030 evidence. 14 new validation tests. 117 total tests passing (22.1s)."
+      "description": "All nutrient DRI values cross-validated against IOM/NIH/NASEM/Cochrane research. EPA target gap filled across all 26 age bands. 9 nutrient descriptions enriched with 2025-2030 evidence. UI/Engine logic updated to fully support EPA visualization and insights. 117 total tests passing (24.4s)."
     }
   ],
   "required_fields": [

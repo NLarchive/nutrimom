@@ -596,7 +596,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function displayCriticalNutrients(targets) {
-    const critical = ['folate_dfe_ug', 'iron_mg', 'calcium_mg', 'vitamin_d_ug', 'dha_mg', 'iodine_ug'];
+    const critical = ['folate_dfe_ug', 'iron_mg', 'calcium_mg', 'vitamin_d_ug', 'dha_mg', 'epa_mg', 'iodine_ug'];
     const container = document.getElementById('critical-nutrients');
     
     const items = critical
