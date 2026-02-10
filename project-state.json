@@ -1057,6 +1057,32 @@
         "plugins/food-tracker/food-log-dashboard.js - Added epa_mg to _renderMicronutrientChart logic with visual config",
         "js/app.js - Added epa_mg to displayCriticalNutrients() logic for main calculator UI"
       ]
+    },
+    {
+      "task_name": "Optional Nutrient Targets & Celebration",
+      "description": "Implemented support for optional nutrient targets (REC type) in engine and data. Added DHA recommendation (100mg) for children 1-3. Created day completion logic (ignoring optional/limit targets) and added a fireworks celebration modal triggered via FoodTrackerUI.",
+      "start_date": "2026-06-12",
+      "end_date": "2026-06-12",
+      "priority": "Medium",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 2,
+      "actual_hours": 2,
+      "is_critical_path": false,
+      "tags": ["UI", "engine", "gamification", "DHA", "child", "optional-targets"],
+      "category_name": "Core Development",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Nutrient Logic Integration - EPA Support", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "data/nutrient-targets.json - Added REC target type and DHA recommendation for child/1_3",
+        "plugins/food-tracker/food-tracker-engine.js - Updated compareToTargets to handle REC type (isOptional=true) and added checkDayCompletion()",
+        "plugins/food-tracker/food-tracker-ui.js - Updated rendering for optional targets and added _showCelebration() fireworks modal",
+        "plugins/food-tracker/food-tracker.css - Added celebration modal and fireworks animation styles"
+      ]
     }
   ],
   "milestones": [

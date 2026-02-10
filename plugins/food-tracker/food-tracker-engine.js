@@ -710,6 +710,7 @@ class FoodTrackerEngine {
    * @private
    */
   _loadFromStorage() {
+    if (typeof localStorage === 'undefined') return {};
     try {
       const data = localStorage.getItem(this.storageKey);
       return data ? JSON.parse(data) : {};
@@ -724,6 +725,7 @@ class FoodTrackerEngine {
    * @private
    */
   _saveToStorage() {
+    if (typeof localStorage === 'undefined') return;
     try {
       localStorage.setItem(this.storageKey, JSON.stringify(this.foodLog));
     } catch (e) {
