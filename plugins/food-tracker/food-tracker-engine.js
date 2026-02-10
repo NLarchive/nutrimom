@@ -769,7 +769,9 @@ class FoodTrackerEngine {
         met: [],
         exceeded: [],
         deficit: [],
-        noData: []
+        noData: [],
+        informational: [],
+        limits: []
       },
       insights: []
     };
@@ -778,6 +780,7 @@ class FoodTrackerEngine {
     const intakeKeys = Object.keys(intake);
     const criticalNutrients = ['folate_dfe_ug', 'iron_mg', 'calcium_mg', 'vitamin_d_ug', 'dha_mg', 'epa_mg', 'iodine_ug', 'choline_mg'];
     const criticalStatus = {};
+    const showInfoEvenIfNoTarget = new Set(['dha_mg', 'epa_mg']);
 
     intakeKeys.forEach((intakeKey) => {
       const intakeValue = intake[intakeKey] || 0;
@@ -794,9 +797,74 @@ class FoodTrackerEngine {
       // Extract the primary target value (RDA/AI/MIN)
       const targetValue = this._extractTargetValue(targetData);
       const ul = targetData.UL;
+      const max = typeof targetData.MAX === 'number' ? targetData.MAX : null;
       const unit = targetData.unit || '';
       
+      // Handle nutrients that don't have an RDA/AI/MIN/target:
+      // - MAX-only (limits): still useful to display (e.g., sodium)
+      // - info-only (no formal target): still useful to display (e.g., DHA/EPA in non-pregnant groups)
       if (targetValue === null || targetValue === 0) {
+        if (max !== null) {
+          const limitPct = max > 0 ? (intakeValue / max) * 100 : 0;
+          const exceeded = intakeValue > max;
+
+          comparison.nutrients[intakeKey] = {
+            name: targetData.name || this._formatNutrientName(intakeKey),
+            intake: intakeValue,
+            target: max,
+            remaining: null,
+            upper_limit: ul || null,
+            percentage: Math.round(limitPct * 10) / 10,
+            unit,
+            status: exceeded ? 'exceeded' : 'adequate',
+            targetType: 'MAX',
+            isLimitOnly: true
+          };
+
+          comparison.summary.limits.push(intakeKey);
+          if (exceeded) {
+            comparison.summary.exceeded.push(intakeKey);
+            comparison.status = 'warning';
+          }
+          return;
+        }
+
+        if (typeof targetData.note === 'string' && targetData.note.trim()) {
+          comparison.nutrients[intakeKey] = {
+            name: targetData.name || this._formatNutrientName(intakeKey),
+            intake: intakeValue,
+            target: null,
+            remaining: null,
+            upper_limit: ul || null,
+            percentage: null,
+            unit,
+            status: 'unknown',
+            targetType: 'INFO',
+            isInfoOnly: true,
+            note: targetData.note
+          };
+          comparison.summary.informational.push(intakeKey);
+          return;
+        }
+
+        if (showInfoEvenIfNoTarget.has(intakeKey)) {
+          comparison.nutrients[intakeKey] = {
+            name: targetData.name || this._formatNutrientName(intakeKey),
+            intake: intakeValue,
+            target: null,
+            remaining: null,
+            upper_limit: ul || null,
+            percentage: null,
+            unit,
+            status: 'unknown',
+            targetType: 'INFO',
+            isInfoOnly: true,
+            note: targetData.note || 'No formal DRI target established for this life stage.'
+          };
+          comparison.summary.informational.push(intakeKey);
+          return;
+        }
+
         comparison.summary.noData.push(intakeKey);
         return;
       }

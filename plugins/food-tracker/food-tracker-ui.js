@@ -783,18 +783,42 @@ class FoodTrackerUI {
               const comparison = this.tracker.compareToTargets(this.userTargets);
               const groups = this._groupNutrients(Object.fromEntries(Object.entries(comparison.nutrients)));
               return Object.entries(groups).map(([cat, items]) => {
-                const total = items.length;
-                const met = items.filter(([,d]) => d && d.percentage >= 100).length;
+                const scored = items.filter(([, d]) => d && !d.isLimitOnly && !d.isInfoOnly);
+                const total = scored.length;
+                const met = scored.filter(([, d]) => d && d.percentage >= 100).length;
                 return `
                   <details class="nutrient-category">
                     <summary>${cat} <small class="category-summary">${met}/${total} met</small></summary>
                     <div class="category-items">
-                      ${items.map(([key, data]) => `
-                        <div class="micro-item">
-                          <span class="micro-name">${data.name || this._formatNutrientName(key)}</span>
-                          <span class="micro-values">${data.intake.toFixed(1)} ${data.unit || ''} • ${Math.round(data.percentage||0)}%</span>
-                        </div>
-                      `).join('')}
+                      ${items.map(([key, data]) => {
+                        const intakeDisplay = data.intake === 0 ? '0' : data.intake < 10 ? data.intake.toFixed(1) : Math.round(data.intake);
+                        const unit = data.unit || '';
+                        const name = data.name || this._formatNutrientName(key);
+                        if (data.isLimitOnly) {
+                          const maxDisplay = data.target === null ? '-' : (data.target < 10 ? Number(data.target).toFixed(1) : Math.round(data.target));
+                          const pct = data.percentage === null ? null : Math.round(data.percentage);
+                          return `
+                            <div class="micro-item">
+                              <span class="micro-name">${name}</span>
+                              <span class="micro-values">${intakeDisplay} ${unit} • max ${maxDisplay}${pct !== null ? ` • ${pct}%` : ''}</span>
+                            </div>
+                          `;
+                        }
+                        if (data.isInfoOnly) {
+                          return `
+                            <div class="micro-item">
+                              <span class="micro-name">${name}</span>
+                              <span class="micro-values">${intakeDisplay} ${unit} • no target</span>
+                            </div>
+                          `;
+                        }
+                        return `
+                          <div class="micro-item">
+                            <span class="micro-name">${name}</span>
+                            <span class="micro-values">${intakeDisplay} ${unit} • ${Math.round(data.percentage || 0)}%</span>
+                          </div>
+                        `;
+                      }).join('')}
                     </div>
                   </details>
                 `;
@@ -874,9 +898,10 @@ class FoodTrackerUI {
     const groups = this._groupNutrients(nutrientObj);
 
     const groupedHtml = Object.entries(groups).map(([cat, items]) => {
-      const total = items.length;
-      const met = items.filter(([, d]) => d && d.percentage >= 100).length;
-      const avg = total ? Math.round(items.reduce((s, [, d]) => s + (d && d.percentage || 0), 0) / total) : 0;
+      const scored = items.filter(([, d]) => d && !d.isLimitOnly && !d.isInfoOnly);
+      const total = scored.length;
+      const met = scored.filter(([, d]) => d && d.percentage >= 100).length;
+      const avg = total ? Math.round(scored.reduce((s, [, d]) => s + (d && d.percentage || 0), 0) / total) : 0;
 
       const isOpen = cat === 'Macronutrients' ? 'open' : '';
       return `
@@ -884,15 +909,26 @@ class FoodTrackerUI {
           <summary>${cat} <small class="category-summary">${met}/${total} met • ${avg}% avg</small></summary>
           <div class="category-items">
             ${items.map(([key, data]) => {
-              const percent = Math.min(data.percentage || 0, 150);
-              const statusClass = data.status;
               const displayName = data.name || this._formatNutrientName(key);
-              const isMet = data.percentage >= 100;
+              const statusClass = data.status;
+              const isLimitOnly = !!data.isLimitOnly;
+              const isInfoOnly = !!data.isInfoOnly;
+              const pctRaw = typeof data.percentage === 'number' ? data.percentage : 0;
+              const percent = Math.min(pctRaw || 0, 150);
+              const isMet = !isLimitOnly && !isInfoOnly && data.percentage >= 100;
+              const intakeDisplay = data.intake === 0 ? '0' : data.intake < 10 ? data.intake.toFixed(1) : Math.round(data.intake);
+              const unit = data.unit || '';
+              const targetDisplay = data.target === null || data.target === undefined ? '-' : (data.target < 10 ? Number(data.target).toFixed(1) : Math.round(data.target));
+              const valuesText = isInfoOnly
+                ? `${intakeDisplay} ${unit} • no target`
+                : isLimitOnly
+                  ? `${intakeDisplay} ${unit} / max ${targetDisplay}`
+                  : `${data.intake.toFixed(1)} ${unit} / ${targetDisplay}`;
               return `
                 <div class="nutrient-bar-item small">
                   <div class="nutrient-bar-label">
                     <strong>${displayName}</strong>
-                    <span class="nutrient-bar-values">${data.intake.toFixed(1)} ${data.unit || ''} / ${data.target}</span>
+                    <span class="nutrient-bar-values">${valuesText}</span>
                   </div>
                   <div class="nutrient-bar-track-container">
                     <div class="nutrient-bar-track">
@@ -900,10 +936,10 @@ class FoodTrackerUI {
                     </div>
                   </div>
                   <div class="nutrient-remaining-column ${isMet ? 'met' : 'pending'}">
-                    <span class="remaining-value">${isMet ? '✓' : data.remaining}</span>
-                    <span class="remaining-unit">${data.unit || ''}</span>
+                    <span class="remaining-value">${isMet ? '✓' : (isLimitOnly || isInfoOnly ? '—' : data.remaining)}</span>
+                    <span class="remaining-unit">${unit}</span>
                   </div>
-                  <span class="nutrient-bar-percent ${statusClass}">${Math.round(data.percentage || 0)}%</span>
+                  <span class="nutrient-bar-percent ${statusClass}">${isInfoOnly ? '—' : `${Math.round(pctRaw || 0)}%`}</span>
                 </div>
               `;
             }).join('')}
