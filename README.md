@@ -17,12 +17,15 @@ https://nlarchive.github.io/nutrimom/
 
 - 🧮 **Personalized energy calculations** using Mifflin-St Jeor equation
 - 🤰 **Pregnancy-specific adjustments** by trimester (T1: 0, T2: +340, T3: +452 kcal)
-- 🥗 **35+ nutrient targets** with RDA, AI, and Upper Limits
+- 🥗 **37+ nutrient targets** with RDA, AI, UL, and optional recommendations
 - 📊 **Visual comparison** showing changes from pre-pregnancy baseline
 - ⚖️ **Weight gain recommendations** based on pre-pregnancy BMI (IOM 2009)
 - 🔒 **100% client-side** - no data sent to servers, privacy-first
 - 📱 **Responsive design** - works on mobile, tablet, and desktop
-- 🎯 **Critical nutrients highlight** for pregnancy (Folate, Iron, DHA, etc.)
+- 🎯 **Critical nutrients highlight** for pregnancy (Folate, Iron, DHA, EPA, Iodine, etc.)
+- 📸 **Food Tracker with LLM integration** - analyze meals via AI or manual input
+- 🎊 **Daily completion celebration** - achievements unlocked when hitting nutrition goals
+- 🧪 **247 comprehensive E2E tests** - Chromium & Firefox coverage with 100% pass rate
 
 ---
 
@@ -55,26 +58,38 @@ python -m http.server 8080
 
 ```
 nutrimom/
-├── index.html                  # Main application
-├── css/styles.css              # Styling
+├── index.html                      # Main application
+├── css/styles.css                  # Styling
 ├── js/
-│   ├── nutrition-engine.js     # Core calculation engine
-│   └── app.js                  # UI controller
-├── data/                       # JSON data files
-│   ├── nutrients.json          # 38 nutrients with descriptions
-│   ├── nutrient-targets.json   # RDA/AI/UL by life-stage
-│   ├── age-bands.json          # Age range definitions
-│   ├── life-stages.json        # Pregnancy/lactation stages
-│   ├── pregnancy_weeks.json    # Week→trimester mapping
-│   └── formulas.json           # Equations and factors
-├── src/                        # (Removed - migrated to root)
+│   ├── nutrition-engine.js         # Core calculation engine
+│   ├── app.js                      # UI controller
+│   └── food-tracker.js             # Food tracker UI integration
+├── plugins/food-tracker/           # Food Tracker Plugin
+│   ├── food-tracker-engine.js      # Core tracker logic & aggregation
+│   ├── food-tracker-ui.js          # UI rendering & interaction
+│   ├── food-tracker.css            # Tracker-specific styles
+│   ├── llm-config.js               # LLM API configurations
+│   └── mock-responses.js           # Test data
+├── data/                           # JSON data files
+│   ├── nutrients.json              # 37+ nutrients with descriptions
+│   ├── nutrient-targets.json       # RDA/AI/UL/REC by life-stage & age-band
+│   ├── age-bands.json              # Age range definitions
+│   ├── life-stages.json            # Pregnancy/lactation stages
+│   ├── pregnancy_weeks.json        # Week→trimester mapping
+│   └── formulas.json               # Equations and factors
 ├── tests/
-│   └── nutrimom.spec.js            # Playwright E2E tests
+│   ├── calculator/                 # Nutrition calculator tests (50+)
+│   ├── food-tracker/               # Food tracker tests (150+)
+│   ├── navigation/                 # View switching tests (20+)
+│   ├── helpers/test-data.js        # Shared test utilities
+│   └── nutrimom-basic.spec.js      # Integration tests
 ├── docs/
 │   ├── project-research-analysis.md   # Business analysis & research
 │   ├── pregnancy-nutrition-guide.md   # Week-by-week guide
 │   └── nutrient-reference-tables.md   # Complete nutrient tables
-├── project-state.json              # Task tracking
+├── reference/sql-prototype/        # Future database schema
+├── project-state.json              # Task tracking & roadmap
+├── CONTRIBUTING.md                 # Contribution guidelines
 ├── playwright.config.js            # Test configuration
 └── package.json
 ```
@@ -83,9 +98,16 @@ nutrimom/
 
 ## 🧪 Testing
 
+**All 247 tests passing** | Chromium & Firefox | Full E2E coverage
+
 ```bash
-# Run all E2E tests
+# Run all E2E tests (247 tests)
 npm test
+
+# Run specific test suite
+npm test tests/calculator
+npm test tests/food-tracker
+npm test tests/navigation
 
 # Run tests with UI
 npm run test:ui
@@ -95,21 +117,58 @@ npm run test:headed
 
 # Debug tests
 npm run test:debug
+
+# Generate coverage report
+npm run test:coverage
 ```
+
+**Test Coverage:**
+- **Calculator Tests**: 50+ tests covering profile input, BMR calculation, TDEE, trimester adjustments
+- **Food Tracker Tests**: 150+ tests covering meal logging, nutrient aggregation, LLM integration, data validation
+- **Navigation Tests**: 20+ tests covering view switching, profile state management
+- **Integration Tests**: Full workflow tests from profile creation to nutrition plan generation
 
 ---
 ---
 
 ## 📊 How It Works
 
-### Calculation Flow
+### Nutrition Plan Generation
 
 ```
-User Input → Age Band → Life Stage → Lookup Targets
+User Input (Age, Weight, Height, Activity)
      ↓
-BMR (Mifflin-St Jeor) → TDEE (×Activity) → +Pregnancy Increment
+Age Band Classification (e.g., "19-30")
      ↓
-Personalized Nutrition Plan
+Life Stage Determination (Pregnant T2, Lactating, etc.)
+     ↓
+BMR Calculation (Mifflin-St Jeor equation)
+     ↓
+activities Factor Applied (1.2 - 1.9)
+     ↓
+Trimester/Lactation Increment Added
+     ↓
+37+ Nutrient Targets Looked Up from nutrient-targets.json
+     ↓
+Personalized Nutrition Plan Generated
+```
+
+### Food Tracking Flow
+
+```
+Food Image/Manual Entry
+     ↓
+LLM Analysis (OpenAI/Anthropic/Google) or Manual Prompt
+     ↓
+JSON Response Validation
+     ↓
+Nutrient Aggregation (37+ nutrients)
+     ↓
+Comparison Against Plan Targets
+     ↓
+Real-time Dashboard Update + Progress Tracking
+     ↓
+Celebration Modal (when daily targets met)
 ```
 
 ### Energy Calculations
@@ -167,16 +226,23 @@ console.log(plan.targets.protein_g.RDA); // 71g
 
 ## 📈 Project Status
 
-See [project-state.json](./project-state.json) for detailed task tracking.
+See [project-state.json](./project-state.json) for detailed task tracking (40+ completed tasks, 15+ in active development).
 
-| Phase | Status |
-|-------|--------|
-| Core Development | ✅ Complete |
-| UI Design | ✅ Complete |
-| Data Research | ✅ Complete |
-| E2E Testing | 🔄 In Progress |
-| Documentation | 🔄 In Progress |
-| Production Deploy | ⏳ Pending |
+| Phase | Status | Details |
+|-------|--------|----------|
+| Core Calculator | ✅ Complete | Energy, macros, 37+ micronutrients |
+| Food Tracker | ✅ Complete | LLM integration, meal logging, persistence |
+| UI/UX | ✅ Complete | Responsive design, celebration features |
+| E2E Testing | ✅ Complete | 247 tests, 100% pass rate |
+| Data Validation | ✅ Complete | IOM-sourced, cross-checked targets |
+| Documentation | ✅ Complete | Research guides, API docs, contribution guidelines |
+| GitHub Ready | ✅ Complete | Contributing guidelines, license compliance |
+| Production Deploy | 🚀 Ready | Deployed to GitHub Pages
+
+**Latest Features (Current Sprint):**
+- ✨ Optional nutrient recommendations (REC type) - e.g., DHA for children
+- 🎊 Day completion celebration with fireworks animation modal
+- 🐛 localStorage compatibility for non-browser environments
 
 ---
 
@@ -215,15 +281,36 @@ Copyright © 2026 Nicolas Ivan Larenas Bustamante
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please:
+Contributions are welcome! Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on:
+- Development workflow
+- Code standards
+- Testing requirements
+- PR process
+- Issue templates
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+**Quick Start for Contributors:**
+```bash
+# 1. Fork and clone
+git clone https://github.com/your-username/nutrimom.git
+cd nutrimom
 
-For major changes, please open an issue first to discuss.
+# 2. Install dependencies
+npm install
+
+# 3. Make your changes in a feature branch
+git checkout -b feature/your-feature
+
+# 4. Run tests to ensure nothing breaks
+npm test
+
+# 5. Commit with clear messages
+git commit -m "feat: add your feature description"
+
+# 6. Push and open a Pull Request
+git push origin feature/your-feature
+```
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the complete guide.
 
 ---
 

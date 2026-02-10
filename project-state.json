@@ -1083,6 +1083,54 @@
         "plugins/food-tracker/food-tracker-ui.js - Updated rendering for optional targets and added _showCelebration() fireworks modal",
         "plugins/food-tracker/food-tracker.css - Added celebration modal and fireworks animation styles"
       ]
+    },
+    {
+      "task_name": "GitHub Preparation: Documentation & Quality Assurance",
+      "description": "Updated README to reflect all 247 passing tests, 37+ nutrients, food tracker LLM integration, and celebration features. Enhanced .gitignore with comprehensive coverage for build artifacts, testing, IDE files, and temporary data. Fixed localStorage reference error for Node.js test compatibility (247 tests passing). Ready for open-source public release.",
+      "start_date": "2026-06-13",
+      "end_date": "2026-06-13",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 2,
+      "actual_hours": 2,
+      "is_critical_path": false,
+      "tags": ["Github", "Documentation", "Quality", "Release-Prep"],
+      "category_name": "Documentation",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Optional Nutrient Targets & Celebration", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "README.md - Updated project features, test count (247 tests passing), project structure, testing section, and deployment status",
+        ".gitignore - Expanded with 70+ patterns for improved coverage of build, testing, IDE, OS, secrets, and temporary files",
+        "plugins/food-tracker/food-tracker-engine.js - Added localStorage existence check (typeof localStorage !== 'undefined') before access in _loadFromStorage and _saveToStorage"
+      ]
+    },
+    {
+      "task_name": "Open-Source Contribution Guidelines",
+      "description": "Created comprehensive CONTRIBUTING.md file with development setup instructions, coding standards, testing requirements, commit conventions (Conventional Commits), PR process, bug report/feature request templates, code review checklist, and attribution guidelines. Project is now ready for external contributors on GitHub.",
+      "start_date": "2026-06-13",
+      "end_date": "2026-06-13",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 2,
+      "actual_hours": 2,
+      "is_critical_path": false,
+      "tags": ["Github", "Contributing", "Guidelines", "Onboarding", "Open-Source"],
+      "category_name": "Documentation",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "GitHub Preparation: Documentation & Quality Assurance", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "CONTRIBUTING.md - Comprehensive guide (1200+ lines) with sections on Code of Conduct, Issue templates, Development setup, Coding standards, Testing requirements, Commit conventions, PR process, and FAQ"
+      ]
     }
   ],
   "milestones": [
@@ -1169,6 +1217,12 @@
       "date": "2026-06-12",
       "status": "Completed",
       "description": "All nutrient DRI values cross-validated against IOM/NIH/NASEM/Cochrane research. EPA target gap filled across all 26 age bands. 9 nutrient descriptions enriched with 2025-2030 evidence. UI/Engine logic updated to fully support EPA visualization and insights. 117 total tests passing (24.4s)."
+    },
+    {
+      "name": "GitHub Ready - Open Source Release",
+      "date": "2026-06-13",
+      "status": "Completed",
+      "description": "Updated README (247 tests, 37+ nutrients, LLM integration), enhanced .gitignore, fixed localStorage bug, created CONTRIBUTING.md with full community guidelines. Project ready for public GitHub release and external contributions."
     }
   ],
   "required_fields": [

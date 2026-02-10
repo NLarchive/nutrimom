@@ -7,9 +7,10 @@
 node_modules/
 yarn.lock
 pnpm-lock.yaml
+package-lock.json
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Build outputs
+# Build outputs & distribution
 # ─────────────────────────────────────────────────────────────────────────────
 dist/
 build/
@@ -17,6 +18,10 @@ out/
 .next/
 .nuxt/
 .output/
+*.bundle.js
+*.min.js
+*.min.css
+site/
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Testing
@@ -24,15 +29,21 @@ out/
 coverage/
 .nyc_output/
 test-results/
+test-results*.json
 playwright-report/
 .playwright-mcp/
 *.test.js.snap
+*.spec.js.snap
+.test-cache/
 
 # ─────────────────────────────────────────────────────────────────────────────
 # IDE & Editor
 # ─────────────────────────────────────────────────────────────────────────────
 .idea/
 .vscode/
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
 *.swp
 *.swo
 *~
@@ -41,10 +52,6 @@ playwright-report/
 .settings/
 *.sublime-workspace
 *.sublime-project
-
-# ─────────────────────────────────────────────────────────────────────────────
-# OS generated
-# ─────────────────────────────────────────────────────────────────────────────
 .DS_Store
 .DS_Store?
 ._*
@@ -55,20 +62,40 @@ Thumbs.db
 desktop.ini
 
 # ─────────────────────────────────────────────────────────────────────────────
+# OS generated files
+# ─────────────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+*.iso
+*.dmg
+*.exe
+*.msi
+
+# ─────────────────────────────────────────────────────────────────────────────
 # Environment & Secrets
 # ─────────────────────────────────────────────────────────────────────────────
 .env
 .env.local
+.env.*.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env.example (tracked)
 *.env
 .secrets
 *.pem
 *.key
+*.p8
+config/secrets.json
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Logs
+# Logs & debug
 # ─────────────────────────────────────────────────────────────────────────────
 logs/
 *.log
@@ -76,17 +103,22 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+pnpm-debug.log*
+debug.log
+*.log.gz
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Database
+# Database & local storage
 # ─────────────────────────────────────────────────────────────────────────────
 *.sqlite
 *.sqlite3
 *.db
+*.db-journal
 reference/sql-prototype/*.sqlite
+.local/
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Temporary files
+# Temporary & backup files
 # ─────────────────────────────────────────────────────────────────────────────
 tmp/
 temp/
@@ -94,12 +126,12 @@ temp/
 *.temp
 *.bak
 *.backup
-
-# ─────────────────────────────────────────────────────────────────────────────
-# Documentation build
-# ─────────────────────────────────────────────────────────────────────────────
-docs/_build/
-site/
+*.orig
+*~
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Python (if used for scripts)
@@ -111,11 +143,31 @@ __pycache__/
 venv/
 .venv/
 ENV/
+.venv.local
+env.bak
+venv.bak
+*.egg-info/
+*.eggs/
+wheels/
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Misc
+# Source maps (optional - remove if you want to track them)
 # ─────────────────────────────────────────────────────────────────────────────
 *.map
-.cache/
-.parcel-cache/
-.turbo/
+*.map.js
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Personal dev notes & scratch files
+# ─────────────────────────────────────────────────────────────────────────────
+NOTES.md
+SCRATCH.md
+TEMP*.md
+.private/
+personal/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Build artifacts
+# ─────────────────────────────────────────────────────────────────────────────
+.webpack/
+.swiftpm/
+.spl/
