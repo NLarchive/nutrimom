@@ -7,6 +7,7 @@
       "UL": "Tolerable Upper Intake Level - maximum daily intake unlikely to cause adverse effects",
       "MIN": "Minimum recommended (e.g., carbohydrate minimum)",
       "MAX": "Maximum recommended (e.g., sodium limit)",
+      "REC": "Optional/Practical recommendation - beneficial but no formal DRI established",
       "AMDR_MIN": "Acceptable Macronutrient Distribution Range minimum (% of energy)",
       "AMDR_MAX": "Acceptable Macronutrient Distribution Range maximum (% of energy)"
     },
@@ -47,9 +48,9 @@
         "unit": "g"
       },
       "dha_mg": {
-        "AI": 0,
+        "REC": 100,
         "unit": "mg",
-        "note": "No specific DRI for children"
+        "note": "Optional recommendation based on FAO/WHO guidelines for ages 2-4"
       },
       "folate_dfe_ug": {
         "RDA": 150,

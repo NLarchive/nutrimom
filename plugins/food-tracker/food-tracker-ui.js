@@ -913,9 +913,10 @@ class FoodTrackerUI {
               const statusClass = data.status;
               const isLimitOnly = !!data.isLimitOnly;
               const isInfoOnly = !!data.isInfoOnly;
+              const isOptional = !!data.isOptional;
               const pctRaw = typeof data.percentage === 'number' ? data.percentage : 0;
               const percent = Math.min(pctRaw || 0, 150);
-              const isMet = !isLimitOnly && !isInfoOnly && data.percentage >= 100;
+              const isMet = !isLimitOnly && !isInfoOnly && !isOptional && data.percentage >= 100;
               const intakeDisplay = data.intake === 0 ? '0' : data.intake < 10 ? data.intake.toFixed(1) : Math.round(data.intake);
               const unit = data.unit || '';
               const targetDisplay = data.target === null || data.target === undefined ? '-' : (data.target < 10 ? Number(data.target).toFixed(1) : Math.round(data.target));
@@ -923,7 +924,9 @@ class FoodTrackerUI {
                 ? `${intakeDisplay} ${unit} • no target`
                 : isLimitOnly
                   ? `${intakeDisplay} ${unit} / max ${targetDisplay}`
-                  : `${data.intake.toFixed(1)} ${unit} / ${targetDisplay}`;
+                  : isOptional
+                    ? `${intakeDisplay} ${unit} / ${targetDisplay} (optional)`
+                    : `${data.intake.toFixed(1)} ${unit} / ${targetDisplay}`;
               return `
                 <div class="nutrient-bar-item small">
                   <div class="nutrient-bar-label">
@@ -932,7 +935,7 @@ class FoodTrackerUI {
                   </div>
                   <div class="nutrient-bar-track-container">
                     <div class="nutrient-bar-track">
-                      <div class="nutrient-bar-fill ${statusClass}" style="width: ${percent}%"></div>
+                      <div class="nutrient-bar-fill ${statusClass} ${isOptional ? 'optional' : ''}" style="width: ${percent}%"></div>
                     </div>
                   </div>
                   <div class="nutrient-remaining-column ${isMet ? 'met' : 'pending'}">
@@ -980,6 +983,62 @@ class FoodTrackerUI {
         </div>
       ` : ''}
     `;
+    
+    // Check for Day Complete Celebration
+    if (comparison.isDayComplete) {
+      this._checkForCelebration();
+    }
+  }
+
+  /**
+   * Check if celebration should be shown
+   * @private
+   */
+  _checkForCelebration() {
+    const today = new Date().toISOString().split('T')[0];
+    const key = `celebration_shown_${today}`;
+    if (!localStorage.getItem(key)) {
+      this._showCelebration();
+      localStorage.setItem(key, 'true');
+    }
+  }
+
+  /**
+   * Show celebration modal with fireworks
+   * @private
+   */
+  _showCelebration() {
+    // Create modal if not exists
+    let modal = document.querySelector('.ft-celebration-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.className = 'ft-celebration-modal';
+      modal.innerHTML = `
+        <div class="pyro">
+          <div class="before"></div>
+          <div class="after"></div>
+        </div>
+        <div class="ft-celebration-content">
+          <span class="ft-celebration-icon">🎉</span>
+          <h3 class="ft-celebration-title">Daily Goals Met!</h3>
+          <p class="ft-celebration-text">Congratulations! You've hit all your nutrient targets for today. Keep up the amazing work for you and your baby!</p>
+          <button class="ft-close-celebration">Continue</button>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      
+      // Bind close
+      const closeBtn = modal.querySelector('.ft-close-celebration');
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('visible');
+        setTimeout(() => modal.remove(), 500); // Remove after fade out
+      });
+    }
+    
+    // Show with slight delay
+    setTimeout(() => {
+      modal.classList.add('visible');
+    }, 100);
   }
 
   // ─────────────────────────────────────────────────────────────────────────────

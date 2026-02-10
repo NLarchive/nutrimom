@@ -747,6 +747,7 @@ class FoodTrackerEngine {
     if (typeof targetData.RDA === 'number') return targetData.RDA;
     if (typeof targetData.AI === 'number') return targetData.AI;
     if (typeof targetData.MIN === 'number') return targetData.MIN;
+    if (typeof targetData.REC === 'number') return targetData.REC;
     if (typeof targetData.AMDR_MIN === 'number') return targetData.AMDR_MIN;
     return null;
   }
@@ -882,7 +883,8 @@ class FoodTrackerEngine {
         percentage: Math.round(percentage * 10) / 10,
         unit,
         status,
-        targetType: targetData.RDA ? 'RDA' : targetData.AI ? 'AI' : 'MIN'
+        targetType: targetData.RDA ? 'RDA' : targetData.AI ? 'AI' : targetData.REC ? 'REC' : 'MIN',
+        isOptional: !!targetData.REC
       };
 
       // Track critical nutrient status
@@ -907,7 +909,30 @@ class FoodTrackerEngine {
     // Generate pregnancy-specific insights
     comparison.insights = this._generateNutrientInsights(comparison, criticalStatus);
 
+    // Calculate day completion status (all required targets met)
+    comparison.isDayComplete = this._checkDayCompletion(comparison);
+
     return comparison;
+  }
+
+  /**
+   * Check if all required targets for the day are met
+   * @private
+   */
+  _checkDayCompletion(comparison) {
+    // If no nutrients tracked/met, obviously not complete
+    if (comparison.summary.met.length === 0) return false;
+
+    // Check if any REQUIRED nutrient is in deficit
+    // Optional (REC) targets do not block completion
+    for (const nutrientKey of comparison.summary.deficit) {
+      const nutrientData = comparison.nutrients[nutrientKey];
+      if (nutrientData && !nutrientData.isOptional && !nutrientData.isInfoOnly && !nutrientData.isLimitOnly) {
+        return false; // Found a required nutrient in deficit
+      }
+    }
+    
+    return true;
   }
 
   /**
