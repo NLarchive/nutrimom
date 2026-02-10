@@ -14,9 +14,9 @@
     "name": "Protein",
     "category": "macro",
     "unit": "g",
-    "description": "Essential for tissue building, enzymes, hormones, and immune function.",
-    "calculation_note": "Target calculated as RDA per kg body weight (0.8 g/kg non-pregnant, 1.1 g/kg pregnant/lactating) × user's weight.",
-    "importance_pregnancy": "Critical for fetal growth, placenta development, and increased blood volume. RDA increases from 46g to 71g/day.",
+    "description": "Essential for tissue building, enzymes, hormones, and immune function. DRI RDA remains 0.8 g/kg/day for adults. Expert groups (PROT-AGE, ESPEN) recommend 1.0-1.2 g/kg for healthy older adults and 1.2-1.5 g/kg for sarcopenic/frail. DGA 2025-2030 emphasizes higher-quality, protein-dense foods.",
+    "calculation_note": "Target calculated as RDA per kg body weight (0.8 g/kg non-pregnant, 1.1 g/kg pregnant/lactating) × user's weight. The 2025-2030 DGA prioritize protein-dense whole foods but have not changed the formal RDA.",
+    "importance_pregnancy": "Critical for fetal growth, placenta development, and increased blood volume. RDA increases from 46g to 71g/day (1.1 g/kg).",
     "food_sources": ["Meat", "Poultry", "Fish", "Eggs", "Dairy", "Legumes", "Nuts", "Tofu"]
   },
   {
@@ -62,8 +62,8 @@
     "name": "Omega-3 (ALA)",
     "category": "fatty_acid",
     "unit": "g",
-    "description": "Alpha-linolenic acid. Essential fatty acid the body cannot make.",
-    "importance_pregnancy": "AI increases from 1.1g to 1.4g/day. Precursor for longer-chain omega-3s (EPA/DHA).",
+    "description": "Alpha-linolenic acid. The only 'essential' omega-3 fatty acid the body cannot synthesize. Conversion to DHA/EPA is extremely inefficient (<1% in humans), necessitating direct dietary intake of preformed DHA/EPA.",
+    "importance_pregnancy": "AI increases from 1.1g to 1.4g/day (lactation: 1.3g). Precursor for longer-chain omega-3s but conversion is insufficient; direct DHA/EPA intake strongly recommended.",
     "food_sources": ["Flaxseed", "Chia seeds", "Walnuts", "Canola oil", "Soybean oil"]
   },
   {
@@ -71,8 +71,8 @@
     "name": "DHA (Omega-3)",
     "category": "fatty_acid",
     "unit": "mg",
-    "description": "Docosahexaenoic acid. Long-chain omega-3 critical for brain and retinal tissue.",
-    "importance_pregnancy": "Target 200-300mg/day for fetal brain and retinal development. Most critical in T3 when brain grows rapidly.",
+    "description": "Docosahexaenoic acid. Long-chain omega-3 critical for brain and retinal tissue. No formal DRI; practical recommendation ≥250 mg/day combined EPA+DHA for adults (cardiovascular prevention).",
+    "importance_pregnancy": "Target ≥200-300 mg/day DHA for fetal brain and retinal development. Cochrane reviews show omega-3 supplementation (EPA+DHA) reduces preterm birth (<37 weeks) by ~11% and early preterm birth (<34 weeks) by ~42%. Women with low baseline omega-3 status may benefit from 600-1000 mg/day EPA+DHA. Most critical in T3 when brain grows rapidly.",
     "food_sources": ["Fatty fish (salmon, sardines)", "Fish oil", "Algae oil", "DHA-fortified eggs"]
   },
   {
@@ -80,8 +80,8 @@
     "name": "EPA (Omega-3)",
     "category": "fatty_acid",
     "unit": "mg",
-    "description": "Eicosapentaenoic acid. Long-chain omega-3 with anti-inflammatory properties.",
-    "importance_pregnancy": "Supports cardiovascular health and may help reduce preterm birth risk. Often consumed with DHA.",
+    "description": "Eicosapentaenoic acid. Long-chain omega-3 with anti-inflammatory properties. No formal DRI established. Practical recommendation: ≥250 mg/day combined EPA+DHA for cardiovascular prevention. Conversion from ALA is extremely inefficient (<1%), requiring direct dietary intake.",
+    "importance_pregnancy": "Pregnancy recommendation: ≥250 mg/day combined EPA+DHA plus an additional 100-200 mg/day DHA (total 350-450 mg). Supports anti-inflammatory pathways and may help reduce preterm birth risk. Often consumed with DHA from fatty fish or algal oil.",
     "food_sources": ["Fatty fish", "Fish oil", "Algae oil"]
   },
   {
@@ -89,8 +89,8 @@
     "name": "Folate (DFE)",
     "category": "vitamin",
     "unit": "μg",
-    "description": "B vitamin essential for DNA synthesis and cell division. DFE = Dietary Folate Equivalents.",
-    "importance_pregnancy": "CRITICAL. Prevents neural tube defects. RDA increases from 400μg to 600μg DFE. Supplementation recommended before and during early pregnancy.",
+    "description": "B vitamin essential for DNA synthesis, cell division, and one-carbon metabolism. DFE = Dietary Folate Equivalents (accounts for higher bioavailability of synthetic folic acid vs food folate).",
+    "importance_pregnancy": "CRITICAL. Prevents neural tube defects (NTDs). RDA increases from 400μg to 600μg DFE in pregnancy, 500μg in lactation. Standard supplementation: 400-800μg/day folic acid for all women who could become pregnant. High-risk women (prior NTD, certain anticonvulsants): 4mg/day. RCOG advises 5mg/day for BMI≥30 (not universally endorsed; ACOG/NICE do not recommend this for BMI alone).",
     "food_sources": ["Leafy greens", "Legumes", "Fortified grains", "Citrus", "Asparagus"],
     "upper_limit_note": "UL of 1000μg applies to synthetic folic acid from supplements/fortified foods, not food folate."
   },
@@ -127,8 +127,8 @@
     "name": "Vitamin D",
     "category": "vitamin",
     "unit": "μg",
-    "description": "Essential for calcium absorption, bone health, and immune function. 1μg = 40 IU.",
-    "importance_pregnancy": "RDA is 15μg (600 IU). Deficiency linked to preeclampsia, gestational diabetes, and low birth weight. Many women are deficient.",
+    "description": "Functions as a pro-hormone regulating calcium and phosphorus absorption. Essential for bone health and immune function. 1μg = 40 IU. Adults up to 70y: RDA 15μg (600 IU); >70y: 20μg (800 IU). UL: 100μg (4000 IU). Real-world optimal doses depend on baseline 25-OH-D, sun exposure, pigmentation, and obesity.",
+    "importance_pregnancy": "RDA is 15μg (600 IU). Deficiency linked to preeclampsia, gestational diabetes, and low birth weight. Many women are deficient. All breastfed infants should receive minimum 400 IU/day vitamin D.",
     "food_sources": ["Fatty fish", "Fortified milk", "Fortified cereals", "Egg yolks", "Sunlight exposure"]
   },
   {
@@ -154,8 +154,8 @@
     "name": "Choline",
     "category": "vitamin",
     "unit": "mg",
-    "description": "Essential for cell membrane structure, neurotransmitter synthesis, and gene expression.",
-    "importance_pregnancy": "AI increases from 425mg to 450mg. Critical for fetal brain development and may reduce neural tube defect risk. Often under-consumed.",
+    "description": "Essential for cell membrane structure (phosphatidylcholine), neurotransmitter synthesis (acetylcholine), and gene expression. NHANES data shows >90% of U.S. adults and pregnant women do not meet the AI. Classified with an AI, not RDA.",
+    "importance_pregnancy": "AI is 450 mg/day in pregnancy, 550 mg/day in lactation. Controlled feeding trials (e.g., Cornell 480 vs 930 mg/day) suggest higher intakes in late pregnancy may improve infant information-processing speed and favorably influence placental markers. Emerging evidence, not yet formal guideline. Critical for fetal brain development.",
     "food_sources": ["Eggs (yolks)", "Liver", "Meat", "Fish", "Soybeans", "Cruciferous vegetables"]
   },
   {
@@ -345,8 +345,8 @@
     "name": "Biotin (B7)",
     "category": "vitamin",
     "unit": "μg",
-    "description": "Essential for metabolism of fats, carbohydrates, and proteins.",
-    "importance_pregnancy": "AI is 30μg. Marginal deficiency may be common in pregnancy.",
+    "description": "Essential cofactor for carboxylase enzymes in fatty acid synthesis (lipogenesis) and the Krebs cycle. Has an AI (not RDA): 30μg/day for adults and pregnancy, 35μg/day in lactation. No UL established due to lack of documented toxicity at high intakes.",
+    "importance_pregnancy": "AI is 30μg in pregnancy, 35μg in lactation. Marginal deficiency may be common in pregnancy.",
     "food_sources": ["Eggs", "Nuts", "Legumes", "Whole grains", "Liver"]
   }
 ]

@@ -10,1049 +10,4597 @@
       "AMDR_MIN": "Acceptable Macronutrient Distribution Range minimum (% of energy)",
       "AMDR_MAX": "Acceptable Macronutrient Distribution Range maximum (% of energy)"
     },
-    "sources": ["IOM/DRI", "NIH Office of Dietary Supplements", "NASEM 2019 (Na, K, Cl)"],
-    "last_updated": "2025-06-11"
+    "sources": [
+      "IOM/DRI",
+      "NIH Office of Dietary Supplements",
+      "NASEM 2019 (Na, K, Cl)",
+      "DGA 2025-2030",
+      "Cochrane Reviews (Omega-3)"
+    ],
+    "last_updated": "2026-02-10"
   },
   "child": {
     "1_3": {
-      "protein_g": { "RDA": 13, "unit": "g" },
-      "carbs_g": { "MIN": 130, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 30, "AMDR_MAX": 40, "unit": "%" },
-      "fiber_g": { "AI": 19, "unit": "g" },
-      "water_l": { "AI": 1.3, "unit": "L" },
-      "ala_omega3_g": { "AI": 0.7, "unit": "g" },
-      "dha_mg": { "AI": 0, "unit": "mg", "note": "No specific DRI for children" },
-      "folate_dfe_ug": { "RDA": 150, "UL": 300, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 0.9, "unit": "μg" },
-      "iron_mg": { "RDA": 7, "UL": 40, "unit": "mg" },
-      "calcium_mg": { "RDA": 700, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 63, "unit": "μg" },
-      "iodine_ug": { "RDA": 90, "UL": 200, "unit": "μg" },
-      "zinc_mg": { "RDA": 3, "UL": 7, "unit": "mg" },
-      "choline_mg": { "AI": 200, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 300, "UL": 600, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 15, "UL": 400, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 6, "UL": 200, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 30, "unit": "μg" },
-      "thiamin_mg": { "RDA": 0.5, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 0.5, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 6, "UL": 10, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 0.5, "UL": 30, "unit": "mg" },
-      "magnesium_mg": { "RDA": 80, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 460, "UL": 3000, "unit": "mg" },
-      "potassium_mg": { "AI": 2000, "unit": "mg" },
-      "sodium_mg": { "MAX": 1500, "unit": "mg" },
-      "selenium_ug": { "RDA": 20, "UL": 90, "unit": "μg" },
-      "copper_ug": { "RDA": 340, "UL": 1000, "unit": "μg" },
-      "manganese_mg": { "AI": 1.2, "UL": 2, "unit": "mg" },
-      "chromium_ug": { "AI": 11, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 17, "UL": 300, "unit": "μg" },
-      "chloride_mg": { "AI": 1500, "unit": "mg" },
-      "fluoride_mg": { "AI": 0.7, "UL": 1.3, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 2, "unit": "mg" },
-      "biotin_ug": { "AI": 8, "unit": "μg" }
+      "protein_g": {
+        "RDA": 13,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 130,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 30,
+        "AMDR_MAX": 40,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 19,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 1.3,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 0.7,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No specific DRI for children"
+      },
+      "folate_dfe_ug": {
+        "RDA": 150,
+        "UL": 300,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 0.9,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 7,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 700,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 63,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 90,
+        "UL": 200,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 3,
+        "UL": 7,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 300,
+        "UL": 600,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 15,
+        "UL": 400,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 6,
+        "UL": 200,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 0.5,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 0.5,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 6,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 0.5,
+        "UL": 30,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 80,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 460,
+        "UL": 3000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2000,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 1500,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 20,
+        "UL": 90,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 340,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 1.2,
+        "UL": 2,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 11,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 17,
+        "UL": 300,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 1500,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 0.7,
+        "UL": 1.3,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 2,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 8,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No formal DRI established. Practical recommendation: 250 mg/day combined EPA+DHA for cardiovascular health"
+      }
     },
     "4_8": {
-      "protein_g": { "RDA": 19, "unit": "g" },
-      "carbs_g": { "MIN": 130, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 25, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 25, "unit": "g" },
-      "water_l": { "AI": 1.7, "unit": "L" },
-      "ala_omega3_g": { "AI": 0.9, "unit": "g" },
-      "dha_mg": { "AI": 0, "unit": "mg", "note": "No specific DRI for children" },
-      "folate_dfe_ug": { "RDA": 200, "UL": 400, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 1.2, "unit": "μg" },
-      "iron_mg": { "RDA": 10, "UL": 40, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 75, "unit": "μg" },
-      "iodine_ug": { "RDA": 90, "UL": 300, "unit": "μg" },
-      "zinc_mg": { "RDA": 5, "UL": 12, "unit": "mg" },
-      "choline_mg": { "AI": 250, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 400, "UL": 900, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 25, "UL": 650, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 7, "UL": 300, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 55, "unit": "μg" },
-      "thiamin_mg": { "RDA": 0.6, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 0.6, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 8, "UL": 15, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 0.6, "UL": 40, "unit": "mg" },
-      "magnesium_mg": { "RDA": 130, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 500, "UL": 3000, "unit": "mg" },
-      "potassium_mg": { "AI": 2300, "unit": "mg" },
-      "sodium_mg": { "MAX": 1900, "unit": "mg" },
-      "selenium_ug": { "RDA": 30, "UL": 150, "unit": "μg" },
-      "copper_ug": { "RDA": 440, "UL": 3000, "unit": "μg" },
-      "manganese_mg": { "AI": 1.5, "UL": 3, "unit": "mg" },
-      "chromium_ug": { "AI": 15, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 22, "UL": 600, "unit": "μg" },
-      "chloride_mg": { "AI": 1900, "unit": "mg" },
-      "fluoride_mg": { "AI": 1, "UL": 2.2, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 3, "unit": "mg" },
-      "biotin_ug": { "AI": 12, "unit": "μg" }
+      "protein_g": {
+        "RDA": 19,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 130,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 25,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 25,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 1.7,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 0.9,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No specific DRI for children"
+      },
+      "folate_dfe_ug": {
+        "RDA": 200,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 1.2,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 10,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 75,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 90,
+        "UL": 300,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 5,
+        "UL": 12,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 250,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 400,
+        "UL": 900,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 25,
+        "UL": 650,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 7,
+        "UL": 300,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 55,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 0.6,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 0.6,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 8,
+        "UL": 15,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 0.6,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 130,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 500,
+        "UL": 3000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 1900,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 30,
+        "UL": 150,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 440,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 1.5,
+        "UL": 3,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 15,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 22,
+        "UL": 600,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 1900,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 1,
+        "UL": 2.2,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 3,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 12,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No formal DRI established. Practical recommendation: 250 mg/day combined EPA+DHA for cardiovascular health"
+      }
     }
   },
   "female_nonpregnant": {
     "9_13": {
-      "protein_g": { "RDA": 34, "unit": "g" },
-      "carbs_g": { "MIN": 130, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 25, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 26, "unit": "g" },
-      "water_l": { "AI": 2.1, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.0, "unit": "g" },
-      "dha_mg": { "AI": 0, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 300, "UL": 600, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 1.8, "unit": "μg" },
-      "iron_mg": { "RDA": 8, "UL": 40, "unit": "mg" },
-      "calcium_mg": { "RDA": 1300, "UL": 3000, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 120, "UL": 600, "unit": "μg" },
-      "zinc_mg": { "RDA": 8, "UL": 23, "unit": "mg" },
-      "choline_mg": { "AI": 375, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 600, "UL": 1700, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 45, "UL": 1200, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 11, "UL": 600, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 60, "unit": "μg" },
-      "thiamin_mg": { "RDA": 0.9, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 0.9, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 12, "UL": 20, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.0, "UL": 60, "unit": "mg" },
-      "magnesium_mg": { "RDA": 240, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 1250, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 2300, "unit": "mg" },
-      "sodium_mg": { "MAX": 2200, "unit": "mg" },
-      "selenium_ug": { "RDA": 40, "UL": 280, "unit": "μg" },
-      "copper_ug": { "RDA": 700, "UL": 5000, "unit": "μg" },
-      "manganese_mg": { "AI": 1.6, "UL": 6, "unit": "mg" },
-      "chromium_ug": { "AI": 21, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 34, "UL": 1100, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 2, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 4, "unit": "mg" },
-      "biotin_ug": { "AI": 20, "unit": "μg" }
+      "protein_g": {
+        "RDA": 34,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 130,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 25,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 26,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 2.1,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 0,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 300,
+        "UL": 600,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 1.8,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 8,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1300,
+        "UL": 3000,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 120,
+        "UL": 600,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 8,
+        "UL": 23,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 375,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 600,
+        "UL": 1700,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 45,
+        "UL": 1200,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 11,
+        "UL": 600,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 60,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 0.9,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 0.9,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 12,
+        "UL": 20,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1,
+        "UL": 60,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 240,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 1250,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2200,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 40,
+        "UL": 280,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 700,
+        "UL": 5000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 1.6,
+        "UL": 6,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 21,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 34,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 2,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 4,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 20,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No formal DRI established. Practical recommendation: 250 mg/day combined EPA+DHA for cardiovascular health"
+      }
     },
     "14_18": {
-      "protein_g": { "RDA": 46, "unit": "g" },
-      "carbs_g": { "MIN": 130, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 25, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 26, "unit": "g" },
-      "water_l": { "AI": 2.3, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.1, "unit": "g" },
-      "dha_mg": { "AI": 0, "unit": "mg", "note": "No specific DRI; recommendation is for pregnancy" },
-      "folate_dfe_ug": { "RDA": 400, "UL": 800, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.4, "unit": "μg" },
-      "iron_mg": { "RDA": 15, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1300, "UL": 3000, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 150, "UL": 900, "unit": "μg" },
-      "zinc_mg": { "RDA": 9, "UL": 34, "unit": "mg" },
-      "choline_mg": { "AI": 400, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 700, "UL": 2800, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 65, "UL": 1800, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 800, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 75, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.0, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.0, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 14, "UL": 30, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.2, "UL": 80, "unit": "mg" },
-      "magnesium_mg": { "RDA": 360, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 1250, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 2300, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 55, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 890, "UL": 8000, "unit": "μg" },
-      "manganese_mg": { "AI": 1.6, "UL": 9, "unit": "mg" },
-      "chromium_ug": { "AI": 24, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 43, "UL": 1700, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 5, "unit": "mg" },
-      "biotin_ug": { "AI": 25, "unit": "μg" }
+      "protein_g": {
+        "RDA": 46,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 130,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 25,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 26,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 2.3,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.1,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No specific DRI; recommendation is for pregnancy"
+      },
+      "folate_dfe_ug": {
+        "RDA": 400,
+        "UL": 800,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.4,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 15,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1300,
+        "UL": 3000,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 150,
+        "UL": 900,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 9,
+        "UL": 34,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 400,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 700,
+        "UL": 2800,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 65,
+        "UL": 1800,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 800,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 75,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 14,
+        "UL": 30,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.2,
+        "UL": 80,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 360,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 1250,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 55,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 890,
+        "UL": 8000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 1.6,
+        "UL": 9,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 24,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 43,
+        "UL": 1700,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 5,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 25,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No formal DRI established. Practical recommendation: 250 mg/day combined EPA+DHA for cardiovascular health"
+      }
     },
     "19_30": {
-      "protein_g": { "RDA": 46, "unit": "g" },
-      "carbs_g": { "MIN": 130, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 25, "unit": "g" },
-      "water_l": { "AI": 2.7, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.1, "unit": "g" },
-      "dha_mg": { "AI": 0, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 400, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.4, "unit": "μg" },
-      "iron_mg": { "RDA": 18, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 150, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 8, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 425, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 700, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 75, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 90, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.1, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.1, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 14, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.3, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 310, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 2600, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 55, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 900, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 1.8, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 25, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 45, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 5, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 46,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 130,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 25,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 2.7,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.1,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 0,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 400,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.4,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 18,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 150,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 8,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 425,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 700,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 75,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 90,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.1,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.1,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 14,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.3,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 310,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2600,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 55,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 900,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 1.8,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 25,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 45,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 5,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No formal DRI established. Practical recommendation: 250 mg/day combined EPA+DHA for cardiovascular health"
+      }
     },
     "31_50": {
-      "protein_g": { "RDA": 46, "unit": "g" },
-      "carbs_g": { "MIN": 130, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 25, "unit": "g" },
-      "water_l": { "AI": 2.7, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.1, "unit": "g" },
-      "dha_mg": { "AI": 0, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 400, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.4, "unit": "μg" },
-      "iron_mg": { "RDA": 18, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 150, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 8, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 425, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 700, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 75, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 90, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.1, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.1, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 14, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.3, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 320, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 2600, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 55, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 900, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 1.8, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 25, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 45, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 5, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 46,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 130,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 25,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 2.7,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.1,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 0,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 400,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.4,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 18,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 150,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 8,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 425,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 700,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 75,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 90,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.1,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.1,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 14,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.3,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 320,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2600,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 55,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 900,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 1.8,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 25,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 45,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 5,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No formal DRI established. Practical recommendation: 250 mg/day combined EPA+DHA for cardiovascular health"
+      }
     },
     "51_plus": {
-      "protein_g": { "RDA": 46, "unit": "g" },
-      "carbs_g": { "MIN": 130, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 21, "unit": "g" },
-      "water_l": { "AI": 2.7, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.1, "unit": "g" },
-      "dha_mg": { "AI": 0, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 400, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.4, "unit": "μg" },
-      "iron_mg": { "RDA": 8, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1200, "UL": 2000, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 150, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 8, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 425, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 700, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 75, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 90, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.1, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.1, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 14, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.5, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 320, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 2600, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 55, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 900, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 1.8, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 20, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 45, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2000, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 5, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 46,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 130,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 21,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 2.7,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.1,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 0,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 400,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.4,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 8,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1200,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 150,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 8,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 425,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 700,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 75,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 90,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.1,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.1,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 14,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.5,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 320,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2600,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 55,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 900,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 1.8,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 20,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 45,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2000,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 5,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No formal DRI established. Practical recommendation: 250 mg/day combined EPA+DHA for cardiovascular health"
+      }
     }
   },
   "male_nonpregnant": {
     "9_13": {
-      "protein_g": { "RDA": 34, "unit": "g" },
-      "carbs_g": { "MIN": 130, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 25, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 31, "unit": "g" },
-      "water_l": { "AI": 2.4, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.2, "unit": "g" },
-      "dha_mg": { "AI": 0, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 300, "UL": 600, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 1.8, "unit": "μg" },
-      "iron_mg": { "RDA": 8, "UL": 40, "unit": "mg" },
-      "calcium_mg": { "RDA": 1300, "UL": 3000, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 120, "UL": 600, "unit": "μg" },
-      "zinc_mg": { "RDA": 8, "UL": 23, "unit": "mg" },
-      "choline_mg": { "AI": 375, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 600, "UL": 1700, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 45, "UL": 1200, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 11, "UL": 600, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 60, "unit": "μg" },
-      "thiamin_mg": { "RDA": 0.9, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 0.9, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 12, "UL": 20, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.0, "UL": 60, "unit": "mg" },
-      "magnesium_mg": { "RDA": 240, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 1250, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 2500, "unit": "mg" },
-      "sodium_mg": { "MAX": 2200, "unit": "mg" },
-      "selenium_ug": { "RDA": 40, "UL": 280, "unit": "μg" },
-      "copper_ug": { "RDA": 700, "UL": 5000, "unit": "μg" },
-      "manganese_mg": { "AI": 1.9, "UL": 6, "unit": "mg" },
-      "chromium_ug": { "AI": 25, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 34, "UL": 1100, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 2, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 4, "unit": "mg" },
-      "biotin_ug": { "AI": 20, "unit": "μg" }
+      "protein_g": {
+        "RDA": 34,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 130,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 25,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 31,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 2.4,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.2,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 0,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 300,
+        "UL": 600,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 1.8,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 8,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1300,
+        "UL": 3000,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 120,
+        "UL": 600,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 8,
+        "UL": 23,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 375,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 600,
+        "UL": 1700,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 45,
+        "UL": 1200,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 11,
+        "UL": 600,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 60,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 0.9,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 0.9,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 12,
+        "UL": 20,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1,
+        "UL": 60,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 240,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 1250,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2500,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2200,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 40,
+        "UL": 280,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 700,
+        "UL": 5000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 1.9,
+        "UL": 6,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 25,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 34,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 2,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 4,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 20,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No formal DRI established. Practical recommendation: 250 mg/day combined EPA+DHA for cardiovascular health"
+      }
     },
     "14_18": {
-      "protein_g": { "RDA": 52, "unit": "g" },
-      "carbs_g": { "MIN": 130, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 25, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 38, "unit": "g" },
-      "water_l": { "AI": 3.3, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.6, "unit": "g" },
-      "dha_mg": { "AI": 0, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 400, "UL": 800, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.4, "unit": "μg" },
-      "iron_mg": { "RDA": 11, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1300, "UL": 3000, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 150, "UL": 900, "unit": "μg" },
-      "zinc_mg": { "RDA": 11, "UL": 34, "unit": "mg" },
-      "choline_mg": { "AI": 550, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 900, "UL": 2800, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 75, "UL": 1800, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 800, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 75, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.2, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.3, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 16, "UL": 30, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.3, "UL": 80, "unit": "mg" },
-      "magnesium_mg": { "RDA": 410, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 1250, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 3000, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 55, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 890, "UL": 8000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.2, "UL": 9, "unit": "mg" },
-      "chromium_ug": { "AI": 35, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 43, "UL": 1700, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 5, "unit": "mg" },
-      "biotin_ug": { "AI": 25, "unit": "μg" }
+      "protein_g": {
+        "RDA": 52,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 130,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 25,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 38,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3.3,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.6,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 0,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 400,
+        "UL": 800,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.4,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 11,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1300,
+        "UL": 3000,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 150,
+        "UL": 900,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 11,
+        "UL": 34,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 550,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 900,
+        "UL": 2800,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 75,
+        "UL": 1800,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 800,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 75,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.2,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.3,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 16,
+        "UL": 30,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.3,
+        "UL": 80,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 410,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 1250,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 3000,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 55,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 890,
+        "UL": 8000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2.2,
+        "UL": 9,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 35,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 43,
+        "UL": 1700,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 5,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 25,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No formal DRI established. Practical recommendation: 250 mg/day combined EPA+DHA for cardiovascular health"
+      }
     },
     "19_30": {
-      "protein_g": { "RDA": 56, "unit": "g" },
-      "carbs_g": { "MIN": 130, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 38, "unit": "g" },
-      "water_l": { "AI": 3.7, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.6, "unit": "g" },
-      "dha_mg": { "AI": 0, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 400, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.4, "unit": "μg" },
-      "iron_mg": { "RDA": 8, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 150, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 11, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 550, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 900, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 90, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 120, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.2, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.3, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 16, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.3, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 400, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 3400, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 55, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 900, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.3, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 35, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 45, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 4, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 5, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 56,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 130,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 38,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3.7,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.6,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 0,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 400,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.4,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 8,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 150,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 11,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 550,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 900,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 90,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 120,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.2,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.3,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 16,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.3,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 400,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 3400,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 55,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 900,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2.3,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 35,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 45,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 4,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 5,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No formal DRI established. Practical recommendation: 250 mg/day combined EPA+DHA for cardiovascular health"
+      }
     },
     "31_50": {
-      "protein_g": { "RDA": 56, "unit": "g" },
-      "carbs_g": { "MIN": 130, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 38, "unit": "g" },
-      "water_l": { "AI": 3.7, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.6, "unit": "g" },
-      "dha_mg": { "AI": 0, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 400, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.4, "unit": "μg" },
-      "iron_mg": { "RDA": 8, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 150, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 11, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 550, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 900, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 90, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 120, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.2, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.3, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 16, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.3, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 420, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 3400, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 55, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 900, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.3, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 35, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 45, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 4, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 5, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 56,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 130,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 38,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3.7,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.6,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 0,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 400,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.4,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 8,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 150,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 11,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 550,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 900,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 90,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 120,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.2,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.3,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 16,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.3,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 420,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 3400,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 55,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 900,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2.3,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 35,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 45,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 4,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 5,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No formal DRI established. Practical recommendation: 250 mg/day combined EPA+DHA for cardiovascular health"
+      }
     },
     "51_plus": {
-      "protein_g": { "RDA": 56, "unit": "g" },
-      "carbs_g": { "MIN": 130, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 30, "unit": "g" },
-      "water_l": { "AI": 3.7, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.6, "unit": "g" },
-      "dha_mg": { "AI": 0, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 400, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.4, "unit": "μg" },
-      "iron_mg": { "RDA": 8, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2000, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 150, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 11, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 550, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 900, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 90, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 120, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.2, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.3, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 16, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.7, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 420, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 3400, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 55, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 900, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.3, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 30, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 45, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2000, "unit": "mg" },
-      "fluoride_mg": { "AI": 4, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 5, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 56,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 130,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 30,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3.7,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.6,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 0,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 400,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.4,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 8,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 150,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 11,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 550,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 900,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 90,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 120,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.2,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.3,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 16,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.7,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 420,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 3400,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 55,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 900,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2.3,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 45,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2000,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 4,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 5,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 0,
+        "unit": "mg",
+        "note": "No formal DRI established. Practical recommendation: 250 mg/day combined EPA+DHA for cardiovascular health"
+      }
     }
   },
   "pregnant_t1": {
     "14_18": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 175, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 28, "unit": "g" },
-      "water_l": { "AI": 3.0, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.4, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 600, "UL": 800, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.6, "unit": "μg" },
-      "iron_mg": { "RDA": 27, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1300, "UL": 3000, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 220, "UL": 900, "unit": "μg" },
-      "zinc_mg": { "RDA": 12, "UL": 34, "unit": "mg" },
-      "choline_mg": { "AI": 450, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 750, "UL": 2800, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 80, "UL": 1800, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 800, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 75, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.4, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 18, "UL": 30, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.9, "UL": 80, "unit": "mg" },
-      "magnesium_mg": { "RDA": 400, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 1250, "UL": 3500, "unit": "mg" },
-      "potassium_mg": { "AI": 2600, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 60, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1000, "UL": 8000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.0, "UL": 9, "unit": "mg" },
-      "chromium_ug": { "AI": 29, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 1700, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 6, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 175,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 28,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.4,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 600,
+        "UL": 800,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.6,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 27,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1300,
+        "UL": 3000,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 220,
+        "UL": 900,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 12,
+        "UL": 34,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 450,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 750,
+        "UL": 2800,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 80,
+        "UL": 1800,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 800,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 75,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 18,
+        "UL": 30,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.9,
+        "UL": 80,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 400,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 1250,
+        "UL": 3500,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2600,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 60,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1000,
+        "UL": 8000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2,
+        "UL": 9,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 29,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 1700,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 6,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     },
     "19_30": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 175, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 28, "unit": "g" },
-      "water_l": { "AI": 3.0, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.4, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 600, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.6, "unit": "μg" },
-      "iron_mg": { "RDA": 27, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 220, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 11, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 450, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 770, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 85, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 90, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.4, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 18, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.9, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 350, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 3500, "unit": "mg" },
-      "potassium_mg": { "AI": 2900, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 60, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1000, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.0, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 30, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 6, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 175,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 28,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.4,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 600,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.6,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 27,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 220,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 11,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 450,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 770,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 85,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 90,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 18,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.9,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 350,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 3500,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2900,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 60,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1000,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 6,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     },
     "31_50": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 175, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 28, "unit": "g" },
-      "water_l": { "AI": 3.0, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.4, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 600, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.6, "unit": "μg" },
-      "iron_mg": { "RDA": 27, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 220, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 11, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 450, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 770, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 85, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 90, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.4, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 18, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.9, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 360, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 3500, "unit": "mg" },
-      "potassium_mg": { "AI": 2900, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 60, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1000, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.0, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 30, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 6, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 175,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 28,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.4,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 600,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.6,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 27,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 220,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 11,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 450,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 770,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 85,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 90,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 18,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.9,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 360,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 3500,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2900,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 60,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1000,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 6,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     }
   },
   "pregnant_t2": {
     "14_18": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 175, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 28, "unit": "g" },
-      "water_l": { "AI": 3.0, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.4, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 600, "UL": 800, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.6, "unit": "μg" },
-      "iron_mg": { "RDA": 27, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1300, "UL": 3000, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 220, "UL": 900, "unit": "μg" },
-      "zinc_mg": { "RDA": 12, "UL": 34, "unit": "mg" },
-      "choline_mg": { "AI": 450, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 750, "UL": 2800, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 80, "UL": 1800, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 800, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 75, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.4, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 18, "UL": 30, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.9, "UL": 80, "unit": "mg" },
-      "magnesium_mg": { "RDA": 400, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 1250, "UL": 3500, "unit": "mg" },
-      "potassium_mg": { "AI": 2600, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 60, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1000, "UL": 8000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.0, "UL": 9, "unit": "mg" },
-      "chromium_ug": { "AI": 29, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 1700, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 6, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 175,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 28,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.4,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 600,
+        "UL": 800,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.6,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 27,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1300,
+        "UL": 3000,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 220,
+        "UL": 900,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 12,
+        "UL": 34,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 450,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 750,
+        "UL": 2800,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 80,
+        "UL": 1800,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 800,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 75,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 18,
+        "UL": 30,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.9,
+        "UL": 80,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 400,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 1250,
+        "UL": 3500,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2600,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 60,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1000,
+        "UL": 8000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2,
+        "UL": 9,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 29,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 1700,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 6,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     },
     "19_30": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 175, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 28, "unit": "g" },
-      "water_l": { "AI": 3.0, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.4, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 600, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.6, "unit": "μg" },
-      "iron_mg": { "RDA": 27, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 220, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 11, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 450, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 770, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 85, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 90, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.4, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 18, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.9, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 350, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 3500, "unit": "mg" },
-      "potassium_mg": { "AI": 2900, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 60, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1000, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.0, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 30, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 6, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 175,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 28,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.4,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 600,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.6,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 27,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 220,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 11,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 450,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 770,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 85,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 90,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 18,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.9,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 350,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 3500,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2900,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 60,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1000,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 6,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     },
     "31_50": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 175, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 28, "unit": "g" },
-      "water_l": { "AI": 3.0, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.4, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 600, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.6, "unit": "μg" },
-      "iron_mg": { "RDA": 27, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 220, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 11, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 450, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 770, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 85, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 90, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.4, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 18, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.9, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 360, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 3500, "unit": "mg" },
-      "potassium_mg": { "AI": 2900, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 60, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1000, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.0, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 30, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 6, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 175,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 28,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.4,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 600,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.6,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 27,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 220,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 11,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 450,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 770,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 85,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 90,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 18,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.9,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 360,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 3500,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2900,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 60,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1000,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 6,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     }
   },
   "pregnant_t3": {
     "14_18": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 175, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 28, "unit": "g" },
-      "water_l": { "AI": 3.0, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.4, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 600, "UL": 800, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.6, "unit": "μg" },
-      "iron_mg": { "RDA": 27, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1300, "UL": 3000, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 220, "UL": 900, "unit": "μg" },
-      "zinc_mg": { "RDA": 12, "UL": 34, "unit": "mg" },
-      "choline_mg": { "AI": 450, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 750, "UL": 2800, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 80, "UL": 1800, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 800, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 75, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.4, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 18, "UL": 30, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.9, "UL": 80, "unit": "mg" },
-      "magnesium_mg": { "RDA": 400, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 1250, "UL": 3500, "unit": "mg" },
-      "potassium_mg": { "AI": 2600, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 60, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1000, "UL": 8000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.0, "UL": 9, "unit": "mg" },
-      "chromium_ug": { "AI": 29, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 1700, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 6, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 175,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 28,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.4,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 600,
+        "UL": 800,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.6,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 27,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1300,
+        "UL": 3000,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 220,
+        "UL": 900,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 12,
+        "UL": 34,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 450,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 750,
+        "UL": 2800,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 80,
+        "UL": 1800,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 800,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 75,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 18,
+        "UL": 30,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.9,
+        "UL": 80,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 400,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 1250,
+        "UL": 3500,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2600,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 60,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1000,
+        "UL": 8000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2,
+        "UL": 9,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 29,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 1700,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 6,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     },
     "19_30": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 175, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 28, "unit": "g" },
-      "water_l": { "AI": 3.0, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.4, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 600, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.6, "unit": "μg" },
-      "iron_mg": { "RDA": 27, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 220, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 11, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 450, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 770, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 85, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 90, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.4, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 18, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.9, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 350, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 3500, "unit": "mg" },
-      "potassium_mg": { "AI": 2900, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 60, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1000, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.0, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 30, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 6, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 175,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 28,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.4,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 600,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.6,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 27,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 220,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 11,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 450,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 770,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 85,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 90,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 18,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.9,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 350,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 3500,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2900,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 60,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1000,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 6,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     },
     "31_50": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 175, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 28, "unit": "g" },
-      "water_l": { "AI": 3.0, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.4, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 600, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.6, "unit": "μg" },
-      "iron_mg": { "RDA": 27, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 220, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 11, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 450, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 770, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 85, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 15, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 90, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.4, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 18, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 1.9, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 360, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 3500, "unit": "mg" },
-      "potassium_mg": { "AI": 2900, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 60, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1000, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.0, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 30, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 6, "unit": "mg" },
-      "biotin_ug": { "AI": 30, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 175,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 28,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.4,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 600,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.6,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 27,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 220,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 11,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 450,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 770,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 85,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 90,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 18,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.9,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 360,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 3500,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2900,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 60,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1000,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 6,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 30,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     }
   },
   "lactating_0_6": {
     "14_18": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 210, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 29, "unit": "g" },
-      "water_l": { "AI": 3.8, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.3, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg", "note": "Continue 200-300mg/day for breast milk DHA" },
-      "folate_dfe_ug": { "RDA": 500, "UL": 800, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.8, "unit": "μg" },
-      "iron_mg": { "RDA": 10, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1300, "UL": 3000, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 290, "UL": 900, "unit": "μg" },
-      "zinc_mg": { "RDA": 13, "UL": 34, "unit": "mg" },
-      "choline_mg": { "AI": 550, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 1200, "UL": 2800, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 115, "UL": 1800, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 19, "UL": 800, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 75, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.6, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 17, "UL": 30, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 2.0, "UL": 80, "unit": "mg" },
-      "magnesium_mg": { "RDA": 360, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 1250, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 2500, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 70, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1300, "UL": 8000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.6, "UL": 9, "unit": "mg" },
-      "chromium_ug": { "AI": 44, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 1700, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 7, "unit": "mg" },
-      "biotin_ug": { "AI": 35, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 210,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 29,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3.8,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.3,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg",
+        "note": "Continue 200-300mg/day for breast milk DHA"
+      },
+      "folate_dfe_ug": {
+        "RDA": 500,
+        "UL": 800,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.8,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 10,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1300,
+        "UL": 3000,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 290,
+        "UL": 900,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 13,
+        "UL": 34,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 550,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 1200,
+        "UL": 2800,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 115,
+        "UL": 1800,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 19,
+        "UL": 800,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 75,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.6,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 17,
+        "UL": 30,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 2,
+        "UL": 80,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 360,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 1250,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2500,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 70,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1300,
+        "UL": 8000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2.6,
+        "UL": 9,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 44,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 1700,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 7,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 35,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     },
     "19_30": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 210, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 29, "unit": "g" },
-      "water_l": { "AI": 3.8, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.3, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 500, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.8, "unit": "μg" },
-      "iron_mg": { "RDA": 9, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 290, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 12, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 550, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 1300, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 120, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 19, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 90, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.6, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 17, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 2.0, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 310, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 2800, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 70, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1300, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.6, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 45, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 7, "unit": "mg" },
-      "biotin_ug": { "AI": 35, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 210,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 29,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3.8,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.3,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 500,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.8,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 9,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 290,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 12,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 550,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 1300,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 120,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 19,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 90,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.6,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 17,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 2,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 310,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2800,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 70,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1300,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2.6,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 45,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 7,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 35,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     },
     "31_50": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 210, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 29, "unit": "g" },
-      "water_l": { "AI": 3.8, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.3, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 500, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.8, "unit": "μg" },
-      "iron_mg": { "RDA": 9, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 290, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 12, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 550, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 1300, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 120, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 19, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 90, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.6, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 17, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 2.0, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 320, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 2800, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 70, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1300, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.6, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 45, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 7, "unit": "mg" },
-      "biotin_ug": { "AI": 35, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 210,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 29,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3.8,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.3,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 500,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.8,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 9,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 290,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 12,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 550,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 1300,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 120,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 19,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 90,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.6,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 17,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 2,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 320,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2800,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 70,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1300,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2.6,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 45,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 7,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 35,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     }
   },
   "lactating_7_12": {
     "14_18": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 210, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 29, "unit": "g" },
-      "water_l": { "AI": 3.8, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.3, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg", "note": "Continue 200-300mg/day for breast milk DHA" },
-      "folate_dfe_ug": { "RDA": 500, "UL": 800, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.8, "unit": "μg" },
-      "iron_mg": { "RDA": 10, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1300, "UL": 3000, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 290, "UL": 900, "unit": "μg" },
-      "zinc_mg": { "RDA": 13, "UL": 34, "unit": "mg" },
-      "choline_mg": { "AI": 550, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 1200, "UL": 2800, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 115, "UL": 1800, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 19, "UL": 800, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 75, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.6, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 17, "UL": 30, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 2.0, "UL": 80, "unit": "mg" },
-      "magnesium_mg": { "RDA": 360, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 1250, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 2500, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 70, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1300, "UL": 8000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.6, "UL": 9, "unit": "mg" },
-      "chromium_ug": { "AI": 44, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 1700, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 7, "unit": "mg" },
-      "biotin_ug": { "AI": 35, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 210,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 29,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3.8,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.3,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg",
+        "note": "Continue 200-300mg/day for breast milk DHA"
+      },
+      "folate_dfe_ug": {
+        "RDA": 500,
+        "UL": 800,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.8,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 10,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1300,
+        "UL": 3000,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 290,
+        "UL": 900,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 13,
+        "UL": 34,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 550,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 1200,
+        "UL": 2800,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 115,
+        "UL": 1800,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 19,
+        "UL": 800,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 75,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.6,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 17,
+        "UL": 30,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 2,
+        "UL": 80,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 360,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 1250,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2500,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 70,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1300,
+        "UL": 8000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2.6,
+        "UL": 9,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 44,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 1700,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 7,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 35,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     },
     "19_30": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 210, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 29, "unit": "g" },
-      "water_l": { "AI": 3.8, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.3, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 500, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.8, "unit": "μg" },
-      "iron_mg": { "RDA": 9, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 290, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 12, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 550, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 1300, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 120, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 19, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 90, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.6, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 17, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 2.0, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 310, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 2800, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 70, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1300, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.6, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 45, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 7, "unit": "mg" },
-      "biotin_ug": { "AI": 35, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 210,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 29,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3.8,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.3,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 500,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.8,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 9,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 290,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 12,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 550,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 1300,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 120,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 19,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 90,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.6,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 17,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 2,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 310,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2800,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 70,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1300,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2.6,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 45,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 7,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 35,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     },
     "31_50": {
-      "protein_g": { "RDA": 71, "unit": "g" },
-      "carbs_g": { "MIN": 210, "unit": "g" },
-      "fat_g": { "AMDR_MIN": 20, "AMDR_MAX": 35, "unit": "%" },
-      "fiber_g": { "AI": 29, "unit": "g" },
-      "water_l": { "AI": 3.8, "unit": "L" },
-      "ala_omega3_g": { "AI": 1.3, "unit": "g" },
-      "dha_mg": { "AI": 200, "unit": "mg" },
-      "folate_dfe_ug": { "RDA": 500, "UL": 1000, "unit": "μg" },
-      "vitamin_b12_ug": { "RDA": 2.8, "unit": "μg" },
-      "iron_mg": { "RDA": 9, "UL": 45, "unit": "mg" },
-      "calcium_mg": { "RDA": 1000, "UL": 2500, "unit": "mg" },
-      "vitamin_d_ug": { "RDA": 15, "UL": 100, "unit": "μg" },
-      "iodine_ug": { "RDA": 290, "UL": 1100, "unit": "μg" },
-      "zinc_mg": { "RDA": 12, "UL": 40, "unit": "mg" },
-      "choline_mg": { "AI": 550, "unit": "mg" },
-      "vitamin_a_rae_ug": { "RDA": 1300, "UL": 3000, "unit": "μg" },
-      "vitamin_c_mg": { "RDA": 120, "UL": 2000, "unit": "mg" },
-      "vitamin_e_mg": { "RDA": 19, "UL": 1000, "unit": "mg" },
-      "vitamin_k_ug": { "AI": 90, "unit": "μg" },
-      "thiamin_mg": { "RDA": 1.4, "unit": "mg" },
-      "riboflavin_mg": { "RDA": 1.6, "unit": "mg" },
-      "niacin_mg_ne": { "RDA": 17, "UL": 35, "unit": "mg" },
-      "vitamin_b6_mg": { "RDA": 2.0, "UL": 100, "unit": "mg" },
-      "magnesium_mg": { "RDA": 320, "unit": "mg" },
-      "phosphorus_mg": { "RDA": 700, "UL": 4000, "unit": "mg" },
-      "potassium_mg": { "AI": 2800, "unit": "mg" },
-      "sodium_mg": { "MAX": 2300, "unit": "mg" },
-      "selenium_ug": { "RDA": 70, "UL": 400, "unit": "μg" },
-      "copper_ug": { "RDA": 1300, "UL": 10000, "unit": "μg" },
-      "manganese_mg": { "AI": 2.6, "UL": 11, "unit": "mg" },
-      "chromium_ug": { "AI": 45, "unit": "μg" },
-      "molybdenum_ug": { "RDA": 50, "UL": 2000, "unit": "μg" },
-      "chloride_mg": { "AI": 2300, "unit": "mg" },
-      "fluoride_mg": { "AI": 3, "UL": 10, "unit": "mg" },
-      "pantothenic_acid_mg": { "AI": 7, "unit": "mg" },
-      "biotin_ug": { "AI": 35, "unit": "μg" }
+      "protein_g": {
+        "RDA": 71,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "MIN": 210,
+        "unit": "g"
+      },
+      "fat_g": {
+        "AMDR_MIN": 20,
+        "AMDR_MAX": 35,
+        "unit": "%"
+      },
+      "fiber_g": {
+        "AI": 29,
+        "unit": "g"
+      },
+      "water_l": {
+        "AI": 3.8,
+        "unit": "L"
+      },
+      "ala_omega3_g": {
+        "AI": 1.3,
+        "unit": "g"
+      },
+      "dha_mg": {
+        "AI": 200,
+        "unit": "mg"
+      },
+      "folate_dfe_ug": {
+        "RDA": 500,
+        "UL": 1000,
+        "unit": "μg"
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.8,
+        "unit": "μg"
+      },
+      "iron_mg": {
+        "RDA": 9,
+        "UL": 45,
+        "unit": "mg"
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500,
+        "unit": "mg"
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100,
+        "unit": "μg"
+      },
+      "iodine_ug": {
+        "RDA": 290,
+        "UL": 1100,
+        "unit": "μg"
+      },
+      "zinc_mg": {
+        "RDA": 12,
+        "UL": 40,
+        "unit": "mg"
+      },
+      "choline_mg": {
+        "AI": 550,
+        "unit": "mg"
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 1300,
+        "UL": 3000,
+        "unit": "μg"
+      },
+      "vitamin_c_mg": {
+        "RDA": 120,
+        "UL": 2000,
+        "unit": "mg"
+      },
+      "vitamin_e_mg": {
+        "RDA": 19,
+        "UL": 1000,
+        "unit": "mg"
+      },
+      "vitamin_k_ug": {
+        "AI": 90,
+        "unit": "μg"
+      },
+      "thiamin_mg": {
+        "RDA": 1.4,
+        "unit": "mg"
+      },
+      "riboflavin_mg": {
+        "RDA": 1.6,
+        "unit": "mg"
+      },
+      "niacin_mg_ne": {
+        "RDA": 17,
+        "UL": 35,
+        "unit": "mg"
+      },
+      "vitamin_b6_mg": {
+        "RDA": 2,
+        "UL": 100,
+        "unit": "mg"
+      },
+      "magnesium_mg": {
+        "RDA": 320,
+        "unit": "mg"
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 4000,
+        "unit": "mg"
+      },
+      "potassium_mg": {
+        "AI": 2800,
+        "unit": "mg"
+      },
+      "sodium_mg": {
+        "MAX": 2300,
+        "unit": "mg"
+      },
+      "selenium_ug": {
+        "RDA": 70,
+        "UL": 400,
+        "unit": "μg"
+      },
+      "copper_ug": {
+        "RDA": 1300,
+        "UL": 10000,
+        "unit": "μg"
+      },
+      "manganese_mg": {
+        "AI": 2.6,
+        "UL": 11,
+        "unit": "mg"
+      },
+      "chromium_ug": {
+        "AI": 45,
+        "unit": "μg"
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 2000,
+        "unit": "μg"
+      },
+      "chloride_mg": {
+        "AI": 2300,
+        "unit": "mg"
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10,
+        "unit": "mg"
+      },
+      "pantothenic_acid_mg": {
+        "AI": 7,
+        "unit": "mg"
+      },
+      "biotin_ug": {
+        "AI": 35,
+        "unit": "μg"
+      },
+      "epa_mg": {
+        "AI": 50,
+        "unit": "mg",
+        "note": "No formal DRI. Practical target: combined EPA+DHA 250 mg/day per Cochrane/ODS guidelines"
+      }
     }
   }
 }

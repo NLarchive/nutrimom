@@ -999,6 +999,39 @@
         "plugins/food-tracker/food-tracker-ui.js - Added 'open' attribute to Macronutrients <details> in _updateNutrientComparison()"
       ],
       "notes": "All 103 Playwright tests passing. Source of truth: _emptyTotals() in food-tracker-engine.js (37 canonical keys). Fatty Acids group was appearing empty because UI used omega3_mg key which doesn't exist in engine totals."
+    },
+    {
+      "task_name": "Nutrient Research Validation & EPA Gap Fix",
+      "description": "Cross-referenced ALL nutrient data against comprehensive Deep Research document (docs/nutrient-research-2026.md) covering IOM DRI, NIH ODS, NASEM 2019, DGA 2025-2030, Cochrane Reviews, ACOG, and RCOG guidelines. Confirmed all 36 existing DRI values are correct. Identified and filled EPA target gap: epa_mg was tracked by engine and prompt but had NO targets in nutrient-targets.json. Added epa_mg AI targets to all 26 age bands. Enriched 9 nutrient descriptions in nutrients.json with research evidence (Cochrane preterm birth data, DGA 2025-2030 references, Cornell choline study, RCOG/ACOG folate guidance). Created comprehensive 14-test validation suite covering all 37 tracked nutrients with realistic salmon bowl mock data.",
+      "start_date": "2026-06-12",
+      "end_date": "2026-06-12",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 4,
+      "actual_hours": 4,
+      "is_critical_path": true,
+      "tags": ["data-validation", "research", "IOM-DRI", "DGA-2025", "Cochrane", "EPA", "mock-data", "testing"],
+      "category_name": "Data & Research",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Nutrient Key Alignment & UI Grouping Sync", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "data/nutrient-targets.json - Added epa_mg to all 26 age bands (AI:0 non-pregnant, AI:50 pregnant/lactating per Cochrane/ODS combined EPA+DHA ≥250mg)",
+        "data/nutrient-targets.json - Updated _meta with DGA 2025-2030 and Cochrane Reviews sources",
+        "data/nutrients.json - Enriched 9 descriptions: protein_g (DGA 2025-2030), choline_mg (90% under-consumption, Cornell study), dha_mg (Cochrane 11%/42% preterm reduction), epa_mg (combined recommendation), ala_omega3_g (essential status), folate_dfe_ug (RCOG vs ACOG guidance), vitamin_d_ug (pro-hormone), biotin_ug (AI vs RDA)",
+        "tests/food-tracker/nutrient-data-validation.spec.js - 14 new tests: database completeness, DRI value cross-validation (pregnant/lactating/male/female/child), engine aggregation of all 37 nutrients, EPA comparison, below-target flagging, prompt key alignment, UI meal capture"
+      ],
+      "features": [
+        "EPA targets: AI 50mg for pregnancy/lactation (combined EPA+DHA ≥250mg per Cochrane), AI 0 for others (no formal DRI)",
+        "Realistic salmon bowl mock data (salmon + quinoa + broccoli) with all 37 nutrients for engine testing",
+        "DRI cross-validation tests verifying IOM values for 5 demographics (pregnant 31-50, lactating 19-30, male 19-30, female 19-30, child 1-3)",
+        "compareToTargets validation: EPA now appears in comparison output, below-target nutrients correctly flagged"
+      ],
+      "notes": "All 117 Playwright tests passing (22.1s). All DRI values confirmed accurate against IOM/NIH tables from Deep Research analysis. Key research corrections documented: Choline AI 450mg not RDA, Folate 5mg only per RCOG for BMI≥30, saturated fat <10% is general population guidance, Protein RDA formally 0.8g/kg."
     }
   ],
   "milestones": [
@@ -1079,6 +1112,12 @@
       "date": "2026-06-11",
       "status": "Completed",
       "description": "Complete system expansion supporting all ages (1+), both sexes (male+female), child age bands (1-3, 4-8, 9-13), Schofield BMR for children, sex-aware DRI lookup, pregnancy/lactation limited to females 14-50. Rebranded from NutriMom to NutriLife. 200 tests passing (100 Chromium + 100 Mobile Chrome)."
+    },
+    {
+      "name": "Nutrient Data Research-Validated",
+      "date": "2026-06-12",
+      "status": "Completed",
+      "description": "All nutrient DRI values cross-validated against IOM/NIH/NASEM/Cochrane research. EPA target gap filled across all 26 age bands. 9 nutrient descriptions enriched with 2025-2030 evidence. 14 new validation tests. 117 total tests passing (22.1s)."
     }
   ],
   "required_fields": [
