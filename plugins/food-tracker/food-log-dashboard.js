@@ -16,6 +16,7 @@ class FoodLogDashboard {
     this.containerId = options.containerId || 'food-log-dashboard';
     this.tracker = options.tracker || null;
     this.userTargets = options.userTargets || null;
+    this.userProfile = options.userProfile || null;
     
     this.container = null;
     this._initialized = false;
@@ -39,6 +40,14 @@ class FoodLogDashboard {
    */
   setUserTargets(targets) {
     this.userTargets = targets;
+    if (this._initialized) this.render();
+  }
+
+  /**
+   * Set user profile for context-aware insights
+   */
+  setUserProfile(profile) {
+    this.userProfile = profile;
     if (this._initialized) this.render();
   }
 
@@ -295,7 +304,10 @@ class FoodLogDashboard {
       if (t.direction === 'up' && t.change > 100) {
         insights.push({ type: 'info', icon: '📈', message: `Calorie intake trending up (+${t.change} kcal avg) over the week.` });
       } else if (t.direction === 'down' && t.change < -100) {
-        insights.push({ type: 'warning', icon: '📉', message: `Calorie intake trending down (${t.change} kcal avg). Ensure you're eating enough during pregnancy.` });
+        const message = this.userProfile?.isPregnant 
+          ? `Calorie intake trending down (${t.change} kcal avg). Ensure you're eating enough during pregnancy.`
+          : `Calorie intake trending down (${t.change} kcal avg). Ensure you're meeting your energy needs.`;
+        insights.push({ type: 'warning', icon: '📉', message });
       }
     }
 
@@ -305,7 +317,10 @@ class FoodLogDashboard {
       if (protTarget && weeklyAvg.averages.protein_g) {
         const protPct = (weeklyAvg.averages.protein_g / protTarget) * 100;
         if (protPct < 80) {
-          insights.push({ type: 'critical', icon: '⚠️', message: `Average protein intake is ${Math.round(protPct)}% of target. Protein is crucial for fetal growth.` });
+          const message = this.userProfile?.isPregnant
+            ? `Average protein intake is ${Math.round(protPct)}% of target. Protein is crucial for fetal growth.`
+            : `Average protein intake is ${Math.round(protPct)}% of target. Protein is essential for health.`;
+          insights.push({ type: 'critical', icon: '⚠️', message });
         }
       }
 
@@ -314,7 +329,10 @@ class FoodLogDashboard {
       if (folateTarget && weeklyAvg.averages.folate_ug) {
         const pct = (weeklyAvg.averages.folate_ug / folateTarget) * 100;
         if (pct < 60) {
-          insights.push({ type: 'critical', icon: '🧬', message: `Folate intake is only ${Math.round(pct)}% of target. Consider folate-rich foods or supplements.` });
+          const message = this.userProfile?.isPregnant
+            ? `Folate intake is only ${Math.round(pct)}% of target. Consider folate-rich foods or supplements.`
+            : `Folate intake is low (${Math.round(pct)}% of target). Folate is important for cell growth.`;
+          insights.push({ type: 'critical', icon: '🧬', message });
         }
       }
 
@@ -322,7 +340,10 @@ class FoodLogDashboard {
       if (ironTarget && weeklyAvg.averages.iron_mg) {
         const pct = (weeklyAvg.averages.iron_mg / ironTarget) * 100;
         if (pct < 60) {
-          insights.push({ type: 'critical', icon: '🩸', message: `Iron intake is only ${Math.round(pct)}% of target. Iron is essential for increased blood volume.` });
+          const message = this.userProfile?.isPregnant
+            ? `Iron intake is only ${Math.round(pct)}% of target. Iron is essential for increased blood volume.`
+            : `Iron intake is low (${Math.round(pct)}% of target). Iron helps transport oxygen in your blood.`;
+          insights.push({ type: 'critical', icon: '🩸', message });
         }
       }
 
@@ -330,7 +351,10 @@ class FoodLogDashboard {
       if (iodineTarget && weeklyAvg.averages.iodine_ug) {
         const pct = (weeklyAvg.averages.iodine_ug / iodineTarget) * 100;
         if (pct < 60) {
-          insights.push({ type: 'critical', icon: '🧠', message: `Iodine intake is low (${Math.round(pct)}%). Iodine is vital for fetal brain and thyroid development.` });
+          const message = this.userProfile?.isPregnant
+            ? `Iodine intake is low (${Math.round(pct)}%). Iodine is vital for fetal brain and thyroid development.`
+            : `Iodine intake is low (${Math.round(pct)}%). Iodine is important for thyroid function.`;
+          insights.push({ type: 'critical', icon: '🧠', message });
         }
       }
 
@@ -338,7 +362,10 @@ class FoodLogDashboard {
       if (cholineTarget && weeklyAvg.averages.choline_mg) {
         const pct = (weeklyAvg.averages.choline_mg / cholineTarget) * 100;
         if (pct < 60) {
-          insights.push({ type: 'critical', icon: '🥚', message: `Choline intake is only ${Math.round(pct)}% of target. Choline supports fetal brain and spinal cord development.` });
+          const message = this.userProfile?.isPregnant
+            ? `Choline intake is only ${Math.round(pct)}% of target. Choline supports fetal brain and spinal cord development.`
+            : `Choline intake is low (${Math.round(pct)}%). Choline is important for brain health.`;
+          insights.push({ type: 'critical', icon: '🥚', message });
         }
       }
     }

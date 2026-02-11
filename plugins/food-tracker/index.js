@@ -111,6 +111,29 @@ class FoodTrackerPlugin {
   }
 
   /**
+   * Set user profile for context-aware features
+   * @param {Object} profile - User profile object
+   */
+  setUserProfile(profile) {
+    this.options.userProfile = profile;
+    if (this.ui) {
+      this.ui.setUserContext({
+        lifeStage: profile.lifeStage || '',
+        age: profile.ageYears,
+        weight: profile.weightKg,
+        height: profile.heightCm,
+        isPregnant: profile.isPregnant,
+        pregnancyWeek: profile.pregnancyWeek,
+        isLactating: profile.isLactating
+      });
+    }
+    if (this.dashboard) {
+      this.dashboard.setUserProfile(profile);
+    }
+    return this;
+  }
+
+  /**
    * Programmatically analyze an image
    * @param {File|Blob|string} image - Image to analyze
    * @param {string} mealType - Meal type (breakfast, lunch, dinner, snack)

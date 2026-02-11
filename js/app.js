@@ -401,15 +401,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Update Food Tracker with new targets and profile context
     if (foodTracker) {
       foodTracker.setUserTargets(currentPlan.targets);
-      // Pass the profile context to the UI for better LLM prompts
-      foodTracker.getUI().setUserContext({
-        lifeStage: currentPlan.classification.lifeStageLabel,
-        age: profile.ageYears,
-        weight: profile.weightKg,
-        height: profile.heightCm,
-        isPregnant: profile.isPregnant,
-        pregnancyWeek: profile.pregnancyWeek,
-        isLactating: profile.isLactating
+      // Pass the complete profile to the tracker for dashboard and LLM context
+      foodTracker.setUserProfile({
+        ...profile,
+        lifeStage: currentPlan.classification.lifeStageLabel
       });
     }
 

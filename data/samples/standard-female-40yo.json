@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "exportDate": "2026-02-08T10:00:00.000Z",
+  "exportDate": "2026-02-10T22:00:00.000Z",
   "profile": {
     "ageYears": 40,
     "sex": "female",
@@ -18,90 +18,36 @@
   "foodLog": {
     "_meta": {
       "version": "2.0",
-      "firstEntryDate": "2026-03-01",
-      "lastEntryDate": "2026-02-08",
-      "lastModified": "2026-02-08T10:00:00.000Z",
+      "firstEntryDate": "2026-02-03",
+      "lastEntryDate": "2026-02-10",
+      "lastModified": "2026-02-10T22:00:00.000Z",
       "totalDaysLogged": 8,
       "totalMealsLogged": 23,
       "syncStatus": "local_only"
     },
-    "2026-03-01": {
-      "date": "2026-03-01",
+    "2026-02-03": {
+      "date": "2026-02-03",
       "completed": true,
       "meals": [
-        { "id": "m1", "meal_type": "breakfast", "totals": { "energy_kcal": 350, "protein_g": 12 }, "food_items": [{"name": "Yogurt & Granola", "nutrients": {"energy_kcal": 350, "protein_g": 12, "calcium_mg": 200}}] },
-        { "id": "m2", "meal_type": "lunch", "totals": { "energy_kcal": 500, "protein_g": 25 }, "food_items": [{"name": "Grilled Chicken Salad", "nutrients": {"energy_kcal": 450, "protein_g": 25, "iron_mg": 2}}, {"name": "Apple", "nutrients": {"energy_kcal": 50}}] },
-        { "id": "m3", "meal_type": "dinner", "totals": { "energy_kcal": 550, "protein_g": 30 }, "food_items": [{"name": "Baked Salmon & Quinoa", "nutrients": {"energy_kcal": 550, "protein_g": 30, "omega3_g": 2}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 1400, "protein_g": 67, "calcium_mg": 300 }
-    },
-    "2026-03-02": {
-      "date": "2026-03-02",
-      "completed": true,
-      "meals": [
-        { "id": "m4", "meal_type": "breakfast", "totals": { "energy_kcal": 300, "protein_g": 10 }, "food_items": [{"name": "Oatmeal with Almonds", "nutrients": {"energy_kcal": 300, "protein_g": 10, "fiber_g": 5}}] },
-        { "id": "m5", "meal_type": "lunch", "totals": { "energy_kcal": 450, "protein_g": 20 }, "food_items": [{"name": "Lentil Soup & Bread", "nutrients": {"energy_kcal": 450, "protein_g": 20, "iron_mg": 5}}] },
-        { "id": "m6", "meal_type": "dinner", "totals": { "energy_kcal": 600, "protein_g": 35 }, "food_items": [{"name": "Turkey Stir Fry", "nutrients": {"energy_kcal": 600, "protein_g": 35, "vitamin_c_mg": 50}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 1350, "protein_g": 65, "iron_mg": 9 }
-    },
-    "2026-03-03": {
-      "date": "2026-03-03",
-      "completed": true,
-      "meals": [
-        { "id": "m7", "meal_type": "breakfast", "totals": { "energy_kcal": 300, "protein_g": 12 }, "food_items": [{"name": "Scrambled Eggs", "nutrients": {"energy_kcal": 200, "protein_g": 12}}, {"name": "Toast", "nutrients": {"energy_kcal": 100}}] },
-        { "id": "m8", "meal_type": "lunch", "totals": { "energy_kcal": 500, "protein_g": 25 }, "food_items": [{"name": "Tuna Salad Wrap", "nutrients": {"energy_kcal": 500, "protein_g": 25}}] },
-        { "id": "m9", "meal_type": "dinner", "totals": { "energy_kcal": 550, "protein_g": 30 }, "food_items": [{"name": "Vegetable Lasagna", "nutrients": {"energy_kcal": 550, "protein_g": 30, "calcium_mg": 250}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 1350, "protein_g": 67, "calcium_mg": 300 }
-    },
-    "2026-03-04": {
-      "date": "2026-03-04",
-      "completed": true,
-      "meals": [
-        { "id": "m10", "meal_type": "breakfast", "totals": { "energy_kcal": 350, "protein_g": 8 }, "food_items": [{"name": "Avocado Toast", "nutrients": {"energy_kcal": 350, "protein_g": 8, "fat_g": 20}}] },
-        { "id": "m11", "meal_type": "lunch", "totals": { "energy_kcal": 450, "protein_g": 20 }, "food_items": [{"name": "Chicken Noodle Soup", "nutrients": {"energy_kcal": 450, "protein_g": 20}}] },
-        { "id": "m12", "meal_type": "dinner", "totals": { "energy_kcal": 600, "protein_g": 35 }, "food_items": [{"name": "Pork Tenderloin & Veg", "nutrients": {"energy_kcal": 600, "protein_g": 35, "thiamin_mg": 1}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 1400, "protein_g": 63 }
-    },
-    "2026-03-05": {
-      "date": "2026-03-05",
-      "completed": true,
-      "meals": [
-        { "id": "m13", "meal_type": "breakfast", "totals": { "energy_kcal": 300, "protein_g": 15 }, "food_items": [{"name": "Cottage Cheese & Fruit", "nutrients": {"energy_kcal": 300, "protein_g": 15, "calcium_mg": 150}}] },
-        { "id": "m14", "meal_type": "lunch", "totals": { "energy_kcal": 500, "protein_g": 25 }, "food_items": [{"name": "Hummus & Pita Plate", "nutrients": {"energy_kcal": 500, "protein_g": 25, "fiber_g": 10}}] },
-        { "id": "m15", "meal_type": "dinner", "totals": { "energy_kcal": 550, "protein_g": 30 }, "food_items": [{"name": "Shrimp Stir Fry", "nutrients": {"energy_kcal": 550, "protein_g": 30, "iodine_ug": 50}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 1350, "protein_g": 70 }
-    },
-    "2026-03-06": {
-      "date": "2026-03-06",
-      "completed": true,
-      "meals": [
-        { "id": "m16", "meal_type": "breakfast", "totals": { "energy_kcal": 400, "protein_g": 12 }, "food_items": [{"name": "Muffin & Coffee", "nutrients": {"energy_kcal": 400, "protein_g": 12}}] },
-        { "id": "m17", "meal_type": "lunch", "totals": { "energy_kcal": 500, "protein_g": 25 }, "food_items": [{"name": "Caesar Salad with Chicken", "nutrients": {"energy_kcal": 500, "protein_g": 25}}] },
-        { "id": "m18", "meal_type": "dinner", "totals": { "energy_kcal": 600, "protein_g": 30 }, "food_items": [{"name": "Beef Tacos (2)", "nutrients": {"energy_kcal": 600, "protein_g": 30, "zinc_mg": 5}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 1500, "protein_g": 67 }
-    },
-    "2026-03-07": {
-      "date": "2026-03-07",
-      "completed": true,
-      "meals": [
-        { "id": "m19", "meal_type": "breakfast", "totals": { "energy_kcal": 450, "protein_g": 15 }, "food_items": [{"name": "French Toast", "nutrients": {"energy_kcal": 450, "protein_g": 15}}] },
-        { "id": "m20", "meal_type": "lunch", "totals": { "energy_kcal": 500, "protein_g": 20 }, "food_items": [{"name": "Club Sandwich", "nutrients": {"energy_kcal": 500, "protein_g": 20}}] },
-        { "id": "m21", "meal_type": "dinner", "totals": { "energy_kcal": 650, "protein_g": 35 }, "food_items": [{"name": "Roast Chicken & Potatoes", "nutrients": {"energy_kcal": 650, "protein_g": 35}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 1600, "protein_g": 70 }
-    },
-    "2026-02-08": {
-      "date": "2026-02-08",
-      "completed": false,
-      "meals": [
-        { "id": "m22", "meal_type": "breakfast", "totals": { "energy_kcal": 300, "protein_g": 10 }, "food_items": [{"name": "Smoothie Bowl", "nutrients": {"energy_kcal": 300, "protein_g": 10}}] },
-        { "id": "m23", "meal_type": "lunch", "totals": { "energy_kcal": 450, "protein_g": 20 }, "food_items": [{"name": "Quinoa Salad", "nutrients": {"energy_kcal": 450, "protein_g": 20}}] }
+        { "id": "m1", "meal_type": "breakfast", "food_items": [{"name": "Greek Yogurt & Nut Granola", "nutrients": {"energy_kcal": 450, "protein_g": 20}, "micronutrients": {"calcium_mg": 300, "fiber_g": 5, "magnesium_mg": 100}}] },
+        { "id": "m2", "meal_type": "lunch", "food_items": [{"name": "Large Grilled Chicken Salad", "nutrients": {"energy_kcal": 650, "protein_g": 40}, "micronutrients": {"iron_mg": 3, "vitamin_c_mg": 60, "fiber_g": 8, "vitamin_a_rae_ug": 400}}] },
+        { "id": "m3", "meal_type": "dinner", "food_items": [{"name": "Baked Salmon & Quinoa", "nutrients": {"energy_kcal": 750, "protein_g": 45}, "micronutrients": {"omega3_g": 2.5, "dha_mg": 800, "epa_mg": 600, "vitamin_d_ug": 15}}] }
       ]
-    }
+    },
+    "2026-02-04": {
+      "date": "2026-02-04",
+      "completed": true,
+      "meals": [
+        { "id": "m4", "meal_type": "breakfast", "food_items": [{"name": "Overnight Oats with Berries", "nutrients": {"energy_kcal": 400, "protein_g": 15}, "micronutrients": {"fiber_g": 8, "iron_mg": 2, "calcium_mg": 200}}] },
+        { "id": "m5", "meal_type": "lunch", "food_items": [{"name": "Lentil Soup & Sourdough", "nutrients": {"energy_kcal": 600, "protein_g": 25}, "micronutrients": {"iron_mg": 6, "folate_dfe_ug": 180, "fiber_g": 15}}] },
+        { "id": "m6", "meal_type": "dinner", "food_items": [{"name": "Turkey Stir Fry (Large)", "nutrients": {"energy_kcal": 800, "protein_g": 45}, "micronutrients": {"vitamin_c_mg": 100, "zinc_mg": 4, "niacin_mg_ne": 15}}] }
+      ]
+    },
+    "2026-02-05": { "date": "2026-02-05", "completed": true, "meals": [ { "id": "m7", "meal_type": "breakfast", "food_items": [{"name": "Eggs & Avocado Toast", "nutrients": {"energy_kcal": 550, "protein_g": 20}, "micronutrients": {"choline_mg": 250, "folate_dfe_ug": 100}}] }, { "id": "m8", "meal_type": "lunch", "food_items": [{"name": "Tuna Salad Wrap", "nutrients": {"energy_kcal": 600, "protein_g": 35}, "micronutrients": {"dha_mg": 300, "vitamin_d_ug": 5}}] }, { "id": "m9", "meal_type": "dinner", "food_items": [{"name": "Vegetable Lasagna (Large)", "nutrients": {"energy_kcal": 700, "protein_g": 30}, "micronutrients": {"calcium_mg": 400, "vitamin_a_rae_ug": 200}}] } ] },
+    "2026-02-06": { "date": "2026-02-06", "completed": true, "meals": [ { "id": "m10", "meal_type": "breakfast", "food_items": [{"name": "Smoothie Bowl", "nutrients": {"energy_kcal": 450, "protein_g": 15}, "micronutrients": {"vitamin_c_mg": 120, "potassium_mg": 600}}] }, { "id": "m11", "meal_type": "lunch", "food_items": [{"name": "Chicken Noodle Soup & Bread", "nutrients": {"energy_kcal": 650, "protein_g": 30}, "micronutrients": {"iron_mg": 2, "sodium_mg": 1500}}] }, { "id": "m12", "meal_type": "dinner", "food_items": [{"name": "Beef Stir Fry", "nutrients": {"energy_kcal": 800, "protein_g": 45}, "micronutrients": {"iron_mg": 6, "zinc_mg": 8, "vitamin_b12_ug": 2.2}}] } ] },
+    "2026-02-07": { "date": "2026-02-07", "completed": true, "meals": [ { "id": "m13", "meal_type": "breakfast", "food_items": [{"name": "Cottage Cheese & Peaches", "nutrients": {"energy_kcal": 400, "protein_g": 25}, "micronutrients": {"calcium_mg": 300}}] }, { "id": "m14", "meal_type": "lunch", "food_items": [{"name": "Mediterranean Mezze Plate", "nutrients": {"energy_kcal": 700, "protein_g": 20}, "micronutrients": {"fiber_g": 12, "folate_dfe_ug": 150}}] }, { "id": "m15", "meal_type": "dinner", "food_items": [{"name": "Shrimp Scampi & Asparagus", "nutrients": {"energy_kcal": 750, "protein_g": 40}, "micronutrients": {"iodine_ug": 60, "folate_dfe_ug": 80, "zinc_mg": 4}}] } ] },
+    "2026-02-08": { "date": "2026-02-08", "completed": true, "meals": [ { "id": "m16", "meal_type": "breakfast", "food_items": [{"name": "Omelette with Cheese", "nutrients": {"energy_kcal": 500, "protein_g": 25}, "micronutrients": {"calcium_mg": 200, "choline_mg": 250}}] }, { "id": "m17", "meal_type": "lunch", "food_items": [{"name": "Quinoa Salad with Roasted Veg", "nutrients": {"energy_kcal": 650, "protein_g": 15}, "micronutrients": {"fiber_g": 12, "magnesium_mg": 120}}] }, { "id": "m18", "meal_type": "dinner", "food_items": [{"name": "Steak & Mashed Potatoes", "nutrients": {"energy_kcal": 850, "protein_g": 50}, "micronutrients": {"iron_mg": 8, "zinc_mg": 10, "potassium_mg": 1000}}] } ] },
+    "2026-02-09": { "date": "2026-02-09", "completed": true, "meals": [ { "id": "m19", "meal_type": "breakfast", "food_items": [{"name": "Granola & Berries", "nutrients": {"energy_kcal": 400, "protein_g": 10}, "micronutrients": {"fiber_g": 8, "vitamin_c_mg": 60}}] }, { "id": "m20", "meal_type": "lunch", "food_items": [{"name": "Grilled Chicken Wrap", "nutrients": {"energy_kcal": 700, "protein_g": 35}, "micronutrients": {"iron_mg": 3, "sodium_mg": 800}}] }, { "id": "m21", "meal_type": "dinner", "food_items": [{"name": "Roast Pork & Veg", "nutrients": {"energy_kcal": 800, "protein_g": 45}, "micronutrients": {"thiamin_mg": 1.2, "zinc_mg": 5}}] } ] },
+    "2026-02-10": { "date": "2026-02-10", "completed": false, "meals": [ { "id": "m22", "meal_type": "breakfast", "food_items": [{"name": "Egg Muffins (2)", "nutrients": {"energy_kcal": 350, "protein_g": 20}, "micronutrients": {"choline_mg": 250}}] }, { "id": "m23", "meal_type": "lunch", "food_items": [{"name": "Tofu Bowl", "nutrients": {"energy_kcal": 600, "protein_g": 25}, "micronutrients": {"calcium_mg": 400, "iron_mg": 5}}] } ] }
   }
 }

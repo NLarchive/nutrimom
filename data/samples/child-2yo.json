@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "exportDate": "2026-02-08T10:00:00.000Z",
+  "exportDate": "2026-02-10T22:00:00.000Z",
   "profile": {
     "ageYears": 2,
     "sex": "female",
@@ -18,104 +18,97 @@
   "foodLog": {
     "_meta": {
       "version": "2.0",
-      "firstEntryDate": "2026-03-01",
-      "lastEntryDate": "2026-02-08",
-      "lastModified": "2026-02-08T10:00:00.000Z",
+      "firstEntryDate": "2026-02-03",
+      "lastEntryDate": "2026-02-10",
+      "lastModified": "2026-02-10T22:00:00.000Z",
       "totalDaysLogged": 8,
       "totalMealsLogged": 38,
       "syncStatus": "local_only"
     },
-    "2026-03-01": {
-      "date": "2026-03-01",
+    "2026-02-03": {
+      "date": "2026-02-03",
       "completed": true,
       "meals": [
-        { "id": "m1", "meal_type": "breakfast", "totals": { "energy_kcal": 200, "protein_g": 6, "calcium_mg": 150 }, "food_items": [{"name": "Whole Milk (1/2 cup)", "nutrients": {"energy_kcal": 75, "protein_g": 4, "calcium_mg": 150, "fat_g": 4}}, {"name": "Oatmeal with Blueberries", "nutrients": {"energy_kcal": 125, "protein_g": 2, "fiber_g": 2}}] },
-        { "id": "m2", "meal_type": "snack", "totals": { "energy_kcal": 100, "fat_g": 5 }, "food_items": [{"name": "Cheese Cube & Crackers", "nutrients": {"energy_kcal": 100, "fat_g": 5, "calcium_mg": 50}}] },
-        { "id": "m3", "meal_type": "lunch", "totals": { "energy_kcal": 250, "protein_g": 10 }, "food_items": [{"name": "Mac & Cheese with Peas", "nutrients": {"energy_kcal": 250, "protein_g": 10, "iron_mg": 1}}] },
-        { "id": "m4", "meal_type": "snack", "totals": { "energy_kcal": 100, "vitamin_c_mg": 20 }, "food_items": [{"name": "Sliced Strawberries", "nutrients": {"energy_kcal": 50, "vitamin_c_mg": 20}}, {"name": "Yogurt drops", "nutrients": {"energy_kcal": 50}}] },
-        { "id": "m5", "meal_type": "dinner", "totals": { "energy_kcal": 250, "protein_g": 12 }, "food_items": [{"name": "Turkey Meatballs (2)", "nutrients": {"energy_kcal": 150, "protein_g": 10, "iron_mg": 1}}, {"name": "Mashed Sweet Potato", "nutrients": {"energy_kcal": 100, "vitamin_a_rae_ug": 300}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 900, "protein_g": 35, "calcium_mg": 500, "iron_mg": 5, "fat_g": 35 }
+        { "id": "m1", "meal_type": "breakfast", "totals": { "energy_kcal": 200, "protein_g": 6 }, "food_items": [{"name": "Whole Milk (1/2 cup)", "nutrients": {"energy_kcal": 75, "protein_g": 4, "fat_g": 4}, "micronutrients": {"calcium_mg": 150, "vitamin_d_ug": 1.2, "vitamin_a_rae_ug": 50}}, {"name": "Oatmeal with Blueberries", "nutrients": {"energy_kcal": 125, "protein_g": 2, "fiber_g": 2}, "micronutrients": {"iron_mg": 1.5, "folate_dfe_ug": 15}}] },
+        { "id": "m2", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Cheese Cube & Crackers", "nutrients": {"energy_kcal": 100, "fat_g": 5}, "micronutrients": {"calcium_mg": 50, "zinc_mg": 0.5}}] },
+        { "id": "m3", "meal_type": "lunch", "totals": { "energy_kcal": 250, "protein_g": 10 }, "food_items": [{"name": "Mac & Cheese with Peas", "nutrients": {"energy_kcal": 250, "protein_g": 10}, "micronutrients": {"iron_mg": 1, "folate_dfe_ug": 20}}] },
+        { "id": "m4", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Sliced Strawberries", "nutrients": {"energy_kcal": 50}, "micronutrients": {"vitamin_c_mg": 20}}, {"name": "Yogurt drops", "nutrients": {"energy_kcal": 50}, "micronutrients": {"calcium_mg": 30}}] },
+        { "id": "m5", "meal_type": "dinner", "totals": { "energy_kcal": 250, "protein_g": 12 }, "food_items": [{"name": "Turkey Meatballs (2)", "nutrients": {"energy_kcal": 150, "protein_g": 10}, "micronutrients": {"iron_mg": 1, "zinc_mg": 1.2}}, {"name": "Mashed Sweet Potato", "nutrients": {"energy_kcal": 100}, "micronutrients": {"vitamin_a_rae_ug": 300, "fiber_g": 2.5}}] }
+      ]
     },
-    "2026-03-02": {
-      "date": "2026-03-02",
+    "2026-02-04": {
+      "date": "2026-02-04",
       "completed": true,
       "meals": [
-        { "id": "m6", "meal_type": "breakfast", "totals": { "energy_kcal": 200, "protein_g": 7 }, "food_items": [{"name": "Scrambled Egg (1)", "nutrients": {"energy_kcal": 70, "protein_g": 6, "choline_mg": 140}}, {"name": "Toast Handle", "nutrients": {"energy_kcal": 130}}] },
-        { "id": "m7", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Banana (1/2)", "nutrients": {"energy_kcal": 50}}, {"name": "Milk", "nutrients": {"energy_kcal": 50}}] },
-        { "id": "m8", "meal_type": "lunch", "totals": { "energy_kcal": 250, "protein_g": 10 }, "food_items": [{"name": "Grilled Cheese Sandwich (Small)", "nutrients": {"energy_kcal": 250, "protein_g": 10, "calcium_mg": 200}}] },
-        { "id": "m9", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Applesauce", "nutrients": {"energy_kcal": 100}}] },
-        { "id": "m10", "meal_type": "dinner", "totals": { "energy_kcal": 250, "protein_g": 12 }, "food_items": [{"name": "Chicken Nuggets (Homemade)", "nutrients": {"energy_kcal": 150, "protein_g": 10}}, {"name": "Broccoli Trees", "nutrients": {"energy_kcal": 100, "fiber_g": 3}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 900, "protein_g": 39, "calcium_mg": 400 }
+        { "id": "m6", "meal_type": "breakfast", "totals": { "energy_kcal": 200, "protein_g": 7 }, "food_items": [{"name": "Scrambled Egg (1)", "nutrients": {"energy_kcal": 70, "protein_g": 6}, "micronutrients": {"choline_mg": 140, "vitamin_d_ug": 1.1, "epa_mg": 5, "dha_mg": 15, "vitamin_a_rae_ug": 80}}, {"name": "Toast Handle", "nutrients": {"energy_kcal": 130}, "micronutrients": {"iron_mg": 0.8}}] },
+        { "id": "m7", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Banana (1/2)", "nutrients": {"energy_kcal": 50}, "micronutrients": {"potassium_mg": 200}}, {"name": "Milk", "nutrients": {"energy_kcal": 50}, "micronutrients": {"calcium_mg": 100}}] },
+        { "id": "m8", "meal_type": "lunch", "totals": { "energy_kcal": 250, "protein_g": 10 }, "food_items": [{"name": "Grilled Cheese Sandwich (Small)", "nutrients": {"energy_kcal": 250, "protein_g": 10}, "micronutrients": {"calcium_mg": 200}}] },
+        { "id": "m9", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Applesauce", "nutrients": {"energy_kcal": 100}, "micronutrients": {"vitamin_c_mg": 5}}] },
+        { "id": "m10", "meal_type": "dinner", "totals": { "energy_kcal": 250, "protein_g": 12 }, "food_items": [{"name": "Chicken Nuggets (Homemade)", "nutrients": {"energy_kcal": 150, "protein_g": 10}}, {"name": "Broccoli Trees", "nutrients": {"energy_kcal": 100, "fiber_g": 3}, "micronutrients": {"folate_dfe_ug": 40, "vitamin_k_ug": 80}}] }
+      ]
     },
-    "2026-03-03": {
-      "date": "2026-03-03",
+    "2026-02-05": {
+      "date": "2026-02-05",
       "completed": true,
       "meals": [
-        { "id": "m11", "meal_type": "breakfast", "totals": { "energy_kcal": 200, "protein_g": 5 }, "food_items": [{"name": "Yogurt Tube", "nutrients": {"energy_kcal": 80, "protein_g": 3}}, {"name": "Cheerios", "nutrients": {"energy_kcal": 120, "iron_mg": 4}}] },
+        { "id": "m11", "meal_type": "breakfast", "totals": { "energy_kcal": 200, "protein_g": 5 }, "food_items": [{"name": "Yogurt Tube", "nutrients": {"energy_kcal": 80, "protein_g": 3}, "micronutrients": {"calcium_mg": 100, "vitamin_d_ug": 1.0}}, {"name": "Cheerios", "nutrients": {"energy_kcal": 120}, "micronutrients": {"iron_mg": 4, "zinc_mg": 1.0}}] },
         { "id": "m12", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Pear Slices", "nutrients": {"energy_kcal": 60}}, {"name": "Cracker", "nutrients": {"energy_kcal": 40}}] },
-        { "id": "m13", "meal_type": "lunch", "totals": { "energy_kcal": 250, "protein_g": 10 }, "food_items": [{"name": "Avocado & Bean Wrap", "nutrients": {"energy_kcal": 250, "protein_g": 10, "fat_g": 10}}] },
-        { "id": "m14", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Milk", "nutrients": {"energy_kcal": 100, "calcium_mg": 200}}] },
-        { "id": "m15", "meal_type": "dinner", "totals": { "energy_kcal": 250, "protein_g": 15 }, "food_items": [{"name": "Fish Finger", "nutrients": {"energy_kcal": 150, "protein_g": 10, "omega3_g": 0.5}}, {"name": "Rice", "nutrients": {"energy_kcal": 100}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 900, "protein_g": 35, "iron_mg": 6 }
+        { "id": "m13", "meal_type": "lunch", "totals": { "energy_kcal": 250, "protein_g": 10 }, "food_items": [{"name": "Avocado & Bean Wrap", "nutrients": {"energy_kcal": 250, "protein_g": 10, "fat_g": 10}, "micronutrients": {"folate_dfe_ug": 60, "fiber_g": 5, "ala_omega3_g": 0.1}}] },
+        { "id": "m14", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Milk", "nutrients": {"energy_kcal": 100}, "micronutrients": {"calcium_mg": 200}}] },
+        { "id": "m15", "meal_type": "dinner", "totals": { "energy_kcal": 250, "protein_g": 15 }, "food_items": [{"name": "Fish Finger", "nutrients": {"energy_kcal": 150, "protein_g": 10}, "micronutrients": {"epa_mg": 40, "dha_mg": 60, "iodine_ug": 30}}, {"name": "Rice", "nutrients": {"energy_kcal": 100}}] }
+      ]
     },
-    "2026-03-04": {
-      "date": "2026-03-04",
+    "2026-02-06": {
+      "date": "2026-02-06",
       "completed": true,
       "meals": [
-        { "id": "m16", "meal_type": "breakfast", "totals": { "energy_kcal": 220 }, "food_items": [{"name": "Waffle (Whole Grain)", "nutrients": {"energy_kcal": 150, "carbs_g": 20}}, {"name": "Fruit Puree", "nutrients": {"energy_kcal": 70}}] },
-        { "id": "m17", "meal_type": "snack", "totals": { "energy_kcal": 80 }, "food_items": [{"name": "String Cheese", "nutrients": {"energy_kcal": 80, "protein_g": 6, "calcium_mg": 100}}] },
-        { "id": "m18", "meal_type": "lunch", "totals": { "energy_kcal": 280 }, "food_items": [{"name": "PB & Banana Sandwich (Half)", "nutrients": {"energy_kcal": 280, "protein_g": 8, "fat_g": 12}}] },
+        { "id": "m16", "meal_type": "breakfast", "totals": { "energy_kcal": 220 }, "food_items": [{"name": "Waffle (Whole Grain)", "nutrients": {"energy_kcal": 150, "carbs_g": 20}, "micronutrients": {"iron_mg": 1.2, "fiber_g": 2}}, {"name": "Fruit Puree", "nutrients": {"energy_kcal": 70}, "micronutrients": {"vitamin_c_mg": 10}}] },
+        { "id": "m17", "meal_type": "snack", "totals": { "energy_kcal": 80 }, "food_items": [{"name": "String Cheese", "nutrients": {"energy_kcal": 80, "protein_g": 6}, "micronutrients": {"calcium_mg": 150, "zinc_mg": 0.5}}] },
+        { "id": "m18", "meal_type": "lunch", "totals": { "energy_kcal": 280 }, "food_items": [{"name": "PB & Banana Sandwich (Half)", "nutrients": {"energy_kcal": 280, "protein_g": 8, "fat_g": 12}, "micronutrients": {"fiber_g": 3, "niacin_mg_ne": 4}}] },
         { "id": "m19", "meal_type": "snack", "totals": { "energy_kcal": 90 }, "food_items": [{"name": "Graham Crackers", "nutrients": {"energy_kcal": 90}}] },
-        { "id": "m20", "meal_type": "dinner", "totals": { "energy_kcal": 230 }, "food_items": [{"name": "Beef Bolognese & Penne", "nutrients": {"energy_kcal": 230, "protein_g": 10, "iron_mg": 1.5}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 900, "protein_g": 30, "iron_mg": 5 }
+        { "id": "m20", "meal_type": "dinner", "totals": { "energy_kcal": 230 }, "food_items": [{"name": "Beef Bolognese & Penne", "nutrients": {"energy_kcal": 230, "protein_g": 10}, "micronutrients": {"iron_mg": 2.5, "zinc_mg": 2.0, "vitamin_b12_ug": 0.8}}] }
+      ]
     },
-    "2026-03-05": {
-      "date": "2026-03-05",
+    "2026-02-07": {
+      "date": "2026-02-07",
       "completed": true,
       "meals": [
-        { "id": "m21", "meal_type": "breakfast", "totals": { "energy_kcal": 200 }, "food_items": [{"name": "Cottage Cheese & Peaches", "nutrients": {"energy_kcal": 200, "protein_g": 12, "calcium_mg": 120}}] },
+        { "id": "m21", "meal_type": "breakfast", "totals": { "energy_kcal": 200 }, "food_items": [{"name": "Cottage Cheese & Peaches", "nutrients": {"energy_kcal": 200, "protein_g": 12}, "micronutrients": {"calcium_mg": 100, "vitamin_a_rae_ug": 40}}] },
         { "id": "m22", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Pretzels", "nutrients": {"energy_kcal": 100}}] },
-        { "id": "m23", "meal_type": "lunch", "totals": { "energy_kcal": 250 }, "food_items": [{"name": "Ham & Cheese Rollups", "nutrients": {"energy_kcal": 200, "protein_g": 12}}, {"name": "Cucumber Slices", "nutrients": {"energy_kcal": 50}}] },
-        { "id": "m24", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Orange Slices", "nutrients": {"energy_kcal": 100, "vitamin_c_mg": 40}}] },
-        { "id": "m25", "meal_type": "dinner", "totals": { "energy_kcal": 250 }, "food_items": [{"name": "Chicken & Rice Casserole", "nutrients": {"energy_kcal": 250, "protein_g": 12, "fat_g": 8}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 900, "protein_g": 36 }
-    },
-    "2026-03-06": {
-      "date": "2026-03-06",
-      "completed": true,
-      "meals": [
-        { "id": "m26", "meal_type": "breakfast", "totals": { "energy_kcal": 200 }, "food_items": [{"name": "French Toast Stick", "nutrients": {"energy_kcal": 150}}, {"name": "Berries", "nutrients": {"energy_kcal": 50}}] },
-        { "id": "m27", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Milk", "nutrients": {"energy_kcal": 100, "calcium_mg": 200}}] },
-        { "id": "m28", "meal_type": "lunch", "totals": { "energy_kcal": 250 }, "food_items": [{"name": "Pasta with Marinara", "nutrients": {"energy_kcal": 250, "protein_g": 6}}] },
-        { "id": "m29", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Goldfish Crackers", "nutrients": {"energy_kcal": 100}}] },
-        { "id": "m30", "meal_type": "dinner", "totals": { "energy_kcal": 250 }, "food_items": [{"name": "Mild Salmon Patty", "nutrients": {"energy_kcal": 200, "protein_g": 12, "dha_mg": 100}}, {"name": "Peas", "nutrients": {"energy_kcal": 50}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 900, "protein_g": 30, "dha_mg": 100 }
-    },
-    "2026-03-07": {
-      "date": "2026-03-07",
-      "completed": true,
-      "meals": [
-        { "id": "m31", "meal_type": "breakfast", "totals": { "energy_kcal": 200 }, "food_items": [{"name": "Pancake (Small)", "nutrients": {"energy_kcal": 150}}, {"name": "Fruit Salad", "nutrients": {"energy_kcal": 50}}] },
-        { "id": "m32", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Yogurt", "nutrients": {"energy_kcal": 100, "calcium_mg": 150}}] },
-        { "id": "m33", "meal_type": "lunch", "totals": { "energy_kcal": 250 }, "food_items": [{"name": "Mini Pizza Bagel", "nutrients": {"energy_kcal": 250, "protein_g": 8}}] },
-        { "id": "m34", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Raisins", "nutrients": {"energy_kcal": 100, "iron_mg": 0.5}}] },
-        { "id": "m35", "meal_type": "dinner", "totals": { "energy_kcal": 250 }, "food_items": [{"name": "BBQ Chicken Drumstick", "nutrients": {"energy_kcal": 150, "protein_g": 12}}, {"name": "Cornbread", "nutrients": {"energy_kcal": 100}}] }
-      ],
-      "dailyTotals": { "energy_kcal": 900, "protein_g": 35 }
+        { "id": "m23", "meal_type": "lunch", "totals": { "energy_kcal": 250 }, "food_items": [{"name": "Ham & Cheese Rollups", "nutrients": {"energy_kcal": 200, "protein_g": 12}, "micronutrients": {"calcium_mg": 100, "sodium_mg": 400}}, {"name": "Cucumber Slices", "nutrients": {"energy_kcal": 50}}] },
+        { "id": "m24", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Orange Slices", "nutrients": {"energy_kcal": 100}, "micronutrients": {"vitamin_c_mg": 40, "folate_dfe_ug": 15}}] },
+        { "id": "m25", "meal_type": "dinner", "totals": { "energy_kcal": 250 }, "food_items": [{"name": "Chicken & Rice Casserole", "nutrients": {"energy_kcal": 250, "protein_g": 12, "fat_g": 8}, "micronutrients": {"iron_mg": 1.0, "zinc_mg": 1.5}}] }
+      ]
     },
     "2026-02-08": {
       "date": "2026-02-08",
+      "completed": true,
+      "meals": [
+        { "id": "m26", "meal_type": "breakfast", "totals": { "energy_kcal": 200 }, "food_items": [{"name": "French Toast Stick", "nutrients": {"energy_kcal": 150}, "micronutrients": {"iron_mg": 0.5}}, {"name": "Berries", "nutrients": {"energy_kcal": 50}, "micronutrients": {"vitamin_c_mg": 10, "fiber_g": 1.5}}] },
+        { "id": "m27", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Milk", "nutrients": {"energy_kcal": 100}, "micronutrients": {"calcium_mg": 200, "vitamin_d_ug": 1.5}}] },
+        { "id": "m28", "meal_type": "lunch", "totals": { "energy_kcal": 250 }, "food_items": [{"name": "Pasta with Marinara", "nutrients": {"energy_kcal": 250, "protein_g": 6}, "micronutrients": {"vitamin_a_rae_ug": 30, "iron_mg": 1.5}}] },
+        { "id": "m29", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Goldfish Crackers", "nutrients": {"energy_kcal": 100}}] },
+        { "id": "m30", "meal_type": "dinner", "totals": { "energy_kcal": 250 }, "food_items": [{"name": "Mild Salmon Patty", "nutrients": {"energy_kcal": 200, "protein_g": 12}, "micronutrients": {"dha_mg": 100, "epa_mg": 50, "vitamin_d_ug": 4.0, "iodine_ug": 40}}, {"name": "Peas", "nutrients": {"energy_kcal": 50}, "micronutrients": {"fiber_g": 2, "folate_dfe_ug": 30}}] }
+      ]
+    },
+    "2026-02-09": {
+      "date": "2026-02-09",
+      "completed": true,
+      "meals": [
+        { "id": "m31", "meal_type": "breakfast", "totals": { "energy_kcal": 200 }, "food_items": [{"name": "Pancake (Small)", "nutrients": {"energy_kcal": 150}}, {"name": "Fruit Salad", "nutrients": {"energy_kcal": 50}, "micronutrients": {"vitamin_c_mg": 15}}] },
+        { "id": "m32", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Yogurt", "nutrients": {"energy_kcal": 100}, "micronutrients": {"calcium_mg": 150, "vitamin_d_ug": 1.0}}] },
+        { "id": "m33", "meal_type": "lunch", "totals": { "energy_kcal": 250 }, "food_items": [{"name": "Mini Pizza Bagel", "nutrients": {"energy_kcal": 250, "protein_g": 8}, "micronutrients": {"calcium_mg": 80, "sodium_mg": 350}}] },
+        { "id": "m34", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Raisins", "nutrients": {"energy_kcal": 100}, "micronutrients": {"iron_mg": 0.8, "potassium_mg": 150}}] },
+        { "id": "m35", "meal_type": "dinner", "totals": { "energy_kcal": 250 }, "food_items": [{"name": "BBQ Chicken Drumstick", "nutrients": {"energy_kcal": 150, "protein_g": 12}, "micronutrients": {"iron_mg": 0.5, "zinc_mg": 1.0}}, {"name": "Cornbread", "nutrients": {"energy_kcal": 100}}] }
+      ]
+    },
+    "2026-02-10": {
+      "date": "2026-02-10",
       "completed": false,
       "meals": [
-        { "id": "m36", "meal_type": "breakfast", "totals": { "energy_kcal": 200, "protein_g": 6 }, "food_items": [{"name": "Cereal with Milk", "nutrients": {"energy_kcal": 200, "protein_g": 6, "calcium_mg": 150}}] },
-        { "id": "m37", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Apple Slices", "nutrients": {"energy_kcal": 100}}] },
-        { "id": "m38", "meal_type": "lunch", "totals": { "energy_kcal": 250, "protein_g": 10 }, "food_items": [{"name": "Turkey Sandwich (Half)", "nutrients": {"energy_kcal": 250, "protein_g": 10}}] }
+        { "id": "m36", "meal_type": "breakfast", "totals": { "energy_kcal": 200, "protein_g": 6 }, "food_items": [{"name": "Cereal with Milk", "nutrients": {"energy_kcal": 200, "protein_g": 6}, "micronutrients": {"calcium_mg": 150, "iron_mg": 4.5, "vitamin_d_ug": 2.0}}] },
+        { "id": "m37", "meal_type": "snack", "totals": { "energy_kcal": 100 }, "food_items": [{"name": "Apple Slices", "nutrients": {"energy_kcal": 100}, "micronutrients": {"fiber_g": 2}}] },
+        { "id": "m38", "meal_type": "lunch", "totals": { "energy_kcal": 250, "protein_g": 10 }, "food_items": [{"name": "Turkey Sandwich (Half)", "nutrients": {"energy_kcal": 250, "protein_g": 10}, "micronutrients": {"iron_mg": 1.0, "zinc_mg": 1.2}}] }
       ]
     }
   }

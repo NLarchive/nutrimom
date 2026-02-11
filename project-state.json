@@ -1156,6 +1156,31 @@
         "README.md - Updated test count to '350+ tests' and verified feature claims",
         "Deleted temporary validation report (README_VALIDATION.md)"
       ]
+    },
+    {
+      "task_name": "Full Demographic Sample Audit & Engine Verification",
+      "description": "Overhauled all 5 sample data files (Male, Female, Pregnant, Child, Week-Log) with corrected dates (Feb 2026) and complete micronutrient data. Created Node.js verification suit to ensure NutritionEngine correctly calculates targets (Schofield vs MSJ) for all demographic types. Fixed Dashboard to be context-aware regarding pregnancy insights.",
+      "start_date": "2026-02-10",
+      "end_date": "2026-02-10",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 3,
+      "actual_hours": 3,
+      "is_critical_path": false,
+      "tags": ["dashboard", "bugfix", "sample-data", "verification", "testing"],
+      "category_name": "UI/UX",
+      "assigned_workers": [
+        { "name": "GitHub Copilot", "email": "copilot@github.com", "role": "AI Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Final Code & Documentation Validation", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "plugins/food-tracker/food-log-dashboard.js - Context-aware insights",
+        "data/samples/*.json - All 5 samples audited and fixed",
+        "tests/verify-samples.js - Automated engine verification script"
+      ]
     }
   ],
   "milestones": [
