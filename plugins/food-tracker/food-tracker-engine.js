@@ -27,9 +27,14 @@ class FoodTrackerEngine {
     this._ensureMeta();
 
     // Recalculate totals for all days to ensure consistency (handles legacy data/string bugs)
-    this.getAllDates().forEach(date => {
-      this._recalculateDailyTotals(date);
-    });
+    const dates = this.getAllDates();
+    if (dates.length > 0) {
+      dates.forEach(date => {
+        this._recalculateDailyTotals(date);
+      });
+      // Persist recalculated totals so localStorage stays consistent
+      this._saveToStorage();
+    }
     
     // Check for day transition on load
     this._checkDayTransition();

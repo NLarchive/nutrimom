@@ -114,8 +114,8 @@ test.describe('Food Log Import & Dashboard', () => {
     expect(meta).toBeTruthy();
     expect(meta.version).toBe('2.0');
     expect(meta.totalDaysLogged).toBe(7);
-    expect(meta.firstEntryDate).toBe('2026-02-01');
-    expect(meta.lastEntryDate).toBe('2026-02-07');
+    expect(meta.firstEntryDate).toBe('2026-02-04');
+    expect(meta.lastEntryDate).toBe('2026-02-10');
   });
 
   test('Each day has correct meal count', async ({ page }) => {
@@ -140,14 +140,14 @@ test.describe('Food Log Import & Dashboard', () => {
       return counts;
     });
 
-    // Verify meal counts match sample data
-    expect(mealCounts['2026-02-01']).toBe(4); // breakfast, lunch, snack, dinner
-    expect(mealCounts['2026-02-02']).toBe(3); // breakfast, lunch, dinner
-    expect(mealCounts['2026-02-03']).toBe(4); // breakfast, lunch, snack, dinner
-    expect(mealCounts['2026-02-04']).toBe(3); // breakfast, lunch, dinner
-    expect(mealCounts['2026-02-05']).toBe(4); // breakfast, lunch, snack, dinner
-    expect(mealCounts['2026-02-06']).toBe(3); // breakfast, lunch, dinner
-    expect(mealCounts['2026-02-07']).toBe(2); // breakfast, lunch (today - incomplete)
+    // Verify meal counts match sample data (1 meal per day in simplified sample)
+    expect(mealCounts['2026-02-04']).toBe(1); // breakfast
+    expect(mealCounts['2026-02-05']).toBe(1); // breakfast
+    expect(mealCounts['2026-02-06']).toBe(1); // lunch
+    expect(mealCounts['2026-02-07']).toBe(1); // dinner
+    expect(mealCounts['2026-02-08']).toBe(1); // dinner
+    expect(mealCounts['2026-02-09']).toBe(1); // breakfast
+    expect(mealCounts['2026-02-10']).toBe(1); // breakfast (incomplete)
   });
 
   test('Daily totals include macros and micronutrients', async ({ page }) => {
@@ -160,23 +160,30 @@ test.describe('Food Log Import & Dashboard', () => {
     await page.reload();
     await page.waitForLoadState('networkidle');
 
+    // Day 2026-02-04: Oatmeal with milk (250kcal, 10g protein, 35g carbs, 5g fat)
     const day1Totals = await page.evaluate(() => {
       const data = JSON.parse(localStorage.getItem('nutrimom_food_log') || '{}');
-      return data['2026-02-01']?.dailyTotals;
+      return data['2026-02-04']?.dailyTotals;
     });
 
     // Verify macros
-    expect(day1Totals.energy_kcal).toBeGreaterThan(1000);
-    expect(day1Totals.protein_g).toBeGreaterThan(50);
-    expect(day1Totals.carbs_g).toBeGreaterThan(50);
-    expect(day1Totals.fat_g).toBeGreaterThan(20);
+    expect(day1Totals.energy_kcal).toBeGreaterThanOrEqual(250);
+    expect(day1Totals.protein_g).toBeGreaterThanOrEqual(10);
+    expect(day1Totals.carbs_g).toBeGreaterThanOrEqual(35);
+    expect(day1Totals.fat_g).toBeGreaterThanOrEqual(5);
 
-    // Verify micronutrients exist
-    expect(day1Totals.folate_dfe_ug || day1Totals.folate_ug).toBeGreaterThan(0);
+    // Verify micronutrients exist on day 1
+    expect(day1Totals.folate_dfe_ug).toBeGreaterThan(0);
     expect(day1Totals.iron_mg).toBeGreaterThan(0);
     expect(day1Totals.calcium_mg).toBeGreaterThan(0);
-    expect(day1Totals.vitamin_d_ug).toBeGreaterThan(0);
-    expect(day1Totals.dha_mg || day1Totals.omega3_mg).toBeGreaterThan(0);
+
+    // Verify micronutrients on day with omega-3 / vitamin D (2026-02-06: Salmon poke bowl)
+    const day3Totals = await page.evaluate(() => {
+      const data = JSON.parse(localStorage.getItem('nutrimom_food_log') || '{}');
+      return data['2026-02-06']?.dailyTotals;
+    });
+    expect(day3Totals.vitamin_d_ug).toBeGreaterThan(0);
+    expect(day3Totals.dha_mg).toBeGreaterThan(0);
   });
 
   test('Meals have correct timestamps with datetime', async ({ page }) => {
@@ -193,22 +200,17 @@ test.describe('Food Log Import & Dashboard', () => {
     const timestamps = await page.evaluate(() => {
       const data = JSON.parse(localStorage.getItem('nutrimom_food_log') || '{}');
       /** @type {{timestamp: string}[]} */
-      const meals = data['2026-02-01']?.meals || [];
+      const meals = data['2026-02-04']?.meals || [];
       return meals.map(m => m.timestamp);
     });
 
-    expect(timestamps).toHaveLength(4);
+    expect(timestamps).toHaveLength(1);
     // Verify timestamps are valid ISO strings with time
     timestamps.forEach(ts => {
       expect(ts).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/);
       const date = new Date(ts);
       expect(date.getTime()).toBeGreaterThan(0);
     });
-    
-    // Verify chronological order
-    for (let i = 1; i < timestamps.length; i++) {
-      expect(new Date(timestamps[i]).getTime()).toBeGreaterThan(new Date(timestamps[i-1]).getTime());
-    }
   });
 
   test('Completed days are marked as completed', async ({ page }) => {
@@ -234,14 +236,14 @@ test.describe('Food Log Import & Dashboard', () => {
     });
 
     // Past days should be completed
-    expect(completionStatus['2026-02-01']).toBe(true);
-    expect(completionStatus['2026-02-02']).toBe(true);
-    expect(completionStatus['2026-02-03']).toBe(true);
     expect(completionStatus['2026-02-04']).toBe(true);
     expect(completionStatus['2026-02-05']).toBe(true);
     expect(completionStatus['2026-02-06']).toBe(true);
-    // Today should not be completed
-    expect(completionStatus['2026-02-07']).toBe(true); // Now past
+    expect(completionStatus['2026-02-07']).toBe(true);
+    expect(completionStatus['2026-02-08']).toBe(true);
+    expect(completionStatus['2026-02-09']).toBe(true);
+    // Last day is not completed
+    expect(completionStatus['2026-02-10']).toBe(false);
   });
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -421,19 +423,19 @@ test.describe('Food Log Import & Dashboard', () => {
     await page.reload();
     await page.waitForLoadState('networkidle');
 
-    // Check a specific meal's food items
+    // Check Salmon poke bowl on 2026-02-06 (has rich nutrient data)
     const foodItem = await page.evaluate(() => {
       const data = JSON.parse(localStorage.getItem('nutrimom_food_log') || '{}');
-      return data['2026-02-01']?.meals[3]?.food_items[0]; // Dinner salmon
+      return data['2026-02-06']?.meals[0]?.food_items[0];
     });
 
-    expect(foodItem.name).toBe('Grilled salmon fillet');
-    expect(foodItem.nutrients.energy_kcal).toBe(350);
-    expect(foodItem.nutrients.protein_g).toBe(39);
-    expect(foodItem.micronutrients.omega3_mg).toBe(2260);
-    expect(foodItem.micronutrients.vitamin_d_ug).toBe(14.5);
-    expect(foodItem.preparation_method).toBe('grilled');
-    expect(foodItem.estimated_weight_g).toBe(170);
+    expect(foodItem.name).toBe('Salmon poke bowl');
+    expect(foodItem.nutrients.energy_kcal).toBe(650);
+    expect(foodItem.nutrients.protein_g).toBe(35);
+    expect(foodItem.micronutrients.dha_mg).toBe(600);
+    expect(foodItem.micronutrients.vitamin_d_ug).toBe(10);
+    expect(foodItem.preparation_method).toBe('raw');
+    expect(foodItem.estimated_weight_g).toBe(350);
   });
 
   test('Each meal has meal_type and timestamp', async ({ page }) => {

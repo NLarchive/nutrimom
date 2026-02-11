@@ -24,7 +24,8 @@ test.describe('Food Tracker Manual Workflow', () => {
     await expect(page.locator('.meal-option[data-meal="breakfast"]')).not.toHaveClass(/active/);
   });
 
-  test('should copy prompt to clipboard', async ({ page }) => {
+  test('should copy prompt to clipboard', async ({ page, browserName }) => {
+    test.skip(browserName === 'firefox', 'Firefox does not support clipboard-write permission');
     await page.context().grantPermissions(['clipboard-write', 'clipboard-read']);
 
     await page.click('#ft-copy-prompt');

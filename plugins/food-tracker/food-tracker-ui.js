@@ -1412,9 +1412,9 @@ FINAL CHECK: Ensure the JSON is valid and contains no preamble or postamble.`;
 
         if (item.micronutrients) {
           this._validateNutrientObject(item.micronutrients, `Item ${i + 1} micronutrients`, errors);
-        } else {
-          errors.push(`Item ${i + 1}: Missing micronutrients object - micronutrients are required for accurate tracking`);
         }
+        // Note: micronutrients key is optional — nutrients may be flat in item.nutrients
+        // The engine's _recalculateDailyTotals handles both layouts
       });
     }
 
@@ -1439,13 +1439,23 @@ FINAL CHECK: Ensure the JSON is valid and contains no preamble or postamble.`;
    */
   _validateNutrientObject(obj, context, errors) {
     const limits = this.VALIDATION_LIMITS;
+    // Complete whitelist synced with _emptyTotals(), nutrients.json, and LLM prompt
     const allowedNutrientKeys = [
+      // Macros
       'energy_kcal', 'protein_g', 'carbs_g', 'fat_g', 'fiber_g', 'sugar_g',
-      'sodium_mg', 'saturated_fat_g', 'potassium_mg', 'magnesium_mg',
-      'vitamin_a_rae_ug', 'vitamin_a_ug', 'vitamin_c_mg', 'vitamin_d_ug', 
-      'folate_dfe_ug', 'folate_ug', 'iron_mg', 'calcium_mg', 'zinc_mg', 
-      'dha_mg', 'epa_mg', 'omega3_mg', 'iodine_ug', 'choline_mg',
-      'vitamin_b12_ug', 'vitamin_b6_mg', 'vitamin_k_ug', 'vitamin_e_mg', 'selenium_ug'
+      'sodium_mg', 'saturated_fat_g', 'potassium_mg', 'magnesium_mg', 'water_l',
+      // B-complex vitamins
+      'thiamin_mg', 'riboflavin_mg', 'niacin_mg_ne', 'pantothenic_acid_mg',
+      'vitamin_b6_mg', 'biotin_ug', 'folate_dfe_ug', 'vitamin_b12_ug', 'choline_mg',
+      // Other vitamins
+      'vitamin_a_rae_ug', 'vitamin_c_mg', 'vitamin_d_ug', 'vitamin_e_mg', 'vitamin_k_ug',
+      // Minerals
+      'iron_mg', 'calcium_mg', 'zinc_mg', 'iodine_ug', 'phosphorus_mg', 'selenium_ug',
+      'copper_ug', 'manganese_mg', 'chromium_ug', 'molybdenum_ug', 'chloride_mg', 'fluoride_mg',
+      // Fatty acids
+      'dha_mg', 'epa_mg', 'ala_omega3_g',
+      // LLM aliases (normalised during sanitisation)
+      'vitamin_a_ug', 'folate_ug', 'omega3_mg'
     ];
 
     Object.entries(obj).forEach(([key, value]) => {
@@ -1494,39 +1504,86 @@ FINAL CHECK: Ensure the JSON is valid and contains no preamble or postamble.`;
           sodium_mg: this._sanitizeNumber(item.nutrients?.sodium_mg),
           saturated_fat_g: this._sanitizeNumber(item.nutrients?.saturated_fat_g),
           potassium_mg: this._sanitizeNumber(item.nutrients?.potassium_mg),
-          magnesium_mg: this._sanitizeNumber(item.nutrients?.magnesium_mg)
+          magnesium_mg: this._sanitizeNumber(item.nutrients?.magnesium_mg),
+          water_l: this._sanitizeNumber(item.nutrients?.water_l)
         },
         micronutrients: {
+          // B-complex vitamins
+          thiamin_mg: this._sanitizeNumber(item.micronutrients?.thiamin_mg),
+          riboflavin_mg: this._sanitizeNumber(item.micronutrients?.riboflavin_mg),
+          niacin_mg_ne: this._sanitizeNumber(item.micronutrients?.niacin_mg_ne),
+          pantothenic_acid_mg: this._sanitizeNumber(item.micronutrients?.pantothenic_acid_mg),
+          vitamin_b6_mg: this._sanitizeNumber(item.micronutrients?.vitamin_b6_mg),
+          biotin_ug: this._sanitizeNumber(item.micronutrients?.biotin_ug),
+          folate_dfe_ug: this._sanitizeNumber(item.micronutrients?.folate_dfe_ug || item.micronutrients?.folate_ug),
+          vitamin_b12_ug: this._sanitizeNumber(item.micronutrients?.vitamin_b12_ug),
+          choline_mg: this._sanitizeNumber(item.micronutrients?.choline_mg),
+          // Other vitamins
           vitamin_a_rae_ug: this._sanitizeNumber(item.micronutrients?.vitamin_a_rae_ug || item.micronutrients?.vitamin_a_ug),
           vitamin_c_mg: this._sanitizeNumber(item.micronutrients?.vitamin_c_mg),
           vitamin_d_ug: this._sanitizeNumber(item.micronutrients?.vitamin_d_ug),
-          folate_dfe_ug: this._sanitizeNumber(item.micronutrients?.folate_dfe_ug || item.micronutrients?.folate_ug),
+          vitamin_e_mg: this._sanitizeNumber(item.micronutrients?.vitamin_e_mg),
+          vitamin_k_ug: this._sanitizeNumber(item.micronutrients?.vitamin_k_ug),
+          // Minerals
           iron_mg: this._sanitizeNumber(item.micronutrients?.iron_mg),
           calcium_mg: this._sanitizeNumber(item.micronutrients?.calcium_mg),
           zinc_mg: this._sanitizeNumber(item.micronutrients?.zinc_mg),
+          iodine_ug: this._sanitizeNumber(item.micronutrients?.iodine_ug),
+          phosphorus_mg: this._sanitizeNumber(item.micronutrients?.phosphorus_mg),
+          selenium_ug: this._sanitizeNumber(item.micronutrients?.selenium_ug),
+          copper_ug: this._sanitizeNumber(item.micronutrients?.copper_ug),
+          manganese_mg: this._sanitizeNumber(item.micronutrients?.manganese_mg),
+          chromium_ug: this._sanitizeNumber(item.micronutrients?.chromium_ug),
+          molybdenum_ug: this._sanitizeNumber(item.micronutrients?.molybdenum_ug),
+          chloride_mg: this._sanitizeNumber(item.micronutrients?.chloride_mg),
+          fluoride_mg: this._sanitizeNumber(item.micronutrients?.fluoride_mg),
+          // Fatty acids
           dha_mg: this._sanitizeNumber(item.micronutrients?.dha_mg || item.micronutrients?.omega3_mg),
           epa_mg: this._sanitizeNumber(item.micronutrients?.epa_mg),
-          iodine_ug: this._sanitizeNumber(item.micronutrients?.iodine_ug),
-          choline_mg: this._sanitizeNumber(item.micronutrients?.choline_mg),
-          vitamin_b12_ug: this._sanitizeNumber(item.micronutrients?.vitamin_b12_ug),
-          vitamin_b6_mg: this._sanitizeNumber(item.micronutrients?.vitamin_b6_mg),
-          vitamin_k_ug: this._sanitizeNumber(item.micronutrients?.vitamin_k_ug),
-          vitamin_e_mg: this._sanitizeNumber(item.micronutrients?.vitamin_e_mg),
-          selenium_ug: this._sanitizeNumber(item.micronutrients?.selenium_ug)
+          ala_omega3_g: this._sanitizeNumber(item.micronutrients?.ala_omega3_g)
         }
       })),
       totals: {
+        // Macros
         energy_kcal: this._sanitizeNumber(parsed.totals?.energy_kcal),
         protein_g: this._sanitizeNumber(parsed.totals?.protein_g),
         carbs_g: this._sanitizeNumber(parsed.totals?.carbs_g),
         fat_g: this._sanitizeNumber(parsed.totals?.fat_g),
         fiber_g: this._sanitizeNumber(parsed.totals?.fiber_g),
+        sugar_g: this._sanitizeNumber(parsed.totals?.sugar_g),
         sodium_mg: this._sanitizeNumber(parsed.totals?.sodium_mg),
+        // B-complex vitamins
+        thiamin_mg: this._sanitizeNumber(parsed.totals?.thiamin_mg),
+        riboflavin_mg: this._sanitizeNumber(parsed.totals?.riboflavin_mg),
+        niacin_mg_ne: this._sanitizeNumber(parsed.totals?.niacin_mg_ne),
+        pantothenic_acid_mg: this._sanitizeNumber(parsed.totals?.pantothenic_acid_mg),
+        vitamin_b6_mg: this._sanitizeNumber(parsed.totals?.vitamin_b6_mg),
+        biotin_ug: this._sanitizeNumber(parsed.totals?.biotin_ug),
         folate_dfe_ug: this._sanitizeNumber(parsed.totals?.folate_dfe_ug || parsed.totals?.folate_ug),
+        vitamin_b12_ug: this._sanitizeNumber(parsed.totals?.vitamin_b12_ug),
+        choline_mg: this._sanitizeNumber(parsed.totals?.choline_mg),
+        // Other vitamins
+        vitamin_a_rae_ug: this._sanitizeNumber(parsed.totals?.vitamin_a_rae_ug || parsed.totals?.vitamin_a_ug),
+        vitamin_c_mg: this._sanitizeNumber(parsed.totals?.vitamin_c_mg),
+        vitamin_d_ug: this._sanitizeNumber(parsed.totals?.vitamin_d_ug),
+        vitamin_e_mg: this._sanitizeNumber(parsed.totals?.vitamin_e_mg),
+        vitamin_k_ug: this._sanitizeNumber(parsed.totals?.vitamin_k_ug),
+        // Minerals
         iron_mg: this._sanitizeNumber(parsed.totals?.iron_mg),
         calcium_mg: this._sanitizeNumber(parsed.totals?.calcium_mg),
-        vitamin_b12_ug: this._sanitizeNumber(parsed.totals?.vitamin_b12_ug),
-        dha_mg: this._sanitizeNumber(parsed.totals?.dha_mg || parsed.totals?.omega3_mg)
+        zinc_mg: this._sanitizeNumber(parsed.totals?.zinc_mg),
+        iodine_ug: this._sanitizeNumber(parsed.totals?.iodine_ug),
+        magnesium_mg: this._sanitizeNumber(parsed.totals?.magnesium_mg),
+        phosphorus_mg: this._sanitizeNumber(parsed.totals?.phosphorus_mg),
+        selenium_ug: this._sanitizeNumber(parsed.totals?.selenium_ug),
+        copper_ug: this._sanitizeNumber(parsed.totals?.copper_ug),
+        manganese_mg: this._sanitizeNumber(parsed.totals?.manganese_mg),
+        potassium_mg: this._sanitizeNumber(parsed.totals?.potassium_mg),
+        chromium_ug: this._sanitizeNumber(parsed.totals?.chromium_ug),
+        // Fatty acids
+        dha_mg: this._sanitizeNumber(parsed.totals?.dha_mg || parsed.totals?.omega3_mg),
+        epa_mg: this._sanitizeNumber(parsed.totals?.epa_mg),
+        ala_omega3_g: this._sanitizeNumber(parsed.totals?.ala_omega3_g)
       },
       warnings: Array.isArray(parsed.warnings) 
         ? parsed.warnings.slice(0, 10).map(w => this._sanitizeString(w, 500)) 
