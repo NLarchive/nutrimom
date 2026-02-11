@@ -609,10 +609,10 @@ class FoodTrackerUI {
               <span class="food-quantity">${item.quantity} ${item.unit} (${item.estimated_weight_g}g)</span>
             </div>
             <div class="food-item-nutrients">
-              <span class="nutrient">${item.nutrients.energy_kcal} kcal</span>
-              <span class="nutrient">P: ${item.nutrients.protein_g}g</span>
-              <span class="nutrient">C: ${item.nutrients.carbs_g}g</span>
-              <span class="nutrient">F: ${item.nutrients.fat_g}g</span>
+              <span class="nutrient">${(item.nutrients && typeof item.nutrients.energy_kcal !== 'undefined') ? item.nutrients.energy_kcal : 0} kcal</span>
+              <span class="nutrient">P: ${(item.nutrients && typeof item.nutrients.protein_g !== 'undefined') ? item.nutrients.protein_g : 0}g</span>
+              <span class="nutrient">C: ${(item.nutrients && typeof item.nutrients.carbs_g !== 'undefined') ? item.nutrients.carbs_g : 0}g</span>
+              <span class="nutrient">F: ${(item.nutrients && typeof item.nutrients.fat_g !== 'undefined') ? item.nutrients.fat_g : 0}g</span>
             </div>
           </div>
         `).join('')}
@@ -848,8 +848,8 @@ class FoodTrackerUI {
             ${meal.food_items.length > 3 ? `+${meal.food_items.length - 3} more` : ''}
           </div>
           <div class="meal-quick-stats">
-            <span>${meal.totals.energy_kcal} kcal</span>
-            <span>${meal.totals.protein_g}g protein</span>
+            <span>${(meal.totals && typeof meal.totals.energy_kcal !== 'undefined') ? meal.totals.energy_kcal : (meal.food_items ? Math.round(meal.food_items.reduce((s,it)=>s + (parseFloat(it.nutrients?.energy_kcal)||0),0)) : 0)} kcal</span>
+            <span>${(meal.totals && typeof meal.totals.protein_g !== 'undefined') ? meal.totals.protein_g : (meal.food_items ? Math.round(meal.food_items.reduce((s,it)=>s + (parseFloat(it.nutrients?.protein_g)||0),0)) : 0)}g protein</span>
           </div>
         </div>
       `).join('');
