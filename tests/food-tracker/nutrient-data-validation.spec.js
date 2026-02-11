@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * Nutrient Data Validation & Engine Test Suite
  * 
@@ -8,6 +9,9 @@
  * 3. compareToTargets produces correct comparison for every tracked nutrient
  * 4. Prompt contains all required nutrient keys
  * 5. nutrient-targets.json values match IOM DRI / research-validated sources
+ * 
+ * Note: Uses @ts-ignore comments for dynamically loaded window objects (foodTrackerUI, foodTrackerEngine)
+ * These types are verified at runtime by Playwright and don't affect test execution.
  * 
  * Sources: IOM DRI Tables, NIH ODS, NASEM 2019, DGA 2025-2030, Cochrane (Omega-3)
  */
@@ -314,7 +318,7 @@ test.describe('Nutrient Database Validation', () => {
   test('nutrients.json has entries for ALL engine-tracked nutrient codes', () => {
     const nutrientsPath = path.join(__dirname, '..', '..', 'data', 'nutrients.json');
     const nutrients = JSON.parse(fs.readFileSync(nutrientsPath, 'utf8'));
-    const codes = nutrients.map(n => n.code);
+    const codes = nutrients.map((n) => n.code);
 
     // All engine-tracked keys except sodium_mg should have a nutrients.json entry
     const missing = ENGINE_TRACKED_NUTRIENTS.filter(key => !codes.includes(key));
@@ -364,7 +368,7 @@ test.describe('Engine Aggregation - All 37 Nutrients', () => {
 
     engine.addToLog(SALMON_BOWL_MEAL);
     const day = engine.getDailyLog();
-    const t = day.dailyTotals;
+    const t = day.dailyTotals || {};
 
     // Verify every tracked nutrient has been aggregated
     for (const key of ENGINE_TRACKED_NUTRIENTS) {
@@ -428,16 +432,16 @@ test.describe('Engine Aggregation - All 37 Nutrients', () => {
     const comparison = engine.compareToTargets(pregnantTargets);
 
     // EPA should now appear in comparison since we added targets
-    expect(comparison.nutrients.epa_mg).toBeTruthy();
-    expect(comparison.nutrients.epa_mg.intake).toBe(860);
+    expect(comparison?.nutrients?.epa_mg).toBeTruthy();
+    expect(comparison?.nutrients?.epa_mg?.intake).toBe(860);
     // 860 / 50 * 100 = 1720%
-    expect(comparison.nutrients.epa_mg.percentage).toBeGreaterThan(100);
+    expect(comparison?.nutrients?.epa_mg?.percentage).toBeGreaterThan(100);
 
     // DHA should also be in comparison
-    expect(comparison.nutrients.dha_mg).toBeTruthy();
-    expect(comparison.nutrients.dha_mg.intake).toBe(1240);
+    expect(comparison?.nutrients?.dha_mg).toBeTruthy();
+    expect(comparison?.nutrients?.dha_mg?.intake).toBe(1240);
     // 1240 / 200 * 100 = 620%
-    expect(comparison.nutrients.dha_mg.percentage).toBeGreaterThan(100);
+    expect(comparison?.nutrients?.dha_mg?.percentage).toBeGreaterThan(100);
   });
 
   test('compareToTargets correctly flags nutrients below target', () => {
@@ -452,20 +456,20 @@ test.describe('Engine Aggregation - All 37 Nutrients', () => {
     const comparison = engine.compareToTargets(pregnantTargets);
 
     // Iron: 5.2 out of 27 RDA → should be low
-    expect(comparison.nutrients.iron_mg).toBeTruthy();
-    expect(comparison.nutrients.iron_mg.percentage).toBeLessThan(25);
+    expect(comparison?.nutrients?.iron_mg).toBeTruthy();
+    expect(comparison?.nutrients?.iron_mg?.percentage).toBeLessThan(25);
 
     // Folate: 225 out of 600 RDA → should be below target
-    expect(comparison.nutrients.folate_dfe_ug).toBeTruthy();
-    expect(comparison.nutrients.folate_dfe_ug.percentage).toBeLessThan(50);
+    expect(comparison?.nutrients?.folate_dfe_ug).toBeTruthy();
+    expect(comparison?.nutrients?.folate_dfe_ug?.percentage).toBeLessThan(50);
 
     // Calcium: 115 out of 1000 RDA → should be low
-    expect(comparison.nutrients.calcium_mg).toBeTruthy();
-    expect(comparison.nutrients.calcium_mg.percentage).toBeLessThan(15);
+    expect(comparison?.nutrients?.calcium_mg).toBeTruthy();
+    expect(comparison?.nutrients?.calcium_mg?.percentage).toBeLessThan(15);
 
     // Iodine: 30 out of 220 RDA → should be low
-    expect(comparison.nutrients.iodine_ug).toBeTruthy();
-    expect(comparison.nutrients.iodine_ug.percentage).toBeLessThan(15);
+    expect(comparison?.nutrients?.iodine_ug).toBeTruthy();
+    expect(comparison?.nutrients?.iodine_ug?.percentage).toBeLessThan(15);
   });
 });
 
@@ -505,8 +509,11 @@ test.describe('Prompt & UI Nutrient Key Alignment', () => {
 
     // Fallback: try internal method
     if (!prompt) {
+      // @ts-ignore - foodTrackerUI is dynamically loaded
       prompt = await page.evaluate(() => {
+        // @ts-ignore - foodTrackerUI is dynamically loaded
         if (window.foodTrackerUI && typeof window.foodTrackerUI._getManualPrompt === 'function') {
+          // @ts-ignore - foodTrackerUI is dynamically loaded
           return window.foodTrackerUI._getManualPrompt();
         }
         return '';
@@ -537,17 +544,21 @@ test.describe('Prompt & UI Nutrient Key Alignment', () => {
 
   test('logged meal is captured by engine and totals are correct', async ({ page }) => {
     // Inject the comprehensive salmon bowl directly
+    // @ts-ignore - foodTrackerEngine is dynamically loaded
     await page.evaluate((meal) => {
+      // @ts-ignore - foodTrackerEngine is dynamically loaded
       window.foodTrackerEngine.addToLog(meal);
     }, SALMON_BOWL_MEAL);
 
     // Verify the engine has the meal in today's log
+    // @ts-ignore - foodTrackerEngine is dynamically loaded
     const log = await page.evaluate(() => {
+      // @ts-ignore - foodTrackerEngine is dynamically loaded
       return window.foodTrackerEngine.getDailyLog();
     });
 
-    expect(log.meals.length).toBeGreaterThanOrEqual(1);
-    const t = log.dailyTotals;
+    expect(log?.meals?.length).toBeGreaterThanOrEqual(1);
+    const t = log?.dailyTotals || {};
 
     // Verify key nutrients from the salmon bowl are aggregated
     expect(t.energy_kcal).toBe(644);
@@ -561,8 +572,11 @@ test.describe('Prompt & UI Nutrient Key Alignment', () => {
     // Verify the meal card appears in the DOM
     const mealCards = page.locator('.meal-card, .ft-meal-entry');
     // The DOM may auto-refresh or we trigger it
+    // @ts-ignore - foodTrackerUI is dynamically loaded
     await page.evaluate(() => {
+      // @ts-ignore - foodTrackerUI is dynamically loaded
       if (window.foodTrackerUI && window.foodTrackerUI._updateDailyView) {
+        // @ts-ignore - foodTrackerUI is dynamically loaded
         window.foodTrackerUI._updateDailyView();
       }
     });
