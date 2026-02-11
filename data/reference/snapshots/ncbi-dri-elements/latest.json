@@ -1,0 +1,1718 @@
+{
+  "_meta": {
+    "source": "ncbi-dri-elements",
+    "sourceName": "National Academies DRI – RDA/AI Elements (2019, includes Na/K)",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK545442/table/appJ_tab3/?report=objectonly",
+    "fetchedAt": "2026-02-11T20:14:19.531Z",
+    "tableKind": "rda",
+    "nutrientCount": 15
+  },
+  "groups": {
+    "Infants": {
+      "0_6": {
+        "calcium_mg": {
+          "value": 200,
+          "type": "AI",
+          "raw": "200*a"
+        },
+        "chromium_ug": {
+          "value": 0.2,
+          "type": "AI",
+          "raw": "0.2*"
+        },
+        "copper_ug": {
+          "value": 200,
+          "type": "AI",
+          "raw": "200*"
+        },
+        "fluoride_mg": {
+          "value": 0.01,
+          "type": "AI",
+          "raw": "0.01*"
+        },
+        "iodine_ug": {
+          "value": 110,
+          "type": "AI",
+          "raw": "110*"
+        },
+        "iron_mg": {
+          "value": 0.27,
+          "type": "AI",
+          "raw": "0.27*"
+        },
+        "magnesium_mg": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "manganese_mg": {
+          "value": 0.003,
+          "type": "AI",
+          "raw": "0.003*"
+        },
+        "molybdenum_ug": {
+          "value": 2,
+          "type": "AI",
+          "raw": "2*"
+        },
+        "phosphorus_mg": {
+          "value": 100,
+          "type": "AI",
+          "raw": "100*"
+        },
+        "selenium_ug": {
+          "value": 15,
+          "type": "AI",
+          "raw": "15*"
+        },
+        "zinc_mg": {
+          "value": 2,
+          "type": "AI",
+          "raw": "2*"
+        },
+        "potassium_mg": {
+          "value": 400,
+          "type": "AI",
+          "raw": "400*"
+        },
+        "sodium_mg": {
+          "value": 110,
+          "type": "AI",
+          "raw": "110*"
+        },
+        "chloride_mg": {
+          "value": 180,
+          "type": "AI",
+          "raw": "0.18*"
+        }
+      },
+      "7_12": {
+        "calcium_mg": {
+          "value": 260,
+          "type": "AI",
+          "raw": "260*a"
+        },
+        "chromium_ug": {
+          "value": 5.5,
+          "type": "AI",
+          "raw": "5.5*"
+        },
+        "copper_ug": {
+          "value": 220,
+          "type": "AI",
+          "raw": "220*"
+        },
+        "fluoride_mg": {
+          "value": 0.5,
+          "type": "AI",
+          "raw": "0.5*"
+        },
+        "iodine_ug": {
+          "value": 130,
+          "type": "AI",
+          "raw": "130*"
+        },
+        "iron_mg": {
+          "value": 11,
+          "type": "RDA",
+          "raw": "11"
+        },
+        "magnesium_mg": {
+          "value": 75,
+          "type": "AI",
+          "raw": "75*"
+        },
+        "manganese_mg": {
+          "value": 0.6,
+          "type": "AI",
+          "raw": "0.6*"
+        },
+        "molybdenum_ug": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "phosphorus_mg": {
+          "value": 275,
+          "type": "AI",
+          "raw": "275*"
+        },
+        "selenium_ug": {
+          "value": 20,
+          "type": "AI",
+          "raw": "20*"
+        },
+        "zinc_mg": {
+          "value": 3,
+          "type": "RDA",
+          "raw": "3"
+        },
+        "potassium_mg": {
+          "value": 860,
+          "type": "AI",
+          "raw": "860*"
+        },
+        "sodium_mg": {
+          "value": 370,
+          "type": "AI",
+          "raw": "370*"
+        },
+        "chloride_mg": {
+          "value": 570,
+          "type": "AI",
+          "raw": "0.57*"
+        }
+      }
+    },
+    "Children": {
+      "1_3": {
+        "calcium_mg": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "chromium_ug": {
+          "value": 11,
+          "type": "AI",
+          "raw": "11*"
+        },
+        "copper_ug": {
+          "value": 340,
+          "type": "RDA",
+          "raw": "340"
+        },
+        "fluoride_mg": {
+          "value": 0.7,
+          "type": "AI",
+          "raw": "0.7*"
+        },
+        "iodine_ug": {
+          "value": 90,
+          "type": "RDA",
+          "raw": "90"
+        },
+        "iron_mg": {
+          "value": 7,
+          "type": "RDA",
+          "raw": "7"
+        },
+        "magnesium_mg": {
+          "value": 80,
+          "type": "RDA",
+          "raw": "80"
+        },
+        "manganese_mg": {
+          "value": 1.2,
+          "type": "AI",
+          "raw": "1.2*"
+        },
+        "molybdenum_ug": {
+          "value": 17,
+          "type": "RDA",
+          "raw": "17"
+        },
+        "phosphorus_mg": {
+          "value": 460,
+          "type": "RDA",
+          "raw": "460"
+        },
+        "selenium_ug": {
+          "value": 20,
+          "type": "RDA",
+          "raw": "20"
+        },
+        "zinc_mg": {
+          "value": 3,
+          "type": "RDA",
+          "raw": "3"
+        },
+        "potassium_mg": {
+          "value": 2000,
+          "type": "AI",
+          "raw": "2,000*"
+        },
+        "sodium_mg": {
+          "value": 800,
+          "type": "AI",
+          "raw": "800*"
+        },
+        "chloride_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1.5*"
+        }
+      },
+      "4_8": {
+        "calcium_mg": {
+          "value": 1000,
+          "type": "RDA",
+          "raw": "1,000"
+        },
+        "chromium_ug": {
+          "value": 15,
+          "type": "AI",
+          "raw": "15*"
+        },
+        "copper_ug": {
+          "value": 440,
+          "type": "RDA",
+          "raw": "440"
+        },
+        "fluoride_mg": {
+          "value": 1,
+          "type": "AI",
+          "raw": "1*"
+        },
+        "iodine_ug": {
+          "value": 90,
+          "type": "RDA",
+          "raw": "90"
+        },
+        "iron_mg": {
+          "value": 10,
+          "type": "RDA",
+          "raw": "10"
+        },
+        "magnesium_mg": {
+          "value": 130,
+          "type": "RDA",
+          "raw": "130"
+        },
+        "manganese_mg": {
+          "value": 1.5,
+          "type": "AI",
+          "raw": "1.5*"
+        },
+        "molybdenum_ug": {
+          "value": 22,
+          "type": "RDA",
+          "raw": "22"
+        },
+        "phosphorus_mg": {
+          "value": 500,
+          "type": "RDA",
+          "raw": "500"
+        },
+        "selenium_ug": {
+          "value": 30,
+          "type": "RDA",
+          "raw": "30"
+        },
+        "zinc_mg": {
+          "value": 5,
+          "type": "RDA",
+          "raw": "5"
+        },
+        "potassium_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2,300*"
+        },
+        "sodium_mg": {
+          "value": 1000,
+          "type": "AI",
+          "raw": "1,000*"
+        },
+        "chloride_mg": {
+          "value": 1900,
+          "type": "AI",
+          "raw": "1.9*"
+        }
+      }
+    },
+    "Males": {
+      "9_13": {
+        "calcium_mg": {
+          "value": 1300,
+          "type": "RDA",
+          "raw": "1,300"
+        },
+        "chromium_ug": {
+          "value": 25,
+          "type": "AI",
+          "raw": "25*"
+        },
+        "copper_ug": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "fluoride_mg": {
+          "value": 2,
+          "type": "AI",
+          "raw": "2*"
+        },
+        "iodine_ug": {
+          "value": 120,
+          "type": "RDA",
+          "raw": "120"
+        },
+        "iron_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "magnesium_mg": {
+          "value": 240,
+          "type": "RDA",
+          "raw": "240"
+        },
+        "manganese_mg": {
+          "value": 1.9,
+          "type": "AI",
+          "raw": "1.9*"
+        },
+        "molybdenum_ug": {
+          "value": 34,
+          "type": "RDA",
+          "raw": "34"
+        },
+        "phosphorus_mg": {
+          "value": 1250,
+          "type": "RDA",
+          "raw": "1,250"
+        },
+        "selenium_ug": {
+          "value": 40,
+          "type": "RDA",
+          "raw": "40"
+        },
+        "zinc_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "potassium_mg": {
+          "value": 2500,
+          "type": "AI",
+          "raw": "2,500*"
+        },
+        "sodium_mg": {
+          "value": 1200,
+          "type": "AI",
+          "raw": "1,200*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      },
+      "14_18": {
+        "calcium_mg": {
+          "value": 1300,
+          "type": "RDA",
+          "raw": "1,300"
+        },
+        "chromium_ug": {
+          "value": 35,
+          "type": "AI",
+          "raw": "35*"
+        },
+        "copper_ug": {
+          "value": 890,
+          "type": "RDA",
+          "raw": "890"
+        },
+        "fluoride_mg": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "iodine_ug": {
+          "value": 150,
+          "type": "RDA",
+          "raw": "150"
+        },
+        "iron_mg": {
+          "value": 11,
+          "type": "RDA",
+          "raw": "11"
+        },
+        "magnesium_mg": {
+          "value": 410,
+          "type": "RDA",
+          "raw": "410"
+        },
+        "manganese_mg": {
+          "value": 2.2,
+          "type": "AI",
+          "raw": "2.2*"
+        },
+        "molybdenum_ug": {
+          "value": 43,
+          "type": "RDA",
+          "raw": "43"
+        },
+        "phosphorus_mg": {
+          "value": 1250,
+          "type": "RDA",
+          "raw": "1,250"
+        },
+        "selenium_ug": {
+          "value": 55,
+          "type": "RDA",
+          "raw": "55"
+        },
+        "zinc_mg": {
+          "value": 11,
+          "type": "RDA",
+          "raw": "11"
+        },
+        "potassium_mg": {
+          "value": 3000,
+          "type": "AI",
+          "raw": "3,000*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      },
+      "19_30": {
+        "calcium_mg": {
+          "value": 1000,
+          "type": "RDA",
+          "raw": "1,000"
+        },
+        "chromium_ug": {
+          "value": 35,
+          "type": "AI",
+          "raw": "35*"
+        },
+        "copper_ug": {
+          "value": 900,
+          "type": "RDA",
+          "raw": "900"
+        },
+        "fluoride_mg": {
+          "value": 4,
+          "type": "AI",
+          "raw": "4*"
+        },
+        "iodine_ug": {
+          "value": 150,
+          "type": "RDA",
+          "raw": "150"
+        },
+        "iron_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "magnesium_mg": {
+          "value": 400,
+          "type": "RDA",
+          "raw": "400"
+        },
+        "manganese_mg": {
+          "value": 2.3,
+          "type": "AI",
+          "raw": "2.3*"
+        },
+        "molybdenum_ug": {
+          "value": 45,
+          "type": "RDA",
+          "raw": "45"
+        },
+        "phosphorus_mg": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "selenium_ug": {
+          "value": 55,
+          "type": "RDA",
+          "raw": "55"
+        },
+        "zinc_mg": {
+          "value": 11,
+          "type": "RDA",
+          "raw": "11"
+        },
+        "potassium_mg": {
+          "value": 3400,
+          "type": "AI",
+          "raw": "3,400*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      },
+      "31_50": {
+        "calcium_mg": {
+          "value": 1000,
+          "type": "RDA",
+          "raw": "1,000"
+        },
+        "chromium_ug": {
+          "value": 35,
+          "type": "AI",
+          "raw": "35*"
+        },
+        "copper_ug": {
+          "value": 900,
+          "type": "RDA",
+          "raw": "900"
+        },
+        "fluoride_mg": {
+          "value": 4,
+          "type": "AI",
+          "raw": "4*"
+        },
+        "iodine_ug": {
+          "value": 150,
+          "type": "RDA",
+          "raw": "150"
+        },
+        "iron_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "magnesium_mg": {
+          "value": 420,
+          "type": "RDA",
+          "raw": "420"
+        },
+        "manganese_mg": {
+          "value": 2.3,
+          "type": "AI",
+          "raw": "2.3*"
+        },
+        "molybdenum_ug": {
+          "value": 45,
+          "type": "RDA",
+          "raw": "45"
+        },
+        "phosphorus_mg": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "selenium_ug": {
+          "value": 55,
+          "type": "RDA",
+          "raw": "55"
+        },
+        "zinc_mg": {
+          "value": 11,
+          "type": "RDA",
+          "raw": "11"
+        },
+        "potassium_mg": {
+          "value": 3400,
+          "type": "AI",
+          "raw": "3,400*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      },
+      "51_70": {
+        "calcium_mg": {
+          "value": 1000,
+          "type": "RDA",
+          "raw": "1,000"
+        },
+        "chromium_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "copper_ug": {
+          "value": 900,
+          "type": "RDA",
+          "raw": "900"
+        },
+        "fluoride_mg": {
+          "value": 4,
+          "type": "AI",
+          "raw": "4*"
+        },
+        "iodine_ug": {
+          "value": 150,
+          "type": "RDA",
+          "raw": "150"
+        },
+        "iron_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "magnesium_mg": {
+          "value": 420,
+          "type": "RDA",
+          "raw": "420"
+        },
+        "manganese_mg": {
+          "value": 2.3,
+          "type": "AI",
+          "raw": "2.3*"
+        },
+        "molybdenum_ug": {
+          "value": 45,
+          "type": "RDA",
+          "raw": "45"
+        },
+        "phosphorus_mg": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "selenium_ug": {
+          "value": 55,
+          "type": "RDA",
+          "raw": "55"
+        },
+        "zinc_mg": {
+          "value": 11,
+          "type": "RDA",
+          "raw": "11"
+        },
+        "potassium_mg": {
+          "value": 3400,
+          "type": "AI",
+          "raw": "3,400*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2000,
+          "type": "AI",
+          "raw": "2.0*"
+        }
+      },
+      "71_plus": {
+        "calcium_mg": {
+          "value": 1200,
+          "type": "RDA",
+          "raw": "1,200"
+        },
+        "chromium_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "copper_ug": {
+          "value": 900,
+          "type": "RDA",
+          "raw": "900"
+        },
+        "fluoride_mg": {
+          "value": 4,
+          "type": "AI",
+          "raw": "4*"
+        },
+        "iodine_ug": {
+          "value": 150,
+          "type": "RDA",
+          "raw": "150"
+        },
+        "iron_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "magnesium_mg": {
+          "value": 420,
+          "type": "RDA",
+          "raw": "420"
+        },
+        "manganese_mg": {
+          "value": 2.3,
+          "type": "AI",
+          "raw": "2.3*"
+        },
+        "molybdenum_ug": {
+          "value": 45,
+          "type": "RDA",
+          "raw": "45"
+        },
+        "phosphorus_mg": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "selenium_ug": {
+          "value": 55,
+          "type": "RDA",
+          "raw": "55"
+        },
+        "zinc_mg": {
+          "value": 11,
+          "type": "RDA",
+          "raw": "11"
+        },
+        "potassium_mg": {
+          "value": 3400,
+          "type": "AI",
+          "raw": "3,400*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 1800,
+          "type": "AI",
+          "raw": "1.8*"
+        }
+      }
+    },
+    "Females": {
+      "9_13": {
+        "calcium_mg": {
+          "value": 1300,
+          "type": "RDA",
+          "raw": "1,300"
+        },
+        "chromium_ug": {
+          "value": 21,
+          "type": "AI",
+          "raw": "21*"
+        },
+        "copper_ug": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "fluoride_mg": {
+          "value": 2,
+          "type": "AI",
+          "raw": "2*"
+        },
+        "iodine_ug": {
+          "value": 120,
+          "type": "RDA",
+          "raw": "120"
+        },
+        "iron_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "magnesium_mg": {
+          "value": 240,
+          "type": "RDA",
+          "raw": "240"
+        },
+        "manganese_mg": {
+          "value": 1.6,
+          "type": "AI",
+          "raw": "1.6*"
+        },
+        "molybdenum_ug": {
+          "value": 34,
+          "type": "RDA",
+          "raw": "34"
+        },
+        "phosphorus_mg": {
+          "value": 1250,
+          "type": "RDA",
+          "raw": "1,250"
+        },
+        "selenium_ug": {
+          "value": 40,
+          "type": "RDA",
+          "raw": "40"
+        },
+        "zinc_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "potassium_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2,300*"
+        },
+        "sodium_mg": {
+          "value": 1200,
+          "type": "AI",
+          "raw": "1,200*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      },
+      "14_18": {
+        "calcium_mg": {
+          "value": 1300,
+          "type": "RDA",
+          "raw": "1,300"
+        },
+        "chromium_ug": {
+          "value": 24,
+          "type": "AI",
+          "raw": "24*"
+        },
+        "copper_ug": {
+          "value": 890,
+          "type": "RDA",
+          "raw": "890"
+        },
+        "fluoride_mg": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "iodine_ug": {
+          "value": 150,
+          "type": "RDA",
+          "raw": "150"
+        },
+        "iron_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "magnesium_mg": {
+          "value": 360,
+          "type": "RDA",
+          "raw": "360"
+        },
+        "manganese_mg": {
+          "value": 1.6,
+          "type": "AI",
+          "raw": "1.6*"
+        },
+        "molybdenum_ug": {
+          "value": 43,
+          "type": "RDA",
+          "raw": "43"
+        },
+        "phosphorus_mg": {
+          "value": 1250,
+          "type": "RDA",
+          "raw": "1,250"
+        },
+        "selenium_ug": {
+          "value": 55,
+          "type": "RDA",
+          "raw": "55"
+        },
+        "zinc_mg": {
+          "value": 9,
+          "type": "RDA",
+          "raw": "9"
+        },
+        "potassium_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2,300*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      },
+      "19_30": {
+        "calcium_mg": {
+          "value": 1000,
+          "type": "RDA",
+          "raw": "1,000"
+        },
+        "chromium_ug": {
+          "value": 25,
+          "type": "AI",
+          "raw": "25*"
+        },
+        "copper_ug": {
+          "value": 900,
+          "type": "RDA",
+          "raw": "900"
+        },
+        "fluoride_mg": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "iodine_ug": {
+          "value": 150,
+          "type": "RDA",
+          "raw": "150"
+        },
+        "iron_mg": {
+          "value": 18,
+          "type": "RDA",
+          "raw": "18"
+        },
+        "magnesium_mg": {
+          "value": 310,
+          "type": "RDA",
+          "raw": "310"
+        },
+        "manganese_mg": {
+          "value": 1.8,
+          "type": "AI",
+          "raw": "1.8*"
+        },
+        "molybdenum_ug": {
+          "value": 45,
+          "type": "RDA",
+          "raw": "45"
+        },
+        "phosphorus_mg": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "selenium_ug": {
+          "value": 55,
+          "type": "RDA",
+          "raw": "55"
+        },
+        "zinc_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "potassium_mg": {
+          "value": 2600,
+          "type": "AI",
+          "raw": "2,600*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      },
+      "31_50": {
+        "calcium_mg": {
+          "value": 1000,
+          "type": "RDA",
+          "raw": "1,000"
+        },
+        "chromium_ug": {
+          "value": 25,
+          "type": "AI",
+          "raw": "25*"
+        },
+        "copper_ug": {
+          "value": 900,
+          "type": "RDA",
+          "raw": "900"
+        },
+        "fluoride_mg": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "iodine_ug": {
+          "value": 150,
+          "type": "RDA",
+          "raw": "150"
+        },
+        "iron_mg": {
+          "value": 18,
+          "type": "RDA",
+          "raw": "18"
+        },
+        "magnesium_mg": {
+          "value": 320,
+          "type": "RDA",
+          "raw": "320"
+        },
+        "manganese_mg": {
+          "value": 1.8,
+          "type": "AI",
+          "raw": "1.8*"
+        },
+        "molybdenum_ug": {
+          "value": 45,
+          "type": "RDA",
+          "raw": "45"
+        },
+        "phosphorus_mg": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "selenium_ug": {
+          "value": 55,
+          "type": "RDA",
+          "raw": "55"
+        },
+        "zinc_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "potassium_mg": {
+          "value": 2600,
+          "type": "AI",
+          "raw": "2,600*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      },
+      "51_70": {
+        "calcium_mg": {
+          "value": 1200,
+          "type": "RDA",
+          "raw": "1,200"
+        },
+        "chromium_ug": {
+          "value": 20,
+          "type": "AI",
+          "raw": "20*"
+        },
+        "copper_ug": {
+          "value": 900,
+          "type": "RDA",
+          "raw": "900"
+        },
+        "fluoride_mg": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "iodine_ug": {
+          "value": 150,
+          "type": "RDA",
+          "raw": "150"
+        },
+        "iron_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "magnesium_mg": {
+          "value": 320,
+          "type": "RDA",
+          "raw": "320"
+        },
+        "manganese_mg": {
+          "value": 1.8,
+          "type": "AI",
+          "raw": "1.8*"
+        },
+        "molybdenum_ug": {
+          "value": 45,
+          "type": "RDA",
+          "raw": "45"
+        },
+        "phosphorus_mg": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "selenium_ug": {
+          "value": 55,
+          "type": "RDA",
+          "raw": "55"
+        },
+        "zinc_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "potassium_mg": {
+          "value": 2600,
+          "type": "AI",
+          "raw": "2,600*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2000,
+          "type": "AI",
+          "raw": "2.0*"
+        }
+      },
+      "71_plus": {
+        "calcium_mg": {
+          "value": 1200,
+          "type": "RDA",
+          "raw": "1,200"
+        },
+        "chromium_ug": {
+          "value": 20,
+          "type": "AI",
+          "raw": "20*"
+        },
+        "copper_ug": {
+          "value": 900,
+          "type": "RDA",
+          "raw": "900"
+        },
+        "fluoride_mg": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "iodine_ug": {
+          "value": 150,
+          "type": "RDA",
+          "raw": "150"
+        },
+        "iron_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "magnesium_mg": {
+          "value": 320,
+          "type": "RDA",
+          "raw": "320"
+        },
+        "manganese_mg": {
+          "value": 1.8,
+          "type": "AI",
+          "raw": "1.8*"
+        },
+        "molybdenum_ug": {
+          "value": 45,
+          "type": "RDA",
+          "raw": "45"
+        },
+        "phosphorus_mg": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "selenium_ug": {
+          "value": 55,
+          "type": "RDA",
+          "raw": "55"
+        },
+        "zinc_mg": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "potassium_mg": {
+          "value": 2600,
+          "type": "AI",
+          "raw": "2,600*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 1800,
+          "type": "AI",
+          "raw": "1.8*"
+        }
+      }
+    },
+    "Pregnancy": {
+      "14_18": {
+        "calcium_mg": {
+          "value": 1300,
+          "type": "RDA",
+          "raw": "1,300"
+        },
+        "chromium_ug": {
+          "value": 29,
+          "type": "AI",
+          "raw": "29*"
+        },
+        "copper_ug": {
+          "value": 1000,
+          "type": "RDA",
+          "raw": "1,000"
+        },
+        "fluoride_mg": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "iodine_ug": {
+          "value": 220,
+          "type": "RDA",
+          "raw": "220"
+        },
+        "iron_mg": {
+          "value": 27,
+          "type": "RDA",
+          "raw": "27"
+        },
+        "magnesium_mg": {
+          "value": 400,
+          "type": "RDA",
+          "raw": "400"
+        },
+        "manganese_mg": {
+          "value": 2,
+          "type": "AI",
+          "raw": "2.0*"
+        },
+        "molybdenum_ug": {
+          "value": 50,
+          "type": "RDA",
+          "raw": "50"
+        },
+        "phosphorus_mg": {
+          "value": 1250,
+          "type": "RDA",
+          "raw": "1,250"
+        },
+        "selenium_ug": {
+          "value": 60,
+          "type": "RDA",
+          "raw": "60"
+        },
+        "zinc_mg": {
+          "value": 12,
+          "type": "RDA",
+          "raw": "12"
+        },
+        "potassium_mg": {
+          "value": 2600,
+          "type": "AI",
+          "raw": "2,600*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      },
+      "19_30": {
+        "calcium_mg": {
+          "value": 1000,
+          "type": "RDA",
+          "raw": "1,000"
+        },
+        "chromium_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "copper_ug": {
+          "value": 1000,
+          "type": "RDA",
+          "raw": "1,000"
+        },
+        "fluoride_mg": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "iodine_ug": {
+          "value": 220,
+          "type": "RDA",
+          "raw": "220"
+        },
+        "iron_mg": {
+          "value": 27,
+          "type": "RDA",
+          "raw": "27"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "RDA",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 2,
+          "type": "AI",
+          "raw": "2.0*"
+        },
+        "molybdenum_ug": {
+          "value": 50,
+          "type": "RDA",
+          "raw": "50"
+        },
+        "phosphorus_mg": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "selenium_ug": {
+          "value": 60,
+          "type": "RDA",
+          "raw": "60"
+        },
+        "zinc_mg": {
+          "value": 11,
+          "type": "RDA",
+          "raw": "11"
+        },
+        "potassium_mg": {
+          "value": 2900,
+          "type": "AI",
+          "raw": "2,900*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      },
+      "31_50": {
+        "calcium_mg": {
+          "value": 1000,
+          "type": "RDA",
+          "raw": "1,000"
+        },
+        "chromium_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "copper_ug": {
+          "value": 1000,
+          "type": "RDA",
+          "raw": "1,000"
+        },
+        "fluoride_mg": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "iodine_ug": {
+          "value": 220,
+          "type": "RDA",
+          "raw": "220"
+        },
+        "iron_mg": {
+          "value": 27,
+          "type": "RDA",
+          "raw": "27"
+        },
+        "magnesium_mg": {
+          "value": 360,
+          "type": "RDA",
+          "raw": "360"
+        },
+        "manganese_mg": {
+          "value": 2,
+          "type": "AI",
+          "raw": "2.0*"
+        },
+        "molybdenum_ug": {
+          "value": 50,
+          "type": "RDA",
+          "raw": "50"
+        },
+        "phosphorus_mg": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "selenium_ug": {
+          "value": 60,
+          "type": "RDA",
+          "raw": "60"
+        },
+        "zinc_mg": {
+          "value": 11,
+          "type": "RDA",
+          "raw": "11"
+        },
+        "potassium_mg": {
+          "value": 2900,
+          "type": "AI",
+          "raw": "2,900*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      }
+    },
+    "Lactation": {
+      "14_18": {
+        "calcium_mg": {
+          "value": 1300,
+          "type": "RDA",
+          "raw": "1,300"
+        },
+        "chromium_ug": {
+          "value": 44,
+          "type": "AI",
+          "raw": "44*"
+        },
+        "copper_ug": {
+          "value": 1300,
+          "type": "RDA",
+          "raw": "1,300"
+        },
+        "fluoride_mg": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "iodine_ug": {
+          "value": 290,
+          "type": "RDA",
+          "raw": "290"
+        },
+        "iron_mg": {
+          "value": 10,
+          "type": "RDA",
+          "raw": "10"
+        },
+        "magnesium_mg": {
+          "value": 360,
+          "type": "RDA",
+          "raw": "360"
+        },
+        "manganese_mg": {
+          "value": 2.6,
+          "type": "AI",
+          "raw": "2.6*"
+        },
+        "molybdenum_ug": {
+          "value": 50,
+          "type": "RDA",
+          "raw": "50"
+        },
+        "phosphorus_mg": {
+          "value": 1250,
+          "type": "RDA",
+          "raw": "1,250"
+        },
+        "selenium_ug": {
+          "value": 70,
+          "type": "RDA",
+          "raw": "70"
+        },
+        "zinc_mg": {
+          "value": 13,
+          "type": "RDA",
+          "raw": "13"
+        },
+        "potassium_mg": {
+          "value": 2500,
+          "type": "AI",
+          "raw": "2,500*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      },
+      "19_30": {
+        "calcium_mg": {
+          "value": 1000,
+          "type": "RDA",
+          "raw": "1,000"
+        },
+        "chromium_ug": {
+          "value": 45,
+          "type": "AI",
+          "raw": "45*"
+        },
+        "copper_ug": {
+          "value": 1300,
+          "type": "RDA",
+          "raw": "1,300"
+        },
+        "fluoride_mg": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "iodine_ug": {
+          "value": 290,
+          "type": "RDA",
+          "raw": "290"
+        },
+        "iron_mg": {
+          "value": 9,
+          "type": "RDA",
+          "raw": "9"
+        },
+        "magnesium_mg": {
+          "value": 310,
+          "type": "RDA",
+          "raw": "310"
+        },
+        "manganese_mg": {
+          "value": 2.6,
+          "type": "AI",
+          "raw": "2.6*"
+        },
+        "molybdenum_ug": {
+          "value": 50,
+          "type": "RDA",
+          "raw": "50"
+        },
+        "phosphorus_mg": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "selenium_ug": {
+          "value": 70,
+          "type": "RDA",
+          "raw": "70"
+        },
+        "zinc_mg": {
+          "value": 12,
+          "type": "RDA",
+          "raw": "12"
+        },
+        "potassium_mg": {
+          "value": 2800,
+          "type": "AI",
+          "raw": "2,800*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      },
+      "31_50": {
+        "calcium_mg": {
+          "value": 1000,
+          "type": "RDA",
+          "raw": "1,000"
+        },
+        "chromium_ug": {
+          "value": 45,
+          "type": "AI",
+          "raw": "45*"
+        },
+        "copper_ug": {
+          "value": 1300,
+          "type": "RDA",
+          "raw": "1,300"
+        },
+        "fluoride_mg": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "iodine_ug": {
+          "value": 290,
+          "type": "RDA",
+          "raw": "290"
+        },
+        "iron_mg": {
+          "value": 9,
+          "type": "RDA",
+          "raw": "9"
+        },
+        "magnesium_mg": {
+          "value": 320,
+          "type": "RDA",
+          "raw": "320"
+        },
+        "manganese_mg": {
+          "value": 2.6,
+          "type": "AI",
+          "raw": "2.6*"
+        },
+        "molybdenum_ug": {
+          "value": 50,
+          "type": "RDA",
+          "raw": "50"
+        },
+        "phosphorus_mg": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "selenium_ug": {
+          "value": 70,
+          "type": "RDA",
+          "raw": "70"
+        },
+        "zinc_mg": {
+          "value": 12,
+          "type": "RDA",
+          "raw": "12"
+        },
+        "potassium_mg": {
+          "value": 2800,
+          "type": "AI",
+          "raw": "2,800*"
+        },
+        "sodium_mg": {
+          "value": 1500,
+          "type": "AI",
+          "raw": "1,500*"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "AI",
+          "raw": "2.3*"
+        }
+      }
+    }
+  }
+}

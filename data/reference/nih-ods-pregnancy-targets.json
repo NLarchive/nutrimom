@@ -1,0 +1,214 @@
+{
+  "_meta": {
+    "source": "NIH Office of Dietary Supplements – Pregnancy (Health Professional Fact Sheet)",
+    "url": "https://ods.od.nih.gov/factsheets/Pregnancy-HealthProfessional/",
+    "fetched": "2026-02-11",
+    "updated_by_source": "April 3, 2025",
+    "description": "Nutrient intake recommendations (RDA/AI) and Upper Limits (UL) during pregnancy, directly from the NIH ODS fact sheet Tables 1 and 2.",
+    "notes": [
+      "Bolded values in the original table indicate the intake recommendation is HIGHER during pregnancy vs nonpregnant females.",
+      "For folate, magnesium, niacin, and vitamin E, the ULs apply only to supplemental intakes, not food.",
+      "For vitamin A, the UL applies only to preformed vitamin A (retinol), not beta-carotene.",
+      "ND = Not Determinable (insufficient data for UL)."
+    ]
+  },
+  "recommended_intakes_pregnancy": {
+    "14_18": {
+      "biotin_ug": { "AI": 30 },
+      "calcium_mg": { "RDA": 1300 },
+      "chloride_g": { "AI": 2.3 },
+      "choline_mg": { "AI": 450 },
+      "chromium_ug": { "AI": 29 },
+      "copper_ug": { "RDA": 1000 },
+      "fluoride_mg": { "AI": 3 },
+      "folate_dfe_ug": { "RDA": 600 },
+      "iodine_ug": { "RDA": 220 },
+      "iron_mg": { "RDA": 27 },
+      "magnesium_mg": { "RDA": 400 },
+      "manganese_mg": { "AI": 2 },
+      "molybdenum_ug": { "RDA": 50 },
+      "niacin_mg_ne": { "RDA": 18 },
+      "ala_omega3_g": { "AI": 1.4 },
+      "pantothenic_acid_mg": { "AI": 6 },
+      "phosphorus_mg": { "RDA": 1250 },
+      "potassium_mg": { "AI": 2600 },
+      "riboflavin_mg": { "RDA": 1.4 },
+      "selenium_ug": { "RDA": 60 },
+      "sodium_mg": { "AI": 1500 },
+      "thiamin_mg": { "RDA": 1.4 },
+      "vitamin_a_rae_ug": { "RDA": 750 },
+      "vitamin_b12_ug": { "RDA": 2.6 },
+      "vitamin_b6_mg": { "RDA": 1.9 },
+      "vitamin_c_mg": { "RDA": 80 },
+      "vitamin_d_ug": { "RDA": 15 },
+      "vitamin_e_mg": { "RDA": 15 },
+      "vitamin_k_ug": { "AI": 75 },
+      "zinc_mg": { "RDA": 12 }
+    },
+    "19_50": {
+      "biotin_ug": { "AI": 30 },
+      "calcium_mg": { "RDA": 1000 },
+      "chloride_g": { "AI": 2.3 },
+      "choline_mg": { "AI": 450 },
+      "chromium_ug": { "AI": 30 },
+      "copper_ug": { "RDA": 1000 },
+      "fluoride_mg": { "AI": 3 },
+      "folate_dfe_ug": { "RDA": 600 },
+      "iodine_ug": { "RDA": 220 },
+      "iron_mg": { "RDA": 27 },
+      "magnesium_mg_19_30": { "RDA": 350, "note": "350 for ages 19-30" },
+      "magnesium_mg_31_50": { "RDA": 360, "note": "360 for ages 31-50" },
+      "manganese_mg": { "AI": 2 },
+      "molybdenum_ug": { "RDA": 50 },
+      "niacin_mg_ne": { "RDA": 18 },
+      "ala_omega3_g": { "AI": 1.4 },
+      "pantothenic_acid_mg": { "AI": 6 },
+      "phosphorus_mg": { "RDA": 700 },
+      "potassium_mg": { "AI": 2900 },
+      "riboflavin_mg": { "RDA": 1.4 },
+      "selenium_ug": { "RDA": 60 },
+      "sodium_mg": { "AI": 1500 },
+      "thiamin_mg": { "RDA": 1.4 },
+      "vitamin_a_rae_ug": { "RDA": 770 },
+      "vitamin_b12_ug": { "RDA": 2.6 },
+      "vitamin_b6_mg": { "RDA": 1.9 },
+      "vitamin_c_mg": { "RDA": 85 },
+      "vitamin_d_ug": { "RDA": 15 },
+      "vitamin_e_mg": { "RDA": 15 },
+      "vitamin_k_ug": { "AI": 90 },
+      "zinc_mg": { "RDA": 11 }
+    }
+  },
+  "upper_limits_pregnancy": {
+    "14_18": {
+      "biotin_ug": "ND",
+      "boron_mg": { "UL": 17 },
+      "calcium_mg": { "UL": 3000 },
+      "chloride_g": { "UL": 3.6 },
+      "choline_mg": { "UL": 3000 },
+      "chromium_ug": "ND",
+      "copper_ug": { "UL": 8000 },
+      "fluoride_mg": { "UL": 10 },
+      "folate_supplemental_ug": { "UL": 800 },
+      "iodine_ug": { "UL": 900 },
+      "iron_mg": { "UL": 45 },
+      "magnesium_supplemental_mg": { "UL": 350 },
+      "manganese_mg": { "UL": 9 },
+      "molybdenum_ug": { "UL": 1700 },
+      "niacin_supplemental_mg": { "UL": 30 },
+      "ala_omega3": "N/A",
+      "pantothenic_acid": "ND",
+      "phosphorus_mg": { "UL": 3500 },
+      "potassium": "ND",
+      "riboflavin": "ND",
+      "selenium_ug": { "UL": 400 },
+      "sodium": "ND",
+      "thiamin": "ND",
+      "vitamin_a_preformed_ug": { "UL": 2800 },
+      "vitamin_b12": "ND",
+      "vitamin_b6_mg": { "UL": 80 },
+      "vitamin_c_mg": { "UL": 1800 },
+      "vitamin_d_ug": { "UL": 100 },
+      "vitamin_e_supplemental_mg": { "UL": 800 },
+      "vitamin_k": "ND",
+      "zinc_mg": { "UL": 34 }
+    },
+    "19_50": {
+      "biotin_ug": "ND",
+      "boron_mg": { "UL": 20 },
+      "calcium_mg": { "UL": 2500 },
+      "chloride_g": { "UL": 3.6 },
+      "choline_mg": { "UL": 3500 },
+      "chromium_ug": "ND",
+      "copper_ug": { "UL": 10000 },
+      "fluoride_mg": { "UL": 10 },
+      "folate_supplemental_ug": { "UL": 1000 },
+      "iodine_ug": { "UL": 1100 },
+      "iron_mg": { "UL": 45 },
+      "magnesium_supplemental_mg": { "UL": 350 },
+      "manganese_mg": { "UL": 11 },
+      "molybdenum_ug": { "UL": 2000 },
+      "niacin_supplemental_mg": { "UL": 35 },
+      "ala_omega3": "N/A",
+      "pantothenic_acid": "ND",
+      "phosphorus_mg": { "UL": 3500 },
+      "potassium": "ND",
+      "riboflavin": "ND",
+      "selenium_ug": { "UL": 400 },
+      "sodium": "ND",
+      "thiamin": "ND",
+      "vitamin_a_preformed_ug": { "UL": 3000 },
+      "vitamin_b12": "ND",
+      "vitamin_b6_mg": { "UL": 100 },
+      "vitamin_c_mg": { "UL": 2000 },
+      "vitamin_d_ug": { "UL": 100 },
+      "vitamin_e_supplemental_mg": { "UL": 1000 },
+      "vitamin_k": "ND",
+      "zinc_mg": { "UL": 40 }
+    }
+  },
+  "key_nutrient_guidance": {
+    "calcium": {
+      "note": "21.2% of pregnant women in US have dietary calcium intakes below EAR. Supplementation of 1500-2000 mg/day may reduce preeclampsia risk.",
+      "rda_14_18": 1300,
+      "rda_19_50": 1000
+    },
+    "choline": {
+      "note": "AI increases to 450 mg. Most pregnant women in US do not consume recommended amount. Less than half of prenatal supplements contain choline.",
+      "ai": 450
+    },
+    "folate": {
+      "note": "RDA increases to 600 mcg DFE. 35.8% of pregnant women below EAR. 400-800 mcg/day folic acid recommended before/during conception. High-risk NTD: 4000-5000 mcg/day. Only folic acid (not 5-MTHF) proven to reduce NTD risk.",
+      "rda": 600,
+      "preconception_supplement": "400-800 mcg folic acid"
+    },
+    "iodine": {
+      "note": "RDA increases to 220 mcg. Median dietary intake 216 mcg/day among pregnant US women. Many organizations recommend 150 mcg/day iodine supplement during pregnancy.",
+      "rda": 220,
+      "supplement_recommendation": "150 mcg"
+    },
+    "iron": {
+      "note": "RDA increases to 27 mg. 83.8% of pregnant US women have dietary intake below EAR. 27.9% exceed UL when food+supplements combined. Routine supplementation in iron-replete women may have adverse effects.",
+      "rda": 27,
+      "ul": 45
+    },
+    "magnesium": {
+      "note": "RDA increases to 400 (14-18), 350 (19-30), 360 (31-50). 53.3% of pregnant US women below EAR. UL of 350 mg applies to supplemental magnesium only.",
+      "rda_14_18": 400,
+      "rda_19_30": 350,
+      "rda_31_50": 360
+    },
+    "omega3_dha_epa": {
+      "note": "ALA AI increases to 1.4 g. No formal DRI for DHA/EPA. Expert groups recommend 8-12 oz seafood/week. At least 250 mg/day DHA+EPA from diet/supplements, plus additional 100-200 mg/day DHA during pregnancy. Cochrane review supports omega-3 for preterm birth risk reduction.",
+      "ala_ai_g": 1.4,
+      "expert_rec_dha_epa_mg": "250 mg/day DHA+EPA minimum, plus 100-200 mg DHA extra in pregnancy"
+    },
+    "vitamin_a": {
+      "note": "RDA increases to 750 (14-18) or 770 (19-50) mcg RAE. 27.7% below EAR. UL applies to PREFORMED vitamin A only (not beta-carotene). Excessive preformed vitamin A is teratogenic.",
+      "rda_14_18": 750,
+      "rda_19_50": 770,
+      "ul_14_18": 2800,
+      "ul_19_50": 3000
+    },
+    "vitamin_b6": {
+      "note": "RDA increases to 1.9 mg. 25.4% below EAR. Helps reduce nausea/vomiting in pregnancy. EFSA sets UL at 12 mg/day (vs US 80-100 mg).",
+      "rda": 1.9
+    },
+    "vitamin_b12": {
+      "note": "RDA increases to 2.6 mcg. Most US pregnant women have sufficient intake. Vegans/vegetarians at higher risk of deficiency. No UL established.",
+      "rda": 2.6
+    },
+    "vitamin_d": {
+      "note": "RDA is 15 mcg. ~90% of US pregnant women have intake below EAR. May reduce preeclampsia risk. UL is 100 mcg/day.",
+      "rda": 15,
+      "ul": 100
+    },
+    "zinc": {
+      "note": "RDA increases to 12 (14-18) or 11 (19-50) mg. 21.5% below EAR. Effects of supplementation on pregnancy outcomes unclear.",
+      "rda_14_18": 12,
+      "rda_19_50": 11,
+      "ul_14_18": 34,
+      "ul_19_50": 40
+    }
+  }
+}

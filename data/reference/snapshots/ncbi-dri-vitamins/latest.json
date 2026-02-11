@@ -1,0 +1,1608 @@
+{
+  "_meta": {
+    "source": "ncbi-dri-vitamins",
+    "sourceName": "National Academies DRI – RDA/AI Vitamins",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK56068/table/summarytables.t2/?report=objectonly",
+    "fetchedAt": "2026-02-11T20:14:17.621Z",
+    "tableKind": "rda",
+    "nutrientCount": 14
+  },
+  "groups": {
+    "Infants": {
+      "0_6": {
+        "vitamin_a_rae_ug": {
+          "value": 400,
+          "type": "AI",
+          "raw": "400*"
+        },
+        "vitamin_c_mg": {
+          "value": 40,
+          "type": "AI",
+          "raw": "40*"
+        },
+        "vitamin_d_ug": {
+          "value": 10,
+          "type": "AI",
+          "raw": "10*"
+        },
+        "vitamin_e_mg": {
+          "value": 4,
+          "type": "AI",
+          "raw": "4*"
+        },
+        "vitamin_k_ug": {
+          "value": 2,
+          "type": "AI",
+          "raw": "2.0*"
+        },
+        "thiamin_mg": {
+          "value": 0.2,
+          "type": "AI",
+          "raw": "0.2*"
+        },
+        "riboflavin_mg": {
+          "value": 0.3,
+          "type": "AI",
+          "raw": "0.3*"
+        },
+        "niacin_mg_ne": {
+          "value": 2,
+          "type": "AI",
+          "raw": "2*"
+        },
+        "vitamin_b6_mg": {
+          "value": 0.1,
+          "type": "AI",
+          "raw": "0.1*"
+        },
+        "folate_dfe_ug": {
+          "value": 65,
+          "type": "AI",
+          "raw": "65*"
+        },
+        "vitamin_b12_ug": {
+          "value": 0.4,
+          "type": "AI",
+          "raw": "0.4*"
+        },
+        "pantothenic_acid_mg": {
+          "value": 1.7,
+          "type": "AI",
+          "raw": "1.7*"
+        },
+        "biotin_ug": {
+          "value": 5,
+          "type": "AI",
+          "raw": "5*"
+        },
+        "choline_mg": {
+          "value": 125,
+          "type": "AI",
+          "raw": "125*"
+        }
+      },
+      "6_12": {
+        "vitamin_a_rae_ug": {
+          "value": 500,
+          "type": "AI",
+          "raw": "500*"
+        },
+        "vitamin_c_mg": {
+          "value": 50,
+          "type": "AI",
+          "raw": "50*"
+        },
+        "vitamin_d_ug": {
+          "value": 10,
+          "type": "AI",
+          "raw": "10*"
+        },
+        "vitamin_e_mg": {
+          "value": 5,
+          "type": "AI",
+          "raw": "5*"
+        },
+        "vitamin_k_ug": {
+          "value": 2.5,
+          "type": "AI",
+          "raw": "2.5*"
+        },
+        "thiamin_mg": {
+          "value": 0.3,
+          "type": "AI",
+          "raw": "0.3*"
+        },
+        "riboflavin_mg": {
+          "value": 0.4,
+          "type": "AI",
+          "raw": "0.4*"
+        },
+        "niacin_mg_ne": {
+          "value": 4,
+          "type": "AI",
+          "raw": "4*"
+        },
+        "vitamin_b6_mg": {
+          "value": 0.3,
+          "type": "AI",
+          "raw": "0.3*"
+        },
+        "folate_dfe_ug": {
+          "value": 80,
+          "type": "AI",
+          "raw": "80*"
+        },
+        "vitamin_b12_ug": {
+          "value": 0.5,
+          "type": "AI",
+          "raw": "0.5*"
+        },
+        "pantothenic_acid_mg": {
+          "value": 1.8,
+          "type": "AI",
+          "raw": "1.8*"
+        },
+        "biotin_ug": {
+          "value": 6,
+          "type": "AI",
+          "raw": "6*"
+        },
+        "choline_mg": {
+          "value": 150,
+          "type": "AI",
+          "raw": "150*"
+        }
+      }
+    },
+    "Children": {
+      "1_3": {
+        "vitamin_a_rae_ug": {
+          "value": 300,
+          "type": "RDA",
+          "raw": "300"
+        },
+        "vitamin_c_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 6,
+          "type": "RDA",
+          "raw": "6"
+        },
+        "vitamin_k_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "thiamin_mg": {
+          "value": 0.5,
+          "type": "RDA",
+          "raw": "0.5"
+        },
+        "riboflavin_mg": {
+          "value": 0.5,
+          "type": "RDA",
+          "raw": "0.5"
+        },
+        "niacin_mg_ne": {
+          "value": 6,
+          "type": "RDA",
+          "raw": "6"
+        },
+        "vitamin_b6_mg": {
+          "value": 0.5,
+          "type": "RDA",
+          "raw": "0.5"
+        },
+        "folate_dfe_ug": {
+          "value": 150,
+          "type": "RDA",
+          "raw": "150"
+        },
+        "vitamin_b12_ug": {
+          "value": 0.9,
+          "type": "RDA",
+          "raw": "0.9"
+        },
+        "pantothenic_acid_mg": {
+          "value": 2,
+          "type": "AI",
+          "raw": "2*"
+        },
+        "biotin_ug": {
+          "value": 8,
+          "type": "AI",
+          "raw": "8*"
+        },
+        "choline_mg": {
+          "value": 200,
+          "type": "AI",
+          "raw": "200*"
+        }
+      },
+      "4_8": {
+        "vitamin_a_rae_ug": {
+          "value": 400,
+          "type": "RDA",
+          "raw": "400"
+        },
+        "vitamin_c_mg": {
+          "value": 25,
+          "type": "RDA",
+          "raw": "25"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 7,
+          "type": "RDA",
+          "raw": "7"
+        },
+        "vitamin_k_ug": {
+          "value": 55,
+          "type": "AI",
+          "raw": "55*"
+        },
+        "thiamin_mg": {
+          "value": 0.6,
+          "type": "RDA",
+          "raw": "0.6"
+        },
+        "riboflavin_mg": {
+          "value": 0.6,
+          "type": "RDA",
+          "raw": "0.6"
+        },
+        "niacin_mg_ne": {
+          "value": 8,
+          "type": "RDA",
+          "raw": "8"
+        },
+        "vitamin_b6_mg": {
+          "value": 0.6,
+          "type": "RDA",
+          "raw": "0.6"
+        },
+        "folate_dfe_ug": {
+          "value": 200,
+          "type": "RDA",
+          "raw": "200"
+        },
+        "vitamin_b12_ug": {
+          "value": 1.2,
+          "type": "RDA",
+          "raw": "1.2"
+        },
+        "pantothenic_acid_mg": {
+          "value": 3,
+          "type": "AI",
+          "raw": "3*"
+        },
+        "biotin_ug": {
+          "value": 12,
+          "type": "AI",
+          "raw": "12*"
+        },
+        "choline_mg": {
+          "value": 250,
+          "type": "AI",
+          "raw": "250*"
+        }
+      }
+    },
+    "Males": {
+      "9_13": {
+        "vitamin_a_rae_ug": {
+          "value": 600,
+          "type": "RDA",
+          "raw": "600"
+        },
+        "vitamin_c_mg": {
+          "value": 45,
+          "type": "RDA",
+          "raw": "45"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 11,
+          "type": "RDA",
+          "raw": "11"
+        },
+        "vitamin_k_ug": {
+          "value": 60,
+          "type": "AI",
+          "raw": "60*"
+        },
+        "thiamin_mg": {
+          "value": 0.9,
+          "type": "RDA",
+          "raw": "0.9"
+        },
+        "riboflavin_mg": {
+          "value": 0.9,
+          "type": "RDA",
+          "raw": "0.9"
+        },
+        "niacin_mg_ne": {
+          "value": 12,
+          "type": "RDA",
+          "raw": "12"
+        },
+        "vitamin_b6_mg": {
+          "value": 1,
+          "type": "RDA",
+          "raw": "1.0"
+        },
+        "folate_dfe_ug": {
+          "value": 300,
+          "type": "RDA",
+          "raw": "300"
+        },
+        "vitamin_b12_ug": {
+          "value": 1.8,
+          "type": "RDA",
+          "raw": "1.8"
+        },
+        "pantothenic_acid_mg": {
+          "value": 4,
+          "type": "AI",
+          "raw": "4*"
+        },
+        "biotin_ug": {
+          "value": 20,
+          "type": "AI",
+          "raw": "20*"
+        },
+        "choline_mg": {
+          "value": 375,
+          "type": "AI",
+          "raw": "375*"
+        }
+      },
+      "14_18": {
+        "vitamin_a_rae_ug": {
+          "value": 900,
+          "type": "RDA",
+          "raw": "900"
+        },
+        "vitamin_c_mg": {
+          "value": 75,
+          "type": "RDA",
+          "raw": "75"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_k_ug": {
+          "value": 75,
+          "type": "AI",
+          "raw": "75*"
+        },
+        "thiamin_mg": {
+          "value": 1.2,
+          "type": "RDA",
+          "raw": "1.2"
+        },
+        "riboflavin_mg": {
+          "value": 1.3,
+          "type": "RDA",
+          "raw": "1.3"
+        },
+        "niacin_mg_ne": {
+          "value": 16,
+          "type": "RDA",
+          "raw": "16"
+        },
+        "vitamin_b6_mg": {
+          "value": 1.3,
+          "type": "RDA",
+          "raw": "1.3"
+        },
+        "folate_dfe_ug": {
+          "value": 400,
+          "type": "RDA",
+          "raw": "400"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.4,
+          "type": "RDA",
+          "raw": "2.4"
+        },
+        "pantothenic_acid_mg": {
+          "value": 5,
+          "type": "AI",
+          "raw": "5*"
+        },
+        "biotin_ug": {
+          "value": 25,
+          "type": "AI",
+          "raw": "25*"
+        },
+        "choline_mg": {
+          "value": 550,
+          "type": "AI",
+          "raw": "550*"
+        }
+      },
+      "19_30": {
+        "vitamin_a_rae_ug": {
+          "value": 900,
+          "type": "RDA",
+          "raw": "900"
+        },
+        "vitamin_c_mg": {
+          "value": 90,
+          "type": "RDA",
+          "raw": "90"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_k_ug": {
+          "value": 120,
+          "type": "AI",
+          "raw": "120*"
+        },
+        "thiamin_mg": {
+          "value": 1.2,
+          "type": "RDA",
+          "raw": "1.2"
+        },
+        "riboflavin_mg": {
+          "value": 1.3,
+          "type": "RDA",
+          "raw": "1.3"
+        },
+        "niacin_mg_ne": {
+          "value": 16,
+          "type": "RDA",
+          "raw": "16"
+        },
+        "vitamin_b6_mg": {
+          "value": 1.3,
+          "type": "RDA",
+          "raw": "1.3"
+        },
+        "folate_dfe_ug": {
+          "value": 400,
+          "type": "RDA",
+          "raw": "400"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.4,
+          "type": "RDA",
+          "raw": "2.4"
+        },
+        "pantothenic_acid_mg": {
+          "value": 5,
+          "type": "AI",
+          "raw": "5*"
+        },
+        "biotin_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "choline_mg": {
+          "value": 550,
+          "type": "AI",
+          "raw": "550*"
+        }
+      },
+      "31_50": {
+        "vitamin_a_rae_ug": {
+          "value": 900,
+          "type": "RDA",
+          "raw": "900"
+        },
+        "vitamin_c_mg": {
+          "value": 90,
+          "type": "RDA",
+          "raw": "90"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_k_ug": {
+          "value": 120,
+          "type": "AI",
+          "raw": "120*"
+        },
+        "thiamin_mg": {
+          "value": 1.2,
+          "type": "RDA",
+          "raw": "1.2"
+        },
+        "riboflavin_mg": {
+          "value": 1.3,
+          "type": "RDA",
+          "raw": "1.3"
+        },
+        "niacin_mg_ne": {
+          "value": 16,
+          "type": "RDA",
+          "raw": "16"
+        },
+        "vitamin_b6_mg": {
+          "value": 1.3,
+          "type": "RDA",
+          "raw": "1.3"
+        },
+        "folate_dfe_ug": {
+          "value": 400,
+          "type": "RDA",
+          "raw": "400"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.4,
+          "type": "RDA",
+          "raw": "2.4"
+        },
+        "pantothenic_acid_mg": {
+          "value": 5,
+          "type": "AI",
+          "raw": "5*"
+        },
+        "biotin_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "choline_mg": {
+          "value": 550,
+          "type": "AI",
+          "raw": "550*"
+        }
+      },
+      "51_70": {
+        "vitamin_a_rae_ug": {
+          "value": 900,
+          "type": "RDA",
+          "raw": "900"
+        },
+        "vitamin_c_mg": {
+          "value": 90,
+          "type": "RDA",
+          "raw": "90"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_k_ug": {
+          "value": 120,
+          "type": "AI",
+          "raw": "120*"
+        },
+        "thiamin_mg": {
+          "value": 1.2,
+          "type": "RDA",
+          "raw": "1.2"
+        },
+        "riboflavin_mg": {
+          "value": 1.3,
+          "type": "RDA",
+          "raw": "1.3"
+        },
+        "niacin_mg_ne": {
+          "value": 16,
+          "type": "RDA",
+          "raw": "16"
+        },
+        "vitamin_b6_mg": {
+          "value": 1.7,
+          "type": "RDA",
+          "raw": "1.7"
+        },
+        "folate_dfe_ug": {
+          "value": 400,
+          "type": "RDA",
+          "raw": "400"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.4,
+          "type": "RDA",
+          "raw": "2.4h"
+        },
+        "pantothenic_acid_mg": {
+          "value": 5,
+          "type": "AI",
+          "raw": "5*"
+        },
+        "biotin_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "choline_mg": {
+          "value": 550,
+          "type": "AI",
+          "raw": "550*"
+        }
+      },
+      "71_plus": {
+        "vitamin_a_rae_ug": {
+          "value": 900,
+          "type": "RDA",
+          "raw": "900"
+        },
+        "vitamin_c_mg": {
+          "value": 90,
+          "type": "RDA",
+          "raw": "90"
+        },
+        "vitamin_d_ug": {
+          "value": 20,
+          "type": "RDA",
+          "raw": "20"
+        },
+        "vitamin_e_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_k_ug": {
+          "value": 120,
+          "type": "AI",
+          "raw": "120*"
+        },
+        "thiamin_mg": {
+          "value": 1.2,
+          "type": "RDA",
+          "raw": "1.2"
+        },
+        "riboflavin_mg": {
+          "value": 1.3,
+          "type": "RDA",
+          "raw": "1.3"
+        },
+        "niacin_mg_ne": {
+          "value": 16,
+          "type": "RDA",
+          "raw": "16"
+        },
+        "vitamin_b6_mg": {
+          "value": 1.7,
+          "type": "RDA",
+          "raw": "1.7"
+        },
+        "folate_dfe_ug": {
+          "value": 400,
+          "type": "RDA",
+          "raw": "400"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.4,
+          "type": "RDA",
+          "raw": "2.4h"
+        },
+        "pantothenic_acid_mg": {
+          "value": 5,
+          "type": "AI",
+          "raw": "5*"
+        },
+        "biotin_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "choline_mg": {
+          "value": 550,
+          "type": "AI",
+          "raw": "550*"
+        }
+      }
+    },
+    "Females": {
+      "9_13": {
+        "vitamin_a_rae_ug": {
+          "value": 600,
+          "type": "RDA",
+          "raw": "600"
+        },
+        "vitamin_c_mg": {
+          "value": 45,
+          "type": "RDA",
+          "raw": "45"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 11,
+          "type": "RDA",
+          "raw": "11"
+        },
+        "vitamin_k_ug": {
+          "value": 60,
+          "type": "AI",
+          "raw": "60*"
+        },
+        "thiamin_mg": {
+          "value": 0.9,
+          "type": "RDA",
+          "raw": "0.9"
+        },
+        "riboflavin_mg": {
+          "value": 0.9,
+          "type": "RDA",
+          "raw": "0.9"
+        },
+        "niacin_mg_ne": {
+          "value": 12,
+          "type": "RDA",
+          "raw": "12"
+        },
+        "vitamin_b6_mg": {
+          "value": 1,
+          "type": "RDA",
+          "raw": "1.0"
+        },
+        "folate_dfe_ug": {
+          "value": 300,
+          "type": "RDA",
+          "raw": "300"
+        },
+        "vitamin_b12_ug": {
+          "value": 1.8,
+          "type": "RDA",
+          "raw": "1.8"
+        },
+        "pantothenic_acid_mg": {
+          "value": 4,
+          "type": "AI",
+          "raw": "4*"
+        },
+        "biotin_ug": {
+          "value": 20,
+          "type": "AI",
+          "raw": "20*"
+        },
+        "choline_mg": {
+          "value": 375,
+          "type": "AI",
+          "raw": "375*"
+        }
+      },
+      "14_18": {
+        "vitamin_a_rae_ug": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "vitamin_c_mg": {
+          "value": 65,
+          "type": "RDA",
+          "raw": "65"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_k_ug": {
+          "value": 75,
+          "type": "AI",
+          "raw": "75*"
+        },
+        "thiamin_mg": {
+          "value": 1,
+          "type": "RDA",
+          "raw": "1.0"
+        },
+        "riboflavin_mg": {
+          "value": 1,
+          "type": "RDA",
+          "raw": "1.0"
+        },
+        "niacin_mg_ne": {
+          "value": 14,
+          "type": "RDA",
+          "raw": "14"
+        },
+        "vitamin_b6_mg": {
+          "value": 1.2,
+          "type": "RDA",
+          "raw": "1.2"
+        },
+        "folate_dfe_ug": {
+          "value": 400,
+          "type": "RDA",
+          "raw": "400i"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.4,
+          "type": "RDA",
+          "raw": "2.4"
+        },
+        "pantothenic_acid_mg": {
+          "value": 5,
+          "type": "AI",
+          "raw": "5*"
+        },
+        "biotin_ug": {
+          "value": 25,
+          "type": "AI",
+          "raw": "25*"
+        },
+        "choline_mg": {
+          "value": 400,
+          "type": "AI",
+          "raw": "400*"
+        }
+      },
+      "19_30": {
+        "vitamin_a_rae_ug": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "vitamin_c_mg": {
+          "value": 75,
+          "type": "RDA",
+          "raw": "75"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_k_ug": {
+          "value": 90,
+          "type": "AI",
+          "raw": "90*"
+        },
+        "thiamin_mg": {
+          "value": 1.1,
+          "type": "RDA",
+          "raw": "1.1"
+        },
+        "riboflavin_mg": {
+          "value": 1.1,
+          "type": "RDA",
+          "raw": "1.1"
+        },
+        "niacin_mg_ne": {
+          "value": 14,
+          "type": "RDA",
+          "raw": "14"
+        },
+        "vitamin_b6_mg": {
+          "value": 1.3,
+          "type": "RDA",
+          "raw": "1.3"
+        },
+        "folate_dfe_ug": {
+          "value": 400,
+          "type": "RDA",
+          "raw": "400i"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.4,
+          "type": "RDA",
+          "raw": "2.4"
+        },
+        "pantothenic_acid_mg": {
+          "value": 5,
+          "type": "AI",
+          "raw": "5*"
+        },
+        "biotin_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "choline_mg": {
+          "value": 425,
+          "type": "AI",
+          "raw": "425*"
+        }
+      },
+      "31_50": {
+        "vitamin_a_rae_ug": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "vitamin_c_mg": {
+          "value": 75,
+          "type": "RDA",
+          "raw": "75"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_k_ug": {
+          "value": 90,
+          "type": "AI",
+          "raw": "90*"
+        },
+        "thiamin_mg": {
+          "value": 1.1,
+          "type": "RDA",
+          "raw": "1.1"
+        },
+        "riboflavin_mg": {
+          "value": 1.1,
+          "type": "RDA",
+          "raw": "1.1"
+        },
+        "niacin_mg_ne": {
+          "value": 14,
+          "type": "RDA",
+          "raw": "14"
+        },
+        "vitamin_b6_mg": {
+          "value": 1.3,
+          "type": "RDA",
+          "raw": "1.3"
+        },
+        "folate_dfe_ug": {
+          "value": 400,
+          "type": "RDA",
+          "raw": "400i"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.4,
+          "type": "RDA",
+          "raw": "2.4"
+        },
+        "pantothenic_acid_mg": {
+          "value": 5,
+          "type": "AI",
+          "raw": "5*"
+        },
+        "biotin_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "choline_mg": {
+          "value": 425,
+          "type": "AI",
+          "raw": "425*"
+        }
+      },
+      "51_70": {
+        "vitamin_a_rae_ug": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "vitamin_c_mg": {
+          "value": 75,
+          "type": "RDA",
+          "raw": "75"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_k_ug": {
+          "value": 90,
+          "type": "AI",
+          "raw": "90*"
+        },
+        "thiamin_mg": {
+          "value": 1.1,
+          "type": "RDA",
+          "raw": "1.1"
+        },
+        "riboflavin_mg": {
+          "value": 1.1,
+          "type": "RDA",
+          "raw": "1.1"
+        },
+        "niacin_mg_ne": {
+          "value": 14,
+          "type": "RDA",
+          "raw": "14"
+        },
+        "vitamin_b6_mg": {
+          "value": 1.5,
+          "type": "RDA",
+          "raw": "1.5"
+        },
+        "folate_dfe_ug": {
+          "value": 400,
+          "type": "RDA",
+          "raw": "400"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.4,
+          "type": "RDA",
+          "raw": "2.4h"
+        },
+        "pantothenic_acid_mg": {
+          "value": 5,
+          "type": "AI",
+          "raw": "5*"
+        },
+        "biotin_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "choline_mg": {
+          "value": 425,
+          "type": "AI",
+          "raw": "425*"
+        }
+      },
+      "71_plus": {
+        "vitamin_a_rae_ug": {
+          "value": 700,
+          "type": "RDA",
+          "raw": "700"
+        },
+        "vitamin_c_mg": {
+          "value": 75,
+          "type": "RDA",
+          "raw": "75"
+        },
+        "vitamin_d_ug": {
+          "value": 20,
+          "type": "RDA",
+          "raw": "20"
+        },
+        "vitamin_e_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_k_ug": {
+          "value": 90,
+          "type": "AI",
+          "raw": "90*"
+        },
+        "thiamin_mg": {
+          "value": 1.1,
+          "type": "RDA",
+          "raw": "1.1"
+        },
+        "riboflavin_mg": {
+          "value": 1.1,
+          "type": "RDA",
+          "raw": "1.1"
+        },
+        "niacin_mg_ne": {
+          "value": 14,
+          "type": "RDA",
+          "raw": "14"
+        },
+        "vitamin_b6_mg": {
+          "value": 1.5,
+          "type": "RDA",
+          "raw": "1.5"
+        },
+        "folate_dfe_ug": {
+          "value": 400,
+          "type": "RDA",
+          "raw": "400"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.4,
+          "type": "RDA",
+          "raw": "2.4h"
+        },
+        "pantothenic_acid_mg": {
+          "value": 5,
+          "type": "AI",
+          "raw": "5*"
+        },
+        "biotin_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "choline_mg": {
+          "value": 425,
+          "type": "AI",
+          "raw": "425*"
+        }
+      }
+    },
+    "Pregnancy": {
+      "14_18": {
+        "vitamin_a_rae_ug": {
+          "value": 750,
+          "type": "RDA",
+          "raw": "750"
+        },
+        "vitamin_c_mg": {
+          "value": 80,
+          "type": "RDA",
+          "raw": "80"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_k_ug": {
+          "value": 75,
+          "type": "AI",
+          "raw": "75*"
+        },
+        "thiamin_mg": {
+          "value": 1.4,
+          "type": "RDA",
+          "raw": "1.4"
+        },
+        "riboflavin_mg": {
+          "value": 1.4,
+          "type": "RDA",
+          "raw": "1.4"
+        },
+        "niacin_mg_ne": {
+          "value": 18,
+          "type": "RDA",
+          "raw": "18"
+        },
+        "vitamin_b6_mg": {
+          "value": 1.9,
+          "type": "RDA",
+          "raw": "1.9"
+        },
+        "folate_dfe_ug": {
+          "value": 600,
+          "type": "RDA",
+          "raw": "600j"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.6,
+          "type": "RDA",
+          "raw": "2.6"
+        },
+        "pantothenic_acid_mg": {
+          "value": 6,
+          "type": "AI",
+          "raw": "6*"
+        },
+        "biotin_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "choline_mg": {
+          "value": 450,
+          "type": "AI",
+          "raw": "450*"
+        }
+      },
+      "19_30": {
+        "vitamin_a_rae_ug": {
+          "value": 770,
+          "type": "RDA",
+          "raw": "770"
+        },
+        "vitamin_c_mg": {
+          "value": 85,
+          "type": "RDA",
+          "raw": "85"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_k_ug": {
+          "value": 90,
+          "type": "AI",
+          "raw": "90*"
+        },
+        "thiamin_mg": {
+          "value": 1.4,
+          "type": "RDA",
+          "raw": "1.4"
+        },
+        "riboflavin_mg": {
+          "value": 1.4,
+          "type": "RDA",
+          "raw": "1.4"
+        },
+        "niacin_mg_ne": {
+          "value": 18,
+          "type": "RDA",
+          "raw": "18"
+        },
+        "vitamin_b6_mg": {
+          "value": 1.9,
+          "type": "RDA",
+          "raw": "1.9"
+        },
+        "folate_dfe_ug": {
+          "value": 600,
+          "type": "RDA",
+          "raw": "600j"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.6,
+          "type": "RDA",
+          "raw": "2.6"
+        },
+        "pantothenic_acid_mg": {
+          "value": 6,
+          "type": "AI",
+          "raw": "6*"
+        },
+        "biotin_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "choline_mg": {
+          "value": 450,
+          "type": "AI",
+          "raw": "450*"
+        }
+      },
+      "31_50": {
+        "vitamin_a_rae_ug": {
+          "value": 770,
+          "type": "RDA",
+          "raw": "770"
+        },
+        "vitamin_c_mg": {
+          "value": 85,
+          "type": "RDA",
+          "raw": "85"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_k_ug": {
+          "value": 90,
+          "type": "AI",
+          "raw": "90*"
+        },
+        "thiamin_mg": {
+          "value": 1.4,
+          "type": "RDA",
+          "raw": "1.4"
+        },
+        "riboflavin_mg": {
+          "value": 1.4,
+          "type": "RDA",
+          "raw": "1.4"
+        },
+        "niacin_mg_ne": {
+          "value": 18,
+          "type": "RDA",
+          "raw": "18"
+        },
+        "vitamin_b6_mg": {
+          "value": 1.9,
+          "type": "RDA",
+          "raw": "1.9"
+        },
+        "folate_dfe_ug": {
+          "value": 600,
+          "type": "RDA",
+          "raw": "600j"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.6,
+          "type": "RDA",
+          "raw": "2.6"
+        },
+        "pantothenic_acid_mg": {
+          "value": 6,
+          "type": "AI",
+          "raw": "6*"
+        },
+        "biotin_ug": {
+          "value": 30,
+          "type": "AI",
+          "raw": "30*"
+        },
+        "choline_mg": {
+          "value": 450,
+          "type": "AI",
+          "raw": "450*"
+        }
+      }
+    },
+    "Lactation": {
+      "14_18": {
+        "vitamin_a_rae_ug": {
+          "value": 1200,
+          "type": "RDA",
+          "raw": "1,200"
+        },
+        "vitamin_c_mg": {
+          "value": 115,
+          "type": "RDA",
+          "raw": "115"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 19,
+          "type": "RDA",
+          "raw": "19"
+        },
+        "vitamin_k_ug": {
+          "value": 75,
+          "type": "AI",
+          "raw": "75*"
+        },
+        "thiamin_mg": {
+          "value": 1.4,
+          "type": "RDA",
+          "raw": "1.4"
+        },
+        "riboflavin_mg": {
+          "value": 1.6,
+          "type": "RDA",
+          "raw": "1.6"
+        },
+        "niacin_mg_ne": {
+          "value": 17,
+          "type": "RDA",
+          "raw": "17"
+        },
+        "vitamin_b6_mg": {
+          "value": 2,
+          "type": "RDA",
+          "raw": "2.0"
+        },
+        "folate_dfe_ug": {
+          "value": 500,
+          "type": "RDA",
+          "raw": "500"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.8,
+          "type": "RDA",
+          "raw": "2.8"
+        },
+        "pantothenic_acid_mg": {
+          "value": 7,
+          "type": "AI",
+          "raw": "7*"
+        },
+        "biotin_ug": {
+          "value": 35,
+          "type": "AI",
+          "raw": "35*"
+        },
+        "choline_mg": {
+          "value": 550,
+          "type": "AI",
+          "raw": "550*"
+        }
+      },
+      "19_30": {
+        "vitamin_a_rae_ug": {
+          "value": 1300,
+          "type": "RDA",
+          "raw": "1,300"
+        },
+        "vitamin_c_mg": {
+          "value": 120,
+          "type": "RDA",
+          "raw": "120"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 19,
+          "type": "RDA",
+          "raw": "19"
+        },
+        "vitamin_k_ug": {
+          "value": 90,
+          "type": "AI",
+          "raw": "90*"
+        },
+        "thiamin_mg": {
+          "value": 1.4,
+          "type": "RDA",
+          "raw": "1.4"
+        },
+        "riboflavin_mg": {
+          "value": 1.6,
+          "type": "RDA",
+          "raw": "1.6"
+        },
+        "niacin_mg_ne": {
+          "value": 17,
+          "type": "RDA",
+          "raw": "17"
+        },
+        "vitamin_b6_mg": {
+          "value": 2,
+          "type": "RDA",
+          "raw": "2.0"
+        },
+        "folate_dfe_ug": {
+          "value": 500,
+          "type": "RDA",
+          "raw": "500"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.8,
+          "type": "RDA",
+          "raw": "2.8"
+        },
+        "pantothenic_acid_mg": {
+          "value": 7,
+          "type": "AI",
+          "raw": "7*"
+        },
+        "biotin_ug": {
+          "value": 35,
+          "type": "AI",
+          "raw": "35*"
+        },
+        "choline_mg": {
+          "value": 550,
+          "type": "AI",
+          "raw": "550*"
+        }
+      },
+      "31_50": {
+        "vitamin_a_rae_ug": {
+          "value": 1300,
+          "type": "RDA",
+          "raw": "1,300"
+        },
+        "vitamin_c_mg": {
+          "value": 120,
+          "type": "RDA",
+          "raw": "120"
+        },
+        "vitamin_d_ug": {
+          "value": 15,
+          "type": "RDA",
+          "raw": "15"
+        },
+        "vitamin_e_mg": {
+          "value": 19,
+          "type": "RDA",
+          "raw": "19"
+        },
+        "vitamin_k_ug": {
+          "value": 90,
+          "type": "AI",
+          "raw": "90*"
+        },
+        "thiamin_mg": {
+          "value": 1.4,
+          "type": "RDA",
+          "raw": "1.4"
+        },
+        "riboflavin_mg": {
+          "value": 1.6,
+          "type": "RDA",
+          "raw": "1.6"
+        },
+        "niacin_mg_ne": {
+          "value": 17,
+          "type": "RDA",
+          "raw": "17"
+        },
+        "vitamin_b6_mg": {
+          "value": 2,
+          "type": "RDA",
+          "raw": "2.0"
+        },
+        "folate_dfe_ug": {
+          "value": 500,
+          "type": "RDA",
+          "raw": "500"
+        },
+        "vitamin_b12_ug": {
+          "value": 2.8,
+          "type": "RDA",
+          "raw": "2.8"
+        },
+        "pantothenic_acid_mg": {
+          "value": 7,
+          "type": "AI",
+          "raw": "7*"
+        },
+        "biotin_ug": {
+          "value": 35,
+          "type": "AI",
+          "raw": "35*"
+        },
+        "choline_mg": {
+          "value": 550,
+          "type": "AI",
+          "raw": "550*"
+        }
+      }
+    }
+  }
+}

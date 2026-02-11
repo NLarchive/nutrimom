@@ -1,0 +1,30 @@
+{
+  "name": "nutrient-fetcher",
+  "version": "1.0.0",
+  "description": "Fetch, parse, and compare nutrient reference data from authoritative sources (NIH ODS, USDA FDC, etc.)",
+  "main": "src/cli.js",
+  "scripts": {
+    "fetch": "node src/cli.js fetch",
+    "fetch:all": "node src/cli.js fetch --all",
+    "fetch:ncbi": "node src/cli.js fetch --source=ncbi-dri-vitamins --source=ncbi-dri-elements --source=ncbi-dri-macros",
+    "fetch:ncbi:ul": "node src/cli.js fetch --source=ncbi-dri-ul-vitamins --source=ncbi-dri-ul-elements",
+    "fetch:nih": "node src/cli.js fetch --source=nih-ods-pregnancy",
+    "fetch:usda": "node src/cli.js fetch --source=usda-fdc",
+    "compare": "node src/cli.js compare",
+    "compare:all": "node src/cli.js compare --all",
+    "compare:project": "node src/cli.js compare --against-project",
+    "status": "node src/cli.js status",
+    "list": "node src/cli.js list",
+    "test": "node --test tests/comparator.test.js tests/storage.test.js tests/parser-nih-ods.test.js tests/fetcher.test.js tests/parser-ncbi-dri.test.js",
+    "test:verbose": "node --test --test-reporter spec tests/comparator.test.js tests/storage.test.js tests/parser-nih-ods.test.js tests/fetcher.test.js tests/parser-ncbi-dri.test.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "Nicolas Ivan Larenas Bustamante",
+  "license": "CC-BY-NC-SA-4.0",
+  "private": true
+}

@@ -1,0 +1,241 @@
+{
+  "_meta": {
+    "source_id": "nih-ods-pregnancy",
+    "source_url": "https://ods.od.nih.gov/factsheets/Pregnancy-HealthProfessional/",
+    "fetched_at": "2026-02-11T19:15:10.287Z",
+    "page_last_updated": "April 3, 2025",
+    "parser_version": "1.0.0"
+  },
+  "nutrients": {
+    "pregnant_14_18": {
+      "ala_omega3_g": {
+        "AI": 1.4
+      },
+      "biotin_ug": {
+        "AI": 30
+      },
+      "boron_mg": {
+        "UL": 17
+      },
+      "calcium_mg": {
+        "RDA": 1300,
+        "UL": 3000
+      },
+      "chloride_mg": {
+        "AI": 2.3,
+        "UL": 3.6
+      },
+      "choline_mg": {
+        "AI": 450,
+        "UL": 3000
+      },
+      "chromium_ug": {
+        "AI": 29
+      },
+      "copper_ug": {
+        "RDA": 1000,
+        "UL": 8000
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10
+      },
+      "folate_dfe_ug": {
+        "RDA": 600,
+        "UL": 800
+      },
+      "iodine_ug": {
+        "RDA": 220,
+        "UL": 900
+      },
+      "iron_mg": {
+        "RDA": 27,
+        "UL": 45
+      },
+      "magnesium_mg": {
+        "RDA": 400,
+        "UL": 350
+      },
+      "manganese_mg": {
+        "AI": 2,
+        "UL": 9
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 1700
+      },
+      "niacin_mg_ne": {
+        "RDA": 18,
+        "UL": 30
+      },
+      "pantothenic_acid_mg": {
+        "AI": 6
+      },
+      "phosphorus_mg": {
+        "RDA": 1250,
+        "UL": 3500
+      },
+      "potassium_mg": {
+        "AI": 2600
+      },
+      "riboflavin_mg": {
+        "RDA": 1.4
+      },
+      "selenium_ug": {
+        "RDA": 60,
+        "UL": 400
+      },
+      "sodium_mg": {
+        "AI": 1500
+      },
+      "thiamin_mg": {
+        "RDA": 1.4
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 750,
+        "UL": 2800
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.6
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.9,
+        "UL": 80
+      },
+      "vitamin_c_mg": {
+        "RDA": 80,
+        "UL": 1800
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 800
+      },
+      "vitamin_k_ug": {
+        "AI": 75
+      },
+      "zinc_mg": {
+        "RDA": 12,
+        "UL": 34
+      }
+    },
+    "pregnant_19_50": {
+      "ala_omega3_g": {
+        "AI": 1.4
+      },
+      "biotin_ug": {
+        "AI": 30
+      },
+      "boron_mg": {
+        "UL": 20
+      },
+      "calcium_mg": {
+        "RDA": 1000,
+        "UL": 2500
+      },
+      "chloride_mg": {
+        "AI": 2.3,
+        "UL": 3.6
+      },
+      "choline_mg": {
+        "AI": 450,
+        "UL": 3500
+      },
+      "chromium_ug": {
+        "AI": 30
+      },
+      "copper_ug": {
+        "RDA": 1000,
+        "UL": 10000
+      },
+      "fluoride_mg": {
+        "AI": 3,
+        "UL": 10
+      },
+      "folate_dfe_ug": {
+        "RDA": 600,
+        "UL": 1000
+      },
+      "iodine_ug": {
+        "RDA": 220,
+        "UL": 1100
+      },
+      "iron_mg": {
+        "RDA": 27,
+        "UL": 45
+      },
+      "magnesium_mg": {
+        "AI": 350,
+        "UL": 350
+      },
+      "manganese_mg": {
+        "AI": 2,
+        "UL": 11
+      },
+      "molybdenum_ug": {
+        "RDA": 50,
+        "UL": 2000
+      },
+      "niacin_mg_ne": {
+        "RDA": 18,
+        "UL": 35
+      },
+      "pantothenic_acid_mg": {
+        "AI": 6
+      },
+      "phosphorus_mg": {
+        "RDA": 700,
+        "UL": 3500
+      },
+      "potassium_mg": {
+        "AI": 2900
+      },
+      "riboflavin_mg": {
+        "RDA": 1.4
+      },
+      "selenium_ug": {
+        "RDA": 60,
+        "UL": 400
+      },
+      "sodium_mg": {
+        "AI": 1500
+      },
+      "thiamin_mg": {
+        "RDA": 1.4
+      },
+      "vitamin_a_rae_ug": {
+        "RDA": 770,
+        "UL": 3000
+      },
+      "vitamin_b12_ug": {
+        "RDA": 2.6
+      },
+      "vitamin_b6_mg": {
+        "RDA": 1.9,
+        "UL": 100
+      },
+      "vitamin_c_mg": {
+        "RDA": 85,
+        "UL": 2000
+      },
+      "vitamin_d_ug": {
+        "RDA": 15,
+        "UL": 100
+      },
+      "vitamin_e_mg": {
+        "RDA": 15,
+        "UL": 1000
+      },
+      "vitamin_k_ug": {
+        "AI": 90
+      },
+      "zinc_mg": {
+        "RDA": 11,
+        "UL": 40
+      }
+    }
+  }
+}

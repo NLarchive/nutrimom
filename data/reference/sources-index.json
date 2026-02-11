@@ -1,0 +1,114 @@
+{
+  "_meta": {
+    "description": "Index of reference data sources fetched for cross-checking NutriMom nutrient targets and food composition data",
+    "created": "2026-02-11",
+    "purpose": "Document original authoritative sources and what data is available for verification"
+  },
+  "nutrient_target_sources": [
+    {
+      "id": "nih-ods-pregnancy",
+      "name": "NIH Office of Dietary Supplements – Pregnancy (Health Professional)",
+      "url": "https://ods.od.nih.gov/factsheets/Pregnancy-HealthProfessional/",
+      "last_updated_by_source": "April 3, 2025",
+      "fetched": "2026-02-11",
+      "local_file": "data/reference/nih-ods-pregnancy-targets.json",
+      "content_type": "Structured JSON (extracted from HTML tables)",
+      "covers": [
+        "RDA/AI for 30+ micronutrients during pregnancy (14-18, 19-50 age bands)",
+        "UL values during pregnancy",
+        "Key nutrient guidance: calcium, choline, folate, iodine, iron, magnesium, omega-3, vitamin A/B6/B12/D, zinc",
+        "Supplement considerations and safety notes"
+      ],
+      "status": "FETCHED_AND_STRUCTURED"
+    },
+    {
+      "id": "efsa-drvs",
+      "name": "EFSA Dietary Reference Values Summary Report (2017)",
+      "url": "https://www.efsa.europa.eu/sites/default/files/2017_09_DRVs_summary_report.pdf",
+      "fetched": "2026-02-11",
+      "local_file": null,
+      "content_type": "PDF (not machine-parseable via fetch)",
+      "covers": [
+        "EU Dietary Reference Values for vitamins, minerals, macros",
+        "Useful for EU vs US/Canada comparison"
+      ],
+      "status": "URL_VERIFIED_PDF_NOT_PARSEABLE",
+      "note": "PDF download available at URL. Manual extraction or OCR needed for structured data."
+    }
+  ],
+  "food_composition_sources": [
+    {
+      "id": "usda-fdc",
+      "name": "USDA FoodData Central",
+      "url_search": "https://fdc.nal.usda.gov",
+      "url_api": "https://fdc.nal.usda.gov/api-guide/",
+      "fetched": "2026-02-11",
+      "local_file": null,
+      "content_type": "Web API (REST, requires API key from data.gov)",
+      "covers": [
+        "Food composition per 100g and per serving",
+        "Foundation foods, SR Legacy, branded foods, FNDDS 2019-2020",
+        "Searchable by food name or nutrient component"
+      ],
+      "api_details": {
+        "endpoints": ["/food/{fdcId}", "/foods", "/foods/list", "/foods/search"],
+        "rate_limit": "1000 requests/hour per IP",
+        "license": "CC0 1.0 (public domain)",
+        "key_signup": "https://fdc.nal.usda.gov/api-key-signup"
+      },
+      "status": "API_DOCUMENTED"
+    },
+    {
+      "id": "health-canada-cnf",
+      "name": "Health Canada – Canadian Nutrient File (CNF)",
+      "url": "https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/nutrient-data.html",
+      "search_app": "https://food-nutrition.canada.ca/food-search",
+      "fetched": "2026-02-11",
+      "local_file": null,
+      "content_type": "Web application + downloadable database",
+      "covers": [
+        "152 nutrients for 5690+ Canadian foods",
+        "Online searchable application (CNF 2015)",
+        "Nutrient Value of Some Common Foods (NVSCF) booklet: 19 nutrients for 1000 foods"
+      ],
+      "status": "URL_VERIFIED"
+    },
+    {
+      "id": "ciqual-anses",
+      "name": "CIQUAL Food Composition Table 2020 (ANSES, France)",
+      "url": "https://zenodo.org/records/4770600",
+      "fetched": "2026-02-11",
+      "local_file": null,
+      "content_type": "Dataset (XLS + XML), French language, CC BY 4.0",
+      "covers": [
+        "3185 foods consumed in France",
+        "67 components: carbs, sugars, starch, proteins, fat/fatty acids, vitamins, minerals, energy",
+        "Values per 100g edible portion"
+      ],
+      "files_available": [
+        "Table Ciqual 2020_FR_2020 07 07.xls (3.6 MB)",
+        "XML_2020_07_07.zip (7.1 MB)"
+      ],
+      "citation": "Anses. 2020. Ciqual French food composition table.",
+      "status": "URL_VERIFIED_DOWNLOADABLE"
+    },
+    {
+      "id": "fao-infoods-phytate",
+      "name": "FAO/INFOODS/IZiNCG Global Food Composition Database for Phytate (PhyFoodComp)",
+      "url": "https://www.izincg.org/new-blog-1/global-food-composition-database-for-phytate",
+      "database_url": "https://www.izincg.org/faoinfoodsizincg-global-food-composition-database-for-phytate",
+      "fetched": "2026-02-11",
+      "local_file": null,
+      "content_type": "Specialized database (phytate content)",
+      "covers": [
+        "3377 food entries for phytate content",
+        "19 food groups (mostly cereals, legumes)",
+        "Iron, zinc, calcium, water, phytate:mineral molar ratios",
+        "Values per 100g edible portion",
+        "Coded using FoodEx2 system"
+      ],
+      "status": "URL_VERIFIED",
+      "note": "Specialized for phytate and mineral bioavailability. Not a general-purpose food composition database."
+    }
+  ]
+}

@@ -18,7 +18,8 @@
       "DGA 2025-2030",
       "Cochrane Reviews (Omega-3)"
     ],
-    "last_updated": "2026-02-10"
+    "last_updated": "2026-02-11",
+    "last_cross_check": "NCBI DRI tables (2019/2011 editions)"
   },
   "child": {
     "1_3": {
@@ -88,7 +89,8 @@
       },
       "choline_mg": {
         "AI": 200,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 1000
       },
       "vitamin_a_rae_ug": {
         "RDA": 300,
@@ -258,7 +260,8 @@
       },
       "choline_mg": {
         "AI": 250,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 1000
       },
       "vitamin_a_rae_ug": {
         "RDA": 400,
@@ -429,7 +432,8 @@
       },
       "choline_mg": {
         "AI": 375,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 2000
       },
       "vitamin_a_rae_ug": {
         "RDA": 600,
@@ -599,7 +603,8 @@
       },
       "choline_mg": {
         "AI": 400,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3000
       },
       "vitamin_a_rae_ug": {
         "RDA": 700,
@@ -768,7 +773,8 @@
       },
       "choline_mg": {
         "AI": 425,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 700,
@@ -937,7 +943,8 @@
       },
       "choline_mg": {
         "AI": 425,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 700,
@@ -1106,7 +1113,8 @@
       },
       "choline_mg": {
         "AI": 425,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 700,
@@ -1151,7 +1159,7 @@
       },
       "phosphorus_mg": {
         "RDA": 700,
-        "UL": 4000,
+        "UL": 3000,
         "unit": "mg"
       },
       "potassium_mg": {
@@ -1277,7 +1285,8 @@
       },
       "choline_mg": {
         "AI": 375,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 2000
       },
       "vitamin_a_rae_ug": {
         "RDA": 600,
@@ -1446,7 +1455,8 @@
       },
       "choline_mg": {
         "AI": 550,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3000
       },
       "vitamin_a_rae_ug": {
         "RDA": 900,
@@ -1615,7 +1625,8 @@
       },
       "choline_mg": {
         "AI": 550,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 900,
@@ -1784,7 +1795,8 @@
       },
       "choline_mg": {
         "AI": 550,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 900,
@@ -1953,7 +1965,8 @@
       },
       "choline_mg": {
         "AI": 550,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 900,
@@ -1998,7 +2011,7 @@
       },
       "phosphorus_mg": {
         "RDA": 700,
-        "UL": 4000,
+        "UL": 3000,
         "unit": "mg"
       },
       "potassium_mg": {
@@ -2124,7 +2137,8 @@
       },
       "choline_mg": {
         "AI": 450,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3000
       },
       "vitamin_a_rae_ug": {
         "RDA": 750,
@@ -2293,7 +2307,8 @@
       },
       "choline_mg": {
         "AI": 450,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 770,
@@ -2462,7 +2477,8 @@
       },
       "choline_mg": {
         "AI": 450,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 770,
@@ -2633,7 +2649,8 @@
       },
       "choline_mg": {
         "AI": 450,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3000
       },
       "vitamin_a_rae_ug": {
         "RDA": 750,
@@ -2802,7 +2819,8 @@
       },
       "choline_mg": {
         "AI": 450,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 770,
@@ -2971,7 +2989,8 @@
       },
       "choline_mg": {
         "AI": 450,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 770,
@@ -3142,7 +3161,8 @@
       },
       "choline_mg": {
         "AI": 450,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3000
       },
       "vitamin_a_rae_ug": {
         "RDA": 750,
@@ -3311,7 +3331,8 @@
       },
       "choline_mg": {
         "AI": 450,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 770,
@@ -3480,7 +3501,8 @@
       },
       "choline_mg": {
         "AI": 450,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 770,
@@ -3652,7 +3674,8 @@
       },
       "choline_mg": {
         "AI": 550,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3000
       },
       "vitamin_a_rae_ug": {
         "RDA": 1200,
@@ -3821,7 +3844,8 @@
       },
       "choline_mg": {
         "AI": 550,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 1300,
@@ -3990,7 +4014,8 @@
       },
       "choline_mg": {
         "AI": 550,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 1300,
@@ -4162,7 +4187,8 @@
       },
       "choline_mg": {
         "AI": 550,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3000
       },
       "vitamin_a_rae_ug": {
         "RDA": 1200,
@@ -4331,7 +4357,8 @@
       },
       "choline_mg": {
         "AI": 550,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 1300,
@@ -4500,7 +4527,8 @@
       },
       "choline_mg": {
         "AI": 550,
-        "unit": "mg"
+        "unit": "mg",
+        "UL": 3500
       },
       "vitamin_a_rae_ug": {
         "RDA": 1300,

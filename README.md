@@ -4,7 +4,7 @@
 [![Tests](https://img.shields.io/badge/tests-playwright-brightgreen)](./tests)
 [![Status](https://img.shields.io/badge/status-MVP%20Complete-success)](./project-state.json)
 
-A client-side web application providing **personalized daily nutrition recommendations** for pregnant and lactating women based on the Institute of Medicine (IOM) Dietary Reference Intakes.
+A client-side web application providing **personalized daily nutrition targets** for pregnant and lactating women using Dietary Reference Intake (DRI) tables (RDA/AI/UL) and pregnancy-specific guidance from major public-health and evidence-review sources.
 
 **Author:** Nicolas Ivan Larenas Bustamante
 
@@ -12,6 +12,8 @@ live page
 https://nlarchive.github.io/nutrimom/
 
 ---
+
+> Note: While this project began with IOM/National Academies DRIs, the targets and warnings are cross-checked against pregnancy-specific guidance (NIH Office of Dietary Supplements, Dietary Guidelines for Americans 2025–2030, and Cochrane evidence reviews where relevant).
 
 ## ✨ Features
 
@@ -22,7 +24,7 @@ https://nlarchive.github.io/nutrimom/
 - ⚖️ **Weight gain recommendations** based on pre-pregnancy BMI (IOM 2009)
 - 🔒 **100% client-side** - no data sent to servers, privacy-first
 - 📱 **Responsive design** - works on mobile, tablet, and desktop
-- 🎯 **Critical nutrients highlight** for pregnancy (Folate, Iron, DHA, EPA, Iodine, etc.)
+- 🎯 **Critical nutrients highlight** for pregnancy (Folate, Iron, DHA/EPA (REC), Iodine, etc.)
 - 📸 **Food Tracker with LLM integration** - analyze meals via AI or manual input
 - 🎊 **Daily completion celebration** - achievements unlocked when hitting nutrition goals
 - 🧪 **350+ comprehensive E2E tests** - Chromium, Firefox & WebKit coverage
@@ -234,25 +236,139 @@ See [project-state.json](./project-state.json) for detailed task tracking (40+ c
 | Food Tracker | ✅ Complete | LLM integration, meal logging, persistence |
 | UI/UX | ✅ Complete | Responsive design, celebration features |
 - E2E Testing | ✅ Complete | 350+ tests across 3 browsers |
-| Data Validation | ✅ Complete | IOM-sourced, cross-checked targets |
+| Data Validation | ✅ Complete | DRI-based (IOM/NASEM), cross-checked with ODS/DGA/Cochrane where relevant. |
 | Documentation | ✅ Complete | Research guides, API docs, contribution guidelines |
 | GitHub Ready | ✅ Complete | Contributing guidelines, license compliance |
 | Production Deploy | 🚀 Ready | Deployed to GitHub Pages
 
 **Latest Features (Current Sprint):**
-- ✨ Optional nutrient recommendations (REC type) - e.g., DHA for children
+- ✨ Evidence-based recommendations (REC) when no formal RDA/AI exists (e.g., DHA/EPA guidance)
 - 🎊 Day completion celebration with fireworks animation modal
 - 🐛 localStorage compatibility for non-browser environments
 
 ---
 
-## 🔬 Data Sources
+## 🔬 Data sources (validated hierarchy)
 
-| Source | Usage |
-|--------|-------|
-| [IOM Dietary Reference Intakes](https://www.nap.edu/catalog/11537) | RDA, AI, UL values |
-| [IOM Weight Gain Guidelines (2009)](https://www.nap.edu/catalog/12584) | Pregnancy weight gain |
-| [Mifflin-St Jeor (1990)](https://pubmed.ncbi.nlm.nih.gov/2305711/) | BMR equation |
+### 1 · Core nutrient targets (RDA / AI / UL) — all life stages
+
+| Source | Coverage | What we use it for |
+|--------|----------|--------------------|
+| **National Academies DRIs (IOM/NASEM)** | Infants → 70 +, male/female, pregnancy, lactation | Baseline RDA, AI, UL, EAR, AMDR for every life-stage × age-band. The single most important numeric anchor for the database. |
+| **EFSA Dietary Reference Values (EU)** | Same life stages, EU jurisdiction | Independent cross-check; enables multi-jurisdiction support (DRI_US_CA vs EFSA_EU). |
+| **WHO/FAO Vitamin & Mineral Requirements** | Global, all age groups | Global perspective; ensures our DRIs do not conflict with WHO/FAO population-level ranges. |
+| **NIH ODS – General DRI overview** | All nutrients | Curated DRI tables and DV tables; secondary practitioner-friendly reference. |
+| **NIH ODS – Pregnancy (Health Professional)** | Pregnancy / lactation | Pregnancy-specific supplement context (folate, iron, iodine, vitamin D, choline, omega‑3, vitamin A safety). |
+
+### 2 · Life-stage & pregnancy context
+
+| Source | What we use it for |
+|--------|--------------------||
+| **NIH ODS – Pregnancy (Health Professional)** | Detailed supplement considerations and safety context during pregnancy/lactation. |
+| **NHS – Vitamins and nutrition in pregnancy** | Plain-English consumer-level reference for UI text and examples. |
+| **IOM/NASEM Gestational Weight Gain (2009)** | BMI-based pregnancy weight gain targets and weekly gain ranges. |
+
+### 3 · Food-based dietary patterns
+
+| Source | What we use it for |
+|--------|--------------------||
+| **Dietary Guidelines for Americans 2025–2030** | Pattern-level guidance (added sugars, sodium, saturated fat caps), used for dashboard messaging and warnings across all ages. |
+
+### 4 · Evidence reviews (for REC-type nutrients)
+
+| Source | What we use it for |
+|--------|--------------------||
+| **Cochrane – Omega‑3 in pregnancy** | Evidence-based REC recommendations and preterm-birth risk warnings for EPA/DHA. |
+
+### 5 · Equations
+
+| Source | What we use it for |
+|--------|--------------------||
+| **Mifflin–St Jeor (1990)** | BMR equation for energy estimation. |
+
+---
+
+## 🔎 Reference lookups (verify our numbers)
+
+These links let users cross-check nutrient targets and food nutrient composition against authoritative databases.
+
+### Nutrient targets (RDA / AI / UL)
+
+- **National Academies DRIs (U.S./Canada, all life stages)** — the primary numeric reference:
+  - DRI reference tables (all nutrients, all life stages): https://www.ncbi.nlm.nih.gov/books/NBK208874/
+  - RDA/AI Elements (2019, includes Na/K update): https://www.ncbi.nlm.nih.gov/books/NBK545442/table/appJ_tab3/?report=objectonly
+  - RDA/AI Vitamins: https://www.ncbi.nlm.nih.gov/books/NBK56068/table/summarytables.t2/?report=objectonly
+  - RDA/AI Macronutrients: https://www.ncbi.nlm.nih.gov/books/NBK56068/table/summarytables.t4/?report=objectonly
+  - UL Elements: https://www.ncbi.nlm.nih.gov/books/NBK545442/table/appJ_tab9/?report=objectonly
+  - UL Vitamins: https://www.ncbi.nlm.nih.gov/books/NBK56068/table/summarytables.t7/?report=objectonly
+  - AMDR (macronutrient distribution ranges): https://www.ncbi.nlm.nih.gov/books/NBK56068/table/summarytables.t5/?report=objectonly
+- **NIH ODS – Nutrient recommendations overview:** https://ods.od.nih.gov/HealthInformation/nutrientrecommendations.aspx
+- **EFSA Dietary Reference Values (EU):** https://www.efsa.europa.eu/sites/default/files/2017_09_DRVs_summary_report.pdf
+- **WHO/FAO – Vitamin and mineral requirements in human nutrition (global):** https://hftag.org/content/user_files/2023/06/FAO_WHO-2004-Vitamin-and-mineral-requirements-in-human-nutrition.pdf
+
+### Life-stage & pregnancy context
+
+- **NIH ODS – Pregnancy (Health Professional):** https://ods.od.nih.gov/factsheets/Pregnancy-HealthProfessional/
+- **NHS – Vitamins, supplements, and nutrition in pregnancy:** https://www.nhs.uk/pregnancy/keeping-well/vitamins-supplements-and-nutrition/
+
+### Food-based dietary patterns
+
+- **Dietary Guidelines for Americans 2025–2030 (overview & discussion, Harvard Nutrition Source):** https://nutritionsource.hsph.harvard.edu/2026/01/09/dietary-guidelines-for-americans-2025-2030/
+- **DGA announcement (ADA News summary):** https://adanews.ada.org/ada-news/2026/january/hhs-usda-release-2025-2030-dietary-guidelines/
+- **DRI explanation on ODPHP (connects DRIs and guidelines):** https://odphp.health.gov/our-work/nutrition-physical-activity/dietary-guidelines/dietary-reference-intakes
+
+### Evidence reviews (omega‑3 in pregnancy)
+
+- **Cochrane – Omega‑3 fatty acid addition during pregnancy:** https://www.cochrane.org/evidence/CD003402_omega-3-fatty-acid-addition-during-pregnancy
+
+### Food nutrient composition (for all foods, all users)
+
+- **USDA FoodData Central (search UI):** https://fdc.nal.usda.gov
+- **USDA FoodData Central (API guide):** https://fdc.nal.usda.gov/api-guide/
+- **Health Canada – Canadian Nutrient File (CNF):** https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/nutrient-data.html
+- **CIQUAL Food Composition Table (France/ANSES, 2020):** https://zenodo.org/records/4770600
+- **FAO/INFOODS global composition resources** (example — phytate DB): https://www.izincg.org/new-blog-1/global-food-composition-database-for-phytate
+
+### Source ↔ persona coverage
+
+| Persona | Primary targets | Pattern guidance | Food composition |
+|---------|----------------|------------------|------------------|
+| **Infants / Children / Teens** | DRIs (NCBI tables, 0–18 y, both sexes) + WHO/FAO | DGA 2025–2030 | USDA FDC, CNF, CIQUAL |
+| **Adult men & women (19–59)** | DRIs + EFSA DRVs per sex & age band | DGA 2025–2030 | USDA FDC, CNF, CIQUAL |
+| **Older adults (60 +)** | DRIs 51–70 + 70 + categories (higher vitamin D, calcium) | DGA + WHO healthy diet | USDA FDC, CNF, CIQUAL |
+| **Pregnancy & Lactation** | DRIs + NIH ODS pregnancy fact sheet + NHS pregnancy | DGA pregnancy section + Cochrane (EPA/DHA) | USDA FDC, CNF, CIQUAL |
+| **Any diet pattern** | Same numeric targets | — | All food DBs are diet-neutral |
+
+---
+
+## 🎯 Targets vs. evidence-based recommendations (important)
+
+Not all nutrients have a formal RDA/AI for every life stage, and some nutrients are mainly governed by upper limits. NutriMom supports three target types:
+
+- **DRI Targets (RDA/AI):** official baseline targets used for % completion in the UI.
+- **UL / Limit-only nutrients:** shown as a “limit” (e.g., sodium often matters more as a maximum than a minimum).
+- **Evidence-based recommendations (REC):** used when strong evidence exists but no formal DRI target is available for a given life stage.
+
+Example: **Omega‑3 (EPA/DHA) in pregnancy**
+EPA/DHA often have no formal RDA/AI in some tables, but high-quality evidence supports pregnancy-specific recommendations and risk messaging.
+NutriMom uses Cochrane’s pregnancy evidence review to support “REC”-style guidance and warnings in pregnancy/lactation profiles.
+
+Example: **Added sugar messaging**
+DGA 2025–2030 states no amount of added sugars is recommended as part of a healthy diet and introduces practical “per-meal” guidance; NutriMom uses this for UI messaging and warnings (not as a DRI % target).
+
+---
+
+## 🧾 Food Tracker data note (accuracy and verification)
+
+Food tracking uses nutrient values from standard food composition sources (e.g., FoodData Central) and/or user-entered labels, then compares totals against DRI targets. For independent verification of food nutrient values, use FoodData Central search or API links above.
+
+---
+
+## ⚠️ Medical & data disclaimer (minor update)
+
+This calculator provides general guidance based on DRIs and pregnancy-specific public-health sources. It does not replace clinical care, and supplement decisions (iron, iodine, vitamin D, omega‑3, high-dose folic acid, etc.) should be individualized with a clinician.
+
+---
 
 ---
 

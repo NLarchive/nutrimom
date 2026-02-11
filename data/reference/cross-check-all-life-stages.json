@@ -1,0 +1,1188 @@
+{
+  "_meta": {
+    "generatedAt": "2026-02-11T20:14:26.888Z",
+    "sourcesFetched": [
+      "ncbi-dri-vitamins",
+      "ncbi-dri-elements",
+      "ncbi-dri-macros",
+      "ncbi-dri-ul-vitamins",
+      "ncbi-dri-ul-elements"
+    ],
+    "projectFile": "D:\\web\\web-maternity\\data\\nutrient-targets.json"
+  },
+  "summary": {
+    "matches": 871,
+    "mismatches": 115,
+    "ncbiOnlyKeys": 3,
+    "ndValueCases": 0
+  },
+  "mismatches": [
+    {
+      "key": "child.1_3",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 1000,
+      "projectTypes": {
+        "AI": 200
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "child.1_3",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 65,
+      "projectTypes": {
+        "RDA": 80
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "child.1_3",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 800,
+      "projectTypes": {
+        "MAX": 1500
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "child.1_3",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 2300,
+      "projectTypes": {
+        "AI": 1500
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "child.4_8",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 1000,
+      "projectTypes": {
+        "AI": 250
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "child.4_8",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 110,
+      "projectTypes": {
+        "RDA": 130
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "child.4_8",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1000,
+      "projectTypes": {
+        "MAX": 1900
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "child.4_8",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 2900,
+      "projectTypes": {
+        "AI": 1900
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.9_13",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 2000,
+      "projectTypes": {
+        "AI": 375
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.9_13",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 240
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.9_13",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1200,
+      "projectTypes": {
+        "MAX": 2200
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.9_13",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3400,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.14_18",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3000,
+      "projectTypes": {
+        "AI": 550
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.14_18",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 410
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.14_18",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.14_18",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.19_30",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 550
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.19_30",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 400
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.19_30",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.19_30",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.31_50",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 550
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.31_50",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 420
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.31_50",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.31_50",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.51_plus",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 550
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.51_plus",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 420
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.51_plus",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.51_plus",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2000
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.51_plus",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 550
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.51_plus",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 420
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.51_plus",
+      "nutrient": "phosphorus_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3000,
+      "projectValue": 4000,
+      "projectTypes": {
+        "RDA": 700,
+        "UL": 4000
+      }
+    },
+    {
+      "key": "male_nonpregnant.51_plus",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "male_nonpregnant.51_plus",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2000
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.9_13",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 2000,
+      "projectTypes": {
+        "AI": 375
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.9_13",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 240
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.9_13",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1200,
+      "projectTypes": {
+        "MAX": 2200
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.9_13",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3400,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.14_18",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3000,
+      "projectTypes": {
+        "AI": 400
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.14_18",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 360
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.14_18",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.14_18",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.19_30",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 425
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.19_30",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 310
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.19_30",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.19_30",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.31_50",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 425
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.31_50",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 320
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.31_50",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.31_50",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.51_plus",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 425
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.51_plus",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 320
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.51_plus",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.51_plus",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2000
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.51_plus",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 425
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.51_plus",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 320
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.51_plus",
+      "nutrient": "phosphorus_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3000,
+      "projectValue": 4000,
+      "projectTypes": {
+        "RDA": 700,
+        "UL": 4000
+      }
+    },
+    {
+      "key": "female_nonpregnant.51_plus",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "female_nonpregnant.51_plus",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2000
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t1.14_18",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3000,
+      "projectTypes": {
+        "AI": 450
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t1.14_18",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 400
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t1.14_18",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t1.14_18",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t1.19_30",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 450
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t1.19_30",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t1.19_30",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t1.31_50",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 450
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t1.31_50",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 360
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t1.31_50",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t1.31_50",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t2.14_18",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3000,
+      "projectTypes": {
+        "AI": 450
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t2.14_18",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 400
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t2.14_18",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t2.14_18",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t2.19_30",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 450
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t2.19_30",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t2.19_30",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t2.31_50",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 450
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t2.31_50",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 360
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t2.31_50",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t2.31_50",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t3.14_18",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3000,
+      "projectTypes": {
+        "AI": 450
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t3.14_18",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 400
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t3.14_18",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t3.14_18",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t3.19_30",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 450
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t3.19_30",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t3.19_30",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t3.31_50",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 450
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t3.31_50",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 360
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t3.31_50",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "pregnant_t3.31_50",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_0_6.14_18",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3000,
+      "projectTypes": {
+        "AI": 550
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_0_6.14_18",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 360
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_0_6.14_18",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_0_6.14_18",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_0_6.19_30",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 550
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_0_6.19_30",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 310
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_0_6.19_30",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_0_6.19_30",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_0_6.31_50",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 550
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_0_6.31_50",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 320
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_0_6.31_50",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_0_6.31_50",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_7_12.14_18",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3000,
+      "projectTypes": {
+        "AI": 550
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_7_12.14_18",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 360
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_7_12.14_18",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_7_12.14_18",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_7_12.19_30",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 550
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_7_12.19_30",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 310
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_7_12.19_30",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_7_12.19_30",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_7_12.31_50",
+      "nutrient": "choline_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3500,
+      "projectTypes": {
+        "AI": 550
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_7_12.31_50",
+      "nutrient": "magnesium_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 350,
+      "projectTypes": {
+        "RDA": 320
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_7_12.31_50",
+      "nutrient": "sodium_mg",
+      "ncbiType": "AI",
+      "ncbiValue": 1500,
+      "projectTypes": {
+        "MAX": 2300
+      },
+      "note": "type not found in project"
+    },
+    {
+      "key": "lactating_7_12.31_50",
+      "nutrient": "chloride_mg",
+      "ncbiType": "UL",
+      "ncbiValue": 3600,
+      "projectTypes": {
+        "AI": 2300
+      },
+      "note": "type not found in project"
+    }
+  ],
+  "ncbiOnly": [
+    {
+      "key": "infant.0_6",
+      "nutrientCount": 39
+    },
+    {
+      "key": "infant.6_12",
+      "nutrientCount": 21
+    },
+    {
+      "key": "infant.7_12",
+      "nutrientCount": 18
+    }
+  ],
+  "ndValues": []
+}

@@ -1,0 +1,1718 @@
+{
+  "_meta": {
+    "source": "ncbi-dri-ul-elements",
+    "sourceName": "National Academies DRI – UL Elements",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK545442/table/appJ_tab9/?report=objectonly",
+    "fetchedAt": "2026-02-11T20:14:25.625Z",
+    "tableKind": "ul",
+    "nutrientCount": 15
+  },
+  "groups": {
+    "Infants": {
+      "0_6": {
+        "boron_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "calcium_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000g"
+        },
+        "copper_ug": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "fluoride_mg": {
+          "value": 0.7,
+          "type": "UL",
+          "raw": "0.7"
+        },
+        "iodine_ug": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "iron_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "magnesium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "manganese_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "molybdenum_ug": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "nickel_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "phosphorus_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "selenium_ug": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 4,
+          "type": "UL",
+          "raw": "4"
+        },
+        "chloride_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        }
+      },
+      "7_12": {
+        "boron_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "calcium_mg": {
+          "value": 1500,
+          "type": "UL",
+          "raw": "1,500g"
+        },
+        "copper_ug": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "fluoride_mg": {
+          "value": 0.9,
+          "type": "UL",
+          "raw": "0.9"
+        },
+        "iodine_ug": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "iron_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "magnesium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "manganese_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "molybdenum_ug": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "nickel_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "phosphorus_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "selenium_ug": {
+          "value": 60,
+          "type": "UL",
+          "raw": "60"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 5,
+          "type": "UL",
+          "raw": "5"
+        },
+        "chloride_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        }
+      }
+    },
+    "Children": {
+      "1_3": {
+        "boron_mg": {
+          "value": 3,
+          "type": "UL",
+          "raw": "3"
+        },
+        "calcium_mg": {
+          "value": 2500,
+          "type": "UL",
+          "raw": "2,500"
+        },
+        "copper_ug": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "fluoride_mg": {
+          "value": 1.3,
+          "type": "UL",
+          "raw": "1.3"
+        },
+        "iodine_ug": {
+          "value": 200,
+          "type": "UL",
+          "raw": "200"
+        },
+        "iron_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "magnesium_mg": {
+          "value": 65,
+          "type": "UL",
+          "raw": "65"
+        },
+        "manganese_mg": {
+          "value": 2,
+          "type": "UL",
+          "raw": "2"
+        },
+        "molybdenum_ug": {
+          "value": 300,
+          "type": "UL",
+          "raw": "300"
+        },
+        "nickel_mg": {
+          "value": 0.2,
+          "type": "UL",
+          "raw": "0.2"
+        },
+        "phosphorus_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3"
+        },
+        "selenium_ug": {
+          "value": 90,
+          "type": "UL",
+          "raw": "90"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 7,
+          "type": "UL",
+          "raw": "7"
+        },
+        "chloride_mg": {
+          "value": 2300,
+          "type": "UL",
+          "raw": "2.3"
+        }
+      },
+      "4_8": {
+        "boron_mg": {
+          "value": 6,
+          "type": "UL",
+          "raw": "6"
+        },
+        "calcium_mg": {
+          "value": 2500,
+          "type": "UL",
+          "raw": "2,500"
+        },
+        "copper_ug": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "fluoride_mg": {
+          "value": 2.2,
+          "type": "UL",
+          "raw": "2.2"
+        },
+        "iodine_ug": {
+          "value": 300,
+          "type": "UL",
+          "raw": "300"
+        },
+        "iron_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "magnesium_mg": {
+          "value": 110,
+          "type": "UL",
+          "raw": "110"
+        },
+        "manganese_mg": {
+          "value": 3,
+          "type": "UL",
+          "raw": "3"
+        },
+        "molybdenum_ug": {
+          "value": 600,
+          "type": "UL",
+          "raw": "600"
+        },
+        "nickel_mg": {
+          "value": 0.3,
+          "type": "UL",
+          "raw": "0.3"
+        },
+        "phosphorus_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3"
+        },
+        "selenium_ug": {
+          "value": 150,
+          "type": "UL",
+          "raw": "150"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 12,
+          "type": "UL",
+          "raw": "12"
+        },
+        "chloride_mg": {
+          "value": 2900,
+          "type": "UL",
+          "raw": "2.9"
+        }
+      }
+    },
+    "Males": {
+      "9_13": {
+        "boron_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "calcium_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "copper_ug": {
+          "value": 5000,
+          "type": "UL",
+          "raw": "5,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 600,
+          "type": "UL",
+          "raw": "600"
+        },
+        "iron_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 6,
+          "type": "UL",
+          "raw": "6"
+        },
+        "molybdenum_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "nickel_mg": {
+          "value": 0.6,
+          "type": "UL",
+          "raw": "0.6"
+        },
+        "phosphorus_mg": {
+          "value": 4000,
+          "type": "UL",
+          "raw": "4"
+        },
+        "selenium_ug": {
+          "value": 280,
+          "type": "UL",
+          "raw": "280"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 23,
+          "type": "UL",
+          "raw": "23"
+        },
+        "chloride_mg": {
+          "value": 3400,
+          "type": "UL",
+          "raw": "3.4"
+        }
+      },
+      "14_18": {
+        "boron_mg": {
+          "value": 17,
+          "type": "UL",
+          "raw": "17"
+        },
+        "calcium_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3 000"
+        },
+        "copper_ug": {
+          "value": 8000,
+          "type": "UL",
+          "raw": "8 000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 900,
+          "type": "UL",
+          "raw": "900"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 9,
+          "type": "UL",
+          "raw": "9"
+        },
+        "molybdenum_ug": {
+          "value": 1700,
+          "type": "UL",
+          "raw": "1 700"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 4000,
+          "type": "UL",
+          "raw": "4"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 34,
+          "type": "UL",
+          "raw": "34"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      },
+      "19_30": {
+        "boron_mg": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "calcium_mg": {
+          "value": 2500,
+          "type": "UL",
+          "raw": "2,500"
+        },
+        "copper_ug": {
+          "value": 10000,
+          "type": "UL",
+          "raw": "10,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "molybdenum_ug": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 4000,
+          "type": "UL",
+          "raw": "4"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": 1.8,
+          "type": "UL",
+          "raw": "1.8"
+        },
+        "zinc_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      },
+      "31_50": {
+        "boron_mg": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "calcium_mg": {
+          "value": 2500,
+          "type": "UL",
+          "raw": "2,500"
+        },
+        "copper_ug": {
+          "value": 10000,
+          "type": "UL",
+          "raw": "10,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "molybdenum_ug": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 4000,
+          "type": "UL",
+          "raw": "4"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": 1.8,
+          "type": "UL",
+          "raw": "1.8"
+        },
+        "zinc_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      },
+      "51_70": {
+        "boron_mg": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "calcium_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "copper_ug": {
+          "value": 10000,
+          "type": "UL",
+          "raw": "10,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "molybdenum_ug": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 4000,
+          "type": "UL",
+          "raw": "4"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": 1.8,
+          "type": "UL",
+          "raw": "1.8"
+        },
+        "zinc_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      },
+      "71_plus": {
+        "boron_mg": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "calcium_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "copper_ug": {
+          "value": 10000,
+          "type": "UL",
+          "raw": "10,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "molybdenum_ug": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": 1.8,
+          "type": "UL",
+          "raw": "1.8"
+        },
+        "zinc_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      }
+    },
+    "Females": {
+      "9_13": {
+        "boron_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "calcium_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "copper_ug": {
+          "value": 5000,
+          "type": "UL",
+          "raw": "5,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 600,
+          "type": "UL",
+          "raw": "600"
+        },
+        "iron_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 6,
+          "type": "UL",
+          "raw": "6"
+        },
+        "molybdenum_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "nickel_mg": {
+          "value": 0.6,
+          "type": "UL",
+          "raw": "0.6"
+        },
+        "phosphorus_mg": {
+          "value": 4000,
+          "type": "UL",
+          "raw": "4"
+        },
+        "selenium_ug": {
+          "value": 280,
+          "type": "UL",
+          "raw": "280"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 23,
+          "type": "UL",
+          "raw": "23"
+        },
+        "chloride_mg": {
+          "value": 3400,
+          "type": "UL",
+          "raw": "3.4"
+        }
+      },
+      "14_18": {
+        "boron_mg": {
+          "value": 17,
+          "type": "UL",
+          "raw": "17"
+        },
+        "calcium_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "copper_ug": {
+          "value": 8000,
+          "type": "UL",
+          "raw": "8,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 900,
+          "type": "UL",
+          "raw": "900"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 9,
+          "type": "UL",
+          "raw": "9"
+        },
+        "molybdenum_ug": {
+          "value": 1700,
+          "type": "UL",
+          "raw": "1,700"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 4000,
+          "type": "UL",
+          "raw": "4"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 34,
+          "type": "UL",
+          "raw": "34"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      },
+      "19_30": {
+        "boron_mg": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "calcium_mg": {
+          "value": 2500,
+          "type": "UL",
+          "raw": "2,500"
+        },
+        "copper_ug": {
+          "value": 10000,
+          "type": "UL",
+          "raw": "10,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "molybdenum_ug": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 4000,
+          "type": "UL",
+          "raw": "4"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": 1.8,
+          "type": "UL",
+          "raw": "1.8"
+        },
+        "zinc_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      },
+      "31_50": {
+        "boron_mg": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "calcium_mg": {
+          "value": 2500,
+          "type": "UL",
+          "raw": "2,500"
+        },
+        "copper_ug": {
+          "value": 10000,
+          "type": "UL",
+          "raw": "10,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "molybdenum_ug": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 4000,
+          "type": "UL",
+          "raw": "4"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": 1.8,
+          "type": "UL",
+          "raw": "1.8"
+        },
+        "zinc_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      },
+      "51_70": {
+        "boron_mg": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "calcium_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "copper_ug": {
+          "value": 10000,
+          "type": "UL",
+          "raw": "10,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "molybdenum_ug": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 4000,
+          "type": "UL",
+          "raw": "4"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": 1.8,
+          "type": "UL",
+          "raw": "1.8"
+        },
+        "zinc_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      },
+      "71_plus": {
+        "boron_mg": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "calcium_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "copper_ug": {
+          "value": 10000,
+          "type": "UL",
+          "raw": "10,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "molybdenum_ug": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": 1.8,
+          "type": "UL",
+          "raw": "1.8"
+        },
+        "zinc_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      }
+    },
+    "Pregnancy": {
+      "14_18": {
+        "boron_mg": {
+          "value": 17,
+          "type": "UL",
+          "raw": "17"
+        },
+        "calcium_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "copper_ug": {
+          "value": 8000,
+          "type": "UL",
+          "raw": "8,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 900,
+          "type": "UL",
+          "raw": "900"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 9,
+          "type": "UL",
+          "raw": "9"
+        },
+        "molybdenum_ug": {
+          "value": 1700,
+          "type": "UL",
+          "raw": "1,700"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 34,
+          "type": "UL",
+          "raw": "34"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      },
+      "19_30": {
+        "boron_mg": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "calcium_mg": {
+          "value": 2500,
+          "type": "UL",
+          "raw": "2,500"
+        },
+        "copper_ug": {
+          "value": 10000,
+          "type": "UL",
+          "raw": "10,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "molybdenum_ug": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      },
+      "31_50": {
+        "boron_mg": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "calcium_mg": {
+          "value": 2500,
+          "type": "UL",
+          "raw": "2,500"
+        },
+        "copper_ug": {
+          "value": 10000,
+          "type": "UL",
+          "raw": "10,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "molybdenum_ug": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      }
+    },
+    "Lactation": {
+      "14_18": {
+        "boron_mg": {
+          "value": 17,
+          "type": "UL",
+          "raw": "17"
+        },
+        "calcium_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "copper_ug": {
+          "value": 8000,
+          "type": "UL",
+          "raw": "8,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 900,
+          "type": "UL",
+          "raw": "900"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 9,
+          "type": "UL",
+          "raw": "9"
+        },
+        "molybdenum_ug": {
+          "value": 1700,
+          "type": "UL",
+          "raw": "1,700"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 4000,
+          "type": "UL",
+          "raw": "4"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 34,
+          "type": "UL",
+          "raw": "34"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      },
+      "19_30": {
+        "boron_mg": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "calcium_mg": {
+          "value": 2500,
+          "type": "UL",
+          "raw": "2,500"
+        },
+        "copper_ug": {
+          "value": 10000,
+          "type": "UL",
+          "raw": "10,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "molybdenum_ug": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 4000,
+          "type": "UL",
+          "raw": "4"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      },
+      "31_50": {
+        "boron_mg": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "calcium_mg": {
+          "value": 2500,
+          "type": "UL",
+          "raw": "2,500"
+        },
+        "copper_ug": {
+          "value": 10000,
+          "type": "UL",
+          "raw": "10,000"
+        },
+        "fluoride_mg": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "iodine_ug": {
+          "value": 1100,
+          "type": "UL",
+          "raw": "1,100"
+        },
+        "iron_mg": {
+          "value": 45,
+          "type": "UL",
+          "raw": "45"
+        },
+        "magnesium_mg": {
+          "value": 350,
+          "type": "UL",
+          "raw": "350"
+        },
+        "manganese_mg": {
+          "value": 11,
+          "type": "UL",
+          "raw": "11"
+        },
+        "molybdenum_ug": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "nickel_mg": {
+          "value": 1,
+          "type": "UL",
+          "raw": "1.0"
+        },
+        "phosphorus_mg": {
+          "value": 4000,
+          "type": "UL",
+          "raw": "4"
+        },
+        "selenium_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vanadium_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "zinc_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "chloride_mg": {
+          "value": 3600,
+          "type": "UL",
+          "raw": "3.6"
+        }
+      }
+    }
+  }
+}

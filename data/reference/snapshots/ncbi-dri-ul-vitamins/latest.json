@@ -1,0 +1,948 @@
+{
+  "_meta": {
+    "source": "ncbi-dri-ul-vitamins",
+    "sourceName": "National Academies DRI – UL Vitamins",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK56068/table/summarytables.t7/?report=objectonly",
+    "fetchedAt": "2026-02-11T20:14:23.299Z",
+    "tableKind": "ul",
+    "nutrientCount": 8
+  },
+  "groups": {
+    "Infants": {
+      "0_6": {
+        "vitamin_a_rae_ug": {
+          "value": 600,
+          "type": "UL",
+          "raw": "600"
+        },
+        "vitamin_c_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "NDe"
+        },
+        "vitamin_d_ug": {
+          "value": 25,
+          "type": "UL",
+          "raw": "25"
+        },
+        "vitamin_e_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "niacin_mg_ne": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "vitamin_b6_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "folate_dfe_ug": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "choline_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        }
+      },
+      "6_12": {
+        "vitamin_a_rae_ug": {
+          "value": 600,
+          "type": "UL",
+          "raw": "600"
+        },
+        "vitamin_c_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "vitamin_d_ug": {
+          "value": 38,
+          "type": "UL",
+          "raw": "38"
+        },
+        "vitamin_e_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "niacin_mg_ne": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "vitamin_b6_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "folate_dfe_ug": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        },
+        "choline_mg": {
+          "value": null,
+          "type": "ND",
+          "raw": "ND"
+        }
+      }
+    },
+    "Children": {
+      "1_3": {
+        "vitamin_a_rae_ug": {
+          "value": 600,
+          "type": "UL",
+          "raw": "600"
+        },
+        "vitamin_c_mg": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "vitamin_d_ug": {
+          "value": 63,
+          "type": "UL",
+          "raw": "63"
+        },
+        "vitamin_e_mg": {
+          "value": 200,
+          "type": "UL",
+          "raw": "200"
+        },
+        "niacin_mg_ne": {
+          "value": 10,
+          "type": "UL",
+          "raw": "10"
+        },
+        "vitamin_b6_mg": {
+          "value": 30,
+          "type": "UL",
+          "raw": "30"
+        },
+        "folate_dfe_ug": {
+          "value": 300,
+          "type": "UL",
+          "raw": "300"
+        },
+        "choline_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1.0"
+        }
+      },
+      "4_8": {
+        "vitamin_a_rae_ug": {
+          "value": 900,
+          "type": "UL",
+          "raw": "900"
+        },
+        "vitamin_c_mg": {
+          "value": 650,
+          "type": "UL",
+          "raw": "650"
+        },
+        "vitamin_d_ug": {
+          "value": 75,
+          "type": "UL",
+          "raw": "75"
+        },
+        "vitamin_e_mg": {
+          "value": 300,
+          "type": "UL",
+          "raw": "300"
+        },
+        "niacin_mg_ne": {
+          "value": 15,
+          "type": "UL",
+          "raw": "15"
+        },
+        "vitamin_b6_mg": {
+          "value": 40,
+          "type": "UL",
+          "raw": "40"
+        },
+        "folate_dfe_ug": {
+          "value": 400,
+          "type": "UL",
+          "raw": "400"
+        },
+        "choline_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1.0"
+        }
+      }
+    },
+    "Males": {
+      "9_13": {
+        "vitamin_a_rae_ug": {
+          "value": 1700,
+          "type": "UL",
+          "raw": "1,700"
+        },
+        "vitamin_c_mg": {
+          "value": 1200,
+          "type": "UL",
+          "raw": "1,200"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 600,
+          "type": "UL",
+          "raw": "600"
+        },
+        "niacin_mg_ne": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "vitamin_b6_mg": {
+          "value": 60,
+          "type": "UL",
+          "raw": "60"
+        },
+        "folate_dfe_ug": {
+          "value": 600,
+          "type": "UL",
+          "raw": "600"
+        },
+        "choline_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2.0"
+        }
+      },
+      "14_18": {
+        "vitamin_a_rae_ug": {
+          "value": 2800,
+          "type": "UL",
+          "raw": "2,800"
+        },
+        "vitamin_c_mg": {
+          "value": 1800,
+          "type": "UL",
+          "raw": "1,800"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 800,
+          "type": "UL",
+          "raw": "800"
+        },
+        "niacin_mg_ne": {
+          "value": 30,
+          "type": "UL",
+          "raw": "30"
+        },
+        "vitamin_b6_mg": {
+          "value": 80,
+          "type": "UL",
+          "raw": "80"
+        },
+        "folate_dfe_ug": {
+          "value": 800,
+          "type": "UL",
+          "raw": "800"
+        },
+        "choline_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3.0"
+        }
+      },
+      "19_30": {
+        "vitamin_a_rae_ug": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "vitamin_c_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "niacin_mg_ne": {
+          "value": 35,
+          "type": "UL",
+          "raw": "35"
+        },
+        "vitamin_b6_mg": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "folate_dfe_ug": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "choline_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        }
+      },
+      "31_50": {
+        "vitamin_a_rae_ug": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "vitamin_c_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "niacin_mg_ne": {
+          "value": 35,
+          "type": "UL",
+          "raw": "35"
+        },
+        "vitamin_b6_mg": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "folate_dfe_ug": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "choline_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        }
+      },
+      "51_70": {
+        "vitamin_a_rae_ug": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "vitamin_c_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "niacin_mg_ne": {
+          "value": 35,
+          "type": "UL",
+          "raw": "35"
+        },
+        "vitamin_b6_mg": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "folate_dfe_ug": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "choline_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        }
+      },
+      "71_plus": {
+        "vitamin_a_rae_ug": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "vitamin_c_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "niacin_mg_ne": {
+          "value": 35,
+          "type": "UL",
+          "raw": "35"
+        },
+        "vitamin_b6_mg": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "folate_dfe_ug": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "choline_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        }
+      }
+    },
+    "Females": {
+      "9_13": {
+        "vitamin_a_rae_ug": {
+          "value": 1700,
+          "type": "UL",
+          "raw": "1,700"
+        },
+        "vitamin_c_mg": {
+          "value": 1200,
+          "type": "UL",
+          "raw": "1,200"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 600,
+          "type": "UL",
+          "raw": "600"
+        },
+        "niacin_mg_ne": {
+          "value": 20,
+          "type": "UL",
+          "raw": "20"
+        },
+        "vitamin_b6_mg": {
+          "value": 60,
+          "type": "UL",
+          "raw": "60"
+        },
+        "folate_dfe_ug": {
+          "value": 600,
+          "type": "UL",
+          "raw": "600"
+        },
+        "choline_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2.0"
+        }
+      },
+      "14_18": {
+        "vitamin_a_rae_ug": {
+          "value": 2800,
+          "type": "UL",
+          "raw": "2,800"
+        },
+        "vitamin_c_mg": {
+          "value": 1800,
+          "type": "UL",
+          "raw": "1,800"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 800,
+          "type": "UL",
+          "raw": "800"
+        },
+        "niacin_mg_ne": {
+          "value": 30,
+          "type": "UL",
+          "raw": "30"
+        },
+        "vitamin_b6_mg": {
+          "value": 80,
+          "type": "UL",
+          "raw": "80"
+        },
+        "folate_dfe_ug": {
+          "value": 800,
+          "type": "UL",
+          "raw": "800"
+        },
+        "choline_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3.0"
+        }
+      },
+      "19_30": {
+        "vitamin_a_rae_ug": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "vitamin_c_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "niacin_mg_ne": {
+          "value": 35,
+          "type": "UL",
+          "raw": "35"
+        },
+        "vitamin_b6_mg": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "folate_dfe_ug": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "choline_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        }
+      },
+      "31_50": {
+        "vitamin_a_rae_ug": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "vitamin_c_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "niacin_mg_ne": {
+          "value": 35,
+          "type": "UL",
+          "raw": "35"
+        },
+        "vitamin_b6_mg": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "folate_dfe_ug": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "choline_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        }
+      },
+      "51_70": {
+        "vitamin_a_rae_ug": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "vitamin_c_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "niacin_mg_ne": {
+          "value": 35,
+          "type": "UL",
+          "raw": "35"
+        },
+        "vitamin_b6_mg": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "folate_dfe_ug": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "choline_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        }
+      },
+      "71_plus": {
+        "vitamin_a_rae_ug": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "vitamin_c_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "niacin_mg_ne": {
+          "value": 35,
+          "type": "UL",
+          "raw": "35"
+        },
+        "vitamin_b6_mg": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "folate_dfe_ug": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "choline_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        }
+      }
+    },
+    "Pregnancy": {
+      "14_18": {
+        "vitamin_a_rae_ug": {
+          "value": 2800,
+          "type": "UL",
+          "raw": "2,800"
+        },
+        "vitamin_c_mg": {
+          "value": 1800,
+          "type": "UL",
+          "raw": "1,800"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 800,
+          "type": "UL",
+          "raw": "800"
+        },
+        "niacin_mg_ne": {
+          "value": 30,
+          "type": "UL",
+          "raw": "30"
+        },
+        "vitamin_b6_mg": {
+          "value": 80,
+          "type": "UL",
+          "raw": "80"
+        },
+        "folate_dfe_ug": {
+          "value": 800,
+          "type": "UL",
+          "raw": "800"
+        },
+        "choline_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3.0"
+        }
+      },
+      "19_30": {
+        "vitamin_a_rae_ug": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "vitamin_c_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "niacin_mg_ne": {
+          "value": 35,
+          "type": "UL",
+          "raw": "35"
+        },
+        "vitamin_b6_mg": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "folate_dfe_ug": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "choline_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        }
+      },
+      "31_50": {
+        "vitamin_a_rae_ug": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "vitamin_c_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "niacin_mg_ne": {
+          "value": 35,
+          "type": "UL",
+          "raw": "35"
+        },
+        "vitamin_b6_mg": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "folate_dfe_ug": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "choline_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        }
+      }
+    },
+    "Lactation": {
+      "14_18": {
+        "vitamin_a_rae_ug": {
+          "value": 2800,
+          "type": "UL",
+          "raw": "2,800"
+        },
+        "vitamin_c_mg": {
+          "value": 1800,
+          "type": "UL",
+          "raw": "1,800"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 800,
+          "type": "UL",
+          "raw": "800"
+        },
+        "niacin_mg_ne": {
+          "value": 30,
+          "type": "UL",
+          "raw": "30"
+        },
+        "vitamin_b6_mg": {
+          "value": 80,
+          "type": "UL",
+          "raw": "80"
+        },
+        "folate_dfe_ug": {
+          "value": 800,
+          "type": "UL",
+          "raw": "800"
+        },
+        "choline_mg": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3.0"
+        }
+      },
+      "19_30": {
+        "vitamin_a_rae_ug": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "vitamin_c_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "niacin_mg_ne": {
+          "value": 35,
+          "type": "UL",
+          "raw": "35"
+        },
+        "vitamin_b6_mg": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "folate_dfe_ug": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "choline_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        }
+      },
+      "31_50": {
+        "vitamin_a_rae_ug": {
+          "value": 3000,
+          "type": "UL",
+          "raw": "3,000"
+        },
+        "vitamin_c_mg": {
+          "value": 2000,
+          "type": "UL",
+          "raw": "2,000"
+        },
+        "vitamin_d_ug": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "vitamin_e_mg": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "niacin_mg_ne": {
+          "value": 35,
+          "type": "UL",
+          "raw": "35"
+        },
+        "vitamin_b6_mg": {
+          "value": 100,
+          "type": "UL",
+          "raw": "100"
+        },
+        "folate_dfe_ug": {
+          "value": 1000,
+          "type": "UL",
+          "raw": "1,000"
+        },
+        "choline_mg": {
+          "value": 3500,
+          "type": "UL",
+          "raw": "3.5"
+        }
+      }
+    }
+  }
+}

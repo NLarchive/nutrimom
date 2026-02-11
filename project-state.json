@@ -1001,6 +1001,46 @@
       "notes": "All 103 Playwright tests passing. Source of truth: _emptyTotals() in food-tracker-engine.js (37 canonical keys). Fatty Acids group was appearing empty because UI used omega3_mg key which doesn't exist in engine totals."
     },
     {
+      "task_name": "NCBI DRI All-Life-Stages Fetcher & Cross-Check",
+      "description": "Expanded nutrient-fetcher tool from pregnancy-only to ALL life stages. Added 5 NCBI DRI table sources (RDA/AI vitamins, elements, macros + UL vitamins, elements) with parsers for infants, children, males, females, pregnancy, lactation across 32 age-band combos. Created parser-ncbi-dri.js (HTML parsing, unit conversion, AI/RDA detection). Built cross-check-all.js for automated full-database verification. Live-fetched all tables, compared 871 values, found and fixed 2 genuine errors (phosphorus UL 51+: 4000→3000) and added 27 missing choline UL values. Updated config.js with 12 source definitions and NCBI-specific mappings.",
+      "start_date": "2026-02-11",
+      "end_date": "2026-02-11",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 6,
+      "actual_hours": 6,
+      "is_critical_path": true,
+      "tags": ["data-validation", "NCBI", "DRI", "all-life-stages", "cross-check", "fetcher", "parser"],
+      "category_name": "Data & Research",
+      "assigned_workers": [
+        { "name": "AI Assistant (Claude)", "email": "assistant@anthropic.com", "role": "Development Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Nutrient Research Validation & EPA Gap Fix", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "tools/nutrient-fetcher/src/config.js - Added 5 NCBI DRI sources, WHO/FAO, Health Canada. Added NCBI_TABLE_COLUMNS (5 tables × 14-21 columns each), NCBI_LIFE_STAGE_MAP (6 groups → project stages), NCBI_AGE_BAND_MAP (28 age-band text variants), NCBI_AGE_COLLAPSE",
+        "tools/nutrient-fetcher/src/parser-ncbi-dri.js - New parser: parseCellValue (ND/AI/RDA/footnotes/commas), normaliseAgeBand (en-dash/hyphen/minus), detectGroupHeader, parse (full HTML table), flattenForProject (fan-out pregnancy → t1/t2/t3, lactation → 0_6/7_12)",
+        "tools/nutrient-fetcher/src/cross-check-all.js - Automated cross-check: fetches 5 NCBI tables, merges, compares against nutrient-targets.json, generates JSON report with matches/mismatches/ncbi-only/nd-values",
+        "tools/nutrient-fetcher/src/update-db-2026-02.js - One-time fix script: phosphorus UL 51+ (4000→3000), choline UL added to 27 life-stage/age-band combos",
+        "tools/nutrient-fetcher/src/cli.js - Added ncbi-dri parser support in fetch and compare commands",
+        "tools/nutrient-fetcher/tests/parser-ncbi-dri.test.js - 52 tests: parseCellValue (16), normaliseAgeBand (12), parse vitamins/elements/UL (19), flattenForProject (5)",
+        "tools/nutrient-fetcher/package.json - Added parser-ncbi-dri.test.js to test scripts, added fetch:ncbi shortcuts",
+        "data/nutrient-targets.json - Fixed phosphorus UL 51+ (4000→3000) for male/female, added choline UL to 27 combos, updated _meta",
+        "data/reference/cross-check-all-life-stages.json - Full cross-check report: 871 matches, 115 type mismatches, 2 value fixes, 3 NCBI-only (infants)",
+        "data/reference/snapshots/ - Saved latest.json for all 5 NCBI DRI tables"
+      ],
+      "features": [
+        "Parser handles: commas (2,500→2500), asterisks (*=AI), footnote letters (a-j), ND values, en-dashes (–), minus signs (−)",
+        "Unit conversion: g→mg for chloride, choline UL, phosphorus UL",
+        "Life-stage fan-out: Pregnancy → pregnant_t1/t2/t3, Lactation → lactating_0_6/7_12",
+        "Age-band collapsing: 51-70 + >70 → 51_plus (picks conservative value)",
+        "12 source definitions covering 5 automate-parseable + 5 manual sources"
+      ],
+      "notes": "104 total nutrient-fetcher tests (52 original + 52 new NCBI parser). All passing. Cross-check found most 'mismatches' are type differences (project uses MAX for sodium, missing UL for magnesium/chloride) not value errors. Only phosphorus UL 51+ was a genuine data error."
+    },
+    {
       "task_name": "Nutrient Research Validation & EPA Gap Fix",
       "description": "Cross-referenced ALL nutrient data against comprehensive Deep Research document (docs/nutrient-research-2026.md) covering IOM DRI, NIH ODS, NASEM 2019, DGA 2025-2030, Cochrane Reviews, ACOG, and RCOG guidelines. Confirmed all 36 existing DRI values are correct. Identified and filled EPA target gap: epa_mg was tracked by engine and prompt but had NO targets in nutrient-targets.json. Added epa_mg AI targets to all 26 age bands. Enriched 9 nutrient descriptions in nutrients.json with research evidence (Cochrane preterm birth data, DGA 2025-2030 references, Cornell choline study, RCOG/ACOG folate guidance). Created comprehensive 14-test validation suite covering all 37 tracked nutrients with realistic salmon bowl mock data.",
       "start_date": "2026-06-12",
@@ -1314,6 +1354,30 @@
       "date": "2026-06-13",
       "status": "Completed",
       "description": "All 38 nutrients flow through LLM prompt → validator → sanitizer → engine → dashboard without data loss. 349 tests passing (Chromium + Firefox + Mobile Chrome). Fixed 22 pre-existing log-import test failures. Engine constructor now persists dailyTotals on load."
+    },
+    {
+      "name": "README Data Sources & Verification Expansion",
+      "date": "2026-02-11",
+      "status": "Completed",
+      "description": "Expanded README with NIH ODS, EFSA, DGA 2025-2030, Cochrane sources. Added Reference Lookups section (USDA FDC, Health Canada CNF, CIQUAL, FAO/INFOODS), Targets vs Evidence-Based Recommendations section, Food Tracker data note, updated disclaimer. Updated wording for DHA/EPA REC and Data Validation."
+    },
+    {
+      "name": "Reference Data Fetch & Cross-Check",
+      "date": "2026-02-11",
+      "status": "Completed",
+      "description": "Fetched NIH ODS Pregnancy fact sheet (full RDA/AI/UL tables), USDA FDC API docs, Health Canada CNF page, CIQUAL Zenodo record, FAO/INFOODS phytate DB. Created data/reference/ with structured nih-ods-pregnancy-targets.json, sources-index.json, and cross-check-report.md. All 30+ pregnancy nutrient values verified against NIH ODS — zero discrepancies found. Minor semantic improvements recommended (DHA/EPA target type, sodium AI note, UL scope notes)."
+    },
+    {
+      "name": "Nutrient Fetcher Tool Created",
+      "date": "2026-02-11",
+      "status": "Completed",
+      "description": "Built modular CLI tool at tools/nutrient-fetcher/ that fetches, parses, and compares nutrient reference data. Modules: config, fetcher (retry/timeout/rate-limit), parser-nih-ods (cheerio HTML table parsing with multi-row header support), parser-usda-fdc (REST API client), comparator (deep diff engine), storage (snapshot save/load/backup). CLI commands: fetch, compare, list, status. 52 tests passing (node:test). Successfully fetches live NIH ODS data with correct RDA/AI/UL for both pregnancy age bands (14-18 and 19-50). Automatic timestamped backups on re-fetch."
+    },
+    {
+      "name": "All-Life-Stages NCBI DRI Cross-Check",
+      "date": "2026-02-11",
+      "status": "Completed",
+      "description": "Expanded nutrient-fetcher from pregnancy-only to ALL life stages (infants, children, males, females, pregnancy, lactation). Added 5 NCBI DRI table sources (RDA/AI vitamins, elements, macros + UL vitamins, elements) covering 32 life-stage/age-band combos. Created parser-ncbi-dri.js with full HTML parsing, unit conversion (g→mg), AI/RDA detection, en-dash normalization. Built cross-check-all.js for automated verification. Live fetch & comparison: 871 matches, 2 genuine value errors fixed (phosphorus UL 51+ 4000→3000), 27 choline UL values added. 104 tests passing. Saved snapshots for all 5 NCBI tables."
     }
   ],
   "required_fields": [
