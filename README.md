@@ -25,7 +25,7 @@ https://nlarchive.github.io/nutrimom/
 - 🎯 **Critical nutrients highlight** for pregnancy (Folate, Iron, DHA, EPA, Iodine, etc.)
 - 📸 **Food Tracker with LLM integration** - analyze meals via AI or manual input
 - 🎊 **Daily completion celebration** - achievements unlocked when hitting nutrition goals
-- 🧪 **247 comprehensive E2E tests** - Chromium & Firefox coverage with 100% pass rate
+- 🧪 **350+ comprehensive E2E tests** - Chromium, Firefox & WebKit coverage
 
 ---
 
@@ -98,10 +98,10 @@ nutrimom/
 
 ## 🧪 Testing
 
-**All 247 tests passing** | Chromium & Firefox | Full E2E coverage
+**350+ tests running** | Chromium, Firefox, WebKit | Full E2E coverage
 
 ```bash
-# Run all E2E tests (247 tests)
+# Run all E2E tests
 npm test
 
 # Run specific test suite
@@ -233,7 +233,7 @@ See [project-state.json](./project-state.json) for detailed task tracking (40+ c
 | Core Calculator | ✅ Complete | Energy, macros, 37+ micronutrients |
 | Food Tracker | ✅ Complete | LLM integration, meal logging, persistence |
 | UI/UX | ✅ Complete | Responsive design, celebration features |
-| E2E Testing | ✅ Complete | 247 tests, 100% pass rate |
+- E2E Testing | ✅ Complete | 350+ tests across 3 browsers |
 | Data Validation | ✅ Complete | IOM-sourced, cross-checked targets |
 | Documentation | ✅ Complete | Research guides, API docs, contribution guidelines |
 | GitHub Ready | ✅ Complete | Contributing guidelines, license compliance |

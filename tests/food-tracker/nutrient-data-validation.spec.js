@@ -318,7 +318,7 @@ test.describe('Nutrient Database Validation', () => {
   test('nutrients.json has entries for ALL engine-tracked nutrient codes', () => {
     const nutrientsPath = path.join(__dirname, '..', '..', 'data', 'nutrients.json');
     const nutrients = JSON.parse(fs.readFileSync(nutrientsPath, 'utf8'));
-    const codes = nutrients.map((n) => n.code);
+    const codes = nutrients.map((/** @type {{ code: any; }} */ n) => n.code);
 
     // All engine-tracked keys except sodium_mg should have a nutrients.json entry
     const missing = ENGINE_TRACKED_NUTRIENTS.filter(key => !codes.includes(key));
@@ -367,7 +367,7 @@ test.describe('Engine Aggregation - All 37 Nutrients', () => {
     engine.clearAll();
 
     engine.addToLog(SALMON_BOWL_MEAL);
-    const day = engine.getDailyLog();
+    const day = /** @type {any} */ (engine.getDailyLog());
     const t = day.dailyTotals || {};
 
     // Verify every tracked nutrient has been aggregated
@@ -429,7 +429,7 @@ test.describe('Engine Aggregation - All 37 Nutrients', () => {
     const targets = JSON.parse(fs.readFileSync(targetsPath, 'utf8'));
     const pregnantTargets = targets.pregnant_t2['31_50'];
 
-    const comparison = engine.compareToTargets(pregnantTargets);
+    const comparison = /** @type {any} */ (engine.compareToTargets(pregnantTargets));
 
     // EPA should now appear in comparison since we added targets
     expect(comparison?.nutrients?.epa_mg).toBeTruthy();
@@ -453,7 +453,7 @@ test.describe('Engine Aggregation - All 37 Nutrients', () => {
     const targets = JSON.parse(fs.readFileSync(targetsPath, 'utf8'));
     const pregnantTargets = targets.pregnant_t2['31_50'];
 
-    const comparison = engine.compareToTargets(pregnantTargets);
+    const comparison = /** @type {any} */ (engine.compareToTargets(pregnantTargets));
 
     // Iron: 5.2 out of 27 RDA → should be low
     expect(comparison?.nutrients?.iron_mg).toBeTruthy();
