@@ -99,10 +99,10 @@ class FoodTrackerUI {
       return { valid: false, missing: ['Complete profile in Calculator'] };
     }
     
-    if (!this.userContext.age || this.userContext.age < 14) {
+    if (!this.userContext.age || this.userContext.age < 1) {
       missing.push('Age');
     }
-    if (!this.userContext.weight || this.userContext.weight < 30) {
+    if (!this.userContext.weight || this.userContext.weight < 5) {
       missing.push('Weight');
     }
     
@@ -151,6 +151,16 @@ class FoodTrackerUI {
   _render() {
     // Detect API configuration status
     const hasApi = this.tracker.apiProvider && this.tracker.apiKey;
+    const recoveryState = this.tracker.getRecoveryState ? this.tracker.getRecoveryState() : null;
+    const safeModeBanner = recoveryState && recoveryState.recovered ? `
+      <div class="safe-mode-banner" role="status" aria-live="polite">
+        <span class="safe-mode-icon">🛡️</span>
+        <div class="safe-mode-content">
+          <strong>Safe Mode Recovery</strong>
+          <p>Corrupted local data was backed up and recovered. Backup keys: ${this._sanitizeString(recoveryState.recoveredKeys.join(', '), 200)}. Your app is running with recovered defaults.</p>
+        </div>
+      </div>
+    ` : '';
     
     const apiStatusBanner = hasApi ? `
       <div class="api-status-banner api-connected">
@@ -187,6 +197,8 @@ class FoodTrackerUI {
           <h2>🍽️ Daily Food Tracker</h2>
           <p class="tracker-subtitle">Track your meals & automated nutritional analysis</p>
         </div>
+
+        ${safeModeBanner}
 
         <!-- Global Meal Context -->
         <div class="tracker-global-settings">
@@ -238,6 +250,16 @@ class FoodTrackerUI {
                   📊 Parse & Calculate Nutrition
                 </button>
                 <div class="parse-error" id="ft-parse-error" style="display: none;"></div>
+              </div>
+
+              <div class="frequent-meals-module" id="ft-frequent-meals-module">
+                <div class="frequent-meals-header-row">
+                  <h4>⭐ Frequent Meals Memory</h4>
+                  <span class="frequent-meals-help">Save analyzed meals once, reuse anytime.</span>
+                </div>
+                <div class="frequent-meals-list" id="ft-frequent-meals-list">
+                  <p class="frequent-empty-state">No frequent meals yet. Use “⭐ Save to Frequent Meals” after analyzing a meal.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -318,6 +340,7 @@ class FoodTrackerUI {
           <div class="results-content" id="ft-results-content"></div>
           <div class="results-actions">
             <button class="btn btn-primary" id="ft-add-to-log">✓ Add to Daily Log</button>
+            <button class="btn btn-secondary" id="ft-save-frequent">⭐ Save to Frequent Meals</button>
             <button class="btn btn-secondary" id="ft-discard">✕ Discard</button>
           </div>
         </div>
@@ -370,7 +393,10 @@ class FoodTrackerUI {
       results: document.getElementById('ft-results'),
       resultsContent: document.getElementById('ft-results-content'),
       addToLog: document.getElementById('ft-add-to-log'),
+      saveFrequent: document.getElementById('ft-save-frequent'),
       discard: document.getElementById('ft-discard'),
+      frequentMealsModule: document.getElementById('ft-frequent-meals-module'),
+      frequentMealsList: document.getElementById('ft-frequent-meals-list'),
       dailySummary: document.getElementById('ft-daily-summary'),
       summaryContent: document.getElementById('ft-summary-content'),
       mealsList: document.getElementById('ft-meals-list'),
@@ -388,6 +414,7 @@ class FoodTrackerUI {
 
     // Initialize the prompt
     this._updatePrompt();
+    this._renderFrequentMeals();
   }
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -475,6 +502,11 @@ class FoodTrackerUI {
       this._addToLog();
     });
 
+    // Save frequent meal
+    this.elements.saveFrequent.addEventListener('click', () => {
+      this._saveCurrentAsFrequentMeal();
+    });
+
     // Discard
     this.elements.discard.addEventListener('click', () => {
       this._discardAnalysis();
@@ -488,6 +520,24 @@ class FoodTrackerUI {
     // Parse LLM response button
     this.elements.parseResponse.addEventListener('click', () => {
       this._parseLLMResponse();
+    });
+
+    // Frequent meals actions (event delegation)
+    this.elements.frequentMealsList.addEventListener('click', (event) => {
+      const actionBtn = event.target.closest('button[data-action]');
+      if (!actionBtn) return;
+
+      const mealId = actionBtn.dataset.id;
+      const action = actionBtn.dataset.action;
+      if (!mealId || !action) return;
+
+      if (action === 'use') {
+        this._useFrequentMeal(mealId);
+      }
+
+      if (action === 'delete') {
+        this._deleteFrequentMeal(mealId);
+      }
     });
   }
 
@@ -573,16 +623,18 @@ class FoodTrackerUI {
    * Show analysis error message
    */
   _showAnalysisError(title, message) {
+    const safeMessage = this._sanitizeString(String(message || 'Unknown error'), 2000).replace(/\n/g, '<br>');
     this.elements.results.style.display = 'block';
     this.elements.resultsContent.innerHTML = `
       <div class="analysis-error">
         <div class="error-icon">⚠️</div>
         <h4>${this._sanitizeString(title)}</h4>
-        <p>${message}</p>
+        <p>${safeMessage}</p>
       </div>
     `;
     // Hide the add to log button for errors
     this.elements.addToLog.style.display = 'none';
+    this.elements.saveFrequent.style.display = 'none';
     this.elements.discard.textContent = '✕ Close';
   }
 
@@ -594,6 +646,7 @@ class FoodTrackerUI {
   _showResults(analysis) {
     this.elements.results.style.display = 'block';
     this.elements.addToLog.style.display = 'inline-flex';
+    this.elements.saveFrequent.style.display = 'inline-flex';
     this.elements.discard.textContent = '✕ Discard';
     
     const html = `
@@ -685,6 +738,79 @@ class FoodTrackerUI {
 
   _discardAnalysis() {
     this._clearPreview();
+  }
+
+  _saveCurrentAsFrequentMeal() {
+    if (!this.currentAnalysis) return;
+
+    const defaultTitle = this.currentAnalysis.food_items?.[0]?.name || 'My Frequent Meal';
+    const titleInput = prompt('Name this frequent meal:', defaultTitle);
+    if (titleInput === null) return;
+
+    const title = this._sanitizeString(titleInput, 80).trim();
+    if (!title) {
+      alert('Please enter a valid meal title.');
+      return;
+    }
+
+    try {
+      this.tracker.addFrequentMeal(this.currentAnalysis, title);
+      this._renderFrequentMeals();
+      alert('✓ Saved to Frequent Meals.');
+    } catch (error) {
+      console.error('Failed to save frequent meal:', error);
+      alert('Failed to save frequent meal. Please try again.');
+    }
+  }
+
+  _useFrequentMeal(frequentMealId) {
+    const restoredAnalysis = this.tracker.buildAnalysisFromFrequentMeal(frequentMealId);
+    if (!restoredAnalysis) {
+      alert('Could not load this frequent meal.');
+      return;
+    }
+
+    this.currentAnalysis = restoredAnalysis;
+    this._showResults(restoredAnalysis);
+    this._renderFrequentMeals();
+    this.elements.results.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  _deleteFrequentMeal(frequentMealId) {
+    const confirmDelete = confirm('Remove this frequent meal from memory?');
+    if (!confirmDelete) return;
+
+    this.tracker.removeFrequentMeal(frequentMealId);
+    this._renderFrequentMeals();
+  }
+
+  _renderFrequentMeals() {
+    const frequentMeals = this.tracker.getFrequentMeals();
+    if (!frequentMeals || frequentMeals.length === 0) {
+      this.elements.frequentMealsList.innerHTML = '<p class="frequent-empty-state">No frequent meals yet. Use “⭐ Save to Frequent Meals” after analyzing a meal.</p>';
+      return;
+    }
+
+    this.elements.frequentMealsList.innerHTML = frequentMeals.map(meal => {
+      const totals = meal.template?.totals || {};
+      const kcal = Math.round(totals.energy_kcal || 0);
+      const protein = Math.round(totals.protein_g || 0);
+      const mealType = this._sanitizeString(meal.template?.meal_type || 'snack', 20);
+      const title = this._sanitizeString(meal.title || 'Frequent meal', 80);
+
+      return `
+        <div class="frequent-meal-item" data-id="${meal.id}">
+          <div class="frequent-meal-main">
+            <strong>${title}</strong>
+            <span class="frequent-meal-meta">${this._getMealTypeEmoji(mealType)} ${mealType} • ${kcal} kcal • ${protein}g protein</span>
+          </div>
+          <div class="frequent-meal-actions">
+            <button class="btn btn-secondary btn-small" data-action="use" data-id="${meal.id}" aria-label="Use ${title}">Use</button>
+            <button class="btn btn-secondary btn-small" data-action="delete" data-id="${meal.id}" aria-label="Delete ${title}">Delete</button>
+          </div>
+        </div>
+      `;
+    }).join('');
   }
 
   _updateDailyView() {
@@ -1164,6 +1290,12 @@ class FoodTrackerUI {
       userPersona = parts.join(', ');
     }
 
+    const { macroKeys, micronutrientKeys, allTotalKeys } = this._getPromptNutrientKeys();
+    const nutrientRequirementsText = this._buildNutrientRequirementsText(macroKeys, micronutrientKeys);
+    const itemNutrientsJson = this._buildNutrientFieldsJson(macroKeys, 8);
+    const itemMicrosJson = this._buildNutrientFieldsJson(micronutrientKeys, 8);
+    const totalsJson = this._buildNutrientFieldsJson(allTotalKeys, 4);
+
     return `FOOD IMAGE NUTRITIONAL ANALYSIS REQUEST
 
 USER PROFILE: Analysis is for a ${userPersona}. 
@@ -1177,13 +1309,9 @@ CRITICAL REQUIREMENTS:
 2. QUANTIFY: Estimate portion sizes and total edible weight in grams for the whole plate.
 3. CALCULATE: Provide FULL macro and micronutrient data for the entire portion - this is MANDATORY.
 4. VALIDATE: Ensure the 'totals' mathematically match the sum of 'food_items'.
-5. REQUIRED NUTRIENTS: You MUST include realistic estimates for the following macros and micronutrients (even approximate). Do not omit or set them to null/zero if you can reasonably estimate them.
+5. REQUIRED NUTRIENTS: You MUST include realistic estimates for these engine-synced keys (even approximate). Do not omit or set them to null/zero if you can reasonably estimate them.
 
-- Macronutrients: energy_kcal, protein_g, carbs_g, fat_g, fiber_g, sugar_g, saturated_fat_g, sodium_mg, potassium_mg, water_l
-- B-complex vitamins: thiamin_mg (B1), riboflavin_mg (B2), niacin_mg_ne (B3), pantothenic_acid_mg (B5), vitamin_b6_mg, biotin_ug (B7), folate_dfe_ug, vitamin_b12_ug, choline_mg
-- Other vitamins: vitamin_a_rae_ug, vitamin_c_mg, vitamin_d_ug, vitamin_e_mg, vitamin_k_ug
-- Minerals: iron_mg, calcium_mg, magnesium_mg, zinc_mg, phosphorus_mg, selenium_ug, iodine_ug, copper_ug, manganese_mg, chromium_ug
-- Fatty acids & omega-3s: dha_mg, epa_mg, ala_omega3_g
+${nutrientRequirementsText}
 
 OUTPUT FORMAT (Respond with VALID JSON only):
 {
@@ -1195,65 +1323,15 @@ OUTPUT FORMAT (Respond with VALID JSON only):
       "estimated_weight_g": 0,
       "preparation_method": "raw|fried|grilled|baked|steamed|boiled|roasted",
       "nutrients": {
-        "energy_kcal": 0,
-        "protein_g": 0,
-        "carbs_g": 0,
-        "fat_g": 0,
-        "fiber_g": 0,
-        "sugar_g": 0,
-        "saturated_fat_g": 0,
-        "sodium_mg": 0,
-        "potassium_mg": 0,
-        "magnesium_mg": 0,
-        "water_l": 0
+${itemNutrientsJson}
       },
       "micronutrients": {
-        "folate_dfe_ug": 0,
-        "iron_mg": 0,
-        "calcium_mg": 0,
-        "vitamin_b12_ug": 0,
-        "vitamin_b6_mg": 0,
-        "biotin_ug": 0,
-        "niacin_mg_ne": 0,
-        "riboflavin_mg": 0,
-        "thiamin_mg": 0,
-        "pantothenic_acid_mg": 0,
-        "choline_mg": 0,
-        "vitamin_c_mg": 0,
-        "vitamin_d_ug": 0,
-        "vitamin_a_rae_ug": 0,
-        "vitamin_e_mg": 0,
-        "vitamin_k_ug": 0,
-        "zinc_mg": 0,
-        "phosphorus_mg": 0,
-        "selenium_ug": 0,
-        "iodine_ug": 0,
-        "copper_ug": 0,
-        "manganese_mg": 0,
-        "chromium_ug": 0,
-        "dha_mg": 0,
-        "epa_mg": 0,
-        "ala_omega3_g": 0
+${itemMicrosJson}
       }
     }
   ],
   "totals": {
-    "energy_kcal": 0,
-    "protein_g": 0,
-    "carbs_g": 0,
-    "fat_g": 0,
-    "fiber_g": 0,
-    "sugar_g": 0,
-    "folate_dfe_ug": 0,
-    "iron_mg": 0,
-    "calcium_mg": 0,
-    "vitamin_b12_ug": 0,
-    "vitamin_b6_mg": 0,
-    "vitamin_c_mg": 0,
-    "vitamin_d_ug": 0,
-    "dha_mg": 0,
-    "epa_mg": 0,
-    "ala_omega3_g": 0
+${totalsJson}
   },
   "meal_type": "breakfast|lunch|dinner|snack",
   "confidence_overall": 0.9,
@@ -1264,6 +1342,35 @@ OUTPUT FORMAT (Respond with VALID JSON only):
 IMPORTANT: Micronutrients are ESSENTIAL for accurate tracking. Use standard nutritional databases (USDA, etc.) to estimate realistic values. Do not omit them.
 
 FINAL CHECK: Ensure the JSON is valid and contains no preamble or postamble.`;
+  }
+
+  _getPromptNutrientKeys() {
+    const canonicalKeys = this.tracker && typeof this.tracker._emptyTotals === 'function'
+      ? Object.keys(this.tracker._emptyTotals())
+      : [];
+
+    const macroPriority = [
+      'energy_kcal', 'protein_g', 'carbs_g', 'fat_g', 'fiber_g',
+      'sugar_g', 'saturated_fat_g', 'sodium_mg', 'potassium_mg', 'magnesium_mg', 'water_l'
+    ];
+
+    const macroKeys = macroPriority.filter(key => canonicalKeys.includes(key) || key === 'sugar_g' || key === 'saturated_fat_g' || key === 'water_l');
+    const micronutrientKeys = canonicalKeys.filter(key => !macroKeys.includes(key));
+
+    const allTotalKeys = Array.from(new Set([...macroKeys, ...micronutrientKeys]));
+    return { macroKeys, micronutrientKeys, allTotalKeys };
+  }
+
+  _buildNutrientRequirementsText(macroKeys, micronutrientKeys) {
+    const macroLine = `- Macronutrients & related: ${macroKeys.join(', ')}`;
+    const microLine = `- Micronutrients & fatty acids: ${micronutrientKeys.join(', ')}`;
+    return `${macroLine}\n${microLine}`;
+  }
+
+  _buildNutrientFieldsJson(keys, spaces = 6) {
+    return keys
+      .map((key, index) => `${' '.repeat(spaces)}"${key}": 0${index < keys.length - 1 ? ',' : ''}`)
+      .join('\n');
   }
 
   /**
@@ -1509,38 +1616,38 @@ FINAL CHECK: Ensure the JSON is valid and contains no preamble or postamble.`;
         },
         micronutrients: {
           // B-complex vitamins
-          thiamin_mg: this._sanitizeNumber(item.micronutrients?.thiamin_mg),
-          riboflavin_mg: this._sanitizeNumber(item.micronutrients?.riboflavin_mg),
-          niacin_mg_ne: this._sanitizeNumber(item.micronutrients?.niacin_mg_ne),
-          pantothenic_acid_mg: this._sanitizeNumber(item.micronutrients?.pantothenic_acid_mg),
-          vitamin_b6_mg: this._sanitizeNumber(item.micronutrients?.vitamin_b6_mg),
-          biotin_ug: this._sanitizeNumber(item.micronutrients?.biotin_ug),
-          folate_dfe_ug: this._sanitizeNumber(item.micronutrients?.folate_dfe_ug || item.micronutrients?.folate_ug),
-          vitamin_b12_ug: this._sanitizeNumber(item.micronutrients?.vitamin_b12_ug),
-          choline_mg: this._sanitizeNumber(item.micronutrients?.choline_mg),
+          thiamin_mg: this._sanitizeNumber(item.micronutrients?.thiamin_mg || item.nutrients?.thiamin_mg),
+          riboflavin_mg: this._sanitizeNumber(item.micronutrients?.riboflavin_mg || item.nutrients?.riboflavin_mg),
+          niacin_mg_ne: this._sanitizeNumber(item.micronutrients?.niacin_mg_ne || item.nutrients?.niacin_mg_ne),
+          pantothenic_acid_mg: this._sanitizeNumber(item.micronutrients?.pantothenic_acid_mg || item.nutrients?.pantothenic_acid_mg),
+          vitamin_b6_mg: this._sanitizeNumber(item.micronutrients?.vitamin_b6_mg || item.nutrients?.vitamin_b6_mg),
+          biotin_ug: this._sanitizeNumber(item.micronutrients?.biotin_ug || item.nutrients?.biotin_ug),
+          folate_dfe_ug: this._sanitizeNumber(item.micronutrients?.folate_dfe_ug || item.micronutrients?.folate_ug || item.nutrients?.folate_dfe_ug || item.nutrients?.folate_ug),
+          vitamin_b12_ug: this._sanitizeNumber(item.micronutrients?.vitamin_b12_ug || item.nutrients?.vitamin_b12_ug),
+          choline_mg: this._sanitizeNumber(item.micronutrients?.choline_mg || item.nutrients?.choline_mg),
           // Other vitamins
-          vitamin_a_rae_ug: this._sanitizeNumber(item.micronutrients?.vitamin_a_rae_ug || item.micronutrients?.vitamin_a_ug),
-          vitamin_c_mg: this._sanitizeNumber(item.micronutrients?.vitamin_c_mg),
-          vitamin_d_ug: this._sanitizeNumber(item.micronutrients?.vitamin_d_ug),
-          vitamin_e_mg: this._sanitizeNumber(item.micronutrients?.vitamin_e_mg),
-          vitamin_k_ug: this._sanitizeNumber(item.micronutrients?.vitamin_k_ug),
+          vitamin_a_rae_ug: this._sanitizeNumber(item.micronutrients?.vitamin_a_rae_ug || item.micronutrients?.vitamin_a_ug || item.nutrients?.vitamin_a_rae_ug || item.nutrients?.vitamin_a_ug),
+          vitamin_c_mg: this._sanitizeNumber(item.micronutrients?.vitamin_c_mg || item.nutrients?.vitamin_c_mg),
+          vitamin_d_ug: this._sanitizeNumber(item.micronutrients?.vitamin_d_ug || item.nutrients?.vitamin_d_ug),
+          vitamin_e_mg: this._sanitizeNumber(item.micronutrients?.vitamin_e_mg || item.nutrients?.vitamin_e_mg),
+          vitamin_k_ug: this._sanitizeNumber(item.micronutrients?.vitamin_k_ug || item.nutrients?.vitamin_k_ug),
           // Minerals
-          iron_mg: this._sanitizeNumber(item.micronutrients?.iron_mg),
-          calcium_mg: this._sanitizeNumber(item.micronutrients?.calcium_mg),
-          zinc_mg: this._sanitizeNumber(item.micronutrients?.zinc_mg),
-          iodine_ug: this._sanitizeNumber(item.micronutrients?.iodine_ug),
-          phosphorus_mg: this._sanitizeNumber(item.micronutrients?.phosphorus_mg),
-          selenium_ug: this._sanitizeNumber(item.micronutrients?.selenium_ug),
-          copper_ug: this._sanitizeNumber(item.micronutrients?.copper_ug),
-          manganese_mg: this._sanitizeNumber(item.micronutrients?.manganese_mg),
-          chromium_ug: this._sanitizeNumber(item.micronutrients?.chromium_ug),
-          molybdenum_ug: this._sanitizeNumber(item.micronutrients?.molybdenum_ug),
-          chloride_mg: this._sanitizeNumber(item.micronutrients?.chloride_mg),
-          fluoride_mg: this._sanitizeNumber(item.micronutrients?.fluoride_mg),
+          iron_mg: this._sanitizeNumber(item.micronutrients?.iron_mg || item.nutrients?.iron_mg),
+          calcium_mg: this._sanitizeNumber(item.micronutrients?.calcium_mg || item.nutrients?.calcium_mg),
+          zinc_mg: this._sanitizeNumber(item.micronutrients?.zinc_mg || item.nutrients?.zinc_mg),
+          iodine_ug: this._sanitizeNumber(item.micronutrients?.iodine_ug || item.nutrients?.iodine_ug),
+          phosphorus_mg: this._sanitizeNumber(item.micronutrients?.phosphorus_mg || item.nutrients?.phosphorus_mg),
+          selenium_ug: this._sanitizeNumber(item.micronutrients?.selenium_ug || item.nutrients?.selenium_ug),
+          copper_ug: this._sanitizeNumber(item.micronutrients?.copper_ug || item.nutrients?.copper_ug),
+          manganese_mg: this._sanitizeNumber(item.micronutrients?.manganese_mg || item.nutrients?.manganese_mg),
+          chromium_ug: this._sanitizeNumber(item.micronutrients?.chromium_ug || item.nutrients?.chromium_ug),
+          molybdenum_ug: this._sanitizeNumber(item.micronutrients?.molybdenum_ug || item.nutrients?.molybdenum_ug),
+          chloride_mg: this._sanitizeNumber(item.micronutrients?.chloride_mg || item.nutrients?.chloride_mg),
+          fluoride_mg: this._sanitizeNumber(item.micronutrients?.fluoride_mg || item.nutrients?.fluoride_mg),
           // Fatty acids
-          dha_mg: this._sanitizeNumber(item.micronutrients?.dha_mg || item.micronutrients?.omega3_mg),
-          epa_mg: this._sanitizeNumber(item.micronutrients?.epa_mg),
-          ala_omega3_g: this._sanitizeNumber(item.micronutrients?.ala_omega3_g)
+          dha_mg: this._sanitizeNumber(item.micronutrients?.dha_mg || item.micronutrients?.omega3_mg || item.nutrients?.dha_mg || item.nutrients?.omega3_mg),
+          epa_mg: this._sanitizeNumber(item.micronutrients?.epa_mg || item.nutrients?.epa_mg),
+          ala_omega3_g: this._sanitizeNumber(item.micronutrients?.ala_omega3_g || item.nutrients?.ala_omega3_g)
         }
       })),
       totals: {
@@ -1550,7 +1657,9 @@ FINAL CHECK: Ensure the JSON is valid and contains no preamble or postamble.`;
         carbs_g: this._sanitizeNumber(parsed.totals?.carbs_g),
         fat_g: this._sanitizeNumber(parsed.totals?.fat_g),
         fiber_g: this._sanitizeNumber(parsed.totals?.fiber_g),
+        water_l: this._sanitizeNumber(parsed.totals?.water_l),
         sugar_g: this._sanitizeNumber(parsed.totals?.sugar_g),
+        saturated_fat_g: this._sanitizeNumber(parsed.totals?.saturated_fat_g),
         sodium_mg: this._sanitizeNumber(parsed.totals?.sodium_mg),
         // B-complex vitamins
         thiamin_mg: this._sanitizeNumber(parsed.totals?.thiamin_mg),
@@ -1580,6 +1689,9 @@ FINAL CHECK: Ensure the JSON is valid and contains no preamble or postamble.`;
         manganese_mg: this._sanitizeNumber(parsed.totals?.manganese_mg),
         potassium_mg: this._sanitizeNumber(parsed.totals?.potassium_mg),
         chromium_ug: this._sanitizeNumber(parsed.totals?.chromium_ug),
+        molybdenum_ug: this._sanitizeNumber(parsed.totals?.molybdenum_ug),
+        chloride_mg: this._sanitizeNumber(parsed.totals?.chloride_mg),
+        fluoride_mg: this._sanitizeNumber(parsed.totals?.fluoride_mg),
         // Fatty acids
         dha_mg: this._sanitizeNumber(parsed.totals?.dha_mg || parsed.totals?.omega3_mg),
         epa_mg: this._sanitizeNumber(parsed.totals?.epa_mg),
@@ -1625,6 +1737,7 @@ FINAL CHECK: Ensure the JSON is valid and contains no preamble or postamble.`;
    */
   refresh() {
     this._updateDailyView();
+    this._renderFrequentMeals();
   }
 }
 

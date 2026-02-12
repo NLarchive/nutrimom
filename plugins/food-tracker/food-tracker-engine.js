@@ -14,14 +14,22 @@
 class FoodTrackerEngine {
   constructor(options = {}) {
     this.storageKey = options.storageKey || 'nutrimom_food_log';
+    this.frequentMealsKey = options.frequentMealsKey || 'nutrimom_frequent_meals';
     this.apiProvider = options.apiProvider || null;
     this.apiKey = options.apiKey || null;
     this.nutritionEngine = options.nutritionEngine || null;
     this.onUpdate = options.onUpdate || null;
     this.onDayTransition = options.onDayTransition || null;
+    this.recoveryState = {
+      recovered: false,
+      recoveredKeys: [],
+      timestamp: null,
+      errors: []
+    };
     
     // Load existing data from localStorage
     this.foodLog = this._loadFromStorage();
+    this.frequentMeals = this._loadFrequentMeals();
     
     // Ensure metadata exists
     this._ensureMeta();
@@ -38,6 +46,169 @@ class FoodTrackerEngine {
     
     // Check for day transition on load
     this._checkDayTransition();
+  }
+
+  _markRecovery(storageKey, error) {
+    this.recoveryState.recovered = true;
+    this.recoveryState.timestamp = new Date().toISOString();
+    if (!this.recoveryState.recoveredKeys.includes(storageKey)) {
+      this.recoveryState.recoveredKeys.push(storageKey);
+    }
+    this.recoveryState.errors.push(String(error || 'Unknown parse error'));
+  }
+
+  getRecoveryState() {
+    return {
+      recovered: this.recoveryState.recovered,
+      recoveredKeys: [...this.recoveryState.recoveredKeys],
+      timestamp: this.recoveryState.timestamp,
+      errors: [...this.recoveryState.errors]
+    };
+  }
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // Frequent Meals Memory
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  /**
+   * Load frequent meals from localStorage
+   * @returns {Array<Object>}
+   * @private
+   */
+  _loadFrequentMeals() {
+    if (typeof localStorage === 'undefined') return [];
+    try {
+      const raw = localStorage.getItem(this.frequentMealsKey);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      console.warn('Failed to load frequent meals from storage:', e);
+      try {
+        const raw = localStorage.getItem(this.frequentMealsKey);
+        if (raw) {
+          localStorage.setItem(`${this.frequentMealsKey}.bak.${Date.now()}`, raw);
+        }
+      } catch (_) {
+      }
+      this._markRecovery(this.frequentMealsKey, e?.message || e);
+      return [];
+    }
+  }
+
+  /**
+   * Persist frequent meals to localStorage
+   * @private
+   */
+  _saveFrequentMeals() {
+    if (typeof localStorage === 'undefined') return;
+    try {
+      localStorage.setItem(this.frequentMealsKey, JSON.stringify(this.frequentMeals));
+    } catch (e) {
+      console.error('Failed to save frequent meals to storage:', e);
+    }
+  }
+
+  /**
+   * Return all frequent meals sorted by usage and recency
+   * @returns {Array<Object>}
+   */
+  getFrequentMeals() {
+    return [...this.frequentMeals]
+      .sort((a, b) => {
+        const usageDiff = (b.usageCount || 0) - (a.usageCount || 0);
+        if (usageDiff !== 0) return usageDiff;
+        return new Date(b.lastUsedAt || b.createdAt || 0) - new Date(a.lastUsedAt || a.createdAt || 0);
+      });
+  }
+
+  /**
+   * Save a meal analysis as reusable frequent meal template
+   * @param {Object} analysis
+   * @param {string} title
+   * @returns {Object} saved frequent meal
+   */
+  addFrequentMeal(analysis, title) {
+    if (!analysis || !title) {
+      throw new Error('Analysis and title are required');
+    }
+
+    const normalizedTitle = String(title).trim().slice(0, 80);
+    if (!normalizedTitle) {
+      throw new Error('Frequent meal title cannot be empty');
+    }
+
+    const now = new Date().toISOString();
+    const existing = this.frequentMeals.find(
+      item => String(item.title || '').toLowerCase() === normalizedTitle.toLowerCase()
+    );
+
+    const template = {
+      meal_type: analysis.meal_type || 'snack',
+      food_items: Array.isArray(analysis.food_items) ? analysis.food_items : [],
+      totals: analysis.totals || this._emptyTotals(),
+      warnings: Array.isArray(analysis.warnings) ? analysis.warnings : [],
+      pregnancy_relevant_notes: Array.isArray(analysis.pregnancy_relevant_notes) ? analysis.pregnancy_relevant_notes : []
+    };
+
+    if (existing) {
+      existing.template = template;
+      existing.lastUsedAt = now;
+      existing.usageCount = (existing.usageCount || 0) + 1;
+      this._saveFrequentMeals();
+      return existing;
+    }
+
+    const meal = {
+      id: `fm_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+      title: normalizedTitle,
+      createdAt: now,
+      lastUsedAt: now,
+      usageCount: 1,
+      template
+    };
+
+    this.frequentMeals.push(meal);
+    this._saveFrequentMeals();
+    return meal;
+  }
+
+  /**
+   * Build a reusable analysis object from a frequent meal template
+   * @param {string} frequentMealId
+   * @returns {Object|null}
+   */
+  buildAnalysisFromFrequentMeal(frequentMealId) {
+    const meal = this.frequentMeals.find(item => item.id === frequentMealId);
+    if (!meal) return null;
+
+    const now = new Date().toISOString();
+    meal.lastUsedAt = now;
+    meal.usageCount = (meal.usageCount || 0) + 1;
+    this._saveFrequentMeals();
+
+    return {
+      analysis_id: `frequent_${meal.id}_${Date.now()}`,
+      timestamp: now,
+      confidence_overall: 1,
+      meal_type: meal.template?.meal_type || 'snack',
+      food_items: Array.isArray(meal.template?.food_items) ? meal.template.food_items : [],
+      totals: meal.template?.totals || this._emptyTotals(),
+      warnings: Array.isArray(meal.template?.warnings) ? meal.template.warnings : [],
+      pregnancy_relevant_notes: Array.isArray(meal.template?.pregnancy_relevant_notes) ? meal.template.pregnancy_relevant_notes : []
+    };
+  }
+
+  /**
+   * Delete frequent meal from memory
+   * @param {string} frequentMealId
+   * @returns {boolean}
+   */
+  removeFrequentMeal(frequentMealId) {
+    const before = this.frequentMeals.length;
+    this.frequentMeals = this.frequentMeals.filter(item => item.id !== frequentMealId);
+    const removed = this.frequentMeals.length !== before;
+    if (removed) this._saveFrequentMeals();
+    return removed;
   }
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -615,6 +786,7 @@ class FoodTrackerEngine {
       carbs_g: 0,
       fat_g: 0,
       fiber_g: 0,
+      water_l: 0,
       sodium_mg: 0,
       
       // Vitamins
@@ -721,6 +893,14 @@ class FoodTrackerEngine {
       return data ? JSON.parse(data) : {};
     } catch (e) {
       console.warn('Failed to load food log from storage:', e);
+      try {
+        const raw = localStorage.getItem(this.storageKey);
+        if (raw) {
+          localStorage.setItem(`${this.storageKey}.bak.${Date.now()}`, raw);
+        }
+      } catch (_) {
+      }
+      this._markRecovery(this.storageKey, e?.message || e);
       return {};
     }
   }
@@ -997,6 +1177,7 @@ class FoodTrackerEngine {
       'carbs_g': 'Carbohydrates',
       'fat_g': 'Fat',
       'fiber_g': 'Fiber',
+      'water_l': 'Water',
       'iron_mg': 'Iron',
       'calcium_mg': 'Calcium',
       'folate_ug': 'Folate',
@@ -1134,13 +1315,20 @@ class FoodTrackerEngine {
       'iron_mg': 'iron-rich foods like spinach, legumes, or lean red meat',
       'calcium_mg': 'calcium-rich foods like dairy, fortified plant milk, or leafy greens',
       'folate_ug': 'folate-rich foods like leafy greens, legumes, or fortified cereals',
+      'folate_dfe_ug': 'folate-rich foods like leafy greens, legumes, or fortified cereals',
       'vitamin_c_mg': 'vitamin C sources like citrus fruits, bell peppers, or berries',
       'vitamin_d_ug': 'vitamin D sources like fatty fish, fortified foods, or egg yolks',
       'vitamin_a_ug': 'vitamin A sources like sweet potato, carrots, or leafy greens',
+      'vitamin_a_rae_ug': 'vitamin A sources like sweet potato, carrots, or leafy greens',
       'zinc_mg': 'zinc-rich foods like meat, legumes, or seeds',
+      'iodine_ug': 'iodine-rich foods like iodized salt, dairy, eggs, and fish',
+      'choline_mg': 'choline-rich foods like eggs, salmon, chicken, and legumes',
       'protein_g': 'protein sources like lean meat, fish, eggs, legumes, or tofu',
       'fiber_g': 'fiber-rich foods like whole grains, vegetables, fruits, or legumes',
-      'omega3_mg': 'omega-3 sources like fatty fish, walnuts, or flaxseed'
+      'omega3_mg': 'omega-3 sources like fatty fish, walnuts, or flaxseed',
+      'dha_mg': 'DHA sources like salmon, sardines, trout, or DHA-fortified eggs',
+      'epa_mg': 'EPA sources like salmon, sardines, herring, or mackerel',
+      'ala_omega3_g': 'ALA sources like chia, flaxseed, walnuts, and canola oil'
     };
 
     return suggestions[nutrient] || 'nutrient-rich foods';

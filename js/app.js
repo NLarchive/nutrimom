@@ -84,6 +84,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (tab) {
       e.preventDefault();
       switchView(tab.dataset.target);
+      return;
+    }
+
+    const criticalBtn = e.target.closest('.critical-more-btn');
+    if (criticalBtn) {
+      e.preventDefault();
+      const title = decodeURIComponent(criticalBtn.dataset.title || 'Nutrient guidance');
+      const fullText = decodeURIComponent(criticalBtn.dataset.fullText || '');
+      openCriticalReasonModal(title, fullText);
     }
   });
 
@@ -434,11 +443,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       displayComparison(comparison);
       comparisonBlock.style.display = 'block';
       
-      displayCriticalNutrients(currentPlan.targets);
+      displayCriticalNutrients(currentPlan.targets, profile);
       criticalCard.style.display = 'block';
     } else if (profile.isLactating) {
       // Show critical nutrients for lactation too
-      displayCriticalNutrients(currentPlan.targets);
+      displayCriticalNutrients(currentPlan.targets, profile);
       criticalCard.style.display = 'block';
       comparisonBlock.style.display = 'none';
     } else {
@@ -590,20 +599,184 @@ document.addEventListener('DOMContentLoaded', async () => {
     `).join('');
   }
 
-  function displayCriticalNutrients(targets) {
+  function displayCriticalNutrients(targets, profile) {
     const critical = ['folate_dfe_ug', 'iron_mg', 'calcium_mg', 'vitamin_d_ug', 'dha_mg', 'epa_mg', 'iodine_ug'];
     const container = document.getElementById('critical-nutrients');
     
     const items = critical
       .filter(code => targets[code])
-      .map(code => targets[code]);
+      .map(code => ({ code, data: targets[code] }));
     
-    container.innerHTML = items.map(n => `
+    container.innerHTML = items.map(({ code, data }) => `
       <div class="critical-item">
-        <div class="critical-name">${n.name}</div>
-        <div class="critical-reason">${truncate(n.importancePregnancy || n.description || '', 100)}</div>
+        <div class="critical-name">${data.name}</div>
+        ${buildCriticalReasonHtml(data.name, getCriticalNutrientGuidance(code, data, profile))}
       </div>
     `).join('');
+  }
+
+  function buildCriticalReasonHtml(name, fullText) {
+    const preview = truncate(fullText, 120);
+    const encodedTitle = encodeURIComponent(name || 'Nutrient guidance');
+    const encodedFullText = encodeURIComponent(fullText || '');
+    const needsMore = fullText && fullText.length > 120;
+
+    return `
+      <div class="critical-reason">${escapeHtml(preview)}</div>
+      ${needsMore ? `<button class="critical-more-btn" data-title="${encodedTitle}" data-full-text="${encodedFullText}" aria-label="Read full guidance for ${escapeHtml(name)}">Read more</button>` : ''}
+    `;
+  }
+
+  function openCriticalReasonModal(title, text) {
+    const existing = document.getElementById('critical-reason-modal');
+    if (existing) existing.remove();
+
+    const modal = document.createElement('div');
+    modal.id = 'critical-reason-modal';
+    modal.className = 'critical-modal-overlay';
+    modal.innerHTML = `
+      <div class="critical-modal" role="dialog" aria-modal="true" aria-labelledby="critical-modal-title">
+        <div class="critical-modal-header">
+          <h3 id="critical-modal-title">${escapeHtml(title)}</h3>
+          <button class="critical-modal-close" aria-label="Close details">✕</button>
+        </div>
+        <div class="critical-modal-body">${escapeHtml(text)}</div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    const onEsc = (event) => {
+      if (event.key === 'Escape') {
+        close();
+      }
+    };
+
+    const close = () => {
+      document.removeEventListener('keydown', onEsc);
+      modal.remove();
+    };
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal || event.target.closest('.critical-modal-close')) {
+        close();
+      }
+    });
+
+    document.addEventListener('keydown', onEsc);
+  }
+
+  function getCriticalNutrientGuidance(code, nutrient, profile) {
+    const isPregnant = !!profile?.isPregnant;
+    const isLactating = !!profile?.isLactating;
+    const sex = profile?.sex || 'female';
+    const age = Number(profile?.ageYears || 0);
+    const stage = isPregnant ? 'pregnancy' : isLactating ? 'lactation' : age < 9 ? 'child' : sex === 'male' ? 'male' : 'female';
+
+    const rawReason = nutrient?.importancePregnancy || nutrient?.description || '';
+    const baseReason = normalizeSentence(rawReason);
+    const examples = getNutrientFoodExamples(code, stage);
+
+    if (code === 'iodine_ug') {
+      const target = extractTargetValue(nutrient);
+      const targetText = target !== null ? `${formatNum(target)}${nutrient.unit || ''}` : '';
+      let stageText = 'Adequate iodine supports thyroid hormones and healthy brain development.';
+      if (isPregnant && targetText) {
+        stageText = `Iodine needs increase during pregnancy to about ${targetText}; it is essential for fetal brain and nervous system development, and severe deficiency can cause irreversible neurodevelopmental harm.`;
+      } else if (isLactating && targetText) {
+        stageText = `Iodine remains elevated during lactation (around ${targetText}) to support infant thyroid and brain development through breast milk.`;
+      }
+      return `${stageText} Food examples: ${examples.join(', ')}.`;
+    }
+
+    const fallback = `Important for ${isPregnant ? 'pregnancy' : isLactating ? 'lactation' : 'overall health'} and daily nutrition quality.`;
+    const reason = baseReason || fallback;
+    return `${reason} Food examples: ${examples.join(', ')}.`;
+  }
+
+  function getNutrientFoodExamples(code, stage) {
+    const examplesByNutrient = {
+      folate_dfe_ug: {
+        pregnancy: ['lentils', 'spinach', 'fortified cereals'],
+        lactation: ['black beans', 'asparagus', 'avocado'],
+        child: ['fortified cereal', 'orange slices', 'peas'],
+        male: ['chickpeas', 'leafy greens', 'citrus fruit'],
+        female: ['lentils', 'romaine lettuce', 'fortified grains']
+      },
+      iron_mg: {
+        pregnancy: ['lean beef', 'lentils with vitamin C foods', 'fortified cereal'],
+        lactation: ['eggs', 'beans', 'pumpkin seeds'],
+        child: ['fortified oats', 'ground beef', 'mashed beans'],
+        male: ['lean red meat', 'beans', 'tofu'],
+        female: ['lean meat', 'chickpeas', 'spinach with citrus']
+      },
+      calcium_mg: {
+        pregnancy: ['yogurt', 'milk or fortified plant milk', 'cheese'],
+        lactation: ['milk', 'calcium-set tofu', 'sardines with bones'],
+        child: ['milk', 'yogurt', 'cheese'],
+        male: ['milk', 'tofu', 'kale'],
+        female: ['yogurt', 'fortified soy milk', 'bok choy']
+      },
+      vitamin_d_ug: {
+        pregnancy: ['salmon', 'fortified dairy', 'egg yolks'],
+        lactation: ['salmon', 'fortified milk', 'egg yolks'],
+        child: ['fortified milk', 'egg', 'salmon'],
+        male: ['fatty fish', 'fortified milk', 'egg yolks'],
+        female: ['fatty fish', 'fortified yogurt', 'egg yolks']
+      },
+      dha_mg: {
+        pregnancy: ['low-mercury salmon', 'sardines', 'DHA-fortified eggs'],
+        lactation: ['salmon', 'trout', 'DHA-fortified eggs'],
+        child: ['salmon', 'trout', 'DHA-fortified eggs'],
+        male: ['salmon', 'mackerel', 'DHA-fortified eggs'],
+        female: ['salmon', 'sardines', 'DHA-fortified eggs']
+      },
+      epa_mg: {
+        pregnancy: ['salmon', 'sardines', 'trout'],
+        lactation: ['salmon', 'herring', 'trout'],
+        child: ['salmon', 'trout', 'omega-3 enriched foods'],
+        male: ['salmon', 'mackerel', 'herring'],
+        female: ['salmon', 'sardines', 'herring']
+      },
+      iodine_ug: {
+        pregnancy: ['iodized salt', 'dairy', 'well-cooked fish'],
+        lactation: ['iodized salt', 'dairy', 'eggs'],
+        child: ['iodized salt in family meals', 'milk', 'eggs'],
+        male: ['iodized salt', 'dairy', 'fish'],
+        female: ['iodized salt', 'yogurt', 'eggs']
+      }
+    };
+
+    const entry = examplesByNutrient[code] || {};
+    return entry[stage] || entry.female || ['whole foods', 'balanced meals', 'fortified staples'];
+  }
+
+  function extractTargetValue(data) {
+    if (!data) return null;
+    if (typeof data.target === 'number') return data.target;
+    if (typeof data.RDA === 'number') return data.RDA;
+    if (typeof data.AI === 'number') return data.AI;
+    if (typeof data.MIN === 'number') return data.MIN;
+    if (typeof data.REC === 'number') return data.REC;
+    if (typeof data.AMDR_MIN === 'number') return data.AMDR_MIN;
+    return null;
+  }
+
+  function normalizeSentence(str) {
+    if (!str) return '';
+    const clean = String(str).replace(/\s+/g, ' ').trim();
+    if (!clean) return '';
+    if (/[.!?]$/.test(clean)) return clean;
+    return `${clean}.`;
+  }
+
+  function escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   // Helpers

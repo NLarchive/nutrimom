@@ -227,6 +227,36 @@
   margin-bottom: 2rem;
 }
 
+.safe-mode-banner {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  background: #fff7ed;
+  border: 1px solid #fdba74;
+  border-left: 4px solid #ea580c;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.safe-mode-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.safe-mode-content strong {
+  color: #9a3412;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.safe-mode-content p {
+  margin: 0;
+  color: #7c2d12;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
 .tracker-header h2 {
   font-size: 1.75rem;
   color: #2d3748;
@@ -988,6 +1018,20 @@
   .response-parser {
     padding: 1rem;
   }
+
+  .frequent-meal-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .frequent-meal-actions {
+    justify-content: flex-end;
+  }
+
+  .frequent-meals-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1134,6 +1178,74 @@
   padding: 1.25rem;
   border-radius: 10px;
   border: 2px solid #c6f6d5;
+}
+
+.frequent-meals-module {
+  margin-top: 1rem;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.frequent-meals-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.frequent-meals-header-row h4 {
+  margin: 0;
+  color: #334155;
+  font-size: 1rem;
+}
+
+.frequent-meals-help {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.frequent-meals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.frequent-empty-state {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.frequent-meal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.frequent-meal-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.frequent-meal-meta {
+  font-size: 0.82rem;
+  color: #64748b;
+  text-transform: capitalize;
+}
+
+.frequent-meal-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .response-parser label {

@@ -236,17 +236,26 @@
       "start_date": "2026-02-12",
       "end_date": "2026-02-12",
       "priority": "High",
-      "status": "Not Started",
-      "progress_percentage": 0,
+      "status": "Completed",
+      "progress_percentage": 100,
       "estimated_hours": 2,
-      "actual_hours": 0,
+      "actual_hours": 2,
       "is_critical_path": false,
       "tags": ["reliability", "data-safety", "localStorage", "error-handling"],
       "category_name": "Core Development",
-      "assigned_workers": [],
+      "assigned_workers": [
+        { "name": "GitHub Copilot", "email": "copilot@github.com", "role": "AI Assistant" }
+      ],
       "dependencies": [
         { "predecessor_task_name": "Production Hardening & Data Management", "type": "FS", "lag_days": 0 }
-      ]
+      ],
+      "deliverables": [
+        "plugins/food-tracker/food-tracker-engine.js - Added recovery state tracking and automatic .bak backup on JSON parse corruption for both food log and frequent meals keys",
+        "plugins/food-tracker/food-tracker-engine.js - Added getRecoveryState() API for UI visibility of recovered mode",
+        "plugins/food-tracker/food-tracker-ui.js - Added Safe Mode recovery banner rendered when engine detects recovery event",
+        "plugins/food-tracker/food-tracker.css - Added safe mode banner styles"
+      ],
+      "notes": "Implements localStorage corruption recovery path with backups and user-facing safe mode indicator for production resilience."
     },
     {
       "task_name": "Accessibility Audit & Improvements",
@@ -1256,6 +1265,108 @@
         "Micronutrients optional in validation (warning only) — handles flat nutrient responses from some LLMs"
       ],
       "notes": "349 tests passing, 1 skipped (Firefox clipboard), 1 flaky (Firefox infra - RenderCompositorSWGL crash, not code-related). Previously had 22 failures in log-import tests due to sample data/test mismatch."
+    },
+    {
+      "task_name": "Critical Nutrient Guidance Completion & Frequent Meals Memory",
+      "description": "Improved critical nutrient messaging quality in calculator results by replacing truncated/incomplete text with complete guidance and profile-tailored food examples (including fixed iodine sentence with stage-aware context). Added a new 'Save to Frequent Meals' action in Food Tracker results. Implemented frequent meal cache memory with title prompt, reusable templates, and CRUD UI module positioned directly below the response parser for quick reuse without re-entering meals.",
+      "start_date": "2026-02-12",
+      "end_date": "2026-02-12",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 3,
+      "actual_hours": 3,
+      "is_critical_path": false,
+      "tags": ["UI", "UX", "critical-nutrients", "iodine", "food-examples", "food-tracker", "cache", "frequent-meals"],
+      "category_name": "Core Development",
+      "assigned_workers": [
+        { "name": "GitHub Copilot", "email": "copilot@github.com", "role": "AI Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Nutrient Schema Full Sync & Test Suite Fix", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "js/app.js - Reworked critical nutrient renderer with complete sentence handling and profile-tailored food examples for folate, iron, calcium, vitamin D, DHA, EPA, and iodine",
+        "plugins/food-tracker/food-tracker-engine.js - Added frequent meals cache APIs (load/save/get/add/build/remove) using localStorage key nutrimom_frequent_meals",
+        "plugins/food-tracker/food-tracker-ui.js - Added '⭐ Save to Frequent Meals' results button, title prompt flow, reusable frequent-meals module below response parser, and Use/Delete actions",
+        "plugins/food-tracker/food-tracker.css - Added styles for frequent meals container, cards, actions, and mobile responsiveness"
+      ]
+    },
+    {
+      "task_name": "Critical Nutrient Modal UX & Dynamic Prompt Nutrient Sync",
+      "description": "Reduced visual overload in the Critical Nutrients section by introducing compact preview text with a modal for full details. Refactored manual AI prompt generation to dynamically derive nutrient keys from canonical tracker totals, preventing drift between prompt/validator/engine as nutrients evolve. Added water_l to canonical daily totals for better target alignment.",
+      "start_date": "2026-02-12",
+      "end_date": "2026-02-12",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 2,
+      "actual_hours": 2,
+      "is_critical_path": false,
+      "tags": ["UI", "UX", "modal", "critical-nutrients", "prompt", "dynamic-schema", "maintenance"],
+      "category_name": "Core Development",
+      "assigned_workers": [
+        { "name": "GitHub Copilot", "email": "copilot@github.com", "role": "AI Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Critical Nutrient Guidance Completion & Frequent Meals Memory", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "js/app.js - Added critical reason preview + Read more modal dialog with accessible close behavior",
+        "css/styles.css - Added critical modal and preview button styles",
+        "plugins/food-tracker/food-tracker-ui.js - Refactored _getManualPrompt() to dynamically build required nutrient list and JSON schema from canonical engine keys",
+        "plugins/food-tracker/food-tracker-engine.js - Added water_l to _emptyTotals() for canonical prompt/engine comparison alignment"
+      ],
+      "notes": "Decision: dynamic prompt schema is the most trustworthy and maintainable production approach because it uses canonical nutrient keys from engine/tracker instead of manually curated lists."
+    },
+    {
+      "task_name": "Prompt-Validator-Engine Contract Test Coverage",
+      "description": "Add automated tests asserting that manual prompt nutrient keys, validator whitelist, sanitizer output, and engine _emptyTotals canonical keys remain synchronized to prevent regression when nutrient sets change.",
+      "start_date": "2026-02-13",
+      "end_date": "2026-02-13",
+      "priority": "High",
+      "status": "Not Started",
+      "progress_percentage": 0,
+      "estimated_hours": 3,
+      "actual_hours": 0,
+      "is_critical_path": false,
+      "tags": ["testing", "contract-test", "prompt", "validator", "engine", "regression"],
+      "category_name": "Testing & QA",
+      "assigned_workers": [],
+      "dependencies": [
+        { "predecessor_task_name": "Critical Nutrient Modal UX & Dynamic Prompt Nutrient Sync", "type": "FS", "lag_days": 0 }
+      ]
+    },
+    {
+      "task_name": "Deep UI/Engine Production Readiness Review & Hardening",
+      "description": "Deep review pass on calculator/tracker UI and core tracking engine to close production gaps: listener lifecycle, universal profile thresholds, sanitizer completeness for nutrient payloads, error-message XSS hardening, nutrient suggestion key alignment, and focused regression validation.",
+      "start_date": "2026-02-12",
+      "end_date": "2026-02-12",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 3,
+      "actual_hours": 3,
+      "is_critical_path": true,
+      "tags": ["production", "hardening", "UI", "engine", "sanitization", "stability", "regression-testing"],
+      "category_name": "Core Development",
+      "assigned_workers": [
+        { "name": "GitHub Copilot", "email": "copilot@github.com", "role": "AI Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Critical Nutrient Modal UX & Dynamic Prompt Nutrient Sync", "type": "FS", "lag_days": 0 },
+        { "predecessor_task_name": "Data Safety & Recovery Mechanism", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "js/app.js - Fixed critical nutrient modal keyboard listener lifecycle cleanup",
+        "plugins/food-tracker/food-tracker-ui.js - Updated profile completeness thresholds for universal-age support (age>=1, weight>=5kg)",
+        "plugins/food-tracker/food-tracker-ui.js - Hardened _showAnalysisError() output sanitization against HTML injection",
+        "plugins/food-tracker/food-tracker-ui.js - Expanded sanitizer fallback paths so micronutrients from flat nutrient payloads are preserved",
+        "plugins/food-tracker/food-tracker-ui.js - Completed totals sanitization for water_l, saturated_fat_g, molybdenum_ug, chloride_mg, fluoride_mg",
+        "plugins/food-tracker/food-tracker-engine.js - Updated _getFoodSuggestion() mappings to canonical nutrient keys",
+        "tests - Focused regression: manual-parse, manual-workflow, ui-components, and critical-modal suites passing (19/19)"
+      ],
+      "notes": "Focused production-readiness pass completed with no remaining lint/tooling errors on modified files."
     }
   ],
   "milestones": [
