@@ -177,7 +177,30 @@ body {
   border-radius: var(--radius-md);
   font-size: 1rem;
   transition: border-color 0.2s, box-shadow 0.2s;
+  width: 250px;
 }
+
+.form-group select option {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* allow the closed select to expand visually (where the UA supports it) */
+.form-group select.multiline-select {
+  white-space: normal; /* enable wrapping where supported */
+  line-height: 1.4;
+  height: auto;
+  min-height: calc(2 * 1.5rem + 14px); /* ensure two full text lines */
+  padding-top: calc(var(--space-sm) + 4px);
+  padding-bottom: calc(var(--space-sm) + 4px);
+  overflow-wrap: break-word;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* when a select requires multiline, ensure its form-group increases spacing if needed */
+.form-group.multiline { gap: calc(var(--space-xs) + 2px); }
 
 .form-group input:focus,
 .form-group select:focus {
@@ -523,6 +546,11 @@ body {
   .tab {
     white-space: nowrap;
   }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -764,7 +792,7 @@ body {
 }
 .form-card-title { font-size: 1rem; font-weight: 600; color: var(--gray-700); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
 .title-icon { font-size: 1.25rem; }
-.form-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 16px; }
+.form-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 16px; align-items: start; grid-auto-rows: minmax(min-content, auto); }
 .form-group-full { grid-column: 1 / -1; }
 .label-text { font-weight: 500; color: var(--gray-700); font-size: 0.875rem; }
 .label-hint { font-size: 0.75rem; color: var(--gray-400); font-weight: 400; }

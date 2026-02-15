@@ -323,6 +323,80 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Load saved profile AFTER tracker is ready so targets are synced
   loadSavedProfile();
 
+  /*
+   * Make long select labels usable and ensure containers grow to fit wrapped text.
+   * - add a `multiline-select` class to the select and `multiline` to its `.form-group`
+   * - set `title` so users can hover to see the full value
+   * - ensure grid rows use content-based sizing so nothing is clipped
+   */
+  (function() {
+    function debounce(fn, wait = 120) {
+      let t = null;
+      return (...args) => {
+        clearTimeout(t);
+        t = setTimeout(() => fn.apply(this, args), wait);
+      };
+    }
+
+    function measureTextWidth(el, text) {
+      try {
+        const ctx = document.createElement('canvas').getContext('2d');
+        const style = window.getComputedStyle(el);
+        ctx.font = style.font || `${style.fontSize} ${style.fontFamily}`;
+        return ctx.measureText(text).width;
+      } catch (err) {
+        return text.length * 8; // fallback estimate
+      }
+    }
+
+    function px(v) { return Math.round(v); }
+
+    function adjustSelectMultiline(select) {
+      if (!select || !select.options) return;
+      const text = (select.options[select.selectedIndex]?.text || '').trim();
+      select.title = text; // always set tooltip
+
+      // nothing to do if element not visible yet
+      if (select.clientWidth === 0) return;
+
+      const style = window.getComputedStyle(select);
+      const paddingLeft = parseFloat(style.paddingLeft) || 0;
+      const paddingRight = parseFloat(style.paddingRight) || 0;
+      const available = Math.max(24, select.clientWidth - paddingLeft - paddingRight - 36); // room for chevron
+      const textWidth = measureTextWidth(select, text);
+      const isMultiline = textWidth > available;
+
+      // toggle classes on select and its form-group so container spacing increases
+      select.classList.toggle('multiline-select', isMultiline);
+      const group = select.closest('.form-group');
+      if (group) group.classList.toggle('multiline', isMultiline);
+
+      // ensure minimum inline height to avoid clipped bottom line in some UAs
+      if (isMultiline) {
+        const computedLineHeight = parseFloat(style.lineHeight) || (parseFloat(style.fontSize) * 1.25) || 18;
+        const required = Math.ceil(computedLineHeight * 2 + (parseFloat(style.paddingTop) || 0) + (parseFloat(style.paddingBottom) || 0));
+        select.style.minHeight = required + 'px';
+      } else {
+        select.style.minHeight = '';
+      }
+    }
+
+    function adjustAllSelects() {
+      document.querySelectorAll('.form-group select').forEach(s => adjustSelectMultiline(s));
+    }
+
+    // update on change and when the page resizes
+    document.querySelectorAll('.form-group select').forEach(s => {
+      s.addEventListener('change', () => adjustSelectMultiline(s));
+      s.addEventListener('blur', () => adjustSelectMultiline(s));
+    });
+
+    window.addEventListener('resize', debounce(adjustAllSelects, 120));
+
+    // initial pass after values/loading
+    setTimeout(adjustAllSelects, 60);
+  })();
+
   // Sex/Age change - show/hide pregnancy section
   function updatePregnancySectionVisibility() {
     const sex = sexSelect.value;

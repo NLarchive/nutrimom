@@ -1367,6 +1367,32 @@
         "tests - Focused regression: manual-parse, manual-workflow, ui-components, and critical-modal suites passing (19/19)"
       ],
       "notes": "Focused production-readiness pass completed with no remaining lint/tooling errors on modified files."
+    },
+    {
+      "task_name": "Activity Select Dynamic Height & UI Regression Sweep",
+      "description": "Fixed long option rendering for profile select controls so labels are not clipped at the bottom. Added dynamic multiline behavior and container growth in CSS/JS, then ran Chromium Playwright regression to verify UI stability.",
+      "start_date": "2026-02-15",
+      "end_date": "2026-02-15",
+      "priority": "High",
+      "status": "Completed",
+      "progress_percentage": 100,
+      "estimated_hours": 1,
+      "actual_hours": 1,
+      "is_critical_path": false,
+      "tags": ["UI", "UX", "forms", "select", "regression-testing", "playwright"],
+      "category_name": "UI/UX",
+      "assigned_workers": [
+        { "name": "GitHub Copilot", "email": "copilot@github.com", "role": "AI Assistant" }
+      ],
+      "dependencies": [
+        { "predecessor_task_name": "Deep UI/Engine Production Readiness Review & Hardening", "type": "FS", "lag_days": 0 }
+      ],
+      "deliverables": [
+        "css/styles.css - Added multiline select styling and content-driven form row sizing",
+        "js/app.js - Added dynamic select text-width detection and container class toggling",
+        "project-state.json - Logged task completion and QA status"
+      ],
+      "notes": "Chromium Playwright run: 116 passed, 1 failing test in tests/food-tracker/log-import.spec.js related to completion-status expectation, not the profile select UI changes."
     }
   ],
   "milestones": [
