@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Week 33 Pregnancy Meal Planner</title>
+	<style>
+		:root {
+			--bg: #f7f4ee;
+			--panel: #fffdf8;
+			--ink: #1f2933;
+			--muted: #62707c;
+			--line: #d9d0c3;
+			--accent: #1f6f5f;
+			--accent-soft: #d9efe8;
+			--warm: #c96d42;
+			--warm-soft: #fde8df;
+			--shadow: 0 18px 45px rgba(44, 37, 29, 0.08);
+			--radius: 20px;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			font-family: Georgia, "Times New Roman", serif;
+			color: var(--ink);
+			background:
+				radial-gradient(circle at top left, rgba(201, 109, 66, 0.12), transparent 22%),
+				linear-gradient(180deg, #fbf8f1 0%, #f2ede4 100%);
+		}
+
+		.app {
+			max-width: 1380px;
+			margin: 0 auto;
+			padding: 32px 20px 48px;
+		}
+
+		.hero,
+		.panel,
+		.store-panel {
+			background: var(--panel);
+			border: 1px solid rgba(201, 109, 66, 0.16);
+			border-radius: var(--radius);
+			box-shadow: var(--shadow);
+		}
+
+		.hero {
+			padding: 28px;
+			margin-bottom: 24px;
+			display: grid;
+			gap: 18px;
+		}
+
+		.eyebrow {
+			margin: 0;
+			text-transform: uppercase;
+			letter-spacing: 0.14em;
+			font-size: 12px;
+			color: var(--warm);
+			font-weight: 700;
+		}
+
+		h1,
+		h2,
+		h3 {
+			margin: 0;
+			font-weight: 700;
+		}
+
+		h1 {
+			font-size: clamp(2rem, 4vw, 3.6rem);
+			line-height: 1.05;
+		}
+
+		.hero p {
+			margin: 0;
+			max-width: 980px;
+			color: var(--muted);
+			line-height: 1.6;
+			font-size: 1rem;
+		}
+
+		.hero-grid {
+			display: grid;
+			gap: 12px;
+			grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		}
+
+		.hero-stat {
+			background: linear-gradient(180deg, #fff8f3 0%, #fffdf9 100%);
+			border: 1px solid rgba(201, 109, 66, 0.16);
+			border-radius: 16px;
+			padding: 14px 16px;
+		}
+
+		.hero-stat strong {
+			display: block;
+			font-size: 1.2rem;
+			margin-top: 6px;
+		}
+
+		.toolbar {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 12px;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 18px;
+		}
+
+		.view-switch,
+		.day-switch {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+
+		button {
+			border: 0;
+			border-radius: 999px;
+			padding: 10px 16px;
+			font: inherit;
+			cursor: pointer;
+			transition: transform 160ms ease, background-color 160ms ease, color 160ms ease;
+		}
+
+		.tab-button,
+		.day-button {
+			background: #efe7db;
+			color: var(--ink);
+		}
+
+		.tab-button.active,
+		.day-button.active {
+			background: var(--accent);
+			color: #fff;
+			transform: translateY(-1px);
+		}
+
+		.panel {
+			padding: 24px;
+			margin-bottom: 24px;
+		}
+
+		.view {
+			display: none;
+		}
+
+		.view.active {
+			display: block;
+		}
+
+		.section-heading {
+			margin-bottom: 16px;
+			display: flex;
+			justify-content: space-between;
+			gap: 12px;
+			align-items: baseline;
+			flex-wrap: wrap;
+		}
+
+		.section-heading p {
+			margin: 6px 0 0;
+			color: var(--muted);
+		}
+
+		.day-table,
+		.store-table,
+		.week-table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		.day-table th,
+		.day-table td,
+		.store-table th,
+		.store-table td,
+		.week-table th,
+		.week-table td {
+			padding: 14px 12px;
+			border-bottom: 1px solid var(--line);
+			text-align: left;
+			vertical-align: top;
+		}
+
+		.day-table th,
+		.store-table th,
+		.week-table th {
+			color: var(--muted);
+			font-size: 0.9rem;
+			font-weight: 700;
+		}
+
+		.entry-tag {
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+			padding: 6px 10px;
+			border-radius: 999px;
+			font-size: 0.9rem;
+			font-weight: 700;
+		}
+
+		.entry-tag.meal {
+			background: var(--accent-soft);
+			color: var(--accent);
+		}
+
+		.entry-tag.exercise {
+			background: #e9eefb;
+			color: #3559a8;
+		}
+
+		.entry-tag.sleep {
+			background: var(--warm-soft);
+			color: var(--warm);
+		}
+
+		.hour {
+			font-weight: 700;
+			color: var(--warm);
+			white-space: nowrap;
+		}
+
+		.meal-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			background: transparent;
+			padding: 0;
+			border-radius: 0;
+			color: var(--ink);
+			font-size: 1rem;
+			font-weight: 700;
+			text-align: left;
+		}
+
+		.meal-link:hover {
+			color: var(--accent);
+		}
+
+		.summary-chip {
+			display: inline-flex;
+			padding: 6px 10px;
+			border-radius: 999px;
+			background: var(--warm-soft);
+			color: var(--warm);
+			font-size: 0.85rem;
+			font-weight: 700;
+			margin: 4px 8px 0 0;
+		}
+
+		.day-summary {
+			margin-top: 18px;
+			display: grid;
+			gap: 12px;
+			grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+		}
+
+		.summary-card {
+			border: 1px solid var(--line);
+			border-radius: 18px;
+			padding: 14px;
+			background: #fffaf5;
+		}
+
+		.summary-card strong {
+			display: block;
+			margin-bottom: 6px;
+			font-size: 1.1rem;
+		}
+
+		.summary-card p {
+			margin: 0;
+			color: var(--muted);
+			line-height: 1.5;
+		}
+
+		.week-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+			gap: 16px;
+		}
+
+		.week-card {
+			border: 1px solid var(--line);
+			border-radius: 18px;
+			padding: 16px;
+			background: linear-gradient(180deg, #fffdfa 0%, #faf4eb 100%);
+		}
+
+		.week-card h3 {
+			margin-bottom: 4px;
+			font-size: 1.25rem;
+		}
+
+		.week-card .totals {
+			color: var(--muted);
+			font-size: 0.92rem;
+			margin-bottom: 12px;
+		}
+
+		.week-card table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		.week-card td {
+			border-bottom: 1px dashed rgba(98, 112, 124, 0.28);
+			padding: 10px 0;
+			vertical-align: top;
+			font-size: 0.95rem;
+		}
+
+		.week-card td:first-child {
+			width: 86px;
+			color: var(--muted);
+			font-weight: 700;
+			padding-right: 10px;
+		}
+
+		.week-note {
+			margin-top: 12px;
+			color: var(--muted);
+			line-height: 1.55;
+			font-size: 0.93rem;
+		}
+
+		.store-panel {
+			padding: 24px;
+		}
+
+		.store-table td:nth-child(1) {
+			font-weight: 700;
+			color: var(--warm);
+		}
+
+		.pill-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			margin-top: 14px;
+		}
+
+		.pill {
+			background: #f1e9dc;
+			color: var(--ink);
+			padding: 8px 10px;
+			border-radius: 999px;
+			font-size: 0.88rem;
+		}
+
+		.modal-shell {
+			position: fixed;
+			inset: 0;
+			background: rgba(28, 21, 15, 0.58);
+			display: none;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+			z-index: 20;
+		}
+
+		.modal-shell.open {
+			display: flex;
+		}
+
+		.modal {
+			width: min(760px, 100%);
+			background: #fffdf9;
+			border-radius: 24px;
+			box-shadow: 0 24px 60px rgba(19, 18, 15, 0.28);
+			padding: 24px;
+			border: 1px solid rgba(201, 109, 66, 0.2);
+		}
+
+		.modal-header {
+			display: flex;
+			justify-content: space-between;
+			gap: 16px;
+			align-items: flex-start;
+			margin-bottom: 18px;
+		}
+
+		.close-button {
+			background: #efe7db;
+			color: var(--ink);
+			font-weight: 700;
+		}
+
+		.detail-grid {
+			display: grid;
+			gap: 16px;
+			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			margin-bottom: 20px;
+		}
+
+		.detail-card {
+			background: #fff8f1;
+			border: 1px solid var(--line);
+			border-radius: 16px;
+			padding: 14px;
+		}
+
+		.detail-card h4 {
+			margin: 0 0 8px;
+			font-size: 0.95rem;
+			color: var(--warm);
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		.detail-card p,
+		.detail-card ul {
+			margin: 0;
+			line-height: 1.6;
+			color: var(--ink);
+			padding-left: 18px;
+		}
+
+		.detail-card p {
+			padding-left: 0;
+		}
+
+		@media (max-width: 820px) {
+			.panel,
+			.store-panel,
+			.hero {
+				padding: 18px;
+			}
+
+			.store-table,
+			.week-table,
+			.week-card table {
+				font-size: 0.92rem;
+			}
+
+			.day-table thead {
+				display: none;
+			}
+
+			.day-table,
+			.day-table tbody,
+			.day-table tr,
+			.day-table td {
+				display: block;
+				width: 100%;
+			}
+
+			.day-table tr {
+				margin-bottom: 14px;
+				padding: 14px;
+				border: 1px solid var(--line);
+				border-radius: 16px;
+				background: #fffaf5;
+			}
+
+			.day-table td {
+				border-bottom: 0;
+				padding: 5px 0;
+			}
+
+			.day-table td::before {
+				content: attr(data-label);
+				display: block;
+				font-size: 0.78rem;
+				font-weight: 700;
+				color: var(--muted);
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				margin-bottom: 2px;
+			}
+
+			.modal {
+				padding: 18px;
+				border-radius: 18px;
+			}
+
+			.hero-grid {
+				grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="app">
+		<section class="hero">
+			<p class="eyebrow">Week 33 · Trimester 3 · 39 years · 168 cm · 100 kg</p>
+			<div>
+				<h1>Pregnancy diabetic meal planner</h1>
+				<p>
+					This page organizes the approved week 33 meal cycle into a daily timeline and a weekly calendar.
+					Each meal keeps the requested schedule: Breakfast 07:30, Snack 1 10:30, Lunch 13:30, Snack 2 17:00,
+					and Dinner 20:00. Clicking any meal name opens its detail card with quantity and preparation.
+				</p>
+			</div>
+			<div class="hero-grid">
+				<div class="hero-stat">
+					<span>Daily energy plan</span>
+					<strong>2050-2250 kcal</strong>
+				</div>
+				<div class="hero-stat">
+					<span>Protein target</span>
+					<strong>120-140 g/day</strong>
+				</div>
+				<div class="hero-stat">
+					<span>Carbohydrate target</span>
+					<strong>175-205 g/day</strong>
+				</div>
+				<div class="hero-stat">
+					<span>Hydration</span>
+					<strong>3.5-5.0 L/day</strong>
+				</div>
+			</div>
+			<div class="pill-list">
+				<span class="pill">Breakfast · 07:30</span>
+				<span class="pill">Snack 1 · 10:30</span>
+				<span class="pill">Lunch · 13:30</span>
+				<span class="pill">Snack 2 · 17:00</span>
+				<span class="pill">Dinner · 20:00</span>
+			</div>
+		</section>
+
+		<div class="toolbar">
+			<div class="view-switch" aria-label="View switcher">
+				<button class="tab-button active" data-view="day">Day view</button>
+				<button class="tab-button" data-view="week">Week view</button>
+			</div>
+			<div class="day-switch" id="day-switch" aria-label="Day selector"></div>
+		</div>
+
+		<section class="panel view active" id="day-view"></section>
+		<section class="panel view" id="week-view"></section>
+
+		<section class="store-panel" id="store-view">
+			<div class="section-heading">
+				<div>
+					<h2>Week food list</h2>
+					<p>Total shopping list for the current weekly rotation shown above.</p>
+				</div>
+			</div>
+			<table class="store-table" id="store-table"></table>
+		</section>
+	</div>
+
+	<div class="modal-shell" id="meal-modal" aria-hidden="true">
+		<div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+			<div class="modal-header">
+				<div>
+					<p class="eyebrow" id="modal-slot"></p>
+					<h2 id="modal-title"></h2>
+				</div>
+				<button class="close-button" id="close-modal" type="button">Close</button>
+			</div>
+			<div class="detail-grid">
+				<div class="detail-card">
+					<h4>Meal quantity</h4>
+					<p id="modal-quantity"></p>
+				</div>
+				<div class="detail-card">
+					<h4>Meal preparation</h4>
+					<p id="modal-preparation"></p>
+				</div>
+				<div class="detail-card">
+					<h4>Nutrition snapshot</h4>
+					<p id="modal-macros"></p>
+				</div>
+				<div class="detail-card">
+					<h4>Priority nutrients</h4>
+					<p id="modal-micros"></p>
+				</div>
+			</div>
+			<div class="detail-card">
+				<h4>Main ingredients</h4>
+				<p id="modal-ingredients"></p>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		const mealHours = {
+			breakfast: '07:30',
+			snack1: '10:30',
+			lunch: '13:30',
+			snack2: '17:00',
+			dinner: '20:00'
+		};
+
+		const slotLabels = {
+			breakfast: 'Breakfast',
+			snack1: 'Snack 1',
+			lunch: 'Lunch',
+			snack2: 'Snack 2',
+			dinner: 'Dinner'
+		};
+
+		const daySleep = {
+			wake: {
+				start: '06:30',
+				name: 'Wake up',
+				description: 'Wake up, hydrate, and begin the day calmly.',
+				notes: 'Night sleep target runs from 22:30 to 06:30 for 8 hours total.'
+			},
+			sleep: {
+				start: '22:30',
+				name: 'Sleep',
+				description: 'Begin night sleep window and prepare for left-side rest if comfortable.',
+				notes: 'Protect the full 22:30 to 06:30 sleep block as often as possible.'
+			}
+		};
+
+		const dailyExercises = [
+			{ day: 'Monday', code: 'EX01', start: '08:45', end: '09:15', name: 'Morning walk', description: '30 minutes at talk-test pace on flat ground.', notes: 'Light intensity walk to support post-breakfast glucose control.' },
+			{ day: 'Monday', code: 'EX02', start: '18:00', end: '18:30', name: 'Prenatal strength and pelvic floor', description: '2 rounds: sit-to-stand x10, wall push-up x10, band row x12, side steps x12/side, pelvic floor breathing 5 min.', notes: 'Keep effort light to moderate and stop for pain, dizziness, or contractions.' },
+			{ day: 'Monday', code: 'EX03', start: '20:45', end: '21:10', name: 'Post-dinner walk', description: '20 to 25 minutes at easy pace after dinner.', notes: 'Supports post-dinner glucose stability.' },
+			{ day: 'Tuesday', code: 'EX04', start: '08:45', end: '09:15', name: 'Morning walk', description: '30 minutes at talk-test pace on flat ground.', notes: 'Use supportive shoes and a comfortable route.' },
+			{ day: 'Tuesday', code: 'EX05', start: '18:00', end: '18:30', name: 'Prenatal yoga and mobility', description: 'Hip openers, thoracic mobility, cat-cow, calf stretch, and breathing reset for 30 minutes.', notes: 'Use pillows or supports whenever needed.' },
+			{ day: 'Tuesday', code: 'EX06', start: '20:45', end: '21:10', name: 'Post-dinner walk', description: '20 to 25 minutes at easy pace after dinner.', notes: 'Shorten to 15 minutes if fatigue is high.' },
+			{ day: 'Wednesday', code: 'EX07', start: '08:45', end: '09:15', name: 'Morning walk', description: '30 minutes at talk-test pace on flat ground.', notes: 'Keep shoulders relaxed and breathing steady.' },
+			{ day: 'Wednesday', code: 'EX08', start: '18:00', end: '18:30', name: 'Prenatal strength and pelvic floor', description: '2 rounds: supported squat x10, band pull-apart x12, glute bridge x12, bird-dog x8/side, pelvic floor breathing 5 min.', notes: 'Choose control over speed.' },
+			{ day: 'Wednesday', code: 'EX09', start: '20:45', end: '21:10', name: 'Post-dinner walk', description: '20 to 25 minutes at easy pace after dinner.', notes: 'Keep the pace comfortable.' },
+			{ day: 'Thursday', code: 'EX10', start: '08:45', end: '09:15', name: 'Morning walk', description: '30 minutes at talk-test pace on flat ground.', notes: 'Split into two 15-minute walks if needed.' },
+			{ day: 'Thursday', code: 'EX11', start: '18:00', end: '18:30', name: 'Prenatal yoga and mobility', description: 'Seated stretches, pelvic tilts, shoulder opening, ankle mobility, and calm breathing for 30 minutes.', notes: 'Keep positions gentle and pain-free.' },
+			{ day: 'Thursday', code: 'EX12', start: '20:45', end: '21:10', name: 'Post-dinner walk', description: '20 to 25 minutes at easy pace after dinner.', notes: 'Stay conversational, never breathless.' },
+			{ day: 'Friday', code: 'EX13', start: '08:45', end: '09:15', name: 'Morning walk', description: '30 minutes at talk-test pace on flat ground.', notes: 'Choose the flattest route if swelling is present.' },
+			{ day: 'Friday', code: 'EX14', start: '18:00', end: '18:30', name: 'Prenatal strength and pelvic floor', description: '2 rounds: chair squat x10, wall push-up x10, suitcase carry 30 sec/side, calf raise x12, pelvic floor breathing 5 min.', notes: 'Rest between rounds if needed.' },
+			{ day: 'Friday', code: 'EX15', start: '20:45', end: '21:10', name: 'Post-dinner walk', description: '20 to 25 minutes at easy pace after dinner.', notes: 'Use this to unwind before sleep.' },
+			{ day: 'Saturday', code: 'EX16', start: '08:45', end: '09:15', name: 'Morning walk', description: '30 minutes at talk-test pace on flat ground.', notes: 'Keep stride comfortable and short if pelvic pressure rises.' },
+			{ day: 'Saturday', code: 'EX17', start: '18:00', end: '18:30', name: 'Prenatal yoga and mobility', description: 'Gentle flow with hip circles, side stretches, cat-cow, ankle mobility, and breathing.', notes: 'Reduce range of motion if any movement feels unstable.' },
+			{ day: 'Saturday', code: 'EX18', start: '20:45', end: '21:10', name: 'Post-dinner walk', description: '20 to 25 minutes at easy pace after dinner.', notes: 'Indoor walking is fine if the weather is poor.' },
+			{ day: 'Sunday', code: 'EX19', start: '08:45', end: '09:15', name: 'Morning walk', description: '30 minutes at talk-test pace on flat ground.', notes: 'Recovery pace only.' },
+			{ day: 'Sunday', code: 'EX20', start: '18:00', end: '18:20', name: 'Recovery stretch', description: '20 minutes of gentle mobility, breath work, calf stretch, and side-lying relaxation.', notes: 'This is a recovery block, not a training session.' },
+			{ day: 'Sunday', code: 'EX21', start: '20:45', end: '21:10', name: 'Post-dinner walk', description: '20 to 25 minutes at easy pace after dinner.', notes: 'Keep it relaxing before bed.' }
+		];
+
+		const meals = {
+			B01: {
+				slot: 'breakfast',
+				name: 'Oats with Greek yogurt, chia, blueberries and cinnamon',
+				quantity: '50 g rolled oats, 170 g Greek yogurt, 15 g chia seeds, 80 g blueberries, cinnamon to taste.',
+				preparation: 'Soften the oats with hot water or warm milk, fold in the Greek yogurt, then top with chia, blueberries, and cinnamon.',
+				macros: '430 kcal · 28 g protein · 42 g carbs · 16 g fat · 11 g fiber',
+				micros: 'High in calcium and fiber. Moderate folate and iron support.',
+				ingredients: 'rolled oats; Greek yogurt; chia seeds; blueberries; cinnamon'
+			},
+			B02: {
+				slot: 'breakfast',
+				name: 'Eggs, avocado, whole grain toast and milk',
+				quantity: '2 eggs, 2 slices whole grain toast, 1/2 avocado, 1 cup milk.',
+				preparation: 'Scramble or fry the eggs in a hot pan, toast the bread, slice the avocado, and serve with milk.',
+				macros: '480 kcal · 26 g protein · 38 g carbs · 26 g fat · 9 g fiber',
+				micros: 'Strong choline and calcium breakfast.',
+				ingredients: 'eggs; avocado; whole grain bread; milk'
+			},
+			B03: {
+				slot: 'breakfast',
+				name: 'Overnight oats with pumpkin seeds and raspberries',
+				quantity: '50 g oats, 20 g pumpkin seeds, 90 g raspberries, 150 g yogurt or milk.',
+				preparation: 'Combine oats and yogurt the night before, chill, then finish with pumpkin seeds and raspberries in the morning.',
+				macros: '440 kcal · 24 g protein · 44 g carbs · 17 g fat · 12 g fiber',
+				micros: 'Higher iron, magnesium, and fiber than most breakfasts.',
+				ingredients: 'rolled oats; pumpkin seeds; raspberries; yogurt or milk'
+			},
+			B04: {
+				slot: 'breakfast',
+				name: 'Spinach omelette, rye toast and yogurt',
+				quantity: '2 eggs, 1 cup spinach, 2 slices rye bread, 1 plain yogurt.',
+				preparation: 'Cook the spinach briefly, add beaten eggs to make the omelette, toast the bread, and plate with yogurt.',
+				macros: '470 kcal · 31 g protein · 38 g carbs · 24 g fat · 8 g fiber',
+				micros: 'Strong choline, folate, and protein coverage.',
+				ingredients: 'eggs; spinach; rye bread; plain yogurt'
+			},
+			B05: {
+				slot: 'breakfast',
+				name: 'Quinoa porridge with milk, walnuts and blueberries',
+				quantity: '3/4 cup cooked quinoa, 1 cup milk, 15 g walnuts, 80 g blueberries.',
+				preparation: 'Warm the cooked quinoa with milk until creamy, then add walnuts and blueberries on top.',
+				macros: '450 kcal · 22 g protein · 46 g carbs · 17 g fat · 8 g fiber',
+				micros: 'Good calcium and magnesium support.',
+				ingredients: 'quinoa; milk; walnuts; blueberries'
+			},
+			B06: {
+				slot: 'breakfast',
+				name: 'Cottage cheese, oats, peach and flax',
+				quantity: '150 g cottage cheese, 40 g oats, 1 peach, 10 g ground flaxseed.',
+				preparation: 'Layer cottage cheese and oats in a bowl, slice in the peach, and finish with flaxseed.',
+				macros: '430 kcal · 27 g protein · 40 g carbs · 14 g fat · 8 g fiber',
+				micros: 'High protein breakfast with moderate carbs.',
+				ingredients: 'cottage cheese; oats; peach; flaxseed'
+			},
+			B07: {
+				slot: 'breakfast',
+				name: 'Whole grain toast with ricotta, berries and eggs',
+				quantity: '2 slices toast, 80 g ricotta, 80 g berries, 2 eggs.',
+				preparation: 'Toast the bread, spread ricotta, add berries on the side, and cook the eggs in a pan.',
+				macros: '460 kcal · 28 g protein · 40 g carbs · 20 g fat · 7 g fiber',
+				micros: 'Balanced breakfast with good choline and calcium.',
+				ingredients: 'whole grain bread; ricotta; berries; eggs'
+			},
+			S01: {
+				slot: 'snack1',
+				name: 'Apple with natural peanut butter',
+				quantity: '1 medium apple, 2 tbsp natural peanut butter.',
+				preparation: 'Slice the apple and serve with peanut butter for dipping.',
+				macros: '210 kcal · 5 g protein · 22 g carbs · 11 g fat · 5 g fiber',
+				micros: 'Easy snack with fiber and moderate fat.',
+				ingredients: 'apple; natural peanut butter'
+			},
+			S02: {
+				slot: 'snack1',
+				name: 'Greek yogurt with walnuts and kiwi',
+				quantity: '1 cup Greek yogurt, 15 g walnuts, 1 kiwi.',
+				preparation: 'Spoon yogurt into a bowl, add chopped walnuts, and top with sliced kiwi.',
+				macros: '230 kcal · 15 g protein · 19 g carbs · 11 g fat · 3 g fiber',
+				micros: 'Adds calcium and iodine while keeping carbs controlled.',
+				ingredients: 'Greek yogurt; walnuts; kiwi'
+			},
+			S03: {
+				slot: 'snack1',
+				name: 'Hummus, carrot sticks and seeded crackers',
+				quantity: '3 tbsp hummus, 1 cup carrot sticks, 4 seeded crackers.',
+				preparation: 'Cut carrots into sticks, plate with hummus and crackers.',
+				macros: '240 kcal · 8 g protein · 24 g carbs · 12 g fat · 6 g fiber',
+				micros: 'Higher-fiber snack with slower carbohydrates.',
+				ingredients: 'hummus; carrots; seeded crackers'
+			},
+			S04: {
+				slot: 'snack1',
+				name: 'Boiled egg, orange and mixed nuts',
+				quantity: '1 boiled egg, 1 orange, 15 g mixed nuts.',
+				preparation: 'Boil the egg ahead of time, peel it, and serve with the orange and nuts.',
+				macros: '220 kcal · 10 g protein · 16 g carbs · 11 g fat · 4 g fiber',
+				micros: 'Useful for choline and a bit of vitamin C.',
+				ingredients: 'egg; orange; mixed nuts'
+			},
+			S05: {
+				slot: 'snack1',
+				name: 'Kefir with strawberries and chia',
+				quantity: '250 ml kefir, 100 g strawberries, 10 g chia seeds.',
+				preparation: 'Pour kefir into a bowl or glass, add strawberries and chia, and let it thicken a few minutes.',
+				macros: '220 kcal · 12 g protein · 18 g carbs · 9 g fat · 7 g fiber',
+				micros: 'One of the best snack options for calcium.',
+				ingredients: 'kefir; strawberries; chia seeds'
+			},
+			S06: {
+				slot: 'snack1',
+				name: 'Pear with pumpkin seeds',
+				quantity: '1 pear, 20 g pumpkin seeds.',
+				preparation: 'Slice the pear and eat together with the pumpkin seeds.',
+				macros: '210 kcal · 8 g protein · 21 g carbs · 11 g fat · 5 g fiber',
+				micros: 'Good magnesium and iron support.',
+				ingredients: 'pear; pumpkin seeds'
+			},
+			S07: {
+				slot: 'snack1',
+				name: 'Chia pudding',
+				quantity: '20 g chia seeds, 180 ml milk or kefir, cinnamon.',
+				preparation: 'Soak chia overnight in milk or kefir until thick, then stir and finish with cinnamon.',
+				macros: '220 kcal · 10 g protein · 18 g carbs · 12 g fat · 8 g fiber',
+				micros: 'Highest-fiber snack option in the list.',
+				ingredients: 'chia seeds; milk or kefir; cinnamon'
+			},
+			L01: {
+				slot: 'lunch',
+				name: 'Salmon, quinoa and spinach bowl',
+				quantity: '150 g salmon, 3/4 cup cooked quinoa, 2 cups spinach, vegetables, 1 tsp olive oil.',
+				preparation: 'Bake or pan-sear the salmon, cook quinoa, wilt or toss the spinach, and build the bowl with vegetables and olive oil.',
+				macros: '620 kcal · 42 g protein · 45 g carbs · 26 g fat · 9 g fiber',
+				micros: 'Very high DHA, EPA, iodine, and vitamin D.',
+				ingredients: 'salmon; quinoa; spinach; vegetables; olive oil'
+			},
+			L02: {
+				slot: 'lunch',
+				name: 'Chicken, chickpea and brown rice salad',
+				quantity: '140 g chicken breast, 1/2 cup chickpeas, 1/2 cup cooked brown rice, greens, vegetables.',
+				preparation: 'Cook and slice the chicken, combine with chickpeas, rice, greens, and a light dressing.',
+				macros: '610 kcal · 43 g protein · 55 g carbs · 21 g fat · 12 g fiber',
+				micros: 'High-protein lunch with good folate and potassium support.',
+				ingredients: 'chicken breast; chickpeas; brown rice; greens'
+			},
+			L03: {
+				slot: 'lunch',
+				name: 'Lean beef and bean chili with barley',
+				quantity: '140 g lean beef, 1/2 cup beans, 1/2 cup cooked barley, tomato and pepper base.',
+				preparation: 'Brown the beef, simmer with beans, tomato, onion, and peppers, then serve over or beside barley.',
+				macros: '640 kcal · 42 g protein · 52 g carbs · 24 g fat · 14 g fiber',
+				micros: 'Strong lunch for iron and zinc.',
+				ingredients: 'lean beef; beans; barley; tomatoes; peppers'
+			},
+			L04: {
+				slot: 'lunch',
+				name: 'Sardine wholegrain pasta salad',
+				quantity: '1 tin sardines, 1 cup cooked whole grain pasta, greens, tomato, herbs.',
+				preparation: 'Cook the pasta, cool slightly, then mix with sardines, greens, tomatoes, and herbs.',
+				macros: '610 kcal · 38 g protein · 50 g carbs · 24 g fat · 10 g fiber',
+				micros: 'Excellent calcium, DHA, EPA, and vitamin D support.',
+				ingredients: 'sardines; whole grain pasta; greens; tomatoes'
+			},
+			L05: {
+				slot: 'lunch',
+				name: 'Turkey and lentil stuffed peppers',
+				quantity: '2 bell peppers, 140 g turkey, 1/2 cup cooked lentils, herbs and onion.',
+				preparation: 'Cook the turkey with onion and lentils, stuff the peppers, and bake until tender.',
+				macros: '620 kcal · 44 g protein · 48 g carbs · 20 g fat · 13 g fiber',
+				micros: 'High folate lunch with steady carbohydrate release.',
+				ingredients: 'turkey; lentils; bell peppers; onion; herbs'
+			},
+			L06: {
+				slot: 'lunch',
+				name: 'Chicken lentil soup with whole grain toast',
+				quantity: '1 large bowl soup with chicken and lentils, 1 slice whole grain toast.',
+				preparation: 'Simmer chicken, lentils, and vegetables until tender, then serve with toasted bread.',
+				macros: '590 kcal · 42 g protein · 47 g carbs · 19 g fat · 12 g fiber',
+				micros: 'Comforting, potassium-rich lunch with good protein.',
+				ingredients: 'chicken; lentils; vegetables; whole grain toast'
+			},
+			L07: {
+				slot: 'lunch',
+				name: 'Trout, potato and spinach plate',
+				quantity: '150 g trout, 1 medium potato, 2 cups spinach, 1 tsp olive oil.',
+				preparation: 'Roast or pan-cook the trout, boil or roast the potato, and serve with spinach on the side.',
+				macros: '610 kcal · 40 g protein · 44 g carbs · 24 g fat · 8 g fiber',
+				micros: 'Strong vitamin D and omega-3 lunch.',
+				ingredients: 'trout; potato; spinach; olive oil'
+			},
+			D01: {
+				slot: 'dinner',
+				name: 'Turkey and lentil stew with broccoli',
+				quantity: '140 g turkey, 3/4 cup lentils, 1 cup broccoli, tomato and onion base.',
+				preparation: 'Simmer turkey with lentils, onion, and tomato until thick, then serve with steamed broccoli.',
+				macros: '620 kcal · 46 g protein · 48 g carbs · 20 g fat · 14 g fiber',
+				micros: 'Very strong folate, fiber, and iron support.',
+				ingredients: 'turkey; lentils; broccoli; tomato; onion'
+			},
+			D02: {
+				slot: 'dinner',
+				name: 'Baked hake, sweet potato and green beans',
+				quantity: '150 g hake, 250 g sweet potato, 1 cup green beans.',
+				preparation: 'Bake the hake, roast the sweet potato, and steam the green beans until just tender.',
+				macros: '560 kcal · 40 g protein · 48 g carbs · 18 g fat · 10 g fiber',
+				micros: 'Excellent iodine dinner and lighter on the stomach.',
+				ingredients: 'hake; sweet potato; green beans'
+			},
+			D03: {
+				slot: 'dinner',
+				name: 'Tofu, quinoa and vegetable stir-fry',
+				quantity: '160 g calcium-set tofu, 3/4 cup cooked quinoa, 2 cups mixed vegetables.',
+				preparation: 'Sear the tofu, stir-fry the vegetables, and combine with cooked quinoa.',
+				macros: '580 kcal · 32 g protein · 46 g carbs · 24 g fat · 11 g fiber',
+				micros: 'Best plant-based calcium dinner in the set.',
+				ingredients: 'calcium-set tofu; quinoa; mixed vegetables'
+			},
+			D04: {
+				slot: 'dinner',
+				name: 'Chicken quinoa vegetable soup with avocado',
+				quantity: '1 large bowl chicken quinoa soup, 1/4 avocado on top.',
+				preparation: 'Cook the soup with chicken, quinoa, and vegetables until tender, then top with avocado before serving.',
+				macros: '590 kcal · 42 g protein · 50 g carbs · 22 g fat · 10 g fiber',
+				micros: 'Balanced dinner with good potassium and satiety.',
+				ingredients: 'chicken; quinoa; vegetables; avocado'
+			},
+			D05: {
+				slot: 'dinner',
+				name: 'Salmon with roasted vegetables and farro',
+				quantity: '150 g salmon, 3/4 cup cooked farro, 2 cups roasted vegetables.',
+				preparation: 'Roast the vegetables, cook the farro, and bake or pan-sear the salmon.',
+				macros: '640 kcal · 42 g protein · 47 g carbs · 24 g fat · 10 g fiber',
+				micros: 'Top DHA, EPA, and vitamin D dinner.',
+				ingredients: 'salmon; roasted vegetables; farro'
+			},
+			D06: {
+				slot: 'dinner',
+				name: 'Beef and quinoa stuffed zucchini with salad',
+				quantity: '2 stuffed zucchini halves with lean beef and quinoa, plus side salad.',
+				preparation: 'Cook the beef with quinoa, fill the zucchini halves, bake until tender, and serve with salad greens.',
+				macros: '650 kcal · 44 g protein · 52 g carbs · 26 g fat · 9 g fiber',
+				micros: 'Useful dinner for iron support on non-fish days.',
+				ingredients: 'lean beef; quinoa; zucchini; salad greens'
+			},
+			D07: {
+				slot: 'dinner',
+				name: 'Chicken and chickpea curry with brown rice',
+				quantity: '140 g chicken, 1/2 cup chickpeas, 1/2 cup cooked brown rice, curry vegetables.',
+				preparation: 'Cook the chicken with curry spices and vegetables, add chickpeas, and serve over measured brown rice.',
+				macros: '650 kcal · 38 g protein · 56 g carbs · 20 g fat · 12 g fiber',
+				micros: 'Good folate and fiber support; reduce rice if evening glucose is high.',
+				ingredients: 'chicken; chickpeas; brown rice; curry vegetables'
+			}
+		};
+
+		const weekPlan = [
+			{
+				day: 'Monday',
+				meals: { breakfast: 'B01', snack1: 'S01', lunch: 'L01', snack2: 'S02', dinner: 'D01' },
+				totals: '2110 kcal · 136 g protein · 175 g carbs · 84 g fat · 42 g fiber',
+				note: 'Omega-3, iodine, calcium, and folate are strong; iron still typically expects prenatal support.'
+			},
+			{
+				day: 'Tuesday',
+				meals: { breakfast: 'B02', snack1: 'S03', lunch: 'L02', snack2: 'S05', dinner: 'D02' },
+				totals: '2110 kcal · 129 g protein · 183 g carbs · 86 g fat · 44 g fiber',
+				note: 'Calcium and iodine are strong; this day is lighter in omega-3 than Monday but still pregnancy-appropriate.'
+			},
+			{
+				day: 'Wednesday',
+				meals: { breakfast: 'B03', snack1: 'S04', lunch: 'L03', snack2: 'S05', dinner: 'D03' },
+				totals: '2100 kcal · 120 g protein · 176 g carbs · 85 g fat · 48 g fiber',
+				note: 'Excellent fiber, iron-supporting foods, and calcium from kefir plus tofu.'
+			},
+			{
+				day: 'Thursday',
+				meals: { breakfast: 'B04', snack1: 'S07', lunch: 'L04', snack2: 'S02', dinner: 'D04' },
+				totals: '2120 kcal · 136 g protein · 175 g carbs · 93 g fat · 39 g fiber',
+				note: 'Very strong calcium and omega-3 day due to sardines and cultured dairy.'
+			},
+			{
+				day: 'Friday',
+				meals: { breakfast: 'B05', snack1: 'S01', lunch: 'L05', snack2: 'S03', dinner: 'D05' },
+				totals: '2160 kcal · 121 g protein · 187 g carbs · 84 g fat · 42 g fiber',
+				note: 'Excellent folate and DHA/EPA balance; lunch and dinner cover most pregnancy priority nutrients.'
+			},
+			{
+				day: 'Saturday',
+				meals: { breakfast: 'B06', snack1: 'S06', lunch: 'L06', snack2: 'S04', dinner: 'D06' },
+				totals: '2100 kcal · 131 g protein · 176 g carbs · 81 g fat · 38 g fiber',
+				note: 'Strong iron-supporting day with beef, lentils, pumpkin seeds, and eggs.'
+			},
+			{
+				day: 'Sunday',
+				meals: { breakfast: 'B07', snack1: 'S05', lunch: 'L07', snack2: 'S07', dinner: 'D07' },
+				totals: '2160 kcal · 128 g protein · 176 g carbs · 85 g fat · 42 g fiber',
+				note: 'Good omega-3, calcium, and folate support with controlled carbohydrate distribution.'
+			}
+		];
+
+		const storeItems = [
+			['Protein', 'Salmon fillet', '4 fillets', 'L01; D05'],
+			['Protein', 'Hake fillet', '2 fillets', 'D02'],
+			['Protein', 'Trout fillet', '2 fillets', 'L07'],
+			['Protein', 'Sardines', '2 tins', 'L04'],
+			['Protein', 'Chicken breast', '1.6 kg', 'L02; L06; D04; D07'],
+			['Protein', 'Turkey breast or mince', '0.9 kg', 'L05; D01'],
+			['Protein', 'Lean beef', '0.8 kg', 'L03; D06'],
+			['Protein', 'Firm calcium-set tofu', '400 g', 'D03'],
+			['Protein', 'Eggs', '18 units', 'B02; B04; B07; S04'],
+			['Dairy', 'Greek yogurt', '1.4 kg', 'B01; S02'],
+			['Dairy', 'Plain yogurt', '500 g', 'B04'],
+			['Dairy', 'Cottage cheese', '500 g', 'B06'],
+			['Dairy', 'Ricotta', '250 g', 'B07'],
+			['Dairy', 'Kefir', '1.5 L', 'S05; S07'],
+			['Dairy', 'Milk', '2 L', 'B02; B05; S07'],
+			['Grains', 'Rolled oats', '600 g', 'B01; B03; B06'],
+			['Grains', 'Whole grain bread', '2 loaves', 'B02; B07; L06'],
+			['Grains', 'Rye bread', '1 small loaf', 'B04'],
+			['Grains', 'Quinoa dry', '700 g', 'B05; L01; D03; D04; D06'],
+			['Grains', 'Brown rice dry', '500 g', 'L02; D07'],
+			['Grains', 'Whole grain pasta', '250 g', 'L04'],
+			['Grains', 'Barley dry', '200 g', 'L03'],
+			['Grains', 'Farro dry', '200 g', 'D05'],
+			['Grains', 'Seeded crackers', '1 pack', 'S03'],
+			['Legumes', 'Chickpeas cooked', '4 cans', 'L02; D07'],
+			['Legumes', 'Lentils dry', '700 g', 'L05; L06; D01'],
+			['Legumes', 'Beans cooked', '2 cans', 'L03'],
+			['Produce', 'Spinach', '700 g', 'L01; B04; L07'],
+			['Produce', 'Broccoli', '2 heads', 'D01'],
+			['Produce', 'Green beans', '500 g', 'D02'],
+			['Produce', 'Sweet potatoes', '1.5 kg', 'D02'],
+			['Produce', 'Zucchini', '4 large', 'D06'],
+			['Produce', 'Bell peppers', '4 large', 'L05; L03'],
+			['Produce', 'Mixed stir-fry vegetables', '1.2 kg', 'D03; D04; D05; D07'],
+			['Produce', 'Salad greens', '3 bags', 'L02; L04; D06'],
+			['Produce', 'Avocados', '4 units', 'B02; D04'],
+			['Produce', 'Blueberries', '300 g', 'B01; B05'],
+			['Produce', 'Raspberries', '250 g', 'B03'],
+			['Produce', 'Strawberries', '500 g', 'S05'],
+			['Produce', 'Apples', '4 units', 'S01'],
+			['Produce', 'Pears', '3 units', 'S06'],
+			['Produce', 'Kiwi', '2 units', 'S02'],
+			['Produce', 'Oranges', '2 units', 'S04'],
+			['Produce', 'Peaches', '2 units', 'B06'],
+			['Produce', 'Carrots', '1 kg', 'S03; soups and curries'],
+			['Produce', 'Onions', '8 units', 'L03; L05; L06; D01; D06; D07'],
+			['Produce', 'Garlic', '2 heads', 'multiple cooked meals'],
+			['Produce', 'Tomatoes or canned tomatoes', '6 units', 'L03; D01; D07'],
+			['Nuts and seeds', 'Chia seeds', '300 g', 'B01; S05; S07'],
+			['Nuts and seeds', 'Walnuts', '150 g', 'B05; S02'],
+			['Nuts and seeds', 'Pumpkin seeds', '200 g', 'B03; S06'],
+			['Nuts and seeds', 'Mixed nuts', '150 g', 'S04'],
+			['Pantry', 'Natural peanut butter', '1 jar', 'S01'],
+			['Pantry', 'Olive oil', '1 bottle', 'multiple meals'],
+			['Pantry', 'Curry spices', '1 jar', 'D07'],
+			['Pantry', 'Cinnamon', '1 jar', 'B01; S07'],
+			['Pantry', 'Iodized salt', '1 pack', 'all cooked meals']
+		];
+
+		const daySwitch = document.getElementById('day-switch');
+		const dayView = document.getElementById('day-view');
+		const weekView = document.getElementById('week-view');
+		const storeTable = document.getElementById('store-table');
+		const modal = document.getElementById('meal-modal');
+
+		let selectedDay = weekPlan[0].day;
+
+		function renderDayButtons() {
+			daySwitch.innerHTML = weekPlan.map(({ day }) => {
+				const activeClass = day === selectedDay ? 'active' : '';
+				return `<button class="day-button ${activeClass}" data-day="${day}">${day}</button>`;
+			}).join('');
+
+			daySwitch.querySelectorAll('.day-button').forEach((button) => {
+				button.addEventListener('click', () => {
+					selectedDay = button.dataset.day;
+					renderDayButtons();
+					renderDayView();
+				});
+			});
+		}
+
+		function mealRow(slotKey, mealCode) {
+			const meal = meals[mealCode];
+			return `
+				<tr>
+					<td data-label="Type"><span class="entry-tag meal">${slotLabels[slotKey]}</span></td>
+					<td data-label="Hour" class="hour">${mealHours[slotKey]}</td>
+					<td data-label="Name">
+						<button class="meal-link" type="button" data-meal-code="${mealCode}">${meal.name}</button>
+					</td>
+					<td data-label="Quantity or description">${meal.quantity}</td>
+					<td data-label="Preparation or guidance">${meal.preparation}</td>
+				</tr>
+			`;
+		}
+
+		function timeToMinutes(value) {
+			const [hours, minutes] = value.split(':').map(Number);
+			return (hours * 60) + minutes;
+		}
+
+		function buildDayTimeline(current) {
+			const events = [
+				{
+					type: 'sleep',
+					label: 'Wake up',
+					start: daySleep.wake.start,
+					displayTime: daySleep.wake.start,
+					name: daySleep.wake.name,
+					detail: daySleep.wake.description,
+					guidance: daySleep.wake.notes
+				},
+				{
+					type: 'meal',
+					label: slotLabels.breakfast,
+					start: mealHours.breakfast,
+					displayTime: mealHours.breakfast,
+					row: mealRow('breakfast', current.meals.breakfast)
+				},
+				{
+					type: 'meal',
+					label: slotLabels.snack1,
+					start: mealHours.snack1,
+					displayTime: mealHours.snack1,
+					row: mealRow('snack1', current.meals.snack1)
+				},
+				{
+					type: 'meal',
+					label: slotLabels.lunch,
+					start: mealHours.lunch,
+					displayTime: mealHours.lunch,
+					row: mealRow('lunch', current.meals.lunch)
+				},
+				{
+					type: 'meal',
+					label: slotLabels.snack2,
+					start: mealHours.snack2,
+					displayTime: mealHours.snack2,
+					row: mealRow('snack2', current.meals.snack2)
+				},
+				{
+					type: 'meal',
+					label: slotLabels.dinner,
+					start: mealHours.dinner,
+					displayTime: mealHours.dinner,
+					row: mealRow('dinner', current.meals.dinner)
+				},
+				{
+					type: 'sleep',
+					label: 'Sleep',
+					start: daySleep.sleep.start,
+					displayTime: daySleep.sleep.start,
+					name: daySleep.sleep.name,
+					detail: daySleep.sleep.description,
+					guidance: daySleep.sleep.notes
+				}
+			];
+
+			dailyExercises
+				.filter((exercise) => exercise.day === current.day)
+				.forEach((exercise) => {
+					events.push({
+						type: 'exercise',
+						label: 'Exercise',
+						start: exercise.start,
+						displayTime: `${exercise.start}-${exercise.end}`,
+						name: exercise.name,
+						detail: exercise.description,
+						guidance: exercise.notes
+					});
+				});
+
+			return events
+				.sort((left, right) => timeToMinutes(left.start) - timeToMinutes(right.start))
+				.map((event) => {
+					if (event.type === 'meal') {
+						return event.row;
+					}
+
+					return `
+						<tr>
+							<td data-label="Type"><span class="entry-tag ${event.type}">${event.label}</span></td>
+							<td data-label="Hour" class="hour">${event.displayTime}</td>
+							<td data-label="Name">${event.name}</td>
+							<td data-label="Quantity or description">${event.detail}</td>
+							<td data-label="Preparation or guidance">${event.guidance}</td>
+						</tr>
+					`;
+				}).join('');
+		}
+
+		function renderDayView() {
+			const current = weekPlan.find((entry) => entry.day === selectedDay);
+			dayView.innerHTML = `
+				<div class="section-heading">
+					<div>
+						<h2>${current.day} day view</h2>
+						<p>Full day timeline with wake time, meals, exercise blocks, and sleep time.</p>
+					</div>
+				</div>
+				<table class="day-table">
+					<thead>
+						<tr>
+							<th>Type</th>
+							<th>Hour</th>
+							<th>Name</th>
+							<th>Quantity or description</th>
+							<th>Preparation or guidance</th>
+						</tr>
+					</thead>
+					<tbody>
+						${buildDayTimeline(current)}
+					</tbody>
+				</table>
+				<div class="day-summary">
+					<div class="summary-card">
+						<strong>Day totals</strong>
+						<p>${current.totals}</p>
+					</div>
+					<div class="summary-card">
+						<strong>Priority nutrient note</strong>
+						<p>${current.note}</p>
+					</div>
+					<div class="summary-card">
+						<strong>Sleep and movement routine</strong>
+						<p>Wake up 06:30 · Morning walk 08:45 · Main movement block 18:00 · Post-dinner walk 20:45 · Sleep 22:30</p>
+					</div>
+				</div>
+			`;
+			wireMealLinks(dayView);
+		}
+
+		function renderWeekView() {
+			weekView.innerHTML = `
+				<div class="section-heading">
+					<div>
+						<h2>Week view</h2>
+						<p>All meals of the week with hour and clickable meal name. Click any meal to open full detail.</p>
+					</div>
+				</div>
+				<div class="week-grid">
+					${weekPlan.map((entry) => `
+						<article class="week-card">
+							<h3>${entry.day}</h3>
+							<div class="totals">${entry.totals}</div>
+							<table>
+								<tbody>
+									<tr>
+										<td>Breakfast<br><span class="hour">07:30</span></td>
+										<td><button class="meal-link" type="button" data-meal-code="${entry.meals.breakfast}">${meals[entry.meals.breakfast].name}</button></td>
+									</tr>
+									<tr>
+										<td>Snack 1<br><span class="hour">10:30</span></td>
+										<td><button class="meal-link" type="button" data-meal-code="${entry.meals.snack1}">${meals[entry.meals.snack1].name}</button></td>
+									</tr>
+									<tr>
+										<td>Lunch<br><span class="hour">13:30</span></td>
+										<td><button class="meal-link" type="button" data-meal-code="${entry.meals.lunch}">${meals[entry.meals.lunch].name}</button></td>
+									</tr>
+									<tr>
+										<td>Snack 2<br><span class="hour">17:00</span></td>
+										<td><button class="meal-link" type="button" data-meal-code="${entry.meals.snack2}">${meals[entry.meals.snack2].name}</button></td>
+									</tr>
+									<tr>
+										<td>Dinner<br><span class="hour">20:00</span></td>
+										<td><button class="meal-link" type="button" data-meal-code="${entry.meals.dinner}">${meals[entry.meals.dinner].name}</button></td>
+									</tr>
+								</tbody>
+							</table>
+							<p class="week-note">${entry.note}</p>
+						</article>
+					`).join('')}
+				</div>
+			`;
+			wireMealLinks(weekView);
+		}
+
+		function renderStore() {
+			storeTable.innerHTML = `
+				<thead>
+					<tr>
+						<th>Category</th>
+						<th>Food item</th>
+						<th>Total quantity</th>
+						<th>Used in meals</th>
+					</tr>
+				</thead>
+				<tbody>
+					${storeItems.map(([category, item, quantity, usedIn]) => `
+						<tr>
+							<td>${category}</td>
+							<td>${item}</td>
+							<td>${quantity}</td>
+							<td>${usedIn}</td>
+						</tr>
+					`).join('')}
+				</tbody>
+			`;
+		}
+
+		function wireMealLinks(scope) {
+			scope.querySelectorAll('[data-meal-code]').forEach((button) => {
+				button.addEventListener('click', () => openMealModal(button.dataset.mealCode));
+			});
+		}
+
+		function openMealModal(code) {
+			const meal = meals[code];
+			document.getElementById('modal-slot').textContent = `${slotLabels[meal.slot]} · ${mealHours[meal.slot]}`;
+			document.getElementById('modal-title').textContent = meal.name;
+			document.getElementById('modal-quantity').textContent = meal.quantity;
+			document.getElementById('modal-preparation').textContent = meal.preparation;
+			document.getElementById('modal-macros').textContent = meal.macros;
+			document.getElementById('modal-micros').textContent = meal.micros;
+			document.getElementById('modal-ingredients').textContent = meal.ingredients;
+			modal.classList.add('open');
+			modal.setAttribute('aria-hidden', 'false');
+		}
+
+		function closeMealModal() {
+			modal.classList.remove('open');
+			modal.setAttribute('aria-hidden', 'true');
+		}
+
+		document.querySelectorAll('.tab-button').forEach((button) => {
+			button.addEventListener('click', () => {
+				document.querySelectorAll('.tab-button').forEach((tab) => tab.classList.remove('active'));
+				document.querySelectorAll('.view').forEach((view) => view.classList.remove('active'));
+				button.classList.add('active');
+				document.getElementById(`${button.dataset.view}-view`).classList.add('active');
+			});
+		});
+
+		document.getElementById('close-modal').addEventListener('click', closeMealModal);
+		modal.addEventListener('click', (event) => {
+			if (event.target === modal) {
+				closeMealModal();
+			}
+		});
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape') {
+				closeMealModal();
+			}
+		});
+
+		renderDayButtons();
+		renderDayView();
+		renderWeekView();
+		renderStore();
+	</script>
+</body>
+</html>

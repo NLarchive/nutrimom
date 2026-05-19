@@ -1,0 +1,1063 @@
+{
+  "version": "2.1",
+  "exportDate": "2026-05-19T12:00:00.000Z",
+  "profile": {
+    "ageYears": 39,
+    "sex": "female",
+    "weightKg": 100,
+    "heightCm": 168,
+    "activityLevel": "lightly_active",
+    "isPregnant": true,
+    "pregnancyWeek": 33,
+    "prePregnancyWeightKg": null,
+    "isLactating": false,
+    "lactationMonths": null,
+    "isMultiples": false,
+    "dietaryPattern": "mixed_diabetes_friendly",
+    "medicalConditions": [
+      "diabetes"
+    ],
+    "supplements": [
+      "prenatal multivitamin with folic acid",
+      "iron only if prescribed",
+      "vitamin D only if prescribed"
+    ]
+  },
+  "plan": {
+    "generatedFrom": "NutriMom nutrition-engine.js",
+    "classification": {
+      "ageBand": "31_50",
+      "lifeStage": "pregnant_t3",
+      "lifeStageLabel": "Pregnant - Third Trimester"
+    },
+    "calculatorTargets": {
+      "energyKcal": 2781,
+      "bmrKcal": 1694,
+      "tdeeKcal": 2329,
+      "pregnancyIncrementKcal": 452,
+      "proteinG": 110,
+      "fatGMinimum": 62,
+      "carbsCalculatedG": 446,
+      "carbsMinimumG": 175,
+      "fiberG": 39,
+      "waterL": 5,
+      "folateDfeUg": 600,
+      "ironMg": 27,
+      "calciumMg": 1000,
+      "vitaminDUg": 15,
+      "iodineUg": 220,
+      "cholineMg": 450,
+      "dhaMg": 200,
+      "epaMg": 50
+    },
+    "diabetesAwareAdjustment": {
+      "plannedEnergyKcalRange": [
+        2050,
+        2250
+      ],
+      "plannedCarbsGRange": [
+        175,
+        205
+      ],
+      "plannedProteinGRange": [
+        120,
+        140
+      ],
+      "plannedFiberGMinimum": 35,
+      "mealCarbPattern": {
+        "breakfast": "30-45 g",
+        "snack1": "15-25 g",
+        "lunch": "40-55 g",
+        "snack2": "15-25 g",
+        "dinner": "40-55 g"
+      },
+      "note": "The project calculator does not provide diabetes-specific carbohydrate limits. This meal cycle keeps total carbohydrate close to the project minimum target and distributes it across 5 feedings for steadier glucose response."
+    },
+    "weeklyAverages": {
+      "energyKcal": 2114,
+      "proteinG": 128,
+      "carbsG": 178,
+      "fatG": 85,
+      "fiberG": 41
+    },
+    "priorityNutrients": [
+      "protein_g",
+      "fiber_g",
+      "folate_dfe_ug",
+      "iron_mg",
+      "calcium_mg",
+      "iodine_ug",
+      "choline_mg",
+      "dha_mg",
+      "vitamin_d_ug"
+    ]
+  },
+  "foodLog": {
+    "_meta": {
+      "version": "2.1",
+      "firstEntryDate": "2026-05-19",
+      "lastEntryDate": "2026-05-25",
+      "lastModified": "2026-05-19T12:00:00.000Z",
+      "totalDaysLogged": 7,
+      "totalMealsLogged": 35,
+      "syncStatus": "local_only",
+      "schedule": {
+        "breakfast": "07:30",
+        "snack1": "10:30",
+        "lunch": "13:30",
+        "snack2": "17:00",
+        "dinner": "20:00"
+      }
+    },
+    "2026-05-19": {
+      "date": "2026-05-19",
+      "completed": true,
+      "planned_totals": {
+        "energy_kcal": 2100,
+        "protein_g": 137,
+        "carbs_g": 175,
+        "fat_g": 83,
+        "fiber_g": 43
+      },
+      "meals": [
+        {
+          "id": "m1",
+          "meal_type": "breakfast",
+          "meal_label": "Breakfast",
+          "timestamp": "2026-05-19T07:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Oats with Greek yogurt, chia, blueberries and cinnamon",
+              "nutrients": {
+                "energy_kcal": 430,
+                "protein_g": 28,
+                "carbs_g": 42,
+                "fat_g": 16,
+                "fiber_g": 11
+              },
+              "micronutrients": {
+                "calcium_mg": 330,
+                "folate_dfe_ug": 70,
+                "iron_mg": 3,
+                "magnesium_mg": 110,
+                "ala_omega3_g": 2.3
+              }
+            }
+          ]
+        },
+        {
+          "id": "m2",
+          "meal_type": "snack",
+          "meal_label": "Snack 1",
+          "timestamp": "2026-05-19T10:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Apple with natural peanut butter",
+              "nutrients": {
+                "energy_kcal": 210,
+                "protein_g": 5,
+                "carbs_g": 22,
+                "fat_g": 11,
+                "fiber_g": 5
+              },
+              "micronutrients": {
+                "vitamin_c_mg": 8,
+                "magnesium_mg": 35,
+                "potassium_mg": 240
+              }
+            }
+          ]
+        },
+        {
+          "id": "m3",
+          "meal_type": "lunch",
+          "meal_label": "Lunch",
+          "timestamp": "2026-05-19T13:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Salmon, quinoa and spinach bowl",
+              "nutrients": {
+                "energy_kcal": 620,
+                "protein_g": 42,
+                "carbs_g": 45,
+                "fat_g": 26,
+                "fiber_g": 9
+              },
+              "micronutrients": {
+                "dha_mg": 1100,
+                "epa_mg": 500,
+                "folate_dfe_ug": 220,
+                "iron_mg": 4,
+                "iodine_ug": 100,
+                "vitamin_d_ug": 14,
+                "magnesium_mg": 150
+              }
+            }
+          ]
+        },
+        {
+          "id": "m4",
+          "meal_type": "snack",
+          "meal_label": "Snack 2",
+          "timestamp": "2026-05-19T17:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Cottage cheese, pear and almonds",
+              "nutrients": {
+                "energy_kcal": 220,
+                "protein_g": 16,
+                "carbs_g": 18,
+                "fat_g": 10,
+                "fiber_g": 4
+              },
+              "micronutrients": {
+                "calcium_mg": 220,
+                "vitamin_c_mg": 6,
+                "magnesium_mg": 55
+              }
+            }
+          ]
+        },
+        {
+          "id": "m5",
+          "meal_type": "dinner",
+          "meal_label": "Dinner",
+          "timestamp": "2026-05-19T20:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Turkey and lentil stew with broccoli",
+              "nutrients": {
+                "energy_kcal": 620,
+                "protein_g": 46,
+                "carbs_g": 48,
+                "fat_g": 20,
+                "fiber_g": 14
+              },
+              "micronutrients": {
+                "iron_mg": 7,
+                "folate_dfe_ug": 260,
+                "choline_mg": 110,
+                "vitamin_c_mg": 70,
+                "potassium_mg": 950,
+                "magnesium_mg": 120
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "2026-05-20": {
+      "date": "2026-05-20",
+      "completed": true,
+      "planned_totals": {
+        "energy_kcal": 2120,
+        "protein_g": 132,
+        "carbs_g": 182,
+        "fat_g": 88,
+        "fiber_g": 40
+      },
+      "meals": [
+        {
+          "id": "m6",
+          "meal_type": "breakfast",
+          "meal_label": "Breakfast",
+          "timestamp": "2026-05-20T07:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Eggs, avocado, whole grain toast and milk",
+              "nutrients": {
+                "energy_kcal": 480,
+                "protein_g": 26,
+                "carbs_g": 38,
+                "fat_g": 26,
+                "fiber_g": 9
+              },
+              "micronutrients": {
+                "choline_mg": 320,
+                "folate_dfe_ug": 90,
+                "calcium_mg": 250,
+                "vitamin_d_ug": 3,
+                "iron_mg": 3.5
+              }
+            }
+          ]
+        },
+        {
+          "id": "m7",
+          "meal_type": "snack",
+          "meal_label": "Snack 1",
+          "timestamp": "2026-05-20T10:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Greek yogurt with walnuts and kiwi",
+              "nutrients": {
+                "energy_kcal": 230,
+                "protein_g": 15,
+                "carbs_g": 17,
+                "fat_g": 11,
+                "fiber_g": 3
+              },
+              "micronutrients": {
+                "calcium_mg": 220,
+                "vitamin_c_mg": 60,
+                "ala_omega3_g": 1.2,
+                "iodine_ug": 45
+              }
+            }
+          ]
+        },
+        {
+          "id": "m8",
+          "meal_type": "lunch",
+          "meal_label": "Lunch",
+          "timestamp": "2026-05-20T13:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Chicken, chickpea and brown rice salad",
+              "nutrients": {
+                "energy_kcal": 610,
+                "protein_g": 43,
+                "carbs_g": 55,
+                "fat_g": 21,
+                "fiber_g": 12
+              },
+              "micronutrients": {
+                "iron_mg": 5,
+                "folate_dfe_ug": 240,
+                "magnesium_mg": 130,
+                "zinc_mg": 3.5,
+                "potassium_mg": 900
+              }
+            }
+          ]
+        },
+        {
+          "id": "m9",
+          "meal_type": "snack",
+          "meal_label": "Snack 2",
+          "timestamp": "2026-05-20T17:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Hummus, carrot sticks and seeded crackers",
+              "nutrients": {
+                "energy_kcal": 240,
+                "protein_g": 8,
+                "carbs_g": 24,
+                "fat_g": 12,
+                "fiber_g": 6
+              },
+              "micronutrients": {
+                "folate_dfe_ug": 70,
+                "vitamin_a_rae_ug": 420,
+                "iron_mg": 1.6,
+                "magnesium_mg": 45
+              }
+            }
+          ]
+        },
+        {
+          "id": "m10",
+          "meal_type": "dinner",
+          "meal_label": "Dinner",
+          "timestamp": "2026-05-20T20:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Baked hake, sweet potato and green beans",
+              "nutrients": {
+                "energy_kcal": 560,
+                "protein_g": 40,
+                "carbs_g": 48,
+                "fat_g": 18,
+                "fiber_g": 10
+              },
+              "micronutrients": {
+                "iodine_ug": 160,
+                "dha_mg": 300,
+                "epa_mg": 90,
+                "vitamin_a_rae_ug": 900,
+                "potassium_mg": 1200,
+                "vitamin_c_mg": 35
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "2026-05-21": {
+      "date": "2026-05-21",
+      "completed": true,
+      "planned_totals": {
+        "energy_kcal": 2090,
+        "protein_g": 119,
+        "carbs_g": 177,
+        "fat_g": 85,
+        "fiber_g": 45
+      },
+      "meals": [
+        {
+          "id": "m11",
+          "meal_type": "breakfast",
+          "meal_label": "Breakfast",
+          "timestamp": "2026-05-21T07:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Overnight oats with chia, pumpkin seeds and raspberries",
+              "nutrients": {
+                "energy_kcal": 440,
+                "protein_g": 24,
+                "carbs_g": 44,
+                "fat_g": 17,
+                "fiber_g": 12
+              },
+              "micronutrients": {
+                "iron_mg": 4.5,
+                "magnesium_mg": 150,
+                "calcium_mg": 260,
+                "folate_dfe_ug": 65,
+                "ala_omega3_g": 2.1
+              }
+            }
+          ]
+        },
+        {
+          "id": "m12",
+          "meal_type": "snack",
+          "meal_label": "Snack 1",
+          "timestamp": "2026-05-21T10:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Fresh cheese, berries and crispbread",
+              "nutrients": {
+                "energy_kcal": 210,
+                "protein_g": 12,
+                "carbs_g": 19,
+                "fat_g": 9,
+                "fiber_g": 4
+              },
+              "micronutrients": {
+                "calcium_mg": 220,
+                "vitamin_c_mg": 30,
+                "iodine_ug": 25
+              }
+            }
+          ]
+        },
+        {
+          "id": "m13",
+          "meal_type": "lunch",
+          "meal_label": "Lunch",
+          "timestamp": "2026-05-21T13:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Lean beef and bean chili with barley",
+              "nutrients": {
+                "energy_kcal": 640,
+                "protein_g": 42,
+                "carbs_g": 52,
+                "fat_g": 24,
+                "fiber_g": 14
+              },
+              "micronutrients": {
+                "iron_mg": 7.5,
+                "zinc_mg": 6,
+                "folate_dfe_ug": 220,
+                "vitamin_b12_ug": 2.4,
+                "magnesium_mg": 110
+              }
+            }
+          ]
+        },
+        {
+          "id": "m14",
+          "meal_type": "snack",
+          "meal_label": "Snack 2",
+          "timestamp": "2026-05-21T17:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Boiled egg, orange and mixed nuts",
+              "nutrients": {
+                "energy_kcal": 220,
+                "protein_g": 9,
+                "carbs_g": 16,
+                "fat_g": 11,
+                "fiber_g": 4
+              },
+              "micronutrients": {
+                "choline_mg": 150,
+                "vitamin_c_mg": 55,
+                "magnesium_mg": 40,
+                "folate_dfe_ug": 28
+              }
+            }
+          ]
+        },
+        {
+          "id": "m15",
+          "meal_type": "dinner",
+          "meal_label": "Dinner",
+          "timestamp": "2026-05-21T20:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Tofu, quinoa and vegetable stir-fry",
+              "nutrients": {
+                "energy_kcal": 580,
+                "protein_g": 32,
+                "carbs_g": 46,
+                "fat_g": 24,
+                "fiber_g": 11
+              },
+              "micronutrients": {
+                "calcium_mg": 450,
+                "iron_mg": 6,
+                "folate_dfe_ug": 180,
+                "magnesium_mg": 140,
+                "vitamin_c_mg": 65
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "2026-05-22": {
+      "date": "2026-05-22",
+      "completed": true,
+      "planned_totals": {
+        "energy_kcal": 2100,
+        "protein_g": 131,
+        "carbs_g": 177,
+        "fat_g": 90,
+        "fiber_g": 40
+      },
+      "meals": [
+        {
+          "id": "m16",
+          "meal_type": "breakfast",
+          "meal_label": "Breakfast",
+          "timestamp": "2026-05-22T07:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Spinach omelette, rye toast and plain yogurt",
+              "nutrients": {
+                "energy_kcal": 470,
+                "protein_g": 31,
+                "carbs_g": 38,
+                "fat_g": 24,
+                "fiber_g": 8
+              },
+              "micronutrients": {
+                "choline_mg": 310,
+                "folate_dfe_ug": 145,
+                "calcium_mg": 260,
+                "iron_mg": 4,
+                "vitamin_d_ug": 2.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "m17",
+          "meal_type": "snack",
+          "meal_label": "Snack 1",
+          "timestamp": "2026-05-22T10:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Pear with pumpkin seeds",
+              "nutrients": {
+                "energy_kcal": 210,
+                "protein_g": 8,
+                "carbs_g": 21,
+                "fat_g": 11,
+                "fiber_g": 5
+              },
+              "micronutrients": {
+                "iron_mg": 2.2,
+                "magnesium_mg": 85,
+                "zinc_mg": 2.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "m18",
+          "meal_type": "lunch",
+          "meal_label": "Lunch",
+          "timestamp": "2026-05-22T13:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Sardine wholegrain pasta salad",
+              "nutrients": {
+                "energy_kcal": 610,
+                "protein_g": 38,
+                "carbs_g": 50,
+                "fat_g": 24,
+                "fiber_g": 10
+              },
+              "micronutrients": {
+                "dha_mg": 900,
+                "epa_mg": 700,
+                "calcium_mg": 350,
+                "iron_mg": 4,
+                "vitamin_d_ug": 8,
+                "iodine_ug": 85
+              }
+            }
+          ]
+        },
+        {
+          "id": "m19",
+          "meal_type": "snack",
+          "meal_label": "Snack 2",
+          "timestamp": "2026-05-22T17:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Kefir with strawberries and chia",
+              "nutrients": {
+                "energy_kcal": 220,
+                "protein_g": 12,
+                "carbs_g": 18,
+                "fat_g": 9,
+                "fiber_g": 7
+              },
+              "micronutrients": {
+                "calcium_mg": 260,
+                "vitamin_c_mg": 80,
+                "ala_omega3_g": 1.8,
+                "iodine_ug": 40
+              }
+            }
+          ]
+        },
+        {
+          "id": "m20",
+          "meal_type": "dinner",
+          "meal_label": "Dinner",
+          "timestamp": "2026-05-22T20:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Chicken quinoa vegetable soup with avocado",
+              "nutrients": {
+                "energy_kcal": 590,
+                "protein_g": 42,
+                "carbs_g": 50,
+                "fat_g": 22,
+                "fiber_g": 10
+              },
+              "micronutrients": {
+                "folate_dfe_ug": 190,
+                "iron_mg": 4.2,
+                "potassium_mg": 980,
+                "vitamin_a_rae_ug": 380,
+                "choline_mg": 120
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "2026-05-23": {
+      "date": "2026-05-23",
+      "completed": true,
+      "planned_totals": {
+        "energy_kcal": 2150,
+        "protein_g": 128,
+        "carbs_g": 181,
+        "fat_g": 81,
+        "fiber_g": 41
+      },
+      "meals": [
+        {
+          "id": "m21",
+          "meal_type": "breakfast",
+          "meal_label": "Breakfast",
+          "timestamp": "2026-05-23T07:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Quinoa porridge with milk, walnuts and blueberries",
+              "nutrients": {
+                "energy_kcal": 450,
+                "protein_g": 20,
+                "carbs_g": 46,
+                "fat_g": 17,
+                "fiber_g": 8
+              },
+              "micronutrients": {
+                "calcium_mg": 290,
+                "magnesium_mg": 120,
+                "iron_mg": 3.2,
+                "vitamin_c_mg": 10,
+                "ala_omega3_g": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "id": "m22",
+          "meal_type": "snack",
+          "meal_label": "Snack 1",
+          "timestamp": "2026-05-23T10:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Greek yogurt with apple slices",
+              "nutrients": {
+                "energy_kcal": 210,
+                "protein_g": 15,
+                "carbs_g": 20,
+                "fat_g": 7,
+                "fiber_g": 3
+              },
+              "micronutrients": {
+                "calcium_mg": 220,
+                "iodine_ug": 45,
+                "vitamin_c_mg": 6
+              }
+            }
+          ]
+        },
+        {
+          "id": "m23",
+          "meal_type": "lunch",
+          "meal_label": "Lunch",
+          "timestamp": "2026-05-23T13:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Turkey and lentil stuffed peppers",
+              "nutrients": {
+                "energy_kcal": 620,
+                "protein_g": 44,
+                "carbs_g": 48,
+                "fat_g": 20,
+                "fiber_g": 13
+              },
+              "micronutrients": {
+                "iron_mg": 6.5,
+                "folate_dfe_ug": 250,
+                "vitamin_c_mg": 95,
+                "choline_mg": 105,
+                "potassium_mg": 900
+              }
+            }
+          ]
+        },
+        {
+          "id": "m24",
+          "meal_type": "snack",
+          "meal_label": "Snack 2",
+          "timestamp": "2026-05-23T17:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Half avocado toast",
+              "nutrients": {
+                "energy_kcal": 230,
+                "protein_g": 7,
+                "carbs_g": 20,
+                "fat_g": 13,
+                "fiber_g": 7
+              },
+              "micronutrients": {
+                "folate_dfe_ug": 70,
+                "vitamin_e_mg": 2.8,
+                "potassium_mg": 420,
+                "magnesium_mg": 35
+              }
+            }
+          ]
+        },
+        {
+          "id": "m25",
+          "meal_type": "dinner",
+          "meal_label": "Dinner",
+          "timestamp": "2026-05-23T20:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Salmon with roasted vegetables and farro",
+              "nutrients": {
+                "energy_kcal": 640,
+                "protein_g": 42,
+                "carbs_g": 47,
+                "fat_g": 24,
+                "fiber_g": 10
+              },
+              "micronutrients": {
+                "dha_mg": 1000,
+                "epa_mg": 550,
+                "vitamin_d_ug": 13,
+                "iodine_ug": 90,
+                "magnesium_mg": 110,
+                "selenium_ug": 45
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "2026-05-24": {
+      "date": "2026-05-24",
+      "completed": true,
+      "planned_totals": {
+        "energy_kcal": 2080,
+        "protein_g": 130,
+        "carbs_g": 178,
+        "fat_g": 80,
+        "fiber_g": 36
+      },
+      "meals": [
+        {
+          "id": "m26",
+          "meal_type": "breakfast",
+          "meal_label": "Breakfast",
+          "timestamp": "2026-05-24T07:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Cottage cheese, oats, peach and flax",
+              "nutrients": {
+                "energy_kcal": 430,
+                "protein_g": 27,
+                "carbs_g": 40,
+                "fat_g": 14,
+                "fiber_g": 8
+              },
+              "micronutrients": {
+                "calcium_mg": 280,
+                "ala_omega3_g": 1.6,
+                "vitamin_c_mg": 9,
+                "magnesium_mg": 75
+              }
+            }
+          ]
+        },
+        {
+          "id": "m27",
+          "meal_type": "snack",
+          "meal_label": "Snack 1",
+          "timestamp": "2026-05-24T10:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Mixed nuts and tangerine",
+              "nutrients": {
+                "energy_kcal": 200,
+                "protein_g": 6,
+                "carbs_g": 16,
+                "fat_g": 12,
+                "fiber_g": 4
+              },
+              "micronutrients": {
+                "vitamin_c_mg": 28,
+                "magnesium_mg": 55,
+                "vitamin_e_mg": 3.5
+              }
+            }
+          ]
+        },
+        {
+          "id": "m28",
+          "meal_type": "lunch",
+          "meal_label": "Lunch",
+          "timestamp": "2026-05-24T13:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Chicken lentil soup with whole grain toast",
+              "nutrients": {
+                "energy_kcal": 590,
+                "protein_g": 42,
+                "carbs_g": 47,
+                "fat_g": 19,
+                "fiber_g": 12
+              },
+              "micronutrients": {
+                "iron_mg": 5.8,
+                "folate_dfe_ug": 230,
+                "potassium_mg": 920,
+                "choline_mg": 95,
+                "vitamin_b6_mg": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "m29",
+          "meal_type": "snack",
+          "meal_label": "Snack 2",
+          "timestamp": "2026-05-24T17:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Kefir, cucumber and crisp crackers",
+              "nutrients": {
+                "energy_kcal": 210,
+                "protein_g": 11,
+                "carbs_g": 23,
+                "fat_g": 9,
+                "fiber_g": 3
+              },
+              "micronutrients": {
+                "calcium_mg": 250,
+                "iodine_ug": 40,
+                "vitamin_k_ug": 18
+              }
+            }
+          ]
+        },
+        {
+          "id": "m30",
+          "meal_type": "dinner",
+          "meal_label": "Dinner",
+          "timestamp": "2026-05-24T20:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Beef and quinoa stuffed zucchini with salad",
+              "nutrients": {
+                "energy_kcal": 650,
+                "protein_g": 44,
+                "carbs_g": 52,
+                "fat_g": 26,
+                "fiber_g": 9
+              },
+              "micronutrients": {
+                "iron_mg": 7,
+                "zinc_mg": 6,
+                "folate_dfe_ug": 140,
+                "vitamin_a_rae_ug": 350,
+                "magnesium_mg": 95
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "2026-05-25": {
+      "date": "2026-05-25",
+      "completed": true,
+      "planned_totals": {
+        "energy_kcal": 2160,
+        "protein_g": 122,
+        "carbs_g": 178,
+        "fat_g": 85,
+        "fiber_g": 41
+      },
+      "meals": [
+        {
+          "id": "m31",
+          "meal_type": "breakfast",
+          "meal_label": "Breakfast",
+          "timestamp": "2026-05-25T07:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Whole grain toast with ricotta, berries and eggs",
+              "nutrients": {
+                "energy_kcal": 460,
+                "protein_g": 28,
+                "carbs_g": 36,
+                "fat_g": 20,
+                "fiber_g": 7
+              },
+              "micronutrients": {
+                "choline_mg": 250,
+                "calcium_mg": 260,
+                "folate_dfe_ug": 75,
+                "iron_mg": 3.2,
+                "vitamin_c_mg": 22
+              }
+            }
+          ]
+        },
+        {
+          "id": "m32",
+          "meal_type": "snack",
+          "meal_label": "Snack 1",
+          "timestamp": "2026-05-25T10:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Chia pudding",
+              "nutrients": {
+                "energy_kcal": 220,
+                "protein_g": 10,
+                "carbs_g": 18,
+                "fat_g": 12,
+                "fiber_g": 8
+              },
+              "micronutrients": {
+                "calcium_mg": 240,
+                "magnesium_mg": 95,
+                "ala_omega3_g": 2.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "m33",
+          "meal_type": "lunch",
+          "meal_label": "Lunch",
+          "timestamp": "2026-05-25T13:30:00-04:00",
+          "food_items": [
+            {
+              "name": "Trout, potato and spinach plate",
+              "nutrients": {
+                "energy_kcal": 610,
+                "protein_g": 40,
+                "carbs_g": 44,
+                "fat_g": 24,
+                "fiber_g": 8
+              },
+              "micronutrients": {
+                "dha_mg": 700,
+                "epa_mg": 400,
+                "vitamin_d_ug": 11,
+                "iodine_ug": 80,
+                "folate_dfe_ug": 180,
+                "potassium_mg": 1100
+              }
+            }
+          ]
+        },
+        {
+          "id": "m34",
+          "meal_type": "snack",
+          "meal_label": "Snack 2",
+          "timestamp": "2026-05-25T17:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Hummus with pear",
+              "nutrients": {
+                "energy_kcal": 220,
+                "protein_g": 6,
+                "carbs_g": 24,
+                "fat_g": 9,
+                "fiber_g": 6
+              },
+              "micronutrients": {
+                "folate_dfe_ug": 65,
+                "iron_mg": 1.7,
+                "vitamin_c_mg": 6,
+                "magnesium_mg": 35
+              }
+            }
+          ]
+        },
+        {
+          "id": "m35",
+          "meal_type": "dinner",
+          "meal_label": "Dinner",
+          "timestamp": "2026-05-25T20:00:00-04:00",
+          "food_items": [
+            {
+              "name": "Chicken and chickpea curry with brown rice",
+              "nutrients": {
+                "energy_kcal": 650,
+                "protein_g": 38,
+                "carbs_g": 56,
+                "fat_g": 20,
+                "fiber_g": 12
+              },
+              "micronutrients": {
+                "folate_dfe_ug": 240,
+                "iron_mg": 5.2,
+                "vitamin_c_mg": 45,
+                "choline_mg": 95,
+                "magnesium_mg": 105
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

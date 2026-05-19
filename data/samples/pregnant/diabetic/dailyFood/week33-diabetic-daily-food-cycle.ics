@@ -1,0 +1,286 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NutriMom//Nutrition Meal Plan//EN
+CALSCALE:GREGORIAN
+
+BEGIN:VEVENT
+UID:m1@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260519T113000Z
+SUMMARY:Breakfast - Oats with Greek yogurt, chia, blueberries and cinnamon
+DESCRIPTION:Energy 430 kcal\; Protein 28 g\; Carbs 42 g\; Fat 16 g\; Fiber 11 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m2@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260519T143000Z
+SUMMARY:Snack 1 - Apple with natural peanut butter
+DESCRIPTION:Energy 210 kcal\; Protein 5 g\; Carbs 22 g\; Fat 11 g\; Fiber 5 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m3@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260519T173000Z
+SUMMARY:Lunch - Salmon, quinoa and spinach bowl
+DESCRIPTION:Energy 620 kcal\; Protein 42 g\; Carbs 45 g\; Fat 26 g\; Fiber 9 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m4@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260519T210000Z
+SUMMARY:Snack 2 - Cottage cheese, pear and almonds
+DESCRIPTION:Energy 220 kcal\; Protein 16 g\; Carbs 18 g\; Fat 10 g\; Fiber 4 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m5@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260520T000000Z
+SUMMARY:Dinner - Turkey and lentil stew with broccoli
+DESCRIPTION:Energy 620 kcal\; Protein 46 g\; Carbs 48 g\; Fat 20 g\; Fiber 14 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m6@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260520T113000Z
+SUMMARY:Breakfast - Eggs, avocado, whole grain toast and milk
+DESCRIPTION:Energy 480 kcal\; Protein 26 g\; Carbs 38 g\; Fat 26 g\; Fiber 9 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m7@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260520T143000Z
+SUMMARY:Snack 1 - Greek yogurt with walnuts and kiwi
+DESCRIPTION:Energy 230 kcal\; Protein 15 g\; Carbs 17 g\; Fat 11 g\; Fiber 3 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m8@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260520T173000Z
+SUMMARY:Lunch - Chicken, chickpea and brown rice salad
+DESCRIPTION:Energy 610 kcal\; Protein 43 g\; Carbs 55 g\; Fat 21 g\; Fiber 12 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m9@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260520T210000Z
+SUMMARY:Snack 2 - Hummus, carrot sticks and seeded crackers
+DESCRIPTION:Energy 240 kcal\; Protein 8 g\; Carbs 24 g\; Fat 12 g\; Fiber 6 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m10@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260521T000000Z
+SUMMARY:Dinner - Baked hake, sweet potato and green beans
+DESCRIPTION:Energy 560 kcal\; Protein 40 g\; Carbs 48 g\; Fat 18 g\; Fiber 10 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m11@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260521T113000Z
+SUMMARY:Breakfast - Overnight oats with chia, pumpkin seeds and raspberries
+DESCRIPTION:Energy 440 kcal\; Protein 24 g\; Carbs 44 g\; Fat 17 g\; Fiber 12 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m12@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260521T143000Z
+SUMMARY:Snack 1 - Fresh cheese, berries and crispbread
+DESCRIPTION:Energy 210 kcal\; Protein 12 g\; Carbs 19 g\; Fat 9 g\; Fiber 4 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m13@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260521T173000Z
+SUMMARY:Lunch - Lean beef and bean chili with barley
+DESCRIPTION:Energy 640 kcal\; Protein 42 g\; Carbs 52 g\; Fat 24 g\; Fiber 14 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m14@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260521T210000Z
+SUMMARY:Snack 2 - Boiled egg, orange and mixed nuts
+DESCRIPTION:Energy 220 kcal\; Protein 9 g\; Carbs 16 g\; Fat 11 g\; Fiber 4 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m15@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260522T000000Z
+SUMMARY:Dinner - Tofu, quinoa and vegetable stir-fry
+DESCRIPTION:Energy 580 kcal\; Protein 32 g\; Carbs 46 g\; Fat 24 g\; Fiber 11 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m16@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260522T113000Z
+SUMMARY:Breakfast - Spinach omelette, rye toast and plain yogurt
+DESCRIPTION:Energy 470 kcal\; Protein 31 g\; Carbs 38 g\; Fat 24 g\; Fiber 8 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m17@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260522T143000Z
+SUMMARY:Snack 1 - Pear with pumpkin seeds
+DESCRIPTION:Energy 210 kcal\; Protein 8 g\; Carbs 21 g\; Fat 11 g\; Fiber 5 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m18@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260522T173000Z
+SUMMARY:Lunch - Sardine wholegrain pasta salad
+DESCRIPTION:Energy 610 kcal\; Protein 38 g\; Carbs 50 g\; Fat 24 g\; Fiber 10 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m19@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260522T210000Z
+SUMMARY:Snack 2 - Kefir with strawberries and chia
+DESCRIPTION:Energy 220 kcal\; Protein 12 g\; Carbs 18 g\; Fat 9 g\; Fiber 7 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m20@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260523T000000Z
+SUMMARY:Dinner - Chicken quinoa vegetable soup with avocado
+DESCRIPTION:Energy 590 kcal\; Protein 42 g\; Carbs 50 g\; Fat 22 g\; Fiber 10 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m21@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260523T113000Z
+SUMMARY:Breakfast - Quinoa porridge with milk, walnuts and blueberries
+DESCRIPTION:Energy 450 kcal\; Protein 20 g\; Carbs 46 g\; Fat 17 g\; Fiber 8 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m22@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260523T143000Z
+SUMMARY:Snack 1 - Greek yogurt with apple slices
+DESCRIPTION:Energy 210 kcal\; Protein 15 g\; Carbs 20 g\; Fat 7 g\; Fiber 3 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m23@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260523T173000Z
+SUMMARY:Lunch - Turkey and lentil stuffed peppers
+DESCRIPTION:Energy 620 kcal\; Protein 44 g\; Carbs 48 g\; Fat 20 g\; Fiber 13 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m24@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260523T210000Z
+SUMMARY:Snack 2 - Half avocado toast
+DESCRIPTION:Energy 230 kcal\; Protein 7 g\; Carbs 20 g\; Fat 13 g\; Fiber 7 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m25@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260524T000000Z
+SUMMARY:Dinner - Salmon with roasted vegetables and farro
+DESCRIPTION:Energy 640 kcal\; Protein 42 g\; Carbs 47 g\; Fat 24 g\; Fiber 10 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m26@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260524T113000Z
+SUMMARY:Breakfast - Cottage cheese, oats, peach and flax
+DESCRIPTION:Energy 430 kcal\; Protein 27 g\; Carbs 40 g\; Fat 14 g\; Fiber 8 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m27@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260524T143000Z
+SUMMARY:Snack 1 - Mixed nuts and tangerine
+DESCRIPTION:Energy 200 kcal\; Protein 6 g\; Carbs 16 g\; Fat 12 g\; Fiber 4 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m28@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260524T173000Z
+SUMMARY:Lunch - Chicken lentil soup with whole grain toast
+DESCRIPTION:Energy 590 kcal\; Protein 42 g\; Carbs 47 g\; Fat 19 g\; Fiber 12 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m29@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260524T210000Z
+SUMMARY:Snack 2 - Kefir, cucumber and crisp crackers
+DESCRIPTION:Energy 210 kcal\; Protein 11 g\; Carbs 23 g\; Fat 9 g\; Fiber 3 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m30@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260525T000000Z
+SUMMARY:Dinner - Beef and quinoa stuffed zucchini with salad
+DESCRIPTION:Energy 650 kcal\; Protein 44 g\; Carbs 52 g\; Fat 26 g\; Fiber 9 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m31@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260525T113000Z
+SUMMARY:Breakfast - Whole grain toast with ricotta, berries and eggs
+DESCRIPTION:Energy 460 kcal\; Protein 28 g\; Carbs 36 g\; Fat 20 g\; Fiber 7 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m32@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260525T143000Z
+SUMMARY:Snack 1 - Chia pudding
+DESCRIPTION:Energy 220 kcal\; Protein 10 g\; Carbs 18 g\; Fat 12 g\; Fiber 8 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m33@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260525T173000Z
+SUMMARY:Lunch - Trout, potato and spinach plate
+DESCRIPTION:Energy 610 kcal\; Protein 40 g\; Carbs 44 g\; Fat 24 g\; Fiber 8 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m34@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260525T210000Z
+SUMMARY:Snack 2 - Hummus with pear
+DESCRIPTION:Energy 220 kcal\; Protein 6 g\; Carbs 24 g\; Fat 9 g\; Fiber 6 g
+END:VEVENT
+
+BEGIN:VEVENT
+UID:m35@nutrimom
+DTSTAMP:20260519T120000Z
+DTSTART:20260526T000000Z
+SUMMARY:Dinner - Chicken and chickpea curry with brown rice
+DESCRIPTION:Energy 650 kcal\; Protein 38 g\; Carbs 56 g\; Fat 20 g\; Fiber 12 g
+END:VEVENT
+
+END:VCALENDAR
